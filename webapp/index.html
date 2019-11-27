@@ -1,0 +1,194 @@
+<!--
+  ~ Copyright (c) 2017 Contributors to the Eclipse Foundation
+  ~
+  ~ See the NOTICE file(s) distributed with this work for additional
+  ~ information regarding copyright ownership.
+  ~
+  ~ This program and the accompanying materials are made available under the
+  ~ terms of the Eclipse Public License 2.0 which is available at
+  ~ http://www.eclipse.org/legal/epl-2.0
+  ~
+  ~ SPDX-License-Identifier: EPL-2.0
+  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body class="mt-5">
+
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Eclipse Ditto: Digital Twin Framework</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#siteNav" aria-controls="siteNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="siteNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <button class="btn btn-outline-info" id="configure" data-toggle="modal" data-target="#configureModal">Configure
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="content" class="container">
+        <div class="row mb-3">
+            <div class="col mt-5">
+                <h3>Attributes</h3>
+                <div class="bg-dark" style="color:white">
+                    <div class="card-body">
+                        <dl id="deviceInfo">
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <h3>Features</h3>
+                <div class="card-deck">
+
+                    <div class="card">
+                      <div class="card-header"><b>Temperature sensor</b></div>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <span id="sampledValue">N/A</span>
+                            </h4>
+                            <h6 class="card-subtitle mb-2 text-muted">Sampled value </h6>
+
+                            <h1 class="card-title">
+                                <span id="temperatureValue">N/A</span>
+                            </h1>
+                            <h6 class="card-subtitle mb-2 text-muted">Temperature</h6>
+
+                            <!--<p class="card-text">-->
+                            <!--Some more sensor monitors with configurable sample rate.-->
+                            <!--</p>-->
+                            <img src="images/temperature.png" align="right" alt="Temperature" style="width:15%">
+                              <br />
+                              <dl class="row">
+                                  <dt class="col-sm-6 text-right">Timestamp</dt>
+                                  <dd class="col-sm-6" id="temperatureUpdate">N/A</dd>
+                                  <dt class="col-sm-6 text-right">Sampling Rate</dt>
+                                  <dd class="col-sm-6" id="temperatureSamplingRate">N/A</dd>
+                              </dl>
+                            <div class="form-row">
+                                <div class="form-group col-auto">
+                                    <select class="form-control" id="selectTemperatureSampleRate">
+                                        <option value="1">1 Hz</option>
+                                        <option value="2">2 Hz</option>
+                                        <option value="4">4 Hz</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-auto">
+                                    <button class="btn btn-primary" id="applyTemperatureSampingRate">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-header"><b>Fan (actuator)</b></div>
+                        <div class="card-body">
+                            <h1 class="card-title" id="fanState">N/A</h1>
+                            <h6 class="card-subtitle mb-2 text-muted">Fan state</h6>
+                            <img id="fan_img" src="images/fan_off.png" align="right" alt="Fan" style="width:20%">
+                            <br />
+                            <br />
+                            <br />
+                            <dl class="row">
+                                <dt class="col-sm-6 text-right">Timestamp</dt>
+                                <dd class="col-sm-6" id="fanUpdate">N/A</dd>
+                            </dl>
+                            <!-- <button onclick="document.getElementById('myImage').src='fan_on.gif'">Turn on the light</button>
+
+                              <img id="myImage" src="fan_off.png" style="width:100px">
+
+                            <button onclick="document.getElementById('myImage').src='fan_off.png'">Turn off the light</button> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <div id="alerts">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="configureModal" tabindex="-1" role="dialog" aria-labelledby="configureModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="configureModalLabel">Configuration</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="container">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="dittoUrl">URL</label>
+                                <input type="text" class="form-control" id="dittoUrl" placeholder="http://localhost:8080">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="dittoUser">User</label>
+                                <input type="text" class="form-control" id="dittoUser" value="ditto">
+                            </div>
+                            <div class="col mb-3">
+                                <label for="dittoPassword">Password</label>
+                                <input type="password" class="form-control" id="dittoPassword" value="ditto">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="dittoThingId">Thing ID</label>
+                                <input type="text" class="form-control" id="dittoThingId">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" id="useSSE"> Use server sent events (update interval will be ignored).
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="refreshInterval">Update interval (ms)</label>
+                                <input type="text" class="form-control" id="refreshInterval" value="3">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
