@@ -26,20 +26,42 @@ class App {
         this.eventSource = null
         this.eventListener = (e) => { this.handleMessage(e) }
 
+        this.userSetTemperature = 25 // default temperature value
+        this.dateTime = null
         this.fan_rotating_gif_running = false
     }
 
-
     onRefresh() {
-        this.requestGetFeature('TemperatureSensor',
-            (data, textStatus, jqXHR) => { this.updateTemperature(data, textStatus, jqXHR) },
+        this.requestGetFeature('DesiredTemperature',
+            (data, textStatus, jqXHR) => {this.updateDesiredTemperature(data, textStatus, jqXHR) },
             (jqXHR, textStatus, errorThrown) => {
                 this.enableAutoRefresh(false)
-                this.pushLog('danger', `Error retrieving temperature: ${errorThrown}. Auto refresh stopped, please reload page.`)
+                this.pushLog('danger', 'Error retrieving desired temperature: ${errorThrown}. Auto refresh stopped, please reload page.')
+            }
+        )
+        this.requestGetFeature('ActualTemperature',
+            (data, textStatus, jqXHR) => {this.updateActualTemperature(data, textStatus, jqXHR) },
+            (jqXHR, textStatus, errorThrown) => {
+                this.enableAutoRefresh(false)
+                this.pushLog('danger', 'Error retrieving actual temperature: ${errorThrown}. Auto refresh stopped, please reload page.')
+            }
+        )
+        this.requestGetFeature('ThermoElectricCooler',
+            (data, textStatus, jqXHR) => {this.updateThermoElectricCooler(data, textStatus, jqXHR) },
+            (jqXHR, textStatus, errorThrown) => {
+                this.enableAutoRefresh(false)
+                this.pushLog('danger', 'Error retrieving cooler state: ${errorThrown}. Auto refresh stopped, please reload page.')
+            }
+        )
+        this.requestGetFeature('ThermoElectricHeater',
+            (data, textStatus, jqXHR) => { this.updateThermoElectricHeater(data, textStatus, jqXHR) },
+            (jqXHR, textStatus, errorThrown) => {
+                this.enableAutoRefresh(false)
+                this.pushLog('danger', `Error retrieving heater state: ${errorThrown}. Auto refresh stopped, please reload page.`)
             }
         )
         this.requestGetFeature('FanActuator',
-            (data, textStatus, jqXHR) => { this.updateFanState(data, textStatus, jqXHR) },
+            (data, textStatus, jqXHR) => { this.updateFanActuator(data, textStatus, jqXHR) },
             (jqXHR, textStatus, errorThrown) => {
                 this.enableAutoRefresh(false)
                 this.pushLog('danger', `Error retrieving fan state: ${errorThrown}. Auto refresh stopped, please reload page.`)
@@ -57,6 +79,18 @@ class App {
 
     onConfigure() {
         this.updateModal()
+    }
+
+    onSetButton() {
+        this.requestSetProperty('DesiredTemperature', 'setTemperature', JSON.stringify(parseInt($("#setDesiredTemperature").val())),
+            () => { },
+            (jqXHR, textStatus, errorThrown) => { this.pushLog('danger', `Error sending sample rate update: ${errorThrown}`) }
+        );
+        this.dateTime = this.getCurrentTimeStamp()
+        this.userSetTemperature = $('#setDesiredTemperature').val()
+ 
+        doIfDefined(this.dateTime, (d) => {$('#desiredTemperatureLastUpdate').html(`<span>${d}</span>`)})
+        $('#TemperatureModal').modal('hide')
     }
 
     onApplyTemperatureSampingRate() {
@@ -106,33 +140,54 @@ class App {
             .done((data, textStatus, jqXHR) => { success(data, textStatus, jqXHR) })
     }
 
+    updateDesiredTemperature(data, textStatus, jqXHR) {
+        doIfDefined(data.properties.setTemperature, (d) => {$('#desiredTemperature').html(`<span>${d}° C</span>`)})
+    }
 
-    updateFanState(data, textStatus, jqXHR) {
+    updateActualTemperature(data, textStatus, jqXHR) {
+        var sampled_adc_temp, temp_calibrarted_value, voltage;
+        sampled_adc_temp = data.properties.temperatureSampledValue;
+        voltage = (sampled_adc_temp * 5.0) / 65535.0;
+        temp_calibrarted_value = ((-66.875) + (218.75* (voltage / 5.0))).toFixed(2)
+        doIfDefined(data.properties.temperatureSampledValue, (d) => {$('#sampledValue').html(`<span>${d}</span>`)})
+        doIfDefined(temp_calibrarted_value, (d) => {$('#temperatureValue').html(`<span>${d}° C</span>`)})
+        doIfDefined(data.properties.lastUpdate, (d) => {$('#temperatureLastUpdate').html(`<span>${d}</span>`)})
+    }
+
+    updateThermoElectricCooler(data, textStatus, jqXHR) {
+        var state;
+        if (data.properties.coolerState == 0) {
+            state = "OFF"
+            doIfDefined(state, (d) => {$('#coolerState').html(`<span style="color:green">${d}</span>`)})
+        } else {
+            state = "ON"
+            doIfDefined(state, (d) => {$('#coolerState').html(`<span style="color:red">${d}</span>`)})
+        }
+        doIfDefined(data.properties.lastUpdate, (d) => {$('#coolerLastUpdate').html(`<span>${d}</span>`)})
+    }
+
+    updateThermoElectricHeater(data, textStatus, jqXHR) {
+        var state;
+        if (data.properties.heaterState == 0) {
+            state = "OFF"
+            doIfDefined(state, (d) => {$('#heaterState').html(`<span style="color:green">${d}</span>`)})
+        } else {
+            state = "ON"
+            doIfDefined(state, (d) => {$('#heaterState').html(`<span style="color:red">${d}</span>`)})
+        }
+        doIfDefined(data.properties.lastUpdate, (d) => {$('#heaterLastUpdate').html(`<span>${d}</span>`)})
+    }
+
+    updateFanActuator(data, textStatus, jqXHR) {
         var state;
         if (data.properties.fanState == 0) {
            state = "OFF"
-           this.fan_rotating_gif_running = false
-           $("#fan_img").attr("src", "images/fan_off.png")
            doIfDefined(state, (d) => {$('#fanState').html(`<span style="color:green">${d}</span>`)})
         } else {
            state = "ON"
-           if (! this.fan_rotating_gif_running) {
-             $("#fan_img").attr("src", "images/fan_on.gif")
-           }
-           this.fan_rotating_gif_running = true;
            doIfDefined(state, (d) => {$('#fanState').html(`<span style="color:red">${d}</span>`)})
         }
-        doIfDefined(data.properties.lastUpdate, (d) => {$('#fanUpdate').html(`<span>${d}</span>`)})
-    }
-
-    updateTemperature(data, textStatus, jqXHR) {
-        var sampled_adc_temp, temp_calibrarted_value;
-        sampled_adc_temp = data.properties.temperatureValue;
-        temp_calibrarted_value = ((sampled_adc_temp / 65535 * 5 * 100) + 17).toFixed(2)
-        doIfDefined(data.properties.temperatureValue, (d) => {$('#sampledValue').html(`<span>${d} </span>`)})
-        doIfDefined(temp_calibrarted_value, (d) => {$('#temperatureValue').html(`<span>${d} ° C</span>`)})
-        doIfDefined(data.properties.lastUpdate, (d) => {$('#temperatureUpdate').html(`<span>${d}</span>`)})
-        doIfDefined(data.properties.samplingRate, (d) => {$('#temperatureSamplingRate').html(`<span>${d} Hz</span>`)})
+        doIfDefined(data.properties.lastUpdate, (d) => {$('#fanLastUpdate').html(`<span>${d}</span>`)})
     }
 
     updateDeviceInfo(data, textStatus, jqXHR) {
@@ -216,14 +271,36 @@ class App {
         $("#useSSE").prop('checked', this.useSSE)
     }
 
+    updateUserTemperatureModal() {
+        $('#setDesiredTemperature').val(this.userSetTemperature)
+    }
+
+    getCurrentTimeStamp() {
+        var currentDate = new Date()
+        var date = currentDate.getDate()
+        var month = currentDate.getMonth() //Be careful! January is 0 not 1
+        var year = currentDate.getFullYear()
+
+        var hour = currentDate.getHours()
+        var minutes = currentDate.getMinutes()
+        var seconds = currentDate.getSeconds()
+        var milis = currentDate.getMilliseconds()
+
+        var time = hour + ":" + minutes + ":" + seconds + "." + milis
+        var dateTimeString = date + "-" +(month + 1) + "-" + year + " " + time
+        return dateTimeString
+    }
+
     main() {
         $('#saveChanges').click(() => { this.onSaveChanges() })
         $('#configure').click(() => { this.onConfigure() })
+        $('#setButton').click(() => { this.onSetButton() })
 
         $('#applyTemperatureSampingRate').click(() => { this.onApplyTemperatureSampingRate() })
 
         this.updateModal()
         this.updateConfig()
+        this.updateUserTemperatureModal()
 
         // initial load of attributes and features
         this.requestGetAttributes(this.updateDeviceInfo,
