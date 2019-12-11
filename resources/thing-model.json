@@ -1,34 +1,52 @@
 {
-    "thingId": "org.eclipse.ditto.example:raspberry",
-    "acl": {
-        "ditto": {
-            "READ": true,
-            "WRITE": true,
-            "ADMINISTRATE": true
-        },
-        "raspberry": {
-            "READ": true,
-            "WRITE": true,
-            "ADMINISTRATE": false
-        }
-    },
-    "attributes": {
-        "manufacturer": "Raspberry Pi Foundation",
-        "hostname": "Raspditto"
-    },
-    "features": {
-        "TemperatureSensor": {
-            "properties": {
-                "temperatureValue": 25.0,
-                "lastUpdate": "2019-01-01 00:00:00.100000",
-                "samplingRate": 1
-            }
-        },
-      	"FanActuator": {
-      	    "properties": {
-      	        "fanState": 0,
-      	        "lastUpdate": "2019-01-01 00:00:00.100000"
-      	    }
-      	}
-    }
+   "thingId": "org.eclipse.ditto.example:raspberry",
+   "acl": {
+      "raspberry": {
+         "READ": true,
+         "WRITE": true,
+         "ADMINISTRATE": false
+      },
+      "ditto": {
+         "READ": true,
+         "WRITE": true,
+         "ADMINISTRATE": true
+      }
+   },
+   "attributes": {
+      "manufacturer": "Raspberry Pi Foundation",
+      "hostname": "Raspditto"
+   },
+   "features": {
+      "DesiredTemperature": {
+         "properties": {
+            "setTemperature": 22
+         }
+      },
+      "ActualTemperature": {
+         "properties": {
+            "temperatureSampledValue": 1714,
+            "samplingRate": 1,
+            "lastUpdate": "2019-11-27 10:04:26.136889"
+         }
+      },
+      "ThermoElectricCooler": {
+         "properties": {
+            "lastUpdate": "2019-11-27 10:04:26.181243",
+            "coolerState": 0
+         }
+      },
+      "ThermoElectricHeater": {
+         "properties": {
+            "lastUpdate": "2019-11-27 10:04:26.181243",
+            "heaterState": 0
+         }
+      },
+      "FanActuator": {
+         "properties": {
+            "lastUpdate": "2019-11-27 10:04:26.181243",
+            "fanState": 0,
+            "fanRpm": 1500
+         }
+      }
+   }
 }
