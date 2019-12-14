@@ -26,47 +26,58 @@ class App {
         this.eventSource = null
         this.eventListener = (e) => { this.handleMessage(e) }
 
-        this.userSetTemperature = 25 // default value
+        this.userSetTemperature = 25
         this.dateTime = null
-        this.fan_rotating_gif_running = false
     }
 
     onRefresh() {
-        // this.requestGetFeature('DesiredTemperature',
+
+        // Get all features at once
+        this.requestGetAllFeatures(this.updateAllFeatures,
+            () => { },
+            (jqXHR, textStatus, errorThrown) => { this.pushLog('danger', `Error retrieving all features: ${errorThrown}`) }
+
+        )
+
+        // this.requestGetFeature('desiredTemperature',
         //  (data, textStatus, jqXHR) => {this.updateDesiredTemperature(data, textStatus, jqXHR) },
         //  (jqXHR, textStatus, errorThrown) => {
         //      this.enableAutoRefresh(false)
         //      this.pushLog('danger', 'Error retrieving desired temperature: ${errorThrown}. Auto refresh stopped, please reload page.')
         //  }
         // )
-        this.requestGetFeature('ActualTemperature',
-            (data, textStatus, jqXHR) => {this.updateActualTemperature(data, textStatus, jqXHR) },
-            (jqXHR, textStatus, errorThrown) => {
-                this.enableAutoRefresh(false)
-                this.pushLog('danger', 'Error retrieving actual temperature: ${errorThrown}. Auto refresh stopped, please reload page.')
-            }
-        )
-        this.requestGetFeature('ThermoElectricCooler',
-            (data, textStatus, jqXHR) => {this.updateThermoElectricCooler(data, textStatus, jqXHR) },
-            (jqXHR, textStatus, errorThrown) => {
-                this.enableAutoRefresh(false)
-                this.pushLog('danger', 'Error retrieving cooler state: ${errorThrown}. Auto refresh stopped, please reload page.')
-            }
-        )
-        this.requestGetFeature('ThermoElectricHeater',
-            (data, textStatus, jqXHR) => { this.updateThermoElectricHeater(data, textStatus, jqXHR) },
-            (jqXHR, textStatus, errorThrown) => {
-                this.enableAutoRefresh(false)
-                this.pushLog('danger', `Error retrieving heater state: ${errorThrown}. Auto refresh stopped, please reload page.`)
-            }
-        )
-        this.requestGetFeature('FanActuator',
-            (data, textStatus, jqXHR) => { this.updateFanActuator(data, textStatus, jqXHR) },
-            (jqXHR, textStatus, errorThrown) => {
-                this.enableAutoRefresh(false)
-                this.pushLog('danger', `Error retrieving fan state: ${errorThrown}. Auto refresh stopped, please reload page.`)
-            }
-        )
+        
+        // this.requestGetFeature('actualTemperature',
+        //  (data, textStatus, jqXHR) => {this.updateActualTemperature(data, textStatus, jqXHR) },
+        //  (jqXHR, textStatus, errorThrown) => {
+        //      this.enableAutoRefresh(false)
+        //      this.pushLog('danger', 'Error retrieving actual temperature: ${errorThrown}. Auto refresh stopped, please reload page.')
+        //  }
+        // )
+
+        // this.requestGetFeature('thermoElectricCooler',
+        //  (data, textStatus, jqXHR) => {this.updateThermoElectricCooler(data, textStatus, jqXHR) },
+        //  (jqXHR, textStatus, errorThrown) => {
+        //      this.enableAutoRefresh(false)
+        //      this.pushLog('danger', 'Error retrieving cooler state: ${errorThrown}. Auto refresh stopped, please reload page.')
+        //  }
+        // )
+
+        // this.requestGetFeature('thermoElectricHeater',
+        //    (data, textStatus, jqXHR) => { this.updateThermoElectricHeater(data, textStatus, jqXHR) },
+        //    (jqXHR, textStatus, errorThrown) => {
+        //        this.enableAutoRefresh(false)
+        //        this.pushLog('danger', `Error retrieving heater state: ${errorThrown}. Auto refresh stopped, please reload page.`)
+        //    }
+        // )
+
+        // this.requestGetFeature('fanActuator',
+        //    (data, textStatus, jqXHR) => { this.updateFanActuator(data, textStatus, jqXHR) },
+        //    (jqXHR, textStatus, errorThrown) => {
+        //        this.enableAutoRefresh(false)
+        //        this.pushLog('danger', `Error retrieving fan state: ${errorThrown}. Auto refresh stopped, please reload page.`)
+        //    }
+        // )
     }
 
     onSaveChanges() {
@@ -82,31 +93,40 @@ class App {
     }
 
     onSetButton() {
-        this.requestSetProperty('DesiredTemperature', 'setTemperature', JSON.stringify(parseInt($("#setDesiredTemperature").val())),
+        this.requestSetProperty('desiredTemperature', 'setTemperature', JSON.stringify(parseInt($("#slider").val())),
             () => { },
             (jqXHR, textStatus, errorThrown) => { this.pushLog('danger', `Error sending sample rate update: ${errorThrown}`) }
         );
         this.dateTime = this.getCurrentTimeStamp()
-        this.userSetTemperature = $('#setDesiredTemperature').val()
-        doIfDefined(this.userSetTemperature, (d) => {$('#desiredTemperature').html(`<span>${d}° C</span>`)})
+        this.userSetTemperature = $('#slider').val()
+
+        doIfDefined(this.userSetTemperature, (d) => {$('#desiredTemperature').html(`<span style="color:black">${d}° C</span>`)})
         doIfDefined(this.dateTime, (d) => {$('#desiredTemperatureLastUpdate').html(`<span>${d}</span>`)})
         $('#TemperatureModal').modal('hide')
     }
 
     onApplyTemperatureSampingRate() {
-        this.requestSetProperty('TemperatureSensor', 'samplingRate', JSON.stringify(parseInt($("#selectTemperatureSampleRate option:selected").val())),
+        this.requestSetProperty('actualTemperature', 'samplingRate', JSON.stringify(parseInt($("#selectTemperatureSampleRate option:selected").val())),
             () => { },
             (jqXHR, textStatus, errorThrown) => { this.pushLog('danger', `Error sending sample rate update: ${errorThrown}`) }
         );
     }
 
     onEvent(data) {
-        doIfDefined(data.features.TemperatureSensor, this.updateTemperature)
-        doIfDefined(data.features.FanState, this.updateFanState)
+        // need to check this function
+        doIfDefined(data.features.actualTemperature, this.updateActualTemperature)
+        doIfDefined(data.features.thermoElectricCooler, this.updateThermoElectricCooler)
+        doIfDefined(data.features.thermoElectricHeater, this.updateThermoElectricHeater)
     }
 
     requestGetAttributes(success, error) {
         $.getJSON(`${this.baseUrl}/api/1/things/${this.thingId}/attributes`)
+            .fail((jqXHR, textStatus, errorThrown) => { error(jqXHR, textStatus, errorThrown) })
+            .done((data, textStatus, jqXHR) => { success(data, textStatus, jqXHR) })
+    }
+
+    requestGetAllFeatures(success, error) {
+        $.getJSON(`${this.baseUrl}/api/1/things/${this.thingId}/features`)
             .fail((jqXHR, textStatus, errorThrown) => { error(jqXHR, textStatus, errorThrown) })
             .done((data, textStatus, jqXHR) => { success(data, textStatus, jqXHR) })
     }
@@ -140,56 +160,94 @@ class App {
             .done((data, textStatus, jqXHR) => { success(data, textStatus, jqXHR) })
     }
 
-    updateDesiredTemperature(data, textStatus, jqXHR) {
-        doIfDefined(data.properties.setTemperature, (d) => {$('#desiredTemperature').html(`<span style="color:black>${d}° C</span>`)})
+    updateAllFeatures(data, textStatus, jqXHR) {
+
+        // Actual temperature
+        var sampled_adc_temp, temp_calibrarted_value, voltage;
+        sampled_adc_temp = data.actualTemperature.properties.temperatureSampledValue;
+        voltage = (sampled_adc_temp * 10.0) / 65535.0;
+        temp_calibrarted_value = ((-66.875) + (218.75* (voltage / 5.0)) + 6.0).toFixed(2)
+        if (temp_calibrarted_value > 0.0) {
+            doIfDefined(temp_calibrarted_value, (d) => {$('#temperatureValue').html(`<span>${d}° C</span>`)})
+        }
+        doIfDefined(data.actualTemperature.properties.lastUpdate, (d) => {$('#temperatureLastUpdate').html(`<span>${d}</span>`)})
+
+        // Cooler
+        var coolerState;
+        if (data.thermoElectricCooler.properties.coolerState == 0) {
+            coolerState = "OFF"
+            doIfDefined(coolerState, (d) => {$('#coolerState').html(`<span style="color:green">${d}</span>`)})
+        } else {
+            coolerState = "ON"
+            doIfDefined(coolerState, (d) => {$('#coolerState').html(`<span style="color:red">${d}</span>`)})
+        }
+        doIfDefined(data.thermoElectricCooler.properties.lastUpdate, (d) => {$('#coolerLastUpdate').html(`<span>${d}</span>`)})
+        doIfDefined(data.thermoElectricCooler.properties.fanRpm, (d) => {$('#coolerFanRpm').html(`<span>${d}</span>`)})
+
+
+        // Heater
+        var heaterState;
+        if (data.thermoElectricHeater.properties.heaterState == 0) {
+            heaterState = "OFF"
+            doIfDefined(heaterState, (d) => {$('#heaterState').html(`<span style="color:green">${d}</span>`)})
+        } else {
+            heaterState = "ON"
+            doIfDefined(heaterState, (d) => {$('#heaterState').html(`<span style="color:red">${d}</span>`)})
+        }
+        doIfDefined(data.thermoElectricHeater.properties.lastUpdate, (d) => {$('#heaterLastUpdate').html(`<span>${d}</span>`)})
+        doIfDefined(data.thermoElectricHeater.properties.fanRpm, (d) => {$('#heaterFanRpm').html(`<span>${d}</span>`)})
     }
 
     updateActualTemperature(data, textStatus, jqXHR) {
         var sampled_adc_temp, temp_calibrarted_value, voltage;
-        sampled_adc_temp = data.properties.temperatureSampledValue;
+        sampled_adc_temp = data.actualTemperature.properties.temperatureSampledValue;
         voltage = (sampled_adc_temp * 10.0) / 65535.0;
-        temp_calibrarted_value = ((-66.875) + (218.75* (voltage / 5.0))).toFixed(2)
+        // calibration offset has been added here (6.0 deg)
+     temp_calibrarted_value = ((-66.875) + (218.75* (voltage / 5.0)) + 6.0).toFixed(2)
         if (temp_calibrarted_value > 0.0) {
             doIfDefined(temp_calibrarted_value, (d) => {$('#temperatureValue').html(`<span>${d}° C</span>`)})
         }
-        doIfDefined(data.properties.lastUpdate, (d) => {$('#temperatureLastUpdate').html(`<span>${d}</span>`)})
+        doIfDefined(data.actualTemperature.properties.lastUpdate, (d) => {$('#temperatureLastUpdate').html(`<span>${d}</span>`)})
     }
 
     updateThermoElectricCooler(data, textStatus, jqXHR) {
         var state;
-        if (data.properties.coolerState == 0) {
+        if (data.thermoElectricCooler.properties.coolerState == 0) {
             state = "OFF"
             doIfDefined(state, (d) => {$('#coolerState').html(`<span style="color:green">${d}</span>`)})
         } else {
             state = "ON"
             doIfDefined(state, (d) => {$('#coolerState').html(`<span style="color:red">${d}</span>`)})
         }
-        doIfDefined(data.properties.lastUpdate, (d) => {$('#coolerLastUpdate').html(`<span>${d}</span>`)})
+        doIfDefined(data.thermoElectricCooler.properties.lastUpdate, (d) => {$('#coolerLastUpdate').html(`<span>${d}</span>`)})
+        doIfDefined(data.thermoElectricCooler.properties.fanRpm, (d) => {$('#coolerFanRpm').html(`<span>${d}</span>`)})
+
     }
 
     updateThermoElectricHeater(data, textStatus, jqXHR) {
         var state;
-        if (data.properties.heaterState == 0) {
+        if (data.thermoElectricHeater.properties.heaterState == 0) {
             state = "OFF"
             doIfDefined(state, (d) => {$('#heaterState').html(`<span style="color:green">${d}</span>`)})
         } else {
             state = "ON"
             doIfDefined(state, (d) => {$('#heaterState').html(`<span style="color:red">${d}</span>`)})
         }
-        doIfDefined(data.properties.lastUpdate, (d) => {$('#heaterLastUpdate').html(`<span>${d}</span>`)})
+        doIfDefined(data.thermoElectricHeater.properties.lastUpdate, (d) => {$('#heaterLastUpdate').html(`<span>${d}</span>`)})
+        doIfDefined(data.thermoElectricHeater.properties.fanRpm, (d) => {$('#heaterFanRpm').html(`<span>${d}</span>`)})
     }
 
-    updateFanActuator(data, textStatus, jqXHR) {
-        var state;
-        if (data.properties.fanState == 0) {
-           state = "OFF"
-           doIfDefined(state, (d) => {$('#fanState').html(`<span style="color:green">${d}</span>`)})
-        } else {
-           state = "ON"
-           doIfDefined(state, (d) => {$('#fanState').html(`<span style="color:red">${d}</span>`)})
-        }
-        doIfDefined(data.properties.lastUpdate, (d) => {$('#fanLastUpdate').html(`<span>${d}</span>`)})
-    }
+    // updateFanActuator(data, textStatus, jqXHR) {
+    //     var state;
+    //     if (data.fanActuator.properties.fanState == 0) {
+    //        state = "OFF"
+    //        doIfDefined(state, (d) => {$('#fanState').html(`<span style="color:green">${d}</span>`)})
+    //     } else {
+    //        state = "ON"
+    //        doIfDefined(state, (d) => {$('#fanState').html(`<span style="color:red">${d}</span>`)})
+    //     }
+    //     doIfDefined(data.fanActuator.properties.lastUpdate, (d) => {$('#fanLastUpdate').html(`<span>${d}</span>`)})
+    // }
 
     updateDeviceInfo(data, textStatus, jqXHR) {
         $("#deviceInfo").html('')
