@@ -6,7 +6,9 @@ class UserDesiredTemperatureInput:
 
 	def __init__(self, temp_in_celsius=0):
 		self.temp_in_celsius = temp_in_celsius
+		# desired temperature variable memory address
 		self.desired_temp_mod_loc = '%MW0'
+		# reset system variable memory address
 		self.reset_system = '%MW1'
 
 	def get_user_set_temperature(self):
@@ -24,8 +26,9 @@ class UserDesiredTemperatureInput:
 		}
 
 	def __write_desired_temperature_modbus_plc(self, temperature):
-		monitor.write_modbus_register(self.desired_temp_mod_loc, temperature)
+		# Reset the variables first before setting the desired temperature
 		monitor.write_modbus_register(self.reset_system, 1)
+		monitor.write_modbus_register(self.desired_temp_mod_loc, temperature)
 
 
 class TemperatureSensor:
@@ -38,12 +41,6 @@ class TemperatureSensor:
 	def get_temperature(self):
 		self.lastUpdate = datetime.now().__str__()
 		monitor.modbus_monitor()
-		# for debugs in monitor.debug_vars:
-		# 	print('Name: ' + debugs.name)
-		# 	print('Location: ' + debugs.location)
-		# 	print('Type: ' + debugs.type)
-		# 	print ('Value: ' + str(debugs.value))
-		# 	print('')
 		temp_value = monitor.debug_vars[1].value
 		return temp_value
 
@@ -80,10 +77,14 @@ class Cooler:
 	def get_last_update(self):
 		return self.lastUpdate
 
+	def get_fan_rpm(self):
+		return 2000
+
 	def get_properties_json(self, cooler_state):
 		return {
 			"coolerState": cooler_state,
-			"lastUpdate": self.get_last_update()
+			"lastUpdate": self.get_last_update(),
+			"fanRpm": self.get_fan_rpm()
 		}
 
 
@@ -103,36 +104,12 @@ class Heater:
 	def get_last_update(self):
 		return self.lastUpdate
 
+	def get_fan_rpm(self):
+		return 2000
+
 	def get_properties_json(self, heater_state):
 		return {
 			"heaterState": heater_state,
-			"lastUpdate": self.get_last_update()
-		}
-
-
-class FanActuator:
-	"""A simple abstraction for using the grovepi temperature and humidity sensor"""
-	lastUpdate = None
-
-	def __init__(self):
-		pass
-
-	def get_fan_state(self):
-		self.lastUpdate = datetime.now().__str__()
-		monitor.modbus_monitor()
-		fan_state = monitor.debug_vars[5].value
-		return fan_state
-
-	def get_last_update(self):
-		return self.lastUpdate
-
-	def get_fan_rpm(self):
-		fan_rpm = monitor.debug_vars[2].value
-		return fan_rpm
-
-	def get_properties_json(self, fan_state):
-		return {
-			"fanState": fan_state,
 			"lastUpdate": self.get_last_update(),
 			"fanRpm": self.get_fan_rpm()
 		}

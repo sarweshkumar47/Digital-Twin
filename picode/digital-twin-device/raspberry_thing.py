@@ -29,11 +29,10 @@ THING_MESSAGE_TOPIC = THING_ID + "/things/live/messages"
 
 THING_MODIFY_COMMAND_TOPIC = THING_COMMAND_TOPIC + "/modify"
 
-USER_DESIRED_TEMPERATURE_PROPERTIES_PATH = "/features/DesiredTemperature/properties"
-ACTUAL_TEMPERATURE_PROPERTIES_PATH = "/features/ActualTemperature/properties"
-COOLER_PROPERTIES_PATH = "/features/ThermoElectricCooler/properties"
-HEATER_PROPERTIES_PATH = "/features/ThermoElectricHeater/properties"
-FAN_ACTUATOR_PROPERTIES_PATH = "/features/FanActuator/properties"
+USER_DESIRED_TEMPERATURE_PROPERTIES_PATH = "/features/desiredTemperature/properties"
+ACTUAL_TEMPERATURE_PROPERTIES_PATH = "/features/actualTemperature/properties"
+COOLER_PROPERTIES_PATH = "/features/thermoElectricCooler/properties"
+HEATER_PROPERTIES_PATH = "/features/thermoElectricHeater/properties"
 
 TEMPERATURE_SENSOR_SAMPLING_RATE_PATH = ACTUAL_TEMPERATURE_PROPERTIES_PATH + "/samplingRate"
 USER_DESIRED_TEMPERATURE_SET_PATH = USER_DESIRED_TEMPERATURE_PROPERTIES_PATH + "/setTemperature"
@@ -58,7 +57,6 @@ class RaspberryDemoThing:
 		self.temperature_sensor = sensor_actuator.TemperatureSensor()
 		self.cooler = sensor_actuator.Cooler()
 		self.heater = sensor_actuator.Heater()
-		self.fan_actuator = sensor_actuator.FanActuator()
 
 	def handle_websocket_message(self, message):
 		# print('handle_websocket_message: Received:' + str(message))
@@ -113,26 +111,15 @@ class RaspberryDemoThing:
 			"value": self.heater.get_properties_json(heater_state)
 		}
 
-	def create_fan_state_change_message(self, fan_state):
-		"""
-		Create the modify message that is used to notify Ditto about a new sensor value.
-		:return: The message as a json object.
-		"""
-		return {
-			"topic": THING_MODIFY_COMMAND_TOPIC,
-			"path": FAN_ACTUATOR_PROPERTIES_PATH,
-			"value": self.fan_actuator.get_properties_json(fan_state)
-		}
-
-	def start_polling_temperature_fan_info(self, callback):
+	def start_polling_new_components_data(self, callback):
 		"""
 			this function will repeatedly queries temperature values and send them back to the callback.
 			:param callback: callback function for new sensor values
 			:return: None
 			"""
-		threading._start_new_thread(self.__poll_temperature_fan_state, (callback,))
+		threading._start_new_thread(self.__poll_new_components_data, (callback,))
 
-	def __poll_temperature_fan_state(self, callback):
+	def __poll_new_components_data(self, callback):
 		while True:
 			try:
 				# read temperature sensor
@@ -140,8 +127,7 @@ class RaspberryDemoThing:
 				temp_value = self.temperature_sensor.get_temperature()
 				cooler_state = self.cooler.get_cooler_state()
 				heater_state = self.heater.get_heater_state()
-				fan_state = self.fan_actuator.get_fan_state()
-				callback(desired_temp, temp_value, cooler_state, heater_state, fan_state)
+				callback(desired_temp, temp_value, cooler_state, heater_state)
 			except ValueError:
 				print('Error when providing temperature values. Trying again')
 			except:
