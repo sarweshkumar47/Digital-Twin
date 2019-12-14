@@ -17,35 +17,30 @@
       "hostname": "Raspditto"
    },
    "features": {
-      "DesiredTemperature": {
+      "desiredTemperature": {
          "properties": {
             "setTemperature": 22
          }
       },
-      "ActualTemperature": {
+      "actualTemperature": {
          "properties": {
             "temperatureSampledValue": 1714,
             "samplingRate": 1,
             "lastUpdate": "2019-11-27 10:04:26.136889"
          }
       },
-      "ThermoElectricCooler": {
+      "thermoElectricCooler": {
          "properties": {
             "lastUpdate": "2019-11-27 10:04:26.181243",
-            "coolerState": 0
+            "coolerState": 0,
+            "fanRpm": 0
          }
       },
-      "ThermoElectricHeater": {
+      "thermoElectricHeater": {
          "properties": {
             "lastUpdate": "2019-11-27 10:04:26.181243",
-            "heaterState": 0
-         }
-      },
-      "FanActuator": {
-         "properties": {
-            "lastUpdate": "2019-11-27 10:04:26.181243",
-            "fanState": 0,
-            "fanRpm": 1500
+            "heaterState": 0,
+            "fanRpm": 0
          }
       }
    }
