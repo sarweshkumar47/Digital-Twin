@@ -2,6 +2,32 @@ from datetime import datetime
 import custom_modbus_monitoring as monitor
 
 
+class UserDesiredTemperatureInput:
+
+	def __init__(self, temp_in_celsius=0):
+		self.temp_in_celsius = temp_in_celsius
+		self.desired_temp_mod_loc = '%MW0'
+		self.reset_system = '%MW1'
+
+	def get_user_set_temperature(self):
+		monitor.modbus_monitor()
+		user_set_temperature = monitor.debug_vars[0].value
+		return user_set_temperature
+
+	def set_desired_temperature(self, temp_in_celsius):
+		self.temp_in_celsius = temp_in_celsius
+		self.__write_desired_temperature_modbus_plc(self.temp_in_celsius)
+
+	def get_properties_json(self, temperature):
+		return {
+			"setTemperature": temperature
+		}
+
+	def __write_desired_temperature_modbus_plc(self, temperature):
+		monitor.write_modbus_register(self.desired_temp_mod_loc, temperature)
+		monitor.write_modbus_register(self.reset_system, 1)
+
+
 class TemperatureSensor:
 	"""A simple abstraction for using the temperature sensor"""
 	lastUpdate = None
@@ -18,7 +44,7 @@ class TemperatureSensor:
 		# 	print('Type: ' + debugs.type)
 		# 	print ('Value: ' + str(debugs.value))
 		# 	print('')
-		temp_value = monitor.debug_vars[0].value
+		temp_value = monitor.debug_vars[1].value
 		return temp_value
 
 	def get_sampling_rate(self):
@@ -32,9 +58,55 @@ class TemperatureSensor:
 
 	def get_properties_json(self, temperature):
 		return {
-			"temperatureValue": temperature,
+			"temperatureSampledValue": temperature,
 			"lastUpdate": self.get_last_update(),
 			"samplingRate": self.get_sampling_rate()
+		}
+
+
+class Cooler:
+	"""A simple abstraction for using the peltier coolers"""
+	lastUpdate = None
+
+	def __init__(self):
+		pass
+
+	def get_cooler_state(self):
+		self.lastUpdate = datetime.now().__str__()
+		monitor.modbus_monitor()
+		cooler_state = monitor.debug_vars[4].value  # Check this value
+		return cooler_state
+
+	def get_last_update(self):
+		return self.lastUpdate
+
+	def get_properties_json(self, cooler_state):
+		return {
+			"coolerState": cooler_state,
+			"lastUpdate": self.get_last_update()
+		}
+
+
+class Heater:
+	"""A simple abstraction for using the peltier coolers"""
+	lastUpdate = None
+
+	def __init__(self):
+		pass
+
+	def get_heater_state(self):
+		self.lastUpdate = datetime.now().__str__()
+		monitor.modbus_monitor()
+		heater_state = monitor.debug_vars[3].value  # Check this value
+		return heater_state
+
+	def get_last_update(self):
+		return self.lastUpdate
+
+	def get_properties_json(self, heater_state):
+		return {
+			"heaterState": heater_state,
+			"lastUpdate": self.get_last_update()
 		}
 
 
@@ -48,16 +120,21 @@ class FanActuator:
 	def get_fan_state(self):
 		self.lastUpdate = datetime.now().__str__()
 		monitor.modbus_monitor()
-		fan_state = monitor.debug_vars[1].value
+		fan_state = monitor.debug_vars[5].value
 		return fan_state
 
 	def get_last_update(self):
 		return self.lastUpdate
 
+	def get_fan_rpm(self):
+		fan_rpm = monitor.debug_vars[2].value
+		return fan_rpm
+
 	def get_properties_json(self, fan_state):
 		return {
 			"fanState": fan_state,
 			"lastUpdate": self.get_last_update(),
+			"fanRpm": self.get_fan_rpm()
 		}
 
 
