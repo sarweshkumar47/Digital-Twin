@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
+  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2019-12-09T09:14:32"/>
+  <contentHeader name="Demo_temperature_control" modificationDateTime="2019-12-13T20:23:46">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="10" y="10"/>
+      </fbd>
+      <ld>
+        <scaling x="10" y="10"/>
+      </ld>
+      <sfc>
+        <scaling x="10" y="10"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="demo_temperature_control" pouType="program">
+        <interface>
+          <localVars>
+            <variable name="SetTemperatureInput" address="%MW0">
+              <type>
+                <UINT/>
+              </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
+            </variable>
+            <variable name="TemperatureSensorOutput" address="%IW0">
+              <type>
+                <UINT/>
+              </type>
+            </variable>
+            <variable name="RpmSensorOutput" address="%IW1">
+              <type>
+                <UINT/>
+              </type>
+            </variable>
+            <variable name="HotAirGunRelay" address="%QX0.0">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="Cooler_Relay" address="%QX0.1">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="FanOutputPwm" address="%QW0">
+              <type>
+                <UINT/>
+              </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
+            </variable>
+            <variable name="IsCoolerUseCase" address="%QX99.0">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="InitialTemperatureCheck" address="%QX99.1">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE"/>
+              </initialValue>
+            </variable>
+            <variable name="CurrentTemperature" address="%MD0">
+              <type>
+                <REAL/>
+              </type>
+            </variable>
+            <variable name="Voltage" address="%MD1">
+              <type>
+                <REAL/>
+              </type>
+            </variable>
+          </localVars>
+          <externalVars>
+            <variable name="LowerThreshold">
+              <type>
+                <UINT/>
+              </type>
+            </variable>
+            <variable name="UpperThreshold">
+              <type>
+                <UINT/>
+              </type>
+            </variable>
+          </externalVars>
+          <localVars>
+            <variable name="offSet">
+              <type>
+                <REAL/>
+              </type>
+              <initialValue>
+                <simpleValue value="0.3"/>
+              </initialValue>
+            </variable>
+          </localVars>
+          <localVars>
+            <variable name="ResetSystem" address="%MW1">
+              <type>
+                <UINT/>
+              </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
+            </variable>
+            <variable name="AllConditionsFailed" address="%QX0.7">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml:p><![CDATA[(* Temperature conversion has to be done (calibration) *)
+Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
+(* Voltage := (TemperatureSensorOutput * 10.0 / 65535.0); *)
+(* CurrentTemperature := (-66.875)+(218.75*(Voltage/5.0)); *)
+CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 5.0))));
+
+IF (SetTemperatureInput >= LowerThreshold AND SetTemperatureInput <= UpperThreshold) THEN
+
+    IF (InitialTemperatureCheck = TRUE) THEN
+        IF (CurrentTemperature > 0.0) THEN
+            IF (CurrentTemperature > UINT_TO_REAL(SetTemperatureInput)) THEN
+                IsCoolerUseCase := TRUE;
+            END_IF;
+            InitialTemperatureCheck := FALSE;
+        END_IF;
+    END_IF;
+    
+    (* Cooler usecase *)
+    IF (IsCoolerUseCase) THEN
+      
+        IF (CurrentTemperature > 0.0 AND CurrentTemperature > UINT_TO_REAL(SetTemperatureInput)) THEN
+            Cooler_Relay := TRUE;
+                  
+        ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature < (UINT_TO_REAL(SetTemperatureInput) - offSet)) THEN
+            Cooler_Relay := FALSE;
+            
+        END_IF;
+    
+    (* Heater usecase *)   
+    ELSE
+
+        IF (CurrentTemperature > 0.0 AND CurrentTemperature < UINT_TO_REAL(SetTemperatureInput)) THEN
+            HotAirGunRelay := TRUE;
+                  
+        ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) + offSet)) THEN
+            HotAirGunRelay := FALSE;
+        
+        END_IF;
+        
+    END_IF;
+        
+END_IF;
+
+IF (ResetSystem = 1) THEN
+    IsCoolerUseCase := FALSE;
+    HotAirGunRelay := FALSE;
+    Cooler_Relay := FALSE;
+    ResetSystem := 0;
+    InitialTemperatureCheck := TRUE;
+  
+END_IF;]]></xhtml:p>
+          </ST>
+        </body>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="Config0">
+        <resource name="Res0">
+          <task name="taskMain" priority="0" interval="T#100ms">
+            <pouInstance name="instance0" typeName="demo_temperature_control"/>
+          </task>
+          <globalVars>
+            <variable name="LowerThreshold">
+              <type>
+                <UINT/>
+              </type>
+              <initialValue>
+                <simpleValue value="20"/>
+              </initialValue>
+            </variable>
+            <variable name="UpperThreshold">
+              <type>
+                <UINT/>
+              </type>
+              <initialValue>
+                <simpleValue value="40"/>
+              </initialValue>
+            </variable>
+          </globalVars>
+        </resource>
+      </configuration>
+    </configurations>
+  </instances>
+</project>
