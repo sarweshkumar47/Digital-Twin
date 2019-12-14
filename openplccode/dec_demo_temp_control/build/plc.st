@@ -97,11 +97,9 @@ PROGRAM demo_temperature_control
     SetTemperatureInput : UINT := 0;
     TemperatureSensorOutput : UINT;
     RpmSensorOutput : UINT;
-    HotAirGunRelay : BOOL := FALSE;
-    Cooler_Relay : BOOL := FALSE;
+    HeaterRelay : BOOL := FALSE;
+    CoolerRelay : BOOL := FALSE;
     FanOutputPwm : UINT := 0;
-    IsCoolerUseCase : BOOL := FALSE;
-    InitialTemperatureCheck : BOOL := TRUE;
     CurrentTemperature : REAL;
     Voltage : REAL;
   END_VAR
@@ -110,63 +108,58 @@ PROGRAM demo_temperature_control
     UpperThreshold : UINT;
   END_VAR
   VAR
+    errorOffSet : REAL := 6.0;
     offSet : REAL := 0.3;
   END_VAR
   VAR
+    IsCoolerUseCase : BOOL := FALSE;
+    InitialCheckFlag : BOOL := FALSE;
     ResetSystem : UINT := 0;
-    AllConditionsFailed : BOOL := FALSE;
   END_VAR
 
   (* Temperature conversion has to be done (calibration) *)
-  Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
+
   (* Voltage := (TemperatureSensorOutput * 10.0 / 65535.0); *)
+  Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
+
   (* CurrentTemperature := (-66.875)+(218.75*(Voltage/5.0)); *)
-  CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 5.0))));
+  CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 5.0))), errorOffSet);
 
   IF (SetTemperatureInput >= LowerThreshold AND SetTemperatureInput <= UpperThreshold) THEN
-
-      IF (InitialTemperatureCheck = TRUE) THEN
-          IF (CurrentTemperature > 0.0) THEN
-              IF (CurrentTemperature > UINT_TO_REAL(SetTemperatureInput)) THEN
+    
+          IF (CurrentTemperature > 0.0 AND InitialCheckFlag = FALSE) THEN
+              IF (CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput))) THEN
                   IsCoolerUseCase := TRUE;
               END_IF;
-              InitialTemperatureCheck := FALSE;
+              InitialCheckFlag := TRUE;
           END_IF;
-      END_IF;
-      
-      (* Cooler usecase *)
-      IF (IsCoolerUseCase) THEN
         
-          IF (CurrentTemperature > 0.0 AND CurrentTemperature > UINT_TO_REAL(SetTemperatureInput)) THEN
-              Cooler_Relay := TRUE;
-                    
+          IF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) - offSet)
+              AND IsCoolerUseCase = TRUE) THEN
+              CoolerRelay := TRUE;
+              HeaterRelay := FALSE;
+              IsCoolerUseCase := TRUE;
+        
+              
           ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature < (UINT_TO_REAL(SetTemperatureInput) - offSet)) THEN
-              Cooler_Relay := FALSE;
+              CoolerRelay := FALSE;
+              HeaterRelay := TRUE;
+              IsCoolerUseCase := FALSE;
+          
+              
+          ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) + offSet)) THEN 
+              IsCoolerUseCase := TRUE;
               
           END_IF;
-      
-      (* Heater usecase *)   
-      ELSE
-
-          IF (CurrentTemperature > 0.0 AND CurrentTemperature < UINT_TO_REAL(SetTemperatureInput)) THEN
-              HotAirGunRelay := TRUE;
-                    
-          ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) + offSet)) THEN
-              HotAirGunRelay := FALSE;
-          
-          END_IF;
-          
-      END_IF;
           
   END_IF;
 
   IF (ResetSystem = 1) THEN
-      IsCoolerUseCase := FALSE;
-      HotAirGunRelay := FALSE;
-      Cooler_Relay := FALSE;
+      HeaterRelay := FALSE;
+      CoolerRelay := FALSE;
       ResetSystem := 0;
-      InitialTemperatureCheck := TRUE;
-    
+      IsCoolerUseCase := FALSE;
+      InitialCheckFlag := FALSE;
   END_IF;
 END_PROGRAM
 

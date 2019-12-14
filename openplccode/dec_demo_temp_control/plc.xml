@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2019-12-09T09:14:32"/>
-  <contentHeader name="Demo_temperature_control" modificationDateTime="2019-12-13T20:23:46">
+  <contentHeader name="Demo_temperature_control" modificationDateTime="2019-12-14T21:24:14">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -38,7 +38,7 @@
                 <UINT/>
               </type>
             </variable>
-            <variable name="HotAirGunRelay" address="%QX0.0">
+            <variable name="HeaterRelay" address="%QX0.0">
               <type>
                 <BOOL/>
               </type>
@@ -46,7 +46,7 @@
                 <simpleValue value="FALSE"/>
               </initialValue>
             </variable>
-            <variable name="Cooler_Relay" address="%QX0.1">
+            <variable name="CoolerRelay" address="%QX0.1">
               <type>
                 <BOOL/>
               </type>
@@ -60,22 +60,6 @@
               </type>
               <initialValue>
                 <simpleValue value="0"/>
-              </initialValue>
-            </variable>
-            <variable name="IsCoolerUseCase" address="%QX99.0">
-              <type>
-                <BOOL/>
-              </type>
-              <initialValue>
-                <simpleValue value="FALSE"/>
-              </initialValue>
-            </variable>
-            <variable name="InitialTemperatureCheck" address="%QX99.1">
-              <type>
-                <BOOL/>
-              </type>
-              <initialValue>
-                <simpleValue value="TRUE"/>
               </initialValue>
             </variable>
             <variable name="CurrentTemperature" address="%MD0">
@@ -102,6 +86,14 @@
             </variable>
           </externalVars>
           <localVars>
+            <variable name="errorOffSet">
+              <type>
+                <REAL/>
+              </type>
+              <initialValue>
+                <simpleValue value="6.0"/>
+              </initialValue>
+            </variable>
             <variable name="offSet">
               <type>
                 <REAL/>
@@ -112,6 +104,22 @@
             </variable>
           </localVars>
           <localVars>
+            <variable name="IsCoolerUseCase" address="%QX99.0">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="InitialCheckFlag" address="%QX99.1">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
             <variable name="ResetSystem" address="%MW1">
               <type>
                 <UINT/>
@@ -120,68 +128,53 @@
                 <simpleValue value="0"/>
               </initialValue>
             </variable>
-            <variable name="AllConditionsFailed" address="%QX0.7">
-              <type>
-                <BOOL/>
-              </type>
-              <initialValue>
-                <simpleValue value="FALSE"/>
-              </initialValue>
-            </variable>
           </localVars>
         </interface>
         <body>
           <ST>
             <xhtml:p><![CDATA[(* Temperature conversion has to be done (calibration) *)
-Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
+
 (* Voltage := (TemperatureSensorOutput * 10.0 / 65535.0); *)
+Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
+
 (* CurrentTemperature := (-66.875)+(218.75*(Voltage/5.0)); *)
-CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 5.0))));
+CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 5.0))), errorOffSet);
 
 IF (SetTemperatureInput >= LowerThreshold AND SetTemperatureInput <= UpperThreshold) THEN
-
-    IF (InitialTemperatureCheck = TRUE) THEN
-        IF (CurrentTemperature > 0.0) THEN
-            IF (CurrentTemperature > UINT_TO_REAL(SetTemperatureInput)) THEN
+  
+        IF (CurrentTemperature > 0.0 AND InitialCheckFlag = FALSE) THEN
+            IF (CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput))) THEN
                 IsCoolerUseCase := TRUE;
             END_IF;
-            InitialTemperatureCheck := FALSE;
+            InitialCheckFlag := TRUE;
         END_IF;
-    END_IF;
-    
-    (* Cooler usecase *)
-    IF (IsCoolerUseCase) THEN
       
-        IF (CurrentTemperature > 0.0 AND CurrentTemperature > UINT_TO_REAL(SetTemperatureInput)) THEN
-            Cooler_Relay := TRUE;
-                  
+        IF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) - offSet)
+            AND IsCoolerUseCase = TRUE) THEN
+            CoolerRelay := TRUE;
+            HeaterRelay := FALSE;
+            IsCoolerUseCase := TRUE;
+      
+            
         ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature < (UINT_TO_REAL(SetTemperatureInput) - offSet)) THEN
-            Cooler_Relay := FALSE;
+            CoolerRelay := FALSE;
+            HeaterRelay := TRUE;
+            IsCoolerUseCase := FALSE;
+        
+            
+        ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) + offSet)) THEN 
+            IsCoolerUseCase := TRUE;
             
         END_IF;
-    
-    (* Heater usecase *)   
-    ELSE
-
-        IF (CurrentTemperature > 0.0 AND CurrentTemperature < UINT_TO_REAL(SetTemperatureInput)) THEN
-            HotAirGunRelay := TRUE;
-                  
-        ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) + offSet)) THEN
-            HotAirGunRelay := FALSE;
-        
-        END_IF;
-        
-    END_IF;
         
 END_IF;
 
 IF (ResetSystem = 1) THEN
-    IsCoolerUseCase := FALSE;
-    HotAirGunRelay := FALSE;
-    Cooler_Relay := FALSE;
+    HeaterRelay := FALSE;
+    CoolerRelay := FALSE;
     ResetSystem := 0;
-    InitialTemperatureCheck := TRUE;
-  
+    IsCoolerUseCase := FALSE;
+    InitialCheckFlag := FALSE;
 END_IF;]]></xhtml:p>
           </ST>
         </body>

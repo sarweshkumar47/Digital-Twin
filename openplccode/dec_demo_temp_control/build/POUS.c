@@ -200,18 +200,18 @@ void DEMO_TEMPERATURE_CONTROL_init__(DEMO_TEMPERATURE_CONTROL *data__, BOOL reta
   __INIT_VAR(data__->SETTEMPERATUREINPUT,0,retain)
   __INIT_VAR(data__->TEMPERATURESENSOROUTPUT,0,retain)
   __INIT_VAR(data__->RPMSENSOROUTPUT,0,retain)
-  __INIT_VAR(data__->HOTAIRGUNRELAY,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->COOLER_RELAY,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->HEATERRELAY,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->COOLERRELAY,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->FANOUTPUTPWM,0,retain)
-  __INIT_VAR(data__->ISCOOLERUSECASE,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->INITIALTEMPERATURECHECK,__BOOL_LITERAL(TRUE),retain)
   __INIT_VAR(data__->CURRENTTEMPERATURE,0,retain)
   __INIT_VAR(data__->VOLTAGE,0,retain)
   __INIT_EXTERNAL(UINT,LOWERTHRESHOLD,data__->LOWERTHRESHOLD,retain)
   __INIT_EXTERNAL(UINT,UPPERTHRESHOLD,data__->UPPERTHRESHOLD,retain)
+  __INIT_VAR(data__->ERROROFFSET,6.0,retain)
   __INIT_VAR(data__->OFFSET,0.3,retain)
+  __INIT_VAR(data__->ISCOOLERUSECASE,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->INITIALCHECKFLAG,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->RESETSYSTEM,0,retain)
-  __INIT_VAR(data__->ALLCONDITIONSFAILED,__BOOL_LITERAL(FALSE),retain)
 }
 
 // Code part
@@ -234,7 +234,7 @@ void DEMO_TEMPERATURE_CONTROL_body__(DEMO_TEMPERATURE_CONTROL *data__) {
   __SET_VAR(data__->,CURRENTTEMPERATURE,,ADD__REAL__REAL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
-    (UINT)2,
+    (UINT)3,
     (REAL)-66.875,
     (REAL)MUL__REAL__REAL(
       (BOOL)__BOOL_LITERAL(TRUE),
@@ -245,51 +245,45 @@ void DEMO_TEMPERATURE_CONTROL_body__(DEMO_TEMPERATURE_CONTROL *data__) {
         (BOOL)__BOOL_LITERAL(TRUE),
         NULL,
         (REAL)__GET_VAR(data__->VOLTAGE,),
-        (REAL)5.0))));
+        (REAL)5.0)),
+    (REAL)__GET_VAR(data__->ERROROFFSET,)));
   if (((__GET_VAR(data__->SETTEMPERATUREINPUT,) >= __GET_EXTERNAL(data__->LOWERTHRESHOLD,)) && (__GET_VAR(data__->SETTEMPERATUREINPUT,) <= __GET_EXTERNAL(data__->UPPERTHRESHOLD,)))) {
-    if ((__GET_VAR(data__->INITIALTEMPERATURECHECK,) == __BOOL_LITERAL(TRUE))) {
-      if ((__GET_VAR(data__->CURRENTTEMPERATURE,) > 0.0)) {
-        if ((__GET_VAR(data__->CURRENTTEMPERATURE,) > UINT_TO_REAL(
-          (BOOL)__BOOL_LITERAL(TRUE),
-          NULL,
-          (UINT)__GET_VAR(data__->SETTEMPERATUREINPUT,)))) {
-          __SET_VAR(data__->,ISCOOLERUSECASE,,__BOOL_LITERAL(TRUE));
-        };
-        __SET_VAR(data__->,INITIALTEMPERATURECHECK,,__BOOL_LITERAL(FALSE));
+    if (((__GET_VAR(data__->CURRENTTEMPERATURE,) > 0.0) && (__GET_VAR(data__->INITIALCHECKFLAG,) == __BOOL_LITERAL(FALSE)))) {
+      if ((__GET_VAR(data__->CURRENTTEMPERATURE,) > UINT_TO_REAL(
+        (BOOL)__BOOL_LITERAL(TRUE),
+        NULL,
+        (UINT)__GET_VAR(data__->SETTEMPERATUREINPUT,)))) {
+        __SET_VAR(data__->,ISCOOLERUSECASE,,__BOOL_LITERAL(TRUE));
       };
+      __SET_VAR(data__->,INITIALCHECKFLAG,,__BOOL_LITERAL(TRUE));
     };
-    if (__GET_VAR(data__->ISCOOLERUSECASE,)) {
-      if (((__GET_VAR(data__->CURRENTTEMPERATURE,) > 0.0) && (__GET_VAR(data__->CURRENTTEMPERATURE,) > UINT_TO_REAL(
-        (BOOL)__BOOL_LITERAL(TRUE),
-        NULL,
-        (UINT)__GET_VAR(data__->SETTEMPERATUREINPUT,))))) {
-        __SET_VAR(data__->,COOLER_RELAY,,__BOOL_LITERAL(TRUE));
-      } else if (((__GET_VAR(data__->CURRENTTEMPERATURE,) > 0.0) && (__GET_VAR(data__->CURRENTTEMPERATURE,) < (UINT_TO_REAL(
-        (BOOL)__BOOL_LITERAL(TRUE),
-        NULL,
-        (UINT)__GET_VAR(data__->SETTEMPERATUREINPUT,)) - __GET_VAR(data__->OFFSET,))))) {
-        __SET_VAR(data__->,COOLER_RELAY,,__BOOL_LITERAL(FALSE));
-      };
-    } else {
-      if (((__GET_VAR(data__->CURRENTTEMPERATURE,) > 0.0) && (__GET_VAR(data__->CURRENTTEMPERATURE,) < UINT_TO_REAL(
-        (BOOL)__BOOL_LITERAL(TRUE),
-        NULL,
-        (UINT)__GET_VAR(data__->SETTEMPERATUREINPUT,))))) {
-        __SET_VAR(data__->,HOTAIRGUNRELAY,,__BOOL_LITERAL(TRUE));
-      } else if (((__GET_VAR(data__->CURRENTTEMPERATURE,) > 0.0) && (__GET_VAR(data__->CURRENTTEMPERATURE,) > (UINT_TO_REAL(
-        (BOOL)__BOOL_LITERAL(TRUE),
-        NULL,
-        (UINT)__GET_VAR(data__->SETTEMPERATUREINPUT,)) + __GET_VAR(data__->OFFSET,))))) {
-        __SET_VAR(data__->,HOTAIRGUNRELAY,,__BOOL_LITERAL(FALSE));
-      };
+    if ((((__GET_VAR(data__->CURRENTTEMPERATURE,) > 0.0) && (__GET_VAR(data__->CURRENTTEMPERATURE,) > (UINT_TO_REAL(
+      (BOOL)__BOOL_LITERAL(TRUE),
+      NULL,
+      (UINT)__GET_VAR(data__->SETTEMPERATUREINPUT,)) - __GET_VAR(data__->OFFSET,)))) && (__GET_VAR(data__->ISCOOLERUSECASE,) == __BOOL_LITERAL(TRUE)))) {
+      __SET_VAR(data__->,COOLERRELAY,,__BOOL_LITERAL(TRUE));
+      __SET_VAR(data__->,HEATERRELAY,,__BOOL_LITERAL(FALSE));
+      __SET_VAR(data__->,ISCOOLERUSECASE,,__BOOL_LITERAL(TRUE));
+    } else if (((__GET_VAR(data__->CURRENTTEMPERATURE,) > 0.0) && (__GET_VAR(data__->CURRENTTEMPERATURE,) < (UINT_TO_REAL(
+      (BOOL)__BOOL_LITERAL(TRUE),
+      NULL,
+      (UINT)__GET_VAR(data__->SETTEMPERATUREINPUT,)) - __GET_VAR(data__->OFFSET,))))) {
+      __SET_VAR(data__->,COOLERRELAY,,__BOOL_LITERAL(FALSE));
+      __SET_VAR(data__->,HEATERRELAY,,__BOOL_LITERAL(TRUE));
+      __SET_VAR(data__->,ISCOOLERUSECASE,,__BOOL_LITERAL(FALSE));
+    } else if (((__GET_VAR(data__->CURRENTTEMPERATURE,) > 0.0) && (__GET_VAR(data__->CURRENTTEMPERATURE,) > (UINT_TO_REAL(
+      (BOOL)__BOOL_LITERAL(TRUE),
+      NULL,
+      (UINT)__GET_VAR(data__->SETTEMPERATUREINPUT,)) + __GET_VAR(data__->OFFSET,))))) {
+      __SET_VAR(data__->,ISCOOLERUSECASE,,__BOOL_LITERAL(TRUE));
     };
   };
   if ((__GET_VAR(data__->RESETSYSTEM,) == 1)) {
-    __SET_VAR(data__->,ISCOOLERUSECASE,,__BOOL_LITERAL(FALSE));
-    __SET_VAR(data__->,HOTAIRGUNRELAY,,__BOOL_LITERAL(FALSE));
-    __SET_VAR(data__->,COOLER_RELAY,,__BOOL_LITERAL(FALSE));
+    __SET_VAR(data__->,HEATERRELAY,,__BOOL_LITERAL(FALSE));
+    __SET_VAR(data__->,COOLERRELAY,,__BOOL_LITERAL(FALSE));
     __SET_VAR(data__->,RESETSYSTEM,,0);
-    __SET_VAR(data__->,INITIALTEMPERATURECHECK,,__BOOL_LITERAL(TRUE));
+    __SET_VAR(data__->,ISCOOLERUSECASE,,__BOOL_LITERAL(FALSE));
+    __SET_VAR(data__->,INITIALCHECKFLAG,,__BOOL_LITERAL(FALSE));
   };
 
   goto __end;
