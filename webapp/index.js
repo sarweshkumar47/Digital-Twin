@@ -26,19 +26,19 @@ class App {
         this.eventSource = null
         this.eventListener = (e) => { this.handleMessage(e) }
 
-        this.userSetTemperature = 25 // default temperature value
+        this.userSetTemperature = 25 // default value
         this.dateTime = null
         this.fan_rotating_gif_running = false
     }
 
     onRefresh() {
-        this.requestGetFeature('DesiredTemperature',
-            (data, textStatus, jqXHR) => {this.updateDesiredTemperature(data, textStatus, jqXHR) },
-            (jqXHR, textStatus, errorThrown) => {
-                this.enableAutoRefresh(false)
-                this.pushLog('danger', 'Error retrieving desired temperature: ${errorThrown}. Auto refresh stopped, please reload page.')
-            }
-        )
+        // this.requestGetFeature('DesiredTemperature',
+        //  (data, textStatus, jqXHR) => {this.updateDesiredTemperature(data, textStatus, jqXHR) },
+        //  (jqXHR, textStatus, errorThrown) => {
+        //      this.enableAutoRefresh(false)
+        //      this.pushLog('danger', 'Error retrieving desired temperature: ${errorThrown}. Auto refresh stopped, please reload page.')
+        //  }
+        // )
         this.requestGetFeature('ActualTemperature',
             (data, textStatus, jqXHR) => {this.updateActualTemperature(data, textStatus, jqXHR) },
             (jqXHR, textStatus, errorThrown) => {
@@ -88,7 +88,7 @@ class App {
         );
         this.dateTime = this.getCurrentTimeStamp()
         this.userSetTemperature = $('#setDesiredTemperature').val()
- 
+        doIfDefined(this.userSetTemperature, (d) => {$('#desiredTemperature').html(`<span>${d}° C</span>`)})
         doIfDefined(this.dateTime, (d) => {$('#desiredTemperatureLastUpdate').html(`<span>${d}</span>`)})
         $('#TemperatureModal').modal('hide')
     }
@@ -141,16 +141,17 @@ class App {
     }
 
     updateDesiredTemperature(data, textStatus, jqXHR) {
-        doIfDefined(data.properties.setTemperature, (d) => {$('#desiredTemperature').html(`<span>${d}° C</span>`)})
+        doIfDefined(data.properties.setTemperature, (d) => {$('#desiredTemperature').html(`<span style="color:black>${d}° C</span>`)})
     }
 
     updateActualTemperature(data, textStatus, jqXHR) {
         var sampled_adc_temp, temp_calibrarted_value, voltage;
         sampled_adc_temp = data.properties.temperatureSampledValue;
-        voltage = (sampled_adc_temp * 5.0) / 65535.0;
+        voltage = (sampled_adc_temp * 10.0) / 65535.0;
         temp_calibrarted_value = ((-66.875) + (218.75* (voltage / 5.0))).toFixed(2)
-        doIfDefined(data.properties.temperatureSampledValue, (d) => {$('#sampledValue').html(`<span>${d}</span>`)})
-        doIfDefined(temp_calibrarted_value, (d) => {$('#temperatureValue').html(`<span>${d}° C</span>`)})
+        if (temp_calibrarted_value > 0.0) {
+            doIfDefined(temp_calibrarted_value, (d) => {$('#temperatureValue').html(`<span>${d}° C</span>`)})
+        }
         doIfDefined(data.properties.lastUpdate, (d) => {$('#temperatureLastUpdate').html(`<span>${d}</span>`)})
     }
 
