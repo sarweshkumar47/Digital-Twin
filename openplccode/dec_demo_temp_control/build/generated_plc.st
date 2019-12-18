@@ -4,7 +4,8 @@ PROGRAM demo_temperature_control
     TemperatureSensorOutput AT %IW0 : UINT;
     RpmSensorOutput AT %IW1 : UINT;
     HeaterRelay AT %QX0.0 : BOOL := FALSE;
-    CoolerRelay AT %QX0.1 : BOOL := FALSE;
+    CoolerRelay_1 AT %QX0.1 : BOOL := FALSE;
+    CoolerRelay_2 AT %QX0.2 : BOOL := FALSE;
     FanOutputPwm AT %QW0 : UINT := 0;
     CurrentTemperature AT %MD0 : REAL;
     Voltage AT %MD1 : REAL;
@@ -15,7 +16,8 @@ PROGRAM demo_temperature_control
   END_VAR
   VAR
     errorOffSet : REAL := 6.0;
-    offSet : REAL := 0.3;
+    coolingOffSet : REAL := 0.2;
+    heatingOffSet : REAL := 0.1;
   END_VAR
   VAR
     IsCoolerUseCase AT %QX99.0 : BOOL := FALSE;
@@ -23,13 +25,15 @@ PROGRAM demo_temperature_control
     ResetSystem AT %MW1 : UINT := 0;
   END_VAR
 
-  (* Temperature conversion has to be done (calibration) *)
+  (* Temperature conversion has to be done *)
 
   (* Voltage := (TemperatureSensorOutput * 10.0 / 65535.0); *)
   Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
 
-  (* CurrentTemperature := (-66.875)+(218.75*(Voltage/5.0)); *)
-  CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 5.0))), errorOffSet);
+  (* Powerbank provides 4.95V *)
+  (* CurrentTemperature := (-66.875)+(218.75*(Voltage/Vref)); *)
+  (* Error offSet (6.0 deg) has been added to the calculation *)
+  CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 4.95))), errorOffSet);
 
   IF (SetTemperatureInput >= LowerThreshold AND SetTemperatureInput <= UpperThreshold) THEN
     
@@ -40,20 +44,23 @@ PROGRAM demo_temperature_control
               InitialCheckFlag := TRUE;
           END_IF;
         
-          IF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) - offSet)
+          (* Cooling offset = 0.2 *)
+          IF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) - coolingOffSet)
               AND IsCoolerUseCase = TRUE) THEN
-              CoolerRelay := TRUE;
               HeaterRelay := FALSE;
+              CoolerRelay_1 := TRUE;
+              CoolerRelay_2 := TRUE;
               IsCoolerUseCase := TRUE;
         
               
-          ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature < (UINT_TO_REAL(SetTemperatureInput) - offSet)) THEN
-              CoolerRelay := FALSE;
+          ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature < (UINT_TO_REAL(SetTemperatureInput) - coolingOffSet)) THEN
+              CoolerRelay_1 := FALSE;
+              CoolerRelay_2 := FALSE;
               HeaterRelay := TRUE;
               IsCoolerUseCase := FALSE;
           
-              
-          ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) + offSet)) THEN 
+          (* Heating offset = 0.1 *)    
+          ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) - heatingOffSet)) THEN 
               IsCoolerUseCase := TRUE;
               
           END_IF;
@@ -62,7 +69,8 @@ PROGRAM demo_temperature_control
 
   IF (ResetSystem = 1) THEN
       HeaterRelay := FALSE;
-      CoolerRelay := FALSE;
+      CoolerRelay_1 := FALSE;
+      CoolerRelay_2 := FALSE;
       ResetSystem := 0;
       IsCoolerUseCase := FALSE;
       InitialCheckFlag := FALSE;
@@ -77,7 +85,7 @@ CONFIGURATION Config0
       LowerThreshold : UINT := 20;
       UpperThreshold : UINT := 40;
     END_VAR
-    TASK taskMain(INTERVAL := T#100ms,PRIORITY := 0);
+    TASK taskMain(INTERVAL := T#50ms,PRIORITY := 0);
     PROGRAM instance0 WITH taskMain : demo_temperature_control;
   END_RESOURCE
 END_CONFIGURATION

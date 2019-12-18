@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2019-12-09T09:14:32"/>
-  <contentHeader name="Demo_temperature_control" modificationDateTime="2019-12-14T21:24:14">
+  <contentHeader name="Demo_temperature_control" modificationDateTime="2019-12-18T10:12:49">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -46,7 +46,15 @@
                 <simpleValue value="FALSE"/>
               </initialValue>
             </variable>
-            <variable name="CoolerRelay" address="%QX0.1">
+            <variable name="CoolerRelay_1" address="%QX0.1">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="CoolerRelay_2" address="%QX0.2">
               <type>
                 <BOOL/>
               </type>
@@ -94,12 +102,20 @@
                 <simpleValue value="6.0"/>
               </initialValue>
             </variable>
-            <variable name="offSet">
+            <variable name="coolingOffSet">
               <type>
                 <REAL/>
               </type>
               <initialValue>
-                <simpleValue value="0.3"/>
+                <simpleValue value="0.2"/>
+              </initialValue>
+            </variable>
+            <variable name="heatingOffSet">
+              <type>
+                <REAL/>
+              </type>
+              <initialValue>
+                <simpleValue value="0.1"/>
               </initialValue>
             </variable>
           </localVars>
@@ -132,13 +148,15 @@
         </interface>
         <body>
           <ST>
-            <xhtml:p><![CDATA[(* Temperature conversion has to be done (calibration) *)
+            <xhtml:p><![CDATA[(* Temperature conversion has to be done *)
 
 (* Voltage := (TemperatureSensorOutput * 10.0 / 65535.0); *)
 Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
 
-(* CurrentTemperature := (-66.875)+(218.75*(Voltage/5.0)); *)
-CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 5.0))), errorOffSet);
+(* Powerbank provides 4.95V *)
+(* CurrentTemperature := (-66.875)+(218.75*(Voltage/Vref)); *)
+(* Error offSet (6.0 deg) has been added to the calculation *)
+CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 4.95))), errorOffSet);
 
 IF (SetTemperatureInput >= LowerThreshold AND SetTemperatureInput <= UpperThreshold) THEN
   
@@ -149,20 +167,23 @@ IF (SetTemperatureInput >= LowerThreshold AND SetTemperatureInput <= UpperThresh
             InitialCheckFlag := TRUE;
         END_IF;
       
-        IF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) - offSet)
+        (* Cooling offset = 0.2 *)
+        IF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) - coolingOffSet)
             AND IsCoolerUseCase = TRUE) THEN
-            CoolerRelay := TRUE;
             HeaterRelay := FALSE;
+            CoolerRelay_1 := TRUE;
+            CoolerRelay_2 := TRUE;
             IsCoolerUseCase := TRUE;
       
             
-        ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature < (UINT_TO_REAL(SetTemperatureInput) - offSet)) THEN
-            CoolerRelay := FALSE;
+        ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature < (UINT_TO_REAL(SetTemperatureInput) - coolingOffSet)) THEN
+            CoolerRelay_1 := FALSE;
+            CoolerRelay_2 := FALSE;
             HeaterRelay := TRUE;
             IsCoolerUseCase := FALSE;
         
-            
-        ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) + offSet)) THEN 
+        (* Heating offset = 0.1 *)    
+        ELSIF (CurrentTemperature > 0.0 AND CurrentTemperature > (UINT_TO_REAL(SetTemperatureInput) - heatingOffSet)) THEN 
             IsCoolerUseCase := TRUE;
             
         END_IF;
@@ -171,7 +192,8 @@ END_IF;
 
 IF (ResetSystem = 1) THEN
     HeaterRelay := FALSE;
-    CoolerRelay := FALSE;
+    CoolerRelay_1 := FALSE;
+    CoolerRelay_2 := FALSE;
     ResetSystem := 0;
     IsCoolerUseCase := FALSE;
     InitialCheckFlag := FALSE;
@@ -185,7 +207,7 @@ END_IF;]]></xhtml:p>
     <configurations>
       <configuration name="Config0">
         <resource name="Res0">
-          <task name="taskMain" priority="0" interval="T#100ms">
+          <task name="taskMain" priority="0" interval="T#50ms">
             <pouInstance name="instance0" typeName="demo_temperature_control"/>
           </task>
           <globalVars>
