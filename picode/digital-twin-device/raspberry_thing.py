@@ -36,6 +36,7 @@ HEATER_PROPERTIES_PATH = "/features/thermoElectricHeater/properties"
 
 TEMPERATURE_SENSOR_SAMPLING_RATE_PATH = ACTUAL_TEMPERATURE_PROPERTIES_PATH + "/samplingRate"
 USER_DESIRED_TEMPERATURE_SET_PATH = USER_DESIRED_TEMPERATURE_PROPERTIES_PATH + "/setTemperature"
+USER_DESIRED_TEMPERATURE_TIME_PATH = USER_DESIRED_TEMPERATURE_PROPERTIES_PATH + "/lastUpdate"
 
 UPDATE_EVENT_TOPIC = THING_ID + "/things/twin/events/modified"
 
@@ -113,10 +114,10 @@ class RaspberryDemoThing:
 
 	def start_polling_new_components_data(self, callback):
 		"""
-			this function will repeatedly queries temperature values and send them back to the callback.
-			:param callback: callback function for new sensor values
-			:return: None
-			"""
+		this function will repeatedly queries temperature values and send them back to the callback.
+		:param callback: callback function for new sensor values
+		:return: None
+		"""
 		threading._start_new_thread(self.__poll_new_components_data, (callback,))
 
 	def __poll_new_components_data(self, callback):
@@ -131,10 +132,10 @@ class RaspberryDemoThing:
 			except ValueError:
 				print('Error when providing temperature values. Trying again')
 			except:
+				# Modbus error might occur here :P
 				print('General exception.')
 			finally:
 				# wait for next read
-				# time.sleep(1 / self.temperature_sensor.get_sampling_rate())
 				time.sleep(1)
 
 	def __handle_event(self, event):
@@ -148,14 +149,23 @@ class RaspberryDemoThing:
 			print('setting samplingRate of temperature sensor to {} Hz'.format(samplingRate))
 			self.temperature_sensor.set_sampling_rate(samplingRate)
 
-		if self.__is_user_desired_temperature_set(event):
+		if self.__is_user_desired_temperature_value_change(event):
 			"""
-					 Set the desired temperature in plc using modbus write operation
-					 :param message: the modify event that should contain the temperature value
-					 """
+			Set the desired temperature in plc using modbus write operation
+			:param message: the modify event that should contain the temperature value
+			"""
 			desired_temp = event['value']
 			print('setting desired temperature: {}° C to plc'.format(desired_temp))
 			self.desired_temperature.set_desired_temperature(desired_temp)
+
+		if self.__is_user_desired_temperature_timestamp_change(event):
+			"""
+			Set the desired temperature in plc using modbus write operation
+			:param message: the modify event that should contain the temperature value
+			"""
+			time_stamp = event['value']
+			print('timestamp at which user set the desired temperature: {}'.format(time_stamp))
+			self.desired_temperature.set_last_update(time_stamp)
 
 	def __handle_message(self, message):
 		print('__handle_message: Received message')
@@ -169,7 +179,7 @@ class RaspberryDemoThing:
 		#     self.buzzer.set_enabled(buzz)
 		pass
 
-	def __is_user_desired_temperature_set(self, message):
+	def __is_user_desired_temperature_value_change(self, message):
 		"""
 		Check if the message is for setting the desired temperature.
 		:return: True if it is such kind of a message
@@ -178,6 +188,16 @@ class RaspberryDemoThing:
 		       and 'value' in message \
 		       and UPDATE_EVENT_TOPIC == message['topic'] \
 		       and USER_DESIRED_TEMPERATURE_SET_PATH == message['path']
+
+	def __is_user_desired_temperature_timestamp_change(self, message):
+		"""
+		Check if the message consists of timestamp at which user set the desired temperature from the webapp.
+		:return: True if it is such kind of a message
+		"""
+		return 'path' in message \
+		       and 'value' in message \
+		       and UPDATE_EVENT_TOPIC == message['topic'] \
+		       and USER_DESIRED_TEMPERATURE_TIME_PATH == message['path']
 
 	def __is_temperature_sampling_rate_change(self, message):
 		"""

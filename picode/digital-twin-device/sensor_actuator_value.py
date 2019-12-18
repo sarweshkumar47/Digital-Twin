@@ -3,6 +3,7 @@ import custom_modbus_monitoring as monitor
 
 
 class UserDesiredTemperatureInput:
+	lastUpdate = None
 
 	def __init__(self, temp_in_celsius=0):
 		self.temp_in_celsius = temp_in_celsius
@@ -20,13 +21,20 @@ class UserDesiredTemperatureInput:
 		self.temp_in_celsius = temp_in_celsius
 		self.__write_desired_temperature_modbus_plc(self.temp_in_celsius)
 
+	def set_last_update(self, last_update):
+		self.lastUpdate = last_update
+
+	def get_last_update(self):
+		return self.lastUpdate
+
 	def get_properties_json(self, temperature):
 		return {
-			"setTemperature": temperature
+			"setTemperature": temperature,
+			"lastUpdate": self.get_last_update()
 		}
 
 	def __write_desired_temperature_modbus_plc(self, temperature):
-		# Reset the variables first before setting the desired temperature
+		# Reset the variables before setting the desired temperature
 		monitor.write_modbus_register(self.reset_system, 1)
 		monitor.write_modbus_register(self.desired_temp_mod_loc, temperature)
 

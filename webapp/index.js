@@ -86,6 +86,12 @@ class App {
         this.updateConfig()
         this.applyUpdateStrategy()
         $('#configureModal').modal('hide')
+
+        // initial load of attributes and features
+        this.requestGetAttributes(this.updateDeviceInfo,
+            () => { },
+            (jqXHR, textStatus, errorThrown) => { this.pushLog('danger', `Error retrieving device info: ${errorThrown}`) }
+        )
     }
 
     onConfigure() {
@@ -97,7 +103,14 @@ class App {
             () => { },
             (jqXHR, textStatus, errorThrown) => { this.pushLog('danger', `Error sending sample rate update: ${errorThrown}`) }
         );
+
         this.dateTime = this.getCurrentTimeStamp()
+
+        this.requestSetProperty('desiredTemperature', 'lastUpdate', JSON.stringify(this.dateTime),
+            () => { },
+            (jqXHR, textStatus, errorThrown) => { this.pushLog('danger', `Error sending sample rate update: ${errorThrown}`) }
+        );
+
         this.userSetTemperature = $('#slider').val()
 
         doIfDefined(this.userSetTemperature, (d) => {$('#desiredTemperature').html(`<span style="color:black">${d}° C</span>`)})
@@ -137,7 +150,6 @@ class App {
             .done((data, textStatus, jqXHR) => { success(data, textStatus, jqXHR) })
     }
 
-
     requestSetProperty(featureId, propertyId, data, success, error) {
         $.post({
             type: "PUT",
@@ -162,13 +174,21 @@ class App {
 
     updateAllFeatures(data, textStatus, jqXHR) {
 
+        // Desired Temperature
+        var desired_temp = data.desiredTemperature.properties.setTemperature;
+        if (desired_temp > 0) {
+            doIfDefined(data.desiredTemperature.properties.setTemperature, (d) => {$('#desiredTemperature').html(`<span style="color:black">${d}° C</span>`)})
+        }
+        doIfDefined(data.desiredTemperature.properties.lastUpdate, (d) => {$('#desiredTemperatureLastUpdate').html(`<span>${d}</span>`)})
+
         // Actual temperature
-        var sampled_adc_temp, temp_calibrarted_value, voltage;
+        var sampled_adc_temp, temp_calibrated_value, voltage;
         sampled_adc_temp = data.actualTemperature.properties.temperatureSampledValue;
         voltage = (sampled_adc_temp * 10.0) / 65535.0;
-        temp_calibrarted_value = ((-66.875) + (218.75* (voltage / 5.0)) + 6.0).toFixed(2)
-        if (temp_calibrarted_value > 0.0) {
-            doIfDefined(temp_calibrarted_value, (d) => {$('#temperatureValue').html(`<span>${d}° C</span>`)})
+        // Powerbank ref voltage: 4.95V; Error offset: 6.0 deg
+        temp_calibrated_value = ((-66.875) + (218.75* (voltage / 4.95)) + 6.0).toFixed(2)
+        if (temp_calibrated_value > 0.0) {
+            doIfDefined(temp_calibrated_value, (d) => {$('#temperatureValue').html(`<span>${d}° C</span>`)})
         }
         doIfDefined(data.actualTemperature.properties.lastUpdate, (d) => {$('#temperatureLastUpdate').html(`<span>${d}</span>`)})
 
@@ -236,18 +256,6 @@ class App {
         doIfDefined(data.thermoElectricHeater.properties.lastUpdate, (d) => {$('#heaterLastUpdate').html(`<span>${d}</span>`)})
         doIfDefined(data.thermoElectricHeater.properties.fanRpm, (d) => {$('#heaterFanRpm').html(`<span>${d}</span>`)})
     }
-
-    // updateFanActuator(data, textStatus, jqXHR) {
-    //     var state;
-    //     if (data.fanActuator.properties.fanState == 0) {
-    //        state = "OFF"
-    //        doIfDefined(state, (d) => {$('#fanState').html(`<span style="color:green">${d}</span>`)})
-    //     } else {
-    //        state = "ON"
-    //        doIfDefined(state, (d) => {$('#fanState').html(`<span style="color:red">${d}</span>`)})
-    //     }
-    //     doIfDefined(data.fanActuator.properties.lastUpdate, (d) => {$('#fanLastUpdate').html(`<span>${d}</span>`)})
-    // }
 
     updateDeviceInfo(data, textStatus, jqXHR) {
         $("#deviceInfo").html('')
