@@ -130,6 +130,17 @@ def modbus_monitor():
 				debug_data.value = unpack('>d', float_pack)[0]
 
 
+def write_modbus_register(memory_address, value):
+	global mb_client
+	for debug_data in debug_vars:
+		if (memory_address in debug_data.location):
+			# Writing Word Memory
+			mb_address = memory_address.split('%MW')[1]
+			# print ("mb_address: " + str(mb_address))
+			result = mb_client.write_register(int(mb_address) + 1024, value)
+			debug_data.value = result.value
+
+
 def start_monitor():
 	global monitor_active
 	global mb_client

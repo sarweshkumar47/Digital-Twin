@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (c) 2017 Contributors to the Eclipse Foundation
 #
 # See the NOTICE file(s) distributed with this work for additional
@@ -27,11 +28,17 @@ THING_COMMAND_TOPIC = THING_ID + "/things/twin/commands"
 THING_MESSAGE_TOPIC = THING_ID + "/things/live/messages"
 
 THING_MODIFY_COMMAND_TOPIC = THING_COMMAND_TOPIC + "/modify"
-TEMPERATURE_SENSOR_PROPERTIES_PATH = "/features/TemperatureSensor/properties"
-FAN_ACTUATOR_PROPERTIES_PATH = "/features/FanActuator/properties"
-TEMPERATURE_SENSOR_SAMPLING_RATE_PATH = TEMPERATURE_SENSOR_PROPERTIES_PATH + "/samplingRate"
 
-FREQUENCY_CHANGE_EVENT_TOPIC = THING_ID + "/things/twin/events/modified"
+USER_DESIRED_TEMPERATURE_PROPERTIES_PATH = "/features/desiredTemperature/properties"
+ACTUAL_TEMPERATURE_PROPERTIES_PATH = "/features/actualTemperature/properties"
+COOLER_PROPERTIES_PATH = "/features/thermoElectricCooler/properties"
+HEATER_PROPERTIES_PATH = "/features/thermoElectricHeater/properties"
+
+TEMPERATURE_SENSOR_SAMPLING_RATE_PATH = ACTUAL_TEMPERATURE_PROPERTIES_PATH + "/samplingRate"
+USER_DESIRED_TEMPERATURE_SET_PATH = USER_DESIRED_TEMPERATURE_PROPERTIES_PATH + "/setTemperature"
+USER_DESIRED_TEMPERATURE_TIME_PATH = USER_DESIRED_TEMPERATURE_PROPERTIES_PATH + "/lastUpdate"
+
+UPDATE_EVENT_TOPIC = THING_ID + "/things/twin/events/modified"
 
 
 def get_b64_auth():
@@ -47,10 +54,13 @@ class RaspberryDemoThing:
 	def __init__(self, st_file_name):
 		sensor_actuator.start_modbus(st_file_name)
 		time.sleep(1)
+		self.desired_temperature = sensor_actuator.UserDesiredTemperatureInput()
 		self.temperature_sensor = sensor_actuator.TemperatureSensor()
-		self.fan_actuator = sensor_actuator.FanActuator()
+		self.cooler = sensor_actuator.Cooler()
+		self.heater = sensor_actuator.Heater()
 
 	def handle_websocket_message(self, message):
+		# print('handle_websocket_message: Received:' + str(message))
 		if message and 'topic' in message:
 			if message['topic'].startswith(THING_EVENT_TOPIC):
 				# handle event message
@@ -58,50 +68,78 @@ class RaspberryDemoThing:
 			elif message['topic'].startswith(THING_MESSAGE_TOPIC):
 				self.__handle_message(message)
 
-	def create_temperature_change_message(self, temperature):
+	def create_user_desired_temperature_static_message(self, desired_temperature):
 		"""
-			Create the modify message that is used to notify Ditto about a new sensor value.
-			:return: The message as a json object.
-			"""
+		Create the modify message that is used to notify Ditto about a new sensor value.
+		:return: The message as a json object.
+		"""
 		return {
 			"topic": THING_MODIFY_COMMAND_TOPIC,
-			"path": TEMPERATURE_SENSOR_PROPERTIES_PATH,
+			"path": USER_DESIRED_TEMPERATURE_PROPERTIES_PATH,
+			"value": self.desired_temperature.get_properties_json(desired_temperature)
+		}
+
+	def create_temperature_change_message(self, temperature):
+		"""
+		Create the modify message that is used to notify Ditto about a new sensor value.
+		:return: The message as a json object.
+		"""
+		return {
+			"topic": THING_MODIFY_COMMAND_TOPIC,
+			"path": ACTUAL_TEMPERATURE_PROPERTIES_PATH,
 			"value": self.temperature_sensor.get_properties_json(temperature)
 		}
 
-	def create_fan_state_change_message(self, illumination):
+	def create_cooler_state_change_message(self, cooler_state):
 		"""
-			Create the modify message that is used to notify Ditto about a new sensor value.
-			:return: The message as a json object.
-			"""
+		Create the modify message that is used to notify Ditto about a new sensor value.
+		:return: The message as a json object.
+		"""
 		return {
 			"topic": THING_MODIFY_COMMAND_TOPIC,
-			"path": FAN_ACTUATOR_PROPERTIES_PATH,
-			"value": self.fan_actuator.get_properties_json(illumination)
+			"path": COOLER_PROPERTIES_PATH,
+			"value": self.cooler.get_properties_json(cooler_state)
 		}
 
-	def start_polling_temperature_fan_info(self, callback):
+	def create_heater_state_change_message(self, heater_state):
 		"""
-			this function will repeatedly queries temperature values and send them back to the callback.
-			:param callback: callback function for new sensor values
-			:return: None
-			"""
-		threading._start_new_thread(self.__poll_temperature_fan_state, (callback,))
+		Create the modify message that is used to notify Ditto about a new sensor value.
+		:return: The message as a json object.
+		"""
+		return {
+			"topic": THING_MODIFY_COMMAND_TOPIC,
+			"path": HEATER_PROPERTIES_PATH,
+			"value": self.heater.get_properties_json(heater_state)
+		}
 
-	def __poll_temperature_fan_state(self, callback):
+	def start_polling_new_components_data(self, callback):
+		"""
+		this function will repeatedly queries temperature values and send them back to the callback.
+		:param callback: callback function for new sensor values
+		:return: None
+		"""
+		threading._start_new_thread(self.__poll_new_components_data, (callback,))
+
+	def __poll_new_components_data(self, callback):
 		while True:
 			try:
 				# read temperature sensor
+				desired_temp = self.desired_temperature.get_user_set_temperature()
 				temp_value = self.temperature_sensor.get_temperature()
-				fan_state = self.fan_actuator.get_fan_state()
-				callback(temp_value, fan_state)
+				cooler_state = self.cooler.get_cooler_state()
+				heater_state = self.heater.get_heater_state()
+				callback(desired_temp, temp_value, cooler_state, heater_state)
 			except ValueError:
 				print('Error when providing temperature values. Trying again')
+			except:
+				# Modbus error might occur here :P
+				print('General exception.')
 			finally:
 				# wait for next read
-				time.sleep(1 / self.temperature_sensor.get_sampling_rate())
+				time.sleep(1)
 
 	def __handle_event(self, event):
+		print('__handle_event: Received event')
 		if self.__is_temperature_sampling_rate_change(event):
 			"""
 			update the frequency in which the sensor values of the thing should be queried
@@ -111,7 +149,26 @@ class RaspberryDemoThing:
 			print('setting samplingRate of temperature sensor to {} Hz'.format(samplingRate))
 			self.temperature_sensor.set_sampling_rate(samplingRate)
 
+		if self.__is_user_desired_temperature_value_change(event):
+			"""
+			Set the desired temperature in plc using modbus write operation
+			:param message: the modify event that should contain the temperature value
+			"""
+			desired_temp = event['value']
+			print('setting desired temperature: {}° C to plc'.format(desired_temp))
+			self.desired_temperature.set_desired_temperature(desired_temp)
+
+		if self.__is_user_desired_temperature_timestamp_change(event):
+			"""
+			Set the desired temperature in plc using modbus write operation
+			:param message: the modify event that should contain the temperature value
+			"""
+			time_stamp = event['value']
+			print('timestamp at which user set the desired temperature: {}'.format(time_stamp))
+			self.desired_temperature.set_last_update(time_stamp)
+
 	def __handle_message(self, message):
+		print('__handle_message: Received message')
 		# if self.__is_buzzer_property_change(message):
 		#     """
 		#         Activate/Deactivate the buzzer.
@@ -122,6 +179,26 @@ class RaspberryDemoThing:
 		#     self.buzzer.set_enabled(buzz)
 		pass
 
+	def __is_user_desired_temperature_value_change(self, message):
+		"""
+		Check if the message is for setting the desired temperature.
+		:return: True if it is such kind of a message
+		"""
+		return 'path' in message \
+		       and 'value' in message \
+		       and UPDATE_EVENT_TOPIC == message['topic'] \
+		       and USER_DESIRED_TEMPERATURE_SET_PATH == message['path']
+
+	def __is_user_desired_temperature_timestamp_change(self, message):
+		"""
+		Check if the message consists of timestamp at which user set the desired temperature from the webapp.
+		:return: True if it is such kind of a message
+		"""
+		return 'path' in message \
+		       and 'value' in message \
+		       and UPDATE_EVENT_TOPIC == message['topic'] \
+		       and USER_DESIRED_TEMPERATURE_TIME_PATH == message['path']
+
 	def __is_temperature_sampling_rate_change(self, message):
 		"""
 		Check if the message is for changing the frequency in which sensor values are requested.
@@ -129,5 +206,5 @@ class RaspberryDemoThing:
 		"""
 		return 'path' in message \
 		       and 'value' in message \
-		       and FREQUENCY_CHANGE_EVENT_TOPIC == message['topic'] \
+		       and UPDATE_EVENT_TOPIC == message['topic'] \
 		       and TEMPERATURE_SENSOR_SAMPLING_RATE_PATH == message['path']

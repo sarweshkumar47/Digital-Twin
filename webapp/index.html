@@ -18,6 +18,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <style>
+        .slidecontainer {
+          width: 100%;
+        }
+
+        .slider {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 15px;
+          border-radius: 5px;
+          background: #d3d3d3;
+          outline: none;
+          opacity: 0.7;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+        }
+
+        .slider:hover {
+          opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: #4CAF50;
+          cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: #4CAF50;
+          cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="mt-5">
@@ -33,6 +72,11 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <button class="btn btn-outline-info" id="configure" data-toggle="modal" data-target="#configureModal">Configure
+                        </button>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <button class="btn btn-outline-info" id="setTemperatureDialog" data-toggle="modal" data-target="#TemperatureModal">Set Temperature
                         </button>
                     </li>
                 </ul>
@@ -52,81 +96,108 @@
                 </div>
             </div>
         </div>
+
+        <br />
+        <div> <h2><b>Features</b></h2></div>
+        <br />
         <div class="row mb-3">
             <div class="col">
-                <h3>Features</h3>
                 <div class="card-deck">
 
                     <div class="card">
-                      <div class="card-header"><b>Temperature sensor</b></div>
+                        <div class="card-header"><b>Desired Temperature</b></div>
                         <div class="card-body">
-                            <h4 class="card-title">
-                                <span id="sampledValue">N/A</span>
-                            </h4>
-                            <h6 class="card-subtitle mb-2 text-muted">Sampled value </h6>
+                            <h1 class="card-title"><span style="color:grey" id="desiredTemperature">25° C</span></h1>
+                            <h5 class="card-subtitle mb-2 text-muted">Set temperature</h5>
 
-                            <h1 class="card-title">
-                                <span id="temperatureValue">N/A</span>
-                            </h1>
-                            <h6 class="card-subtitle mb-2 text-muted">Temperature</h6>
-
-                            <!--<p class="card-text">-->
-                            <!--Some more sensor monitors with configurable sample rate.-->
-                            <!--</p>-->
-                            <img src="images/temperature.png" align="right" alt="Temperature" style="width:15%">
-                              <br />
+                            <br />
                               <dl class="row">
                                   <dt class="col-sm-6 text-right">Timestamp</dt>
-                                  <dd class="col-sm-6" id="temperatureUpdate">N/A</dd>
-                                  <dt class="col-sm-6 text-right">Sampling Rate</dt>
-                                  <dd class="col-sm-6" id="temperatureSamplingRate">N/A</dd>
+                                  <dd class="col-sm-6" id="desiredTemperatureLastUpdate">N/A</dd>
                               </dl>
-                            <div class="form-row">
-                                <div class="form-group col-auto">
-                                    <select class="form-control" id="selectTemperatureSampleRate">
-                                        <option value="1">1 Hz</option>
-                                        <option value="2">2 Hz</option>
-                                        <option value="4">4 Hz</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-auto">
-                                    <button class="btn btn-primary" id="applyTemperatureSampingRate">Apply</button>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="card">
-                      <div class="card-header"><b>Fan (actuator)</b></div>
+                      <div class="card-header"><b>Actual Temperature (inside cabin)</b></div>
                         <div class="card-body">
-                            <h1 class="card-title" id="fanState">N/A</h1>
-                            <h6 class="card-subtitle mb-2 text-muted">Fan state</h6>
-                            <img id="fan_img" src="images/fan_off.png" align="right" alt="Fan" style="width:20%">
-                            <br />
+                            <h1 class="card-title"><span id="temperatureValue">N/A</span></h1>
+                            <h6 class="card-subtitle mb-2 text-muted">Temperature</h6>
+                            <!-- <img src="images/temperature.png" align="right" alt="Temperature" style="width:15%"> -->
+                              <br />
+                              <dl class="row">
+                                  <dt class="col-sm-6 text-right">Timestamp</dt>
+                                  <dd class="col-sm-6" id="temperatureLastUpdate">N/A</dd>
+                              </dl>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </div>
+        
+        </br>
+        <div class="row mb-3">
+            <div class="col">
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="card-header"><b>Thermoelectric cooler</b></div>
+                        <div class="card-body">
+                            <h1 class="card-title" id="coolerState">N/A</h1>
+                            <h6 class="card-subtitle mb-2 text-muted">State</h6>
                             <br />
                             <br />
                             <dl class="row">
                                 <dt class="col-sm-6 text-right">Timestamp</dt>
-                                <dd class="col-sm-6" id="fanUpdate">N/A</dd>
-                            </dl>
-                            <!-- <button onclick="document.getElementById('myImage').src='fan_on.gif'">Turn on the light</button>
-
-                              <img id="myImage" src="fan_off.png" style="width:100px">
-
-                            <button onclick="document.getElementById('myImage').src='fan_off.png'">Turn off the light</button> -->
+                                <dd class="col-sm-6" id="coolerLastUpdate">N/A</dd>
+                                <dt class="col-sm-6 text-right">Quantity</dt>
+                                <dd class="col-sm-6" id="quantity">2</dd>
+                                <dt class="col-sm-6 text-right">Model</dt>
+                                <dd class="col-sm-6" id="model">TEC1-12706</dd>
+                                <dt class="col-sm-6 text-right">Heatsink Fan RPM</dt>
+                                <dd class="col-sm-6" id="coolerFanRpm">N/A</dd>
+                            </dl>                            
                         </div>
                     </div>
 
+                    <div class="card">
+                        <div class="card-header"><b>Thermoelectric heater</b></div>
+                        <div class="card-body">
+                            <h1 class="card-title" id="heaterState">N/A</h1>
+                            <h6 class="card-subtitle mb-2 text-muted">State</h6>
+                            <br />
+                            <br />
+                            <dl class="row">
+                                <dt class="col-sm-6 text-right">Timestamp</dt>
+                                <dd class="col-sm-6" id="heaterLastUpdate">N/A</dd>
+                                <dt class="col-sm-6 text-right">Quantity</dt>
+                                <dd class="col-sm-6" id="quantity">1</dd>
+                                <dt class="col-sm-6 text-right">Model</dt>
+                                <dd class="col-sm-6" id="model">TEC1-12706</dd>
+                                <dt class="col-sm-6 text-right">Heatsink Fan RPM</dt>
+                                <dd class="col-sm-6" id="heaterFanRpm">N/A</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <!-- <div class="card">
+                        <div class="card-header"><b>Fan</b>
+                            <div class="card-body">
+                                <h1 class="card-title" id="fanState">N/A</h1>
+                                <h6 class="card-subtitle mb-2 text-muted">State</h6>                   
+                                <br />
+                                <br />
+                                <dl class="row">
+                                    <dt class="col-sm-6 text-right">Timestamp</dt>
+                                    <dd class="col-sm-6" id="fanLastUpdate">N/A</dd>
+                                    <dt class="col-sm-6 text-right">RPM</dt>
+                                    <dd class="col-sm-6" id="fanRpm">1500</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-        <div class="row mb-3">
-            <div class="col">
-                <div id="alerts">
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="modal fade" id="configureModal" tabindex="-1" role="dialog" aria-labelledby="configureModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -179,6 +250,49 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="TemperatureModal" tabindex="-1" role="dialog" aria-labelledby="ModalTemperatureLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalTemperatureLabel">Set Temperature</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="container">
+                        <div class="row">
+                            <div class="col mb-3">
+                                    <label for="setDesiredTemperature">Temperature in deg Celcius (between 20 to 40)</label>
+                                    <br />
+                                    <br />
+                                    <div class="slidecontainer">
+                                        <input type="range" min="20" max="40" value="25" class="slider" id="slider">
+                                        <br />
+                                        <br />
+                                    </div>
+                                    <p>Value: <span id="rangeValue"></span></p>
+                                    <script>
+                                        var slider = document.getElementById("slider");
+                                        var output = document.getElementById("rangeValue");
+                                        output.innerHTML = slider.value;
+
+                                        slider.oninput = function() {
+                                          output.innerHTML = this.value;
+                                        }
+                                    </script>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="setButton">Set</button>
                 </div>
             </div>
         </div>

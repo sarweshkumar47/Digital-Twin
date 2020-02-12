@@ -21,15 +21,21 @@ import raspberry_thing
 DITTO_IP = "10.114.56.190"
 DITTO_PORT = "8080"
 websocketOpen = False
-thing = raspberry_thing.RaspberryDemoThing("915411.st")
+thing = raspberry_thing.RaspberryDemoThing("487136.st")
 
 
-def on_new_temperature_fan_data(temperature, on_off_state):
-    if websocketOpen and math.isnan(temperature) == False and math.isnan(on_off_state) == False:
-        send_modify_message(thing.create_temperature_change_message(temperature))
+def on_new_components_data(desired_temp, actual_temperature, cooler_state, heater_state):
+    if websocketOpen and math.isnan(desired_temp) == False:
+        send_modify_message(thing.create_user_desired_temperature_static_message(desired_temp))
 
-    if websocketOpen and math.isnan(on_off_state) == False:
-        send_modify_message(thing.create_fan_state_change_message(on_off_state))
+    if websocketOpen and math.isnan(actual_temperature) == False:
+        send_modify_message(thing.create_temperature_change_message(actual_temperature))
+
+    if websocketOpen and math.isnan(cooler_state) == False:
+        send_modify_message(thing.create_cooler_state_change_message(cooler_state))
+
+    if websocketOpen and math.isnan(heater_state) == False:
+        send_modify_message(thing.create_heater_state_change_message(heater_state))
 
 
 def on_message(ws, message):
@@ -70,10 +76,7 @@ def start_websocket():
     ws_address = "ws://" + DITTO_IP + ":" + DITTO_PORT + "/ws/1"
     basic_auth = 'Authorization: Basic {}'.format(raspberry_thing.get_b64_auth())
     global ws
-    ws = websocket.WebSocketApp(ws_address,
-                                header=[basic_auth],
-                                on_message=on_message,
-                                on_error=on_error,
+    ws = websocket.WebSocketApp(ws_address, header=[basic_auth], on_message=on_message, on_error=on_error,
                                 on_close=on_close)
     ws.on_open = on_open
     ws.run_forever()
@@ -81,7 +84,7 @@ def start_websocket():
 
 if __name__ == "__main__":
     # init our raspberry thing
-    thing.start_polling_temperature_fan_info(on_new_temperature_fan_data)
+    thing.start_polling_new_components_data(on_new_components_data)
 
     # start websocket
     start_websocket()
