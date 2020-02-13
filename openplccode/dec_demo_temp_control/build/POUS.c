@@ -220,35 +220,37 @@ void DEMO_TEMPERATURE_CONTROL_init__(DEMO_TEMPERATURE_CONTROL *data__, BOOL reta
 void DEMO_TEMPERATURE_CONTROL_body__(DEMO_TEMPERATURE_CONTROL *data__) {
   // Initialise TEMP variables
 
-  __SET_VAR(data__->,VOLTAGE,,DIV__REAL__REAL__REAL(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (REAL)MUL__REAL__REAL(
+  if ((__GET_VAR(data__->TEMPERATURESENSOROUTPUT,) > 0)) {
+    __SET_VAR(data__->,VOLTAGE,,DIV__REAL__REAL__REAL(
       (BOOL)__BOOL_LITERAL(TRUE),
       NULL,
-      (UINT)2,
-      (REAL)UINT_TO_REAL(
+      (REAL)MUL__REAL__REAL(
         (BOOL)__BOOL_LITERAL(TRUE),
         NULL,
-        (UINT)__GET_VAR(data__->TEMPERATURESENSOROUTPUT,)),
-      (REAL)10.0),
-    (REAL)65535.0));
-  __SET_VAR(data__->,CURRENTTEMPERATURE,,ADD__REAL__REAL(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (UINT)3,
-    (REAL)-66.875,
-    (REAL)MUL__REAL__REAL(
+        (UINT)2,
+        (REAL)UINT_TO_REAL(
+          (BOOL)__BOOL_LITERAL(TRUE),
+          NULL,
+          (UINT)__GET_VAR(data__->TEMPERATURESENSOROUTPUT,)),
+        (REAL)10.0),
+      (REAL)65535.0));
+    __SET_VAR(data__->,CURRENTTEMPERATURE,,ADD__REAL__REAL(
       (BOOL)__BOOL_LITERAL(TRUE),
       NULL,
-      (UINT)2,
-      (REAL)218.75,
-      (REAL)DIV__REAL__REAL__REAL(
+      (UINT)3,
+      (REAL)-66.875,
+      (REAL)MUL__REAL__REAL(
         (BOOL)__BOOL_LITERAL(TRUE),
         NULL,
-        (REAL)__GET_VAR(data__->VOLTAGE,),
-        (REAL)4.95)),
-    (REAL)__GET_VAR(data__->ERROROFFSET,)));
+        (UINT)2,
+        (REAL)218.75,
+        (REAL)DIV__REAL__REAL__REAL(
+          (BOOL)__BOOL_LITERAL(TRUE),
+          NULL,
+          (REAL)__GET_VAR(data__->VOLTAGE,),
+          (REAL)4.95)),
+      (REAL)__GET_VAR(data__->ERROROFFSET,)));
+  };
   if (((__GET_VAR(data__->SETTEMPERATUREINPUT,) >= __GET_EXTERNAL(data__->LOWERTHRESHOLD,)) && (__GET_VAR(data__->SETTEMPERATUREINPUT,) <= __GET_EXTERNAL(data__->UPPERTHRESHOLD,)))) {
     if (((__GET_VAR(data__->CURRENTTEMPERATURE,) > 0.0) && (__GET_VAR(data__->INITIALCHECKFLAG,) == __BOOL_LITERAL(FALSE)))) {
       if ((__GET_VAR(data__->CURRENTTEMPERATURE,) > UINT_TO_REAL(

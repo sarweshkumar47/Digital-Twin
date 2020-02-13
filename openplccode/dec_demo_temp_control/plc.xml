@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2019-12-09T09:14:32"/>
-  <contentHeader name="Demo_temperature_control" modificationDateTime="2019-12-18T10:12:49">
+  <contentHeader name="Demo_temperature_control" modificationDateTime="2020-02-13T15:41:11">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -148,15 +148,17 @@
         </interface>
         <body>
           <ST>
-            <xhtml:p><![CDATA[(* Temperature conversion has to be done *)
+            <xhtml:p><![CDATA[IF (TemperatureSensorOutput > 0) THEN
 
-(* Voltage := (TemperatureSensorOutput * 10.0 / 65535.0); *)
-Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
+    (* Voltage := (TemperatureSensorOutput * 10.0 / 65535.0); *)
+    Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
 
-(* Powerbank provides 4.95V *)
-(* CurrentTemperature := (-66.875)+(218.75*(Voltage/Vref)); *)
-(* Error offSet (6.0 deg) has been added to the calculation *)
-CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 4.95))), errorOffSet);
+    (* Powerbank provides 4.95V *)
+    (* CurrentTemperature := (-66.875)+(218.75*(Voltage/Vref)); *)
+    (* Error offSet (6.0 deg) has been added to the calculation *)
+    CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 4.95))), errorOffSet);
+    
+END_IF;
 
 IF (SetTemperatureInput >= LowerThreshold AND SetTemperatureInput <= UpperThreshold) THEN
   

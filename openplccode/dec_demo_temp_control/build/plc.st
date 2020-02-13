@@ -119,15 +119,17 @@ PROGRAM demo_temperature_control
     ResetSystem : UINT := 0;
   END_VAR
 
-  (* Temperature conversion has to be done *)
+  IF (TemperatureSensorOutput > 0) THEN
 
-  (* Voltage := (TemperatureSensorOutput * 10.0 / 65535.0); *)
-  Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
+      (* Voltage := (TemperatureSensorOutput * 10.0 / 65535.0); *)
+      Voltage := DIV(MUL(UINT_TO_REAL(TemperatureSensorOutput), 10.0), 65535.0);
 
-  (* Powerbank provides 4.95V *)
-  (* CurrentTemperature := (-66.875)+(218.75*(Voltage/Vref)); *)
-  (* Error offSet (6.0 deg) has been added to the calculation *)
-  CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 4.95))), errorOffSet);
+      (* Powerbank provides 4.95V *)
+      (* CurrentTemperature := (-66.875)+(218.75*(Voltage/Vref)); *)
+      (* Error offSet (6.0 deg) has been added to the calculation *)
+      CurrentTemperature := ADD(-66.875, MUL(218.75, (DIV(Voltage, 4.95))), errorOffSet);
+      
+  END_IF;
 
   IF (SetTemperatureInput >= LowerThreshold AND SetTemperatureInput <= UpperThreshold) THEN
     
