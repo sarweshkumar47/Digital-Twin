@@ -72,7 +72,10 @@ def modbus_monitor():
 			# Reading Input Registers
 			mb_address = debug_data.location.split('%IW')[1]
 			result = mb_client.read_input_registers(int(mb_address), 1)
-			debug_data.value = result.registers[0]
+			#debug_data.value = result.registers[0]
+                        if (result.registers[0] == 0):
+                                continue
+                        debug_data.value = result.registers[0]
 
 		elif (debug_data.location.find('QW')) > 0:
 			# Reading Holding Registers
