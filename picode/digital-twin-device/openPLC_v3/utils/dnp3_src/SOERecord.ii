@@ -1,0 +1,1921 @@
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/SOERecord.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/SOERecord.cpp"
+# 21 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/SOERecord.cpp"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/SOERecord.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/SOERecord.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventType.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventType.h"
+# 1 "/usr/include/c++/6/cstdint" 1 3
+# 32 "/usr/include/c++/6/cstdint" 3
+       
+# 33 "/usr/include/c++/6/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 1 3
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  typedef unsigned int size_t;
+  typedef int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 221 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 507 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 1 3
+# 39 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 364 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 1 3 4
+# 415 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 416 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 2 3 4
+# 365 "/usr/include/features.h" 2 3 4
+# 388 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h" 1 3 4
+# 11 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 2 3 4
+# 389 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 2 3
+# 508 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/cpu_defines.h" 1 3
+# 511 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/6/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wchar.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
+
+
+
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
+
+
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
+
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+
+
+
+__extension__
+typedef long long int int_least64_t;
+
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+
+
+__extension__
+typedef unsigned long long int uint_least64_t;
+
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+
+
+
+
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+
+
+
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+# 125 "/usr/include/stdint.h" 3 4
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/6/cstdint" 2 3
+
+
+
+
+namespace std
+{
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventType.h" 2
+
+
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventType.h"
+namespace opendnp3
+{
+
+static const int NUM_OUTSTATION_EVENT_TYPES = 8;
+
+enum class EventType : uint16_t
+{
+ Binary = 0,
+ Analog = 1,
+ Counter = 2,
+ FrozenCounter = 3,
+ DoubleBitBinary = 4,
+ BinaryOutputStatus = 5,
+ AnalogOutputStatus = 6,
+ SecurityStat = 7
+};
+
+enum class EventClass : uint8_t
+{
+ EC1 = 0,
+ EC2 = 1,
+ EC3 = 2
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/SOERecord.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h"
+namespace openpal
+{
+
+class UInt48Type
+{
+
+public:
+
+ explicit UInt48Type(int64_t value) : value(value)
+ {}
+
+ UInt48Type() : value(0)
+ {}
+
+ operator int64_t() const
+ {
+  return value;
+ }
+
+ int64_t value;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h" 2
+
+namespace opendnp3
+{
+
+typedef openpal::UInt48Type DNPTime;
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Flags.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Flags.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class BinaryQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  CHATTER_FILTER = 0x20,
+
+  RESERVED = 0x40,
+
+  STATE = 0x80
+};
+
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBitBinaryQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBitBinaryQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class DoubleBitBinaryQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  CHATTER_FILTER = 0x20,
+
+  STATE1 = 0x40,
+
+  STATE2 = 0x80
+};
+
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CounterQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CounterQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class CounterQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  ROLLOVER = 0x20,
+
+  DISCONTINUITY = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FrozenCounterQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FrozenCounterQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class FrozenCounterQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  ROLLOVER = 0x20,
+
+  DISCONTINUITY = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class AnalogQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  OVERRANGE = 0x20,
+
+  REFERENCE_ERR = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogOutputStatusQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogOutputStatusQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class AnalogOutputStatusQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  OVERRANGE = 0x20,
+
+  REFERENCE_ERR = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryOutputStatusQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryOutputStatusQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class BinaryOutputStatusQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  RESERVED1 = 0x20,
+
+  RESERVED2 = 0x40,
+
+  STATE = 0x80
+};
+
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+
+namespace opendnp3
+{
+
+template <class T>
+inline uint8_t ToUnderlying(T flag)
+{
+ return static_cast<uint8_t>(flag);
+}
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Flags.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class Flags
+{
+public:
+
+ Flags() : value(0)
+ {}
+
+ Flags(uint8_t value) : value(value)
+ {}
+
+ inline bool IsSet(BinaryQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(AnalogQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(CounterQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(FrozenCounterQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(BinaryOutputStatusQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(AnalogOutputStatusQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+
+ inline void Set(BinaryQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(AnalogQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(CounterQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(FrozenCounterQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(BinaryOutputStatusQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(AnalogOutputStatusQuality flag)
+ {
+  SetAny(flag);
+ }
+
+ uint8_t value;
+
+protected:
+
+ template <class T>
+ bool IsSetAny(T flag) const
+ {
+  return (value & static_cast<uint8_t>(flag)) != 0;
+ }
+
+ template <class T>
+ void SetAny(T flag)
+ {
+  value |= static_cast<uint8_t>(flag);
+ }
+};
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class Measurement
+{
+public:
+
+ Flags flags;
+ DNPTime time;
+
+protected:
+
+ Measurement()
+ {}
+
+ Measurement(Flags flags) : flags(flags)
+ {}
+
+ Measurement(Flags flags, DNPTime time) : flags(flags), time(time)
+ {}
+
+};
+
+
+
+template <class T>
+class TypedMeasurement : public Measurement
+{
+public:
+
+ T value;
+
+ typedef T Type;
+
+protected:
+
+ TypedMeasurement(): Measurement(), value(0) {}
+ TypedMeasurement(Flags flags) : Measurement(flags), value(0) {}
+ TypedMeasurement(T value, Flags flags) : Measurement(flags), value(value) {}
+ TypedMeasurement(T value, Flags flags, DNPTime time) : Measurement(flags, time), value(value) {}
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBit.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBit.h"
+namespace opendnp3 {
+
+
+
+
+enum class DoubleBit : uint8_t
+{
+
+  INTERMEDIATE = 0x0,
+
+  DETERMINED_OFF = 0x1,
+
+  DETERMINED_ON = 0x2,
+
+  INDETERMINATE = 0x3
+};
+
+uint8_t DoubleBitToType(DoubleBit arg);
+DoubleBit DoubleBitFromType(uint8_t arg);
+char const* DoubleBitToString(DoubleBit arg);
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/IntervalUnits.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/IntervalUnits.h"
+namespace opendnp3 {
+
+
+
+
+enum class IntervalUnits : uint8_t
+{
+
+  NoRepeat = 0x0,
+
+  Milliseconds = 0x1,
+
+  Seconds = 0x2,
+
+  Minutes = 0x3,
+
+  Hours = 0x4,
+
+  Days = 0x5,
+
+  Weeks = 0x6,
+
+  Months7 = 0x7,
+
+  Months8 = 0x8,
+
+  Months9 = 0x9,
+
+  Seasons = 0xA,
+
+  Undefined = 0x7F
+};
+
+uint8_t IntervalUnitsToType(IntervalUnits arg);
+IntervalUnits IntervalUnitsFromType(uint8_t arg);
+char const* IntervalUnitsToString(IntervalUnits arg);
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+
+
+class Binary : public TypedMeasurement<bool>
+{
+public:
+
+ Binary();
+
+ Binary(bool value);
+
+ Binary(Flags flags);
+
+ Binary(Flags flags, DNPTime time);
+
+ Binary(bool value, Flags flags);
+
+ Binary(bool value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class DoubleBitBinary : public TypedMeasurement<DoubleBit>
+{
+public:
+
+
+ DoubleBitBinary();
+
+ DoubleBitBinary(DoubleBit value);
+
+ DoubleBitBinary(Flags flags);
+
+ DoubleBitBinary(Flags flags, DNPTime time);
+
+ DoubleBitBinary(DoubleBit value, Flags flags);
+
+ DoubleBitBinary(DoubleBit value, Flags flags, DNPTime time);
+
+private:
+
+ static const uint8_t ValueMask = 0xC0;
+ static const uint8_t QualityMask = 0x3F;
+
+ static DoubleBit GetValue(Flags flags);
+
+ static Flags GetFlags(Flags flags, DoubleBit state);
+};
+
+
+
+
+
+
+
+class BinaryOutputStatus : public TypedMeasurement<bool>
+{
+public:
+
+ BinaryOutputStatus();
+
+ BinaryOutputStatus(bool value);
+
+ BinaryOutputStatus(Flags flags);
+
+ BinaryOutputStatus(Flags flags, DNPTime time);
+
+ BinaryOutputStatus(bool value, Flags flags);
+
+ BinaryOutputStatus(bool value, Flags flags, DNPTime time);
+
+};
+
+
+
+
+
+
+class Analog : public TypedMeasurement<double>
+{
+public:
+
+ Analog();
+
+ Analog(double value);
+
+ Analog(double value, Flags flags);
+
+ Analog(double value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class Counter : public TypedMeasurement<uint32_t>
+{
+public:
+
+ Counter();
+
+ Counter(uint32_t value);
+
+ Counter(uint32_t value, Flags flags);
+
+ Counter(uint32_t value, Flags flags, DNPTime time);
+};
+
+
+
+
+class FrozenCounter : public TypedMeasurement<uint32_t>
+{
+public:
+
+ FrozenCounter();
+
+ FrozenCounter(uint32_t value);
+
+ FrozenCounter(uint32_t value, Flags flags);
+
+ FrozenCounter(uint32_t value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class AnalogOutputStatus : public TypedMeasurement<double>
+{
+public:
+
+ AnalogOutputStatus();
+
+ AnalogOutputStatus(double value);
+
+ AnalogOutputStatus(double value, Flags flags);
+
+ AnalogOutputStatus(double value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class TimeAndInterval
+{
+public:
+
+ TimeAndInterval();
+
+ TimeAndInterval(DNPTime time, uint32_t interval, uint8_t units);
+
+ TimeAndInterval(DNPTime time, uint32_t interval, IntervalUnits units);
+
+ IntervalUnits GetUnitsEnum() const;
+
+ DNPTime time;
+ uint32_t interval;
+ uint8_t units;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/SecurityStat.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/SecurityStat.h"
+namespace opendnp3
+{
+
+
+
+
+
+
+class SecurityStat
+{
+public:
+
+
+ struct Value
+ {
+  uint16_t assocId;
+  uint32_t count;
+ };
+
+ SecurityStat();
+
+ SecurityStat(Value value, uint8_t quality, DNPTime time);
+
+ SecurityStat(uint8_t quality, uint16_t assocId, uint32_t count);
+
+ SecurityStat(uint8_t quality, uint16_t assocId, uint32_t count, DNPTime time);
+
+ uint8_t quality;
+ Value value;
+ DNPTime time;
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryVariation.h"
+namespace opendnp3 {
+
+enum class StaticBinaryVariation : uint8_t
+{
+  Group1Var1 = 0,
+  Group1Var2 = 1
+};
+
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticDoubleBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticDoubleBinaryVariation.h"
+namespace opendnp3 {
+
+enum class StaticDoubleBinaryVariation : uint8_t
+{
+  Group3Var2 = 0
+};
+
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class StaticBinaryOutputStatusVariation : uint8_t
+{
+  Group10Var2 = 0
+};
+
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticCounterVariation.h"
+namespace opendnp3 {
+
+enum class StaticCounterVariation : uint8_t
+{
+  Group20Var1 = 0,
+  Group20Var2 = 1,
+  Group20Var5 = 2,
+  Group20Var6 = 3
+};
+
+
+}
+# 33 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticFrozenCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticFrozenCounterVariation.h"
+namespace opendnp3 {
+
+enum class StaticFrozenCounterVariation : uint8_t
+{
+  Group21Var1 = 0,
+  Group21Var2 = 1,
+  Group21Var5 = 2,
+  Group21Var6 = 3,
+  Group21Var9 = 4,
+  Group21Var10 = 5
+};
+
+
+}
+# 34 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogVariation.h"
+namespace opendnp3 {
+
+enum class StaticAnalogVariation : uint8_t
+{
+  Group30Var1 = 0,
+  Group30Var2 = 1,
+  Group30Var3 = 2,
+  Group30Var4 = 3,
+  Group30Var5 = 4,
+  Group30Var6 = 5
+};
+
+
+}
+# 35 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class StaticAnalogOutputStatusVariation : uint8_t
+{
+  Group40Var1 = 0,
+  Group40Var2 = 1,
+  Group40Var3 = 2,
+  Group40Var4 = 3
+};
+
+
+}
+# 36 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTimeAndIntervalVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTimeAndIntervalVariation.h"
+namespace opendnp3 {
+
+enum class StaticTimeAndIntervalVariation : uint8_t
+{
+  Group50Var4 = 0
+};
+
+
+}
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticSecurityStatVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticSecurityStatVariation.h"
+namespace opendnp3 {
+
+enum class StaticSecurityStatVariation : uint8_t
+{
+  Group121Var1 = 0
+};
+
+
+}
+# 38 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryVariation.h"
+namespace opendnp3 {
+
+enum class EventBinaryVariation : uint8_t
+{
+  Group2Var1 = 0,
+  Group2Var2 = 1,
+  Group2Var3 = 2
+};
+
+
+}
+# 40 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventDoubleBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventDoubleBinaryVariation.h"
+namespace opendnp3 {
+
+enum class EventDoubleBinaryVariation : uint8_t
+{
+  Group4Var1 = 0,
+  Group4Var2 = 1,
+  Group4Var3 = 2
+};
+
+
+}
+# 41 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class EventBinaryOutputStatusVariation : uint8_t
+{
+  Group11Var1 = 0,
+  Group11Var2 = 1
+};
+
+
+}
+# 42 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventCounterVariation.h"
+namespace opendnp3 {
+
+enum class EventCounterVariation : uint8_t
+{
+  Group22Var1 = 0,
+  Group22Var2 = 1,
+  Group22Var5 = 2,
+  Group22Var6 = 3
+};
+
+
+}
+# 43 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventFrozenCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventFrozenCounterVariation.h"
+namespace opendnp3 {
+
+enum class EventFrozenCounterVariation : uint8_t
+{
+  Group23Var1 = 0,
+  Group23Var2 = 1,
+  Group23Var5 = 2,
+  Group23Var6 = 3
+};
+
+
+}
+# 44 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogVariation.h"
+namespace opendnp3 {
+
+enum class EventAnalogVariation : uint8_t
+{
+  Group32Var1 = 0,
+  Group32Var2 = 1,
+  Group32Var3 = 2,
+  Group32Var4 = 3,
+  Group32Var5 = 4,
+  Group32Var6 = 5,
+  Group32Var7 = 6,
+  Group32Var8 = 7
+};
+
+
+}
+# 45 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class EventAnalogOutputStatusVariation : uint8_t
+{
+  Group42Var1 = 0,
+  Group42Var2 = 1,
+  Group42Var3 = 2,
+  Group42Var4 = 3,
+  Group42Var5 = 4,
+  Group42Var6 = 5,
+  Group42Var7 = 6,
+  Group42Var8 = 7
+};
+
+
+}
+# 46 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventSecurityStatVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventSecurityStatVariation.h"
+namespace opendnp3 {
+
+enum class EventSecurityStatVariation : uint8_t
+{
+  Group122Var1 = 0,
+  Group122Var2 = 1
+};
+
+
+}
+# 47 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTypeBitmask.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTypeBitmask.h"
+namespace opendnp3 {
+
+
+
+
+enum class StaticTypeBitmask : uint16_t
+{
+  BinaryInput = 0x1,
+  DoubleBinaryInput = 0x2,
+  Counter = 0x4,
+  FrozenCounter = 0x8,
+  AnalogInput = 0x10,
+  BinaryOutputStatus = 0x20,
+  AnalogOutputStatus = 0x40,
+  TimeAndInterval = 0x80
+};
+
+
+}
+# 49 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h"
+namespace openpal
+{
+
+
+
+class Uncopyable
+{
+protected:
+ Uncopyable() {}
+ ~Uncopyable() {}
+
+private:
+
+ Uncopyable(const Uncopyable&) = delete;
+ Uncopyable& operator=(const Uncopyable&) = delete;
+};
+
+class StaticOnly
+{
+
+private:
+
+ StaticOnly() = delete;
+ StaticOnly(const StaticOnly&) = delete;
+ StaticOnly& operator=(const StaticOnly&) = delete;
+};
+
+}
+# 51 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+namespace opendnp3
+{
+
+
+struct BinaryInfo : private openpal::StaticOnly
+{
+ typedef Binary meas_t;
+ typedef bool value_t;
+ typedef EventBinaryVariation event_variation_t;
+ typedef StaticBinaryVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::Binary;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::BinaryInput;
+ static const event_variation_t DefaultEventVariation = EventBinaryVariation::Group2Var1;
+ static const static_variation_t DefaultStaticVariation = StaticBinaryVariation::Group1Var2;
+};
+
+struct DoubleBitBinaryInfo : private openpal::StaticOnly
+{
+ typedef DoubleBitBinary meas_t;
+ typedef DoubleBit value_t;
+ typedef EventDoubleBinaryVariation event_variation_t;
+ typedef StaticDoubleBinaryVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::DoubleBitBinary;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::DoubleBinaryInput;
+ static const event_variation_t DefaultEventVariation = EventDoubleBinaryVariation::Group4Var1;
+ static const static_variation_t DefaultStaticVariation = StaticDoubleBinaryVariation::Group3Var2;
+};
+
+class BinaryOutputStatusInfo : private openpal::StaticOnly
+{
+public:
+
+ typedef BinaryOutputStatus meas_t;
+ typedef bool value_t;
+ typedef EventBinaryOutputStatusVariation event_variation_t;
+ typedef StaticBinaryOutputStatusVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::BinaryOutputStatus;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::BinaryOutputStatus;
+ static const event_variation_t DefaultEventVariation = EventBinaryOutputStatusVariation::Group11Var1;
+ static const static_variation_t DefaultStaticVariation = StaticBinaryOutputStatusVariation::Group10Var2;
+
+
+};
+
+
+struct AnalogInfo : private openpal::StaticOnly
+{
+ typedef Analog meas_t;
+ typedef double value_t;
+ typedef EventAnalogVariation event_variation_t;
+ typedef StaticAnalogVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::Analog;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::AnalogInput;
+ static const event_variation_t DefaultEventVariation = EventAnalogVariation::Group32Var1;
+ static const static_variation_t DefaultStaticVariation = StaticAnalogVariation::Group30Var1;
+};
+
+struct CounterInfo : private openpal::StaticOnly
+{
+ typedef Counter meas_t;
+ typedef uint32_t value_t;
+ typedef EventCounterVariation event_variation_t;
+ typedef StaticCounterVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::Counter;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::Counter;
+ static const event_variation_t DefaultEventVariation = EventCounterVariation::Group22Var1;
+ static const static_variation_t DefaultStaticVariation = StaticCounterVariation::Group20Var1;
+};
+
+struct FrozenCounterInfo : private openpal::StaticOnly
+{
+ typedef FrozenCounter meas_t;
+ typedef uint32_t value_t;
+ typedef EventFrozenCounterVariation event_variation_t;
+ typedef StaticFrozenCounterVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::FrozenCounter;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::FrozenCounter;
+ static const event_variation_t DefaultEventVariation = EventFrozenCounterVariation::Group23Var1;
+ static const static_variation_t DefaultStaticVariation = StaticFrozenCounterVariation::Group21Var1;
+};
+
+struct AnalogOutputStatusInfo : private openpal::StaticOnly
+{
+ typedef AnalogOutputStatus meas_t;
+ typedef double value_t;
+ typedef EventAnalogOutputStatusVariation event_variation_t;
+ typedef StaticAnalogOutputStatusVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::AnalogOutputStatus;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::AnalogOutputStatus;
+ static const event_variation_t DefaultEventVariation = EventAnalogOutputStatusVariation::Group42Var1;
+ static const static_variation_t DefaultStaticVariation = StaticAnalogOutputStatusVariation::Group40Var1;
+};
+
+struct TimeAndIntervalInfo : private openpal::StaticOnly
+{
+ typedef TimeAndInterval meas_t;
+ typedef StaticTimeAndIntervalVariation static_variation_t;
+
+ const static StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::TimeAndInterval;
+ const static StaticTimeAndIntervalVariation DefaultStaticVariation = StaticTimeAndIntervalVariation::Group50Var4;
+};
+
+struct SecurityStatInfo : private openpal::StaticOnly
+{
+ typedef SecurityStat meas_t;
+ typedef SecurityStat::Value value_t;
+ typedef EventSecurityStatVariation event_variation_t;
+ typedef StaticSecurityStatVariation static_variation_t;
+
+ const static EventType EventTypeEnum = EventType::SecurityStat;
+ const static event_variation_t DefaultEventVariation = EventSecurityStatVariation::Group122Var1;
+ const static static_variation_t DefaultStaticVariation = StaticSecurityStatVariation::Group121Var1;
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/PointClass.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/PointClass.h"
+namespace opendnp3 {
+
+
+
+
+enum class PointClass : uint8_t
+{
+
+  Class0 = 0x1,
+
+  Class1 = 0x2,
+
+  Class2 = 0x4,
+
+  Class3 = 0x8
+};
+
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h" 2
+
+namespace opendnp3
+{
+
+
+struct IndexConfig
+{
+
+ uint16_t vIndex = 0;
+};
+
+
+template <class Info>
+struct StaticConfig : IndexConfig
+{
+ typename Info::static_variation_t svariation = Info::DefaultStaticVariation;
+};
+
+template <class Info>
+struct EventConfig : StaticConfig<Info>
+{
+ PointClass clazz = PointClass::Class1;
+ typename Info::event_variation_t evariation = Info::DefaultEventVariation;
+};
+
+template <class Info>
+struct DeadbandConfig : EventConfig<Info>
+{
+ typename Info::value_t deadband = 0;
+};
+
+class BinaryConfig : public EventConfig<BinaryInfo> {};
+class DoubleBitBinaryConfig : public EventConfig<DoubleBitBinaryInfo> {};
+class AnalogConfig : public DeadbandConfig<AnalogInfo> {};
+class CounterConfig : public DeadbandConfig<CounterInfo> {};
+class FrozenCounterConfig : public DeadbandConfig<FrozenCounterInfo> {};
+class BOStatusConfig : public EventConfig<BinaryOutputStatusInfo> {};
+class AOStatusConfig : public DeadbandConfig<AnalogOutputStatusInfo> {};
+class TimeAndIntervalConfig : public StaticConfig<TimeAndIntervalInfo> {};
+class SecurityStatConfig : public IndexConfig {};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventCells.h" 1
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventCells.h"
+namespace opendnp3
+{
+
+
+struct EmptyEventCell
+{
+
+};
+
+
+template <class Spec>
+struct EventCellBase
+{
+ PointClass clazz;
+ typename Spec::meas_t lastEvent;
+ typename Spec::event_variation_t evariation;
+
+ void SetEventValue(const typename Spec::meas_t& value)
+ {
+  lastEvent = value;
+ }
+
+protected:
+
+ EventCellBase() : clazz(PointClass::Class1), lastEvent(), evariation(Spec::DefaultEventVariation)
+ {}
+};
+
+
+template <class Spec>
+struct SimpleEventCell : EventCellBase<Spec>
+{
+ bool IsEvent(const typename Spec::config_t& config, const typename Spec::meas_t& newValue) const
+ {
+  return Spec::IsEvent(this->lastEvent, newValue);
+ }
+};
+
+
+template <class Spec>
+struct DeadbandEventCell : SimpleEventCell<Spec>
+{
+ bool IsEvent(const typename Spec::config_t& config, const typename Spec::meas_t& newValue) const
+ {
+  return Spec::IsEvent(this->lastEvent, newValue, config.deadband);
+ }
+};
+
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventTriggers.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventTriggers.h"
+namespace opendnp3
+{
+namespace measurements
+{
+template <class T, class U>
+bool IsEvent(const T& val1, const T& val2, T deadband)
+{
+
+
+
+ U diff = (val2 > val1) ? (static_cast<U>(val2) - static_cast<U>(val1)) : (static_cast<U>(val1) - static_cast<U>(val2));
+
+ return diff > deadband;
+}
+
+
+bool IsEvent(const TypedMeasurement<double>& newMeas, const TypedMeasurement<double>& oldMeas, double deadband);
+
+}
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 2
+
+namespace opendnp3
+{
+
+
+struct BinarySpec : public BinaryInfo
+{
+ typedef BinaryConfig config_t;
+ typedef SimpleEventCell<BinarySpec> event_cell_t;
+
+ inline static bool IsQualityOnlineOnly(const Binary& binary)
+ {
+  return (binary.flags.value & 0b01111111) == static_cast<uint8_t>(BinaryQuality::ONLINE);
+ }
+
+ inline static bool IsEvent(const Binary& oldValue, const Binary& newValue)
+ {
+  return oldValue.flags.value != newValue.flags.value;
+ }
+};
+
+struct DoubleBitBinarySpec : public DoubleBitBinaryInfo
+{
+ typedef DoubleBitBinaryConfig config_t;
+ typedef SimpleEventCell<DoubleBitBinarySpec> event_cell_t;
+
+ inline static bool IsEvent(const DoubleBitBinary& oldValue, const DoubleBitBinary& newValue)
+ {
+  return oldValue.flags.value != newValue.flags.value;
+ }
+};
+
+struct BinaryOutputStatusSpec : public BinaryOutputStatusInfo
+{
+ typedef BOStatusConfig config_t;
+ typedef SimpleEventCell<BinaryOutputStatusSpec> event_cell_t;
+
+ inline static bool IsEvent(const BinaryOutputStatus& oldValue, const BinaryOutputStatus& newValue)
+ {
+  return oldValue.flags.value != newValue.flags.value;
+ }
+};
+
+
+struct AnalogSpec : public AnalogInfo
+{
+ typedef AnalogConfig config_t;
+ typedef DeadbandEventCell<AnalogSpec> event_cell_t;
+
+ inline static bool IsEvent(const Analog& oldValue, const Analog& newValue, double deadband)
+ {
+  return measurements::IsEvent(newValue, oldValue, deadband);
+ }
+};
+
+struct CounterSpec : public CounterInfo
+{
+ typedef CounterConfig config_t;
+ typedef DeadbandEventCell<CounterSpec> event_cell_t;
+
+ inline static bool IsEvent(const Counter& oldValue, const Counter& newValue, uint32_t deadband)
+ {
+  if (oldValue.flags.value != newValue.flags.value)
+  {
+   return true;
+  }
+  else
+  {
+   return measurements::IsEvent<uint32_t, uint64_t>(oldValue.value, newValue.value, deadband);
+  }
+ }
+};
+
+struct FrozenCounterSpec : public FrozenCounterInfo
+{
+ typedef FrozenCounterConfig config_t;
+ typedef DeadbandEventCell<FrozenCounterSpec> event_cell_t;
+
+ inline static bool IsEvent(const FrozenCounter& oldValue, const FrozenCounter& newValue, uint32_t deadband)
+ {
+  if (oldValue.flags.value != newValue.flags.value)
+  {
+   return true;
+  }
+  else
+  {
+   return measurements::IsEvent<uint32_t, uint64_t>(oldValue.value, newValue.value, deadband);
+  }
+ }
+};
+
+struct AnalogOutputStatusSpec : public AnalogOutputStatusInfo
+{
+ typedef AOStatusConfig config_t;
+ typedef DeadbandEventCell<AnalogOutputStatusSpec> event_cell_t;
+
+ inline static bool IsEvent(const AnalogOutputStatus& oldValue, const AnalogOutputStatus& newValue, double deadband)
+ {
+  return measurements::IsEvent(newValue, oldValue, deadband);
+ }
+};
+
+struct TimeAndIntervalSpec : public TimeAndIntervalInfo
+{
+ typedef TimeAndIntervalConfig config_t;
+ typedef EmptyEventCell event_cell_t;
+};
+
+struct SecurityStatSpec : public SecurityStatInfo
+{
+ typedef SecurityStatConfig config_t;
+ typedef EmptyEventCell event_cell_t;
+
+ inline static bool IsEvent(const SecurityStat& oldValue, const SecurityStat& newValue, uint32_t deadband)
+ {
+  if (oldValue.quality != newValue.quality)
+  {
+   return true;
+  }
+  else
+  {
+   return measurements::IsEvent<uint32_t, uint64_t>(oldValue.value.count, newValue.value.count, deadband);
+  }
+ }
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/SOERecord.h" 2
+
+
+
+
+
+namespace opendnp3
+{
+
+template <class Spec>
+struct ValueAndVariation
+{
+ typename Spec::value_t value;
+ typename Spec::event_variation_t defaultVariation;
+ typename Spec::event_variation_t selectedVariation;
+
+ void SelectDefaultVariation()
+ {
+  selectedVariation = defaultVariation;
+ }
+};
+
+template <class ValueType>
+struct EventInstance
+{
+ ValueType value;
+ uint16_t index;
+};
+
+union EventValue
+{
+ ValueAndVariation<BinarySpec> binary;
+ ValueAndVariation<DoubleBitBinarySpec> doubleBinary;
+ ValueAndVariation<BinaryOutputStatusSpec> binaryOutputStatus;
+ ValueAndVariation<CounterSpec> counter;
+ ValueAndVariation<FrozenCounterSpec> frozenCounter;
+ ValueAndVariation<AnalogSpec> analog;
+ ValueAndVariation<AnalogOutputStatusSpec> analogOutputStatus;
+ ValueAndVariation<SecurityStatSpec> securityStat;
+};
+
+class SOERecord
+{
+public:
+
+ SOERecord();
+
+ SOERecord(const Binary& meas, uint16_t index, EventClass clazz, EventBinaryVariation var);
+ SOERecord(const DoubleBitBinary& meas, uint16_t index, EventClass clazz, EventDoubleBinaryVariation var);
+ SOERecord(const BinaryOutputStatus& meas, uint16_t index, EventClass clazz, EventBinaryOutputStatusVariation var);
+ SOERecord(const Counter& meas, uint16_t index, EventClass clazz, EventCounterVariation var);
+ SOERecord(const FrozenCounter& meas, uint16_t index, EventClass clazz, EventFrozenCounterVariation var);
+ SOERecord(const Analog& meas, uint16_t index, EventClass clazz, EventAnalogVariation var);
+ SOERecord(const AnalogOutputStatus& meas, uint16_t index, EventClass clazz, EventAnalogOutputStatusVariation var);
+ SOERecord(const SecurityStat& meas, uint16_t index, EventClass clazz, EventSecurityStatVariation var);
+
+ template <class Spec>
+ EventInstance<typename Spec::meas_t> ReadEvent()
+ {
+  return EventInstance <typename Spec::meas_t>
+  {
+   typename Spec::meas_t(GetValue<Spec>().value, flags, time), index
+  };
+ }
+
+ template <class Spec>
+ const ValueAndVariation<Spec>& GetValue();
+
+ void SelectDefault();
+
+ void Select(EventBinaryVariation var);
+ void Select(EventDoubleBinaryVariation var);
+ void Select(EventBinaryOutputStatusVariation var);
+ void Select(EventCounterVariation var);
+ void Select(EventFrozenCounterVariation var);
+ void Select(EventAnalogVariation var);
+ void Select(EventAnalogOutputStatusVariation var);
+ void Select(EventSecurityStatVariation var);
+
+ EventType type;
+ EventClass clazz;
+ bool selected;
+ bool written;
+ void Reset();
+
+ DNPTime GetTime() const
+ {
+  return time;
+ }
+
+private:
+
+ SOERecord(EventType type, EventClass clazz, uint16_t index, DNPTime time, uint8_t flags);
+
+
+
+ EventValue value;
+ uint16_t index;
+ DNPTime time;
+ uint8_t flags;
+
+};
+
+}
+# 22 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/SOERecord.cpp" 2
+
+namespace opendnp3
+{
+
+SOERecord::SOERecord() : SOERecord(EventType::Analog, EventClass::EC1, 0, DNPTime(0), 0)
+{}
+
+SOERecord::SOERecord(EventType type, EventClass clazz, uint16_t index, DNPTime time, uint8_t flags) :
+ type(type),
+ clazz(clazz),
+ selected(false),
+ written(false),
+ index(index),
+ time(time),
+ flags(flags)
+{}
+
+void SOERecord::Reset()
+{
+ selected = written = false;
+}
+
+void SOERecord::SelectDefault()
+{
+ selected = true;
+ switch (type)
+ {
+ case(EventType::Binary) :
+  value.binary.SelectDefaultVariation();
+  break;
+ case(EventType::DoubleBitBinary) :
+  value.doubleBinary.SelectDefaultVariation();
+  break;
+ case(EventType::Counter) :
+  value.counter.SelectDefaultVariation();
+  break;
+ case(EventType::FrozenCounter) :
+  value.frozenCounter.SelectDefaultVariation();
+  break;
+ case(EventType::Analog) :
+  value.analog.SelectDefaultVariation();
+  break;
+ case(EventType::BinaryOutputStatus) :
+  value.binaryOutputStatus.SelectDefaultVariation();
+  break;
+ case(EventType::AnalogOutputStatus) :
+  value.analogOutputStatus.SelectDefaultVariation();
+  break;
+ case(EventType::SecurityStat) :
+  value.securityStat.SelectDefaultVariation();
+  break;
+ }
+}
+
+SOERecord::SOERecord(const Binary& meas, uint16_t index_, EventClass clazz_, EventBinaryVariation var) :
+ SOERecord(EventType::Binary, clazz_, index_, meas.time, meas.flags.value)
+{
+ this->value.binary = ValueAndVariation <BinarySpec> { meas.value, var, var };
+}
+
+SOERecord::SOERecord(const DoubleBitBinary& meas, uint16_t index_, EventClass clazz_, EventDoubleBinaryVariation var) :
+ SOERecord(EventType::DoubleBitBinary, clazz_, index_, meas.time, meas.flags.value)
+{
+ this->value.doubleBinary = ValueAndVariation<DoubleBitBinarySpec> { meas.value, var, var };
+}
+
+SOERecord::SOERecord(const BinaryOutputStatus& meas, uint16_t index_, EventClass clazz_, EventBinaryOutputStatusVariation var) :
+ SOERecord(EventType::BinaryOutputStatus, clazz_, index_, meas.time, meas.flags.value)
+{
+ this->value.binaryOutputStatus = ValueAndVariation < BinaryOutputStatusSpec > { meas.value, var, var };
+}
+
+SOERecord::SOERecord(const Counter& meas, uint16_t index_, EventClass clazz_, EventCounterVariation var) :
+ SOERecord(EventType::Counter, clazz_, index_, meas.time, meas.flags.value)
+{
+ this->value.counter = ValueAndVariation < CounterSpec > { meas.value, var, var };
+}
+
+SOERecord::SOERecord(const FrozenCounter& meas, uint16_t index_, EventClass clazz_, EventFrozenCounterVariation var) :
+ SOERecord(EventType::FrozenCounter, clazz_, index_, meas.time, meas.flags.value)
+{
+ this->value.frozenCounter = ValueAndVariation < FrozenCounterSpec > { meas.value, var, var };
+}
+
+SOERecord::SOERecord(const Analog& meas, uint16_t index_, EventClass clazz_, EventAnalogVariation var) :
+ SOERecord(EventType::Analog, clazz_, index_, meas.time, meas.flags.value)
+{
+ this->value.analog = ValueAndVariation < AnalogSpec > { meas.value, var, var };
+}
+
+SOERecord::SOERecord(const AnalogOutputStatus& meas, uint16_t index_, EventClass clazz_, EventAnalogOutputStatusVariation var) :
+ SOERecord(EventType::AnalogOutputStatus, clazz_, index_, meas.time, meas.flags.value)
+{
+ this->value.analogOutputStatus = ValueAndVariation < AnalogOutputStatusSpec > { meas.value, var, var };
+}
+
+SOERecord::SOERecord(const SecurityStat& meas, uint16_t index_, EventClass clazz_, EventSecurityStatVariation var) :
+ SOERecord(EventType::SecurityStat, clazz_, index_, meas.time, meas.quality)
+{
+ this->value.securityStat = ValueAndVariation < SecurityStatSpec > { meas.value, var, var };
+}
+
+void SOERecord::Select(EventBinaryVariation var)
+{
+ this->selected = true;
+ value.binary.selectedVariation = var;
+}
+
+void SOERecord::Select(EventDoubleBinaryVariation var)
+{
+ this->selected = true;
+ value.doubleBinary.selectedVariation = var;
+}
+
+void SOERecord::Select(EventBinaryOutputStatusVariation var)
+{
+ this->selected = true;
+ value.binaryOutputStatus.selectedVariation = var;
+}
+
+void SOERecord::Select(EventCounterVariation var)
+{
+ this->selected = true;
+ value.counter.selectedVariation = var;
+}
+
+void SOERecord::Select(EventFrozenCounterVariation var)
+{
+ this->selected = true;
+ value.frozenCounter.selectedVariation = var;
+}
+
+void SOERecord::Select(EventAnalogVariation var)
+{
+ this->selected = true;
+ value.analog.selectedVariation = var;
+}
+
+void SOERecord::Select(EventAnalogOutputStatusVariation var)
+{
+ this->selected = true;
+ value.analogOutputStatus.selectedVariation = var;
+}
+
+void SOERecord::Select(EventSecurityStatVariation var)
+{
+ this->selected = true;
+ value.securityStat.selectedVariation = var;
+}
+
+template <>
+const ValueAndVariation<BinarySpec>& SOERecord::GetValue()
+{
+ return value.binary;
+}
+
+template <>
+const ValueAndVariation<DoubleBitBinarySpec>& SOERecord::GetValue()
+{
+ return value.doubleBinary;
+}
+
+template <>
+const ValueAndVariation<CounterSpec>& SOERecord::GetValue()
+{
+ return value.counter;
+}
+
+template <>
+const ValueAndVariation<FrozenCounterSpec>& SOERecord::GetValue()
+{
+ return value.frozenCounter;
+}
+
+template <>
+const ValueAndVariation<AnalogSpec>& SOERecord::GetValue()
+{
+ return value.analog;
+}
+
+template <>
+const ValueAndVariation<BinaryOutputStatusSpec>& SOERecord::GetValue()
+{
+ return value.binaryOutputStatus;
+}
+
+template <>
+const ValueAndVariation<AnalogOutputStatusSpec>& SOERecord::GetValue()
+{
+ return value.analogOutputStatus;
+}
+
+template <>
+const ValueAndVariation<SecurityStatSpec>& SOERecord::GetValue()
+{
+ return value.securityStat;
+}
+
+}

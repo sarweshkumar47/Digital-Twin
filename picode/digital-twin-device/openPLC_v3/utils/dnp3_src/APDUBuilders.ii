@@ -1,0 +1,6359 @@
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/APDUBuilders.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/APDUBuilders.cpp"
+# 21 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/APDUBuilders.cpp"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/APDUBuilders.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/APDUBuilders.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDURequest.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDURequest.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUWrapper.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUWrapper.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/HasSize.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/HasSize.h"
+namespace openpal
+{
+
+template <class SizeType>
+class HasSize
+{
+
+public:
+
+ HasSize(SizeType size_) : size(size_)
+ {}
+
+ SizeType Size() const
+ {
+  return size;
+ }
+
+ bool IsEmpty() const
+ {
+  return size == 0;
+ }
+
+ bool IsNotEmpty() const
+ {
+  return size != 0;
+ }
+
+protected:
+
+ SizeType size;
+
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 2
+
+# 1 "/usr/include/c++/6/cstdint" 1 3
+# 32 "/usr/include/c++/6/cstdint" 3
+       
+# 33 "/usr/include/c++/6/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 1 3
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  typedef unsigned int size_t;
+  typedef int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 221 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 507 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 1 3
+# 39 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 364 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 1 3 4
+# 415 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 416 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 2 3 4
+# 365 "/usr/include/features.h" 2 3 4
+# 388 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h" 1 3 4
+# 11 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 2 3 4
+# 389 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 2 3
+# 508 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/cpu_defines.h" 1 3
+# 511 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/6/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wchar.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
+
+
+
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
+
+
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
+
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+
+
+
+__extension__
+typedef long long int int_least64_t;
+
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+
+
+__extension__
+typedef unsigned long long int uint_least64_t;
+
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+
+
+
+
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+
+
+
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+# 125 "/usr/include/stdint.h" 3 4
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/6/cstdint" 2 3
+
+
+
+
+namespace std
+{
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 2
+
+
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h"
+namespace openpal
+{
+
+class WSlice;
+
+
+
+
+
+class RSlice : public HasSize<uint32_t>
+{
+
+public:
+
+ static RSlice Empty();
+
+ RSlice();
+
+ RSlice(uint8_t const* pBuffer, uint32_t size);
+
+ void Clear();
+
+ RSlice CopyTo(WSlice&) const;
+
+ RSlice Take(uint32_t count) const;
+
+ RSlice Skip(uint32_t count) const;
+
+ bool Equals(const RSlice& rhs) const;
+
+ void Advance(uint32_t count);
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+ uint8_t const* pBuffer;
+
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUWrapper.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/WSlice.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/WSlice.h"
+namespace openpal
+{
+
+class RSlice;
+
+
+
+
+
+class WSlice : public HasSize<uint32_t>
+{
+public:
+
+ static WSlice Empty();
+
+ void SetAllTo(uint8_t value);
+
+ WSlice();
+ WSlice(uint8_t* pBuffer, uint32_t size);
+
+ void Clear();
+
+ uint32_t Advance(uint32_t count);
+
+ WSlice Skip(uint32_t count) const;
+
+ RSlice ToRSlice() const;
+
+ operator uint8_t* ()
+ {
+  return pBuffer;
+ };
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+
+ uint8_t* pBuffer;
+};
+
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUWrapper.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FunctionCode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FunctionCode.h"
+namespace opendnp3 {
+
+
+
+
+enum class FunctionCode : uint8_t
+{
+
+  CONFIRM = 0x0,
+
+  READ = 0x1,
+
+  WRITE = 0x2,
+
+  SELECT = 0x3,
+
+  OPERATE = 0x4,
+
+  DIRECT_OPERATE = 0x5,
+
+  DIRECT_OPERATE_NR = 0x6,
+
+  IMMED_FREEZE = 0x7,
+
+  IMMED_FREEZE_NR = 0x8,
+
+  FREEZE_CLEAR = 0x9,
+
+  FREEZE_CLEAR_NR = 0xA,
+
+  FREEZE_AT_TIME = 0xB,
+
+  FREEZE_AT_TIME_NR = 0xC,
+
+  COLD_RESTART = 0xD,
+
+  WARM_RESTART = 0xE,
+
+  INITIALIZE_DATA = 0xF,
+
+  INITIALIZE_APPLICATION = 0x10,
+
+  START_APPLICATION = 0x11,
+
+  STOP_APPLICATION = 0x12,
+
+  SAVE_CONFIGURATION = 0x13,
+
+  ENABLE_UNSOLICITED = 0x14,
+
+  DISABLE_UNSOLICITED = 0x15,
+
+  ASSIGN_CLASS = 0x16,
+
+  DELAY_MEASURE = 0x17,
+
+  RECORD_CURRENT_TIME = 0x18,
+
+  OPEN_FILE = 0x19,
+
+  CLOSE_FILE = 0x1A,
+
+  DELETE_FILE = 0x1B,
+
+  GET_FILE_INFO = 0x1C,
+
+  AUTHENTICATE_FILE = 0x1D,
+
+  ABORT_FILE = 0x1E,
+
+  AUTH_REQUEST = 0x20,
+
+  AUTH_REQUEST_NO_ACK = 0x21,
+
+  RESPONSE = 0x81,
+
+  UNSOLICITED_RESPONSE = 0x82,
+
+  AUTH_RESPONSE = 0x83,
+
+  UNKNOWN = 0xFF
+};
+
+uint8_t FunctionCodeToType(FunctionCode arg);
+FunctionCode FunctionCodeFromType(uint8_t arg);
+char const* FunctionCodeToString(FunctionCode arg);
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUWrapper.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/AppControlField.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/AppControlField.h"
+namespace opendnp3
+{
+
+
+
+struct AppControlField
+{
+ const static AppControlField DEFAULT;
+
+ static AppControlField Request(uint8_t seq);
+
+ AppControlField();
+
+ explicit AppControlField(uint8_t byte);
+
+ AppControlField(bool fir, bool fin, bool con, bool uns, uint8_t seq = 0);
+
+ uint8_t ToByte() const;
+
+ bool IsFirAndFin() const
+ {
+  return FIR && FIN;
+ }
+
+ bool FIR;
+ bool FIN;
+ bool CON;
+ bool UNS;
+ uint8_t SEQ;
+
+private:
+
+ static const uint8_t FIR_MASK = 0x80;
+ static const uint8_t FIN_MASK = 0x40;
+ static const uint8_t CON_MASK = 0x20;
+ static const uint8_t UNS_MASK = 0x10;
+ static const uint8_t SEQ_MASK = 0x0F;
+};
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUWrapper.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h"
+namespace openpal
+{
+
+
+
+class Uncopyable
+{
+protected:
+ Uncopyable() {}
+ ~Uncopyable() {}
+
+private:
+
+ Uncopyable(const Uncopyable&) = delete;
+ Uncopyable& operator=(const Uncopyable&) = delete;
+};
+
+class StaticOnly
+{
+
+private:
+
+ StaticOnly() = delete;
+ StaticOnly(const StaticOnly&) = delete;
+ StaticOnly& operator=(const StaticOnly&) = delete;
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/QualifierCode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/QualifierCode.h"
+namespace opendnp3 {
+
+
+
+
+enum class QualifierCode : uint8_t
+{
+  UINT8_START_STOP = 0x0,
+  UINT16_START_STOP = 0x1,
+  ALL_OBJECTS = 0x6,
+  UINT8_CNT = 0x7,
+  UINT16_CNT = 0x8,
+  UINT8_CNT_UINT8_INDEX = 0x17,
+  UINT16_CNT_UINT16_INDEX = 0x28,
+  UINT16_FREE_FORMAT = 0x5B,
+  UNDEFINED = 0xFF
+};
+
+uint8_t QualifierCodeToType(QualifierCode arg);
+QualifierCode QualifierCodeFromType(uint8_t arg);
+char const* QualifierCodeToString(QualifierCode arg);
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/TimestampMode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/TimestampMode.h"
+namespace opendnp3 {
+
+
+
+
+enum class TimestampMode : uint8_t
+{
+
+  SYNCHRONIZED = 1,
+
+  UNSYNCHRONIZED = 2,
+
+  INVALID = 0
+};
+
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/GroupVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/GroupVariation.h"
+namespace opendnp3 {
+
+
+
+
+enum class GroupVariation : uint16_t
+{
+  Group1Var0 = 0x100,
+  Group1Var1 = 0x101,
+  Group1Var2 = 0x102,
+  Group2Var0 = 0x200,
+  Group2Var1 = 0x201,
+  Group2Var2 = 0x202,
+  Group2Var3 = 0x203,
+  Group3Var0 = 0x300,
+  Group3Var1 = 0x301,
+  Group3Var2 = 0x302,
+  Group4Var0 = 0x400,
+  Group4Var1 = 0x401,
+  Group4Var2 = 0x402,
+  Group4Var3 = 0x403,
+  Group10Var0 = 0xA00,
+  Group10Var1 = 0xA01,
+  Group10Var2 = 0xA02,
+  Group11Var0 = 0xB00,
+  Group11Var1 = 0xB01,
+  Group11Var2 = 0xB02,
+  Group12Var0 = 0xC00,
+  Group12Var1 = 0xC01,
+  Group13Var1 = 0xD01,
+  Group13Var2 = 0xD02,
+  Group20Var0 = 0x1400,
+  Group20Var1 = 0x1401,
+  Group20Var2 = 0x1402,
+  Group20Var5 = 0x1405,
+  Group20Var6 = 0x1406,
+  Group21Var0 = 0x1500,
+  Group21Var1 = 0x1501,
+  Group21Var2 = 0x1502,
+  Group21Var5 = 0x1505,
+  Group21Var6 = 0x1506,
+  Group21Var9 = 0x1509,
+  Group21Var10 = 0x150A,
+  Group22Var0 = 0x1600,
+  Group22Var1 = 0x1601,
+  Group22Var2 = 0x1602,
+  Group22Var5 = 0x1605,
+  Group22Var6 = 0x1606,
+  Group23Var0 = 0x1700,
+  Group23Var1 = 0x1701,
+  Group23Var2 = 0x1702,
+  Group23Var5 = 0x1705,
+  Group23Var6 = 0x1706,
+  Group30Var0 = 0x1E00,
+  Group30Var1 = 0x1E01,
+  Group30Var2 = 0x1E02,
+  Group30Var3 = 0x1E03,
+  Group30Var4 = 0x1E04,
+  Group30Var5 = 0x1E05,
+  Group30Var6 = 0x1E06,
+  Group32Var0 = 0x2000,
+  Group32Var1 = 0x2001,
+  Group32Var2 = 0x2002,
+  Group32Var3 = 0x2003,
+  Group32Var4 = 0x2004,
+  Group32Var5 = 0x2005,
+  Group32Var6 = 0x2006,
+  Group32Var7 = 0x2007,
+  Group32Var8 = 0x2008,
+  Group40Var0 = 0x2800,
+  Group40Var1 = 0x2801,
+  Group40Var2 = 0x2802,
+  Group40Var3 = 0x2803,
+  Group40Var4 = 0x2804,
+  Group41Var0 = 0x2900,
+  Group41Var1 = 0x2901,
+  Group41Var2 = 0x2902,
+  Group41Var3 = 0x2903,
+  Group41Var4 = 0x2904,
+  Group42Var0 = 0x2A00,
+  Group42Var1 = 0x2A01,
+  Group42Var2 = 0x2A02,
+  Group42Var3 = 0x2A03,
+  Group42Var4 = 0x2A04,
+  Group42Var5 = 0x2A05,
+  Group42Var6 = 0x2A06,
+  Group42Var7 = 0x2A07,
+  Group42Var8 = 0x2A08,
+  Group43Var1 = 0x2B01,
+  Group43Var2 = 0x2B02,
+  Group43Var3 = 0x2B03,
+  Group43Var4 = 0x2B04,
+  Group43Var5 = 0x2B05,
+  Group43Var6 = 0x2B06,
+  Group43Var7 = 0x2B07,
+  Group43Var8 = 0x2B08,
+  Group50Var1 = 0x3201,
+  Group50Var4 = 0x3204,
+  Group51Var1 = 0x3301,
+  Group51Var2 = 0x3302,
+  Group52Var1 = 0x3401,
+  Group52Var2 = 0x3402,
+  Group60Var1 = 0x3C01,
+  Group60Var2 = 0x3C02,
+  Group60Var3 = 0x3C03,
+  Group60Var4 = 0x3C04,
+  Group70Var1 = 0x4601,
+  Group70Var2 = 0x4602,
+  Group70Var3 = 0x4603,
+  Group70Var4 = 0x4604,
+  Group70Var5 = 0x4605,
+  Group70Var6 = 0x4606,
+  Group70Var7 = 0x4607,
+  Group70Var8 = 0x4608,
+  Group80Var1 = 0x5001,
+  Group110Var0 = 0x6E00,
+  Group111Var0 = 0x6F00,
+  Group112Var0 = 0x7000,
+  Group113Var0 = 0x7100,
+  Group120Var1 = 0x7801,
+  Group120Var2 = 0x7802,
+  Group120Var3 = 0x7803,
+  Group120Var4 = 0x7804,
+  Group120Var5 = 0x7805,
+  Group120Var6 = 0x7806,
+  Group120Var7 = 0x7807,
+  Group120Var8 = 0x7808,
+  Group120Var9 = 0x7809,
+  Group120Var10 = 0x780A,
+  Group120Var11 = 0x780B,
+  Group120Var12 = 0x780C,
+  Group120Var13 = 0x780D,
+  Group120Var14 = 0x780E,
+  Group120Var15 = 0x780F,
+  Group121Var0 = 0x7900,
+  Group121Var1 = 0x7901,
+  Group122Var0 = 0x7A00,
+  Group122Var1 = 0x7A01,
+  Group122Var2 = 0x7A02,
+  UNKNOWN = 0xFFFF
+};
+
+uint16_t GroupVariationToType(GroupVariation arg);
+GroupVariation GroupVariationFromType(uint16_t arg);
+char const* GroupVariationToString(GroupVariation arg);
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/Range.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/Range.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/Configure.h" 1
+# 34 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/Configure.h"
+namespace openpal
+{
+namespace sizes
+{
+
+static const uint16_t MAX_ERASURE_SIZE = 12 * sizeof(void*);
+
+}
+}
+# 78 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/Configure.h"
+# 1 "/usr/include/c++/6/new" 1 3
+# 37 "/usr/include/c++/6/new" 3
+       
+# 38 "/usr/include/c++/6/new" 3
+
+
+# 1 "/usr/include/c++/6/exception" 1 3
+# 33 "/usr/include/c++/6/exception" 3
+       
+# 34 "/usr/include/c++/6/exception" 3
+
+#pragma GCC visibility push(default)
+
+
+
+# 1 "/usr/include/c++/6/bits/atomic_lockfree_defines.h" 1 3
+# 33 "/usr/include/c++/6/bits/atomic_lockfree_defines.h" 3
+       
+# 34 "/usr/include/c++/6/bits/atomic_lockfree_defines.h" 3
+# 40 "/usr/include/c++/6/exception" 2 3
+
+
+
+# 42 "/usr/include/c++/6/exception" 3
+extern "C++" {
+
+namespace std
+{
+# 62 "/usr/include/c++/6/exception" 3
+  class exception
+  {
+  public:
+    exception() noexcept { }
+    virtual ~exception() noexcept;
+
+
+
+    virtual const char*
+    what() const noexcept;
+  };
+
+
+
+  class bad_exception : public exception
+  {
+  public:
+    bad_exception() noexcept { }
+
+
+
+    virtual ~bad_exception() noexcept;
+
+
+    virtual const char*
+    what() const noexcept;
+  };
+
+
+  typedef void (*terminate_handler) ();
+
+
+  typedef void (*unexpected_handler) ();
+
+
+  terminate_handler set_terminate(terminate_handler) noexcept;
+
+
+
+  terminate_handler get_terminate() noexcept;
+
+
+
+
+  void terminate() noexcept __attribute__ ((__noreturn__));
+
+
+  unexpected_handler set_unexpected(unexpected_handler) noexcept;
+
+
+
+  unexpected_handler get_unexpected() noexcept;
+
+
+
+
+  void unexpected() __attribute__ ((__noreturn__));
+# 131 "/usr/include/c++/6/exception" 3
+  bool uncaught_exception() noexcept __attribute__ ((__pure__));
+# 140 "/usr/include/c++/6/exception" 3
+}
+
+namespace __gnu_cxx
+{
+
+# 162 "/usr/include/c++/6/exception" 3
+  void __verbose_terminate_handler();
+
+
+}
+
+}
+
+#pragma GCC visibility pop
+
+
+# 1 "/usr/include/c++/6/bits/exception_ptr.h" 1 3
+# 34 "/usr/include/c++/6/bits/exception_ptr.h" 3
+#pragma GCC visibility push(default)
+
+
+# 1 "/usr/include/c++/6/bits/exception_defines.h" 1 3
+# 38 "/usr/include/c++/6/bits/exception_ptr.h" 2 3
+
+
+
+
+
+
+
+extern "C++" {
+
+namespace std
+{
+  class type_info;
+
+
+
+
+
+  namespace __exception_ptr
+  {
+    class exception_ptr;
+  }
+
+  using __exception_ptr::exception_ptr;
+
+
+
+
+
+  exception_ptr current_exception() noexcept;
+
+
+  void rethrow_exception(exception_ptr) __attribute__ ((__noreturn__));
+
+  namespace __exception_ptr
+  {
+    using std::rethrow_exception;
+
+
+
+
+
+    class exception_ptr
+    {
+      void* _M_exception_object;
+
+      explicit exception_ptr(void* __e) noexcept;
+
+      void _M_addref() noexcept;
+      void _M_release() noexcept;
+
+      void *_M_get() const noexcept __attribute__ ((__pure__));
+
+      friend exception_ptr std::current_exception() noexcept;
+      friend void std::rethrow_exception(exception_ptr);
+
+    public:
+      exception_ptr() noexcept;
+
+      exception_ptr(const exception_ptr&) noexcept;
+
+
+      exception_ptr(nullptr_t) noexcept
+      : _M_exception_object(0)
+      { }
+
+      exception_ptr(exception_ptr&& __o) noexcept
+      : _M_exception_object(__o._M_exception_object)
+      { __o._M_exception_object = 0; }
+# 115 "/usr/include/c++/6/bits/exception_ptr.h" 3
+      exception_ptr&
+      operator=(const exception_ptr&) noexcept;
+
+
+      exception_ptr&
+      operator=(exception_ptr&& __o) noexcept
+      {
+        exception_ptr(static_cast<exception_ptr&&>(__o)).swap(*this);
+        return *this;
+      }
+
+
+      ~exception_ptr() noexcept;
+
+      void
+      swap(exception_ptr&) noexcept;
+# 142 "/usr/include/c++/6/bits/exception_ptr.h" 3
+      explicit operator bool() const
+      { return _M_exception_object; }
+
+
+      friend bool
+      operator==(const exception_ptr&, const exception_ptr&)
+ noexcept __attribute__ ((__pure__));
+
+      const class std::type_info*
+      __cxa_exception_type() const noexcept
+ __attribute__ ((__pure__));
+    };
+
+    bool
+    operator==(const exception_ptr&, const exception_ptr&)
+      noexcept __attribute__ ((__pure__));
+
+    bool
+    operator!=(const exception_ptr&, const exception_ptr&)
+      noexcept __attribute__ ((__pure__));
+
+    inline void
+    swap(exception_ptr& __lhs, exception_ptr& __rhs)
+    { __lhs.swap(__rhs); }
+
+  }
+
+
+
+  template<typename _Ex>
+    exception_ptr
+    make_exception_ptr(_Ex __ex) noexcept
+    {
+
+      try
+ {
+   throw __ex;
+ }
+      catch(...)
+ {
+   return current_exception();
+ }
+
+
+
+    }
+
+
+
+
+
+  template<typename _Ex>
+    exception_ptr
+    copy_exception(_Ex __ex) noexcept ;
+
+  template<typename _Ex>
+    exception_ptr
+    copy_exception(_Ex __ex) noexcept
+    { return std::make_exception_ptr<_Ex>(__ex); }
+
+
+}
+
+}
+
+#pragma GCC visibility pop
+# 173 "/usr/include/c++/6/exception" 2 3
+# 1 "/usr/include/c++/6/bits/nested_exception.h" 1 3
+# 33 "/usr/include/c++/6/bits/nested_exception.h" 3
+#pragma GCC visibility push(default)
+
+
+
+
+
+
+# 1 "/usr/include/c++/6/bits/move.h" 1 3
+# 34 "/usr/include/c++/6/bits/move.h" 3
+# 1 "/usr/include/c++/6/bits/concept_check.h" 1 3
+# 33 "/usr/include/c++/6/bits/concept_check.h" 3
+       
+# 34 "/usr/include/c++/6/bits/concept_check.h" 3
+# 35 "/usr/include/c++/6/bits/move.h" 2 3
+
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+
+
+
+
+
+
+  template<typename _Tp>
+    inline _Tp*
+    __addressof(_Tp& __r) noexcept
+    {
+      return reinterpret_cast<_Tp*>
+ (&const_cast<char&>(reinterpret_cast<const volatile char&>(__r)));
+    }
+
+
+}
+
+
+# 1 "/usr/include/c++/6/type_traits" 1 3
+# 32 "/usr/include/c++/6/type_traits" 3
+       
+# 33 "/usr/include/c++/6/type_traits" 3
+# 42 "/usr/include/c++/6/type_traits" 3
+namespace std
+{
+  typedef short unsigned int uint_least16_t;
+  typedef unsigned int uint_least32_t;
+}
+
+
+
+
+
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+# 68 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp, _Tp __v>
+    struct integral_constant
+    {
+      static constexpr _Tp value = __v;
+      typedef _Tp value_type;
+      typedef integral_constant<_Tp, __v> type;
+      constexpr operator value_type() const { return value; }
+
+
+
+
+      constexpr value_type operator()() const { return value; }
+
+    };
+
+  template<typename _Tp, _Tp __v>
+    constexpr _Tp integral_constant<_Tp, __v>::value;
+
+
+  typedef integral_constant<bool, true> true_type;
+
+
+  typedef integral_constant<bool, false> false_type;
+
+  template<bool __v>
+    using __bool_constant = integral_constant<bool, __v>;
+# 103 "/usr/include/c++/6/type_traits" 3
+  template<bool, typename, typename>
+    struct conditional;
+
+  template<typename...>
+    struct __or_;
+
+  template<>
+    struct __or_<>
+    : public false_type
+    { };
+
+  template<typename _B1>
+    struct __or_<_B1>
+    : public _B1
+    { };
+
+  template<typename _B1, typename _B2>
+    struct __or_<_B1, _B2>
+    : public conditional<_B1::value, _B1, _B2>::type
+    { };
+
+  template<typename _B1, typename _B2, typename _B3, typename... _Bn>
+    struct __or_<_B1, _B2, _B3, _Bn...>
+    : public conditional<_B1::value, _B1, __or_<_B2, _B3, _Bn...>>::type
+    { };
+
+  template<typename...>
+    struct __and_;
+
+  template<>
+    struct __and_<>
+    : public true_type
+    { };
+
+  template<typename _B1>
+    struct __and_<_B1>
+    : public _B1
+    { };
+
+  template<typename _B1, typename _B2>
+    struct __and_<_B1, _B2>
+    : public conditional<_B1::value, _B2, _B1>::type
+    { };
+
+  template<typename _B1, typename _B2, typename _B3, typename... _Bn>
+    struct __and_<_B1, _B2, _B3, _Bn...>
+    : public conditional<_B1::value, __and_<_B2, _B3, _Bn...>, _B1>::type
+    { };
+
+  template<typename _Pp>
+    struct __not_
+    : public integral_constant<bool, !_Pp::value>
+    { };
+
+  struct __nonesuch {
+    __nonesuch() = delete;
+    ~__nonesuch() = delete;
+    __nonesuch(__nonesuch const&) = delete;
+    void operator=(__nonesuch const&) = delete;
+  };
+# 189 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp>
+    struct __success_type
+    { typedef _Tp type; };
+
+  struct __failure_type
+  { };
+
+
+
+  template<typename>
+    struct remove_cv;
+
+  template<typename>
+    struct __is_void_helper
+    : public false_type { };
+
+  template<>
+    struct __is_void_helper<void>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_void
+    : public __is_void_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+  template<typename>
+    struct __is_integral_helper
+    : public false_type { };
+
+  template<>
+    struct __is_integral_helper<bool>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<char>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<signed char>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<unsigned char>
+    : public true_type { };
+
+
+  template<>
+    struct __is_integral_helper<wchar_t>
+    : public true_type { };
+
+
+  template<>
+    struct __is_integral_helper<char16_t>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<char32_t>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<short>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<unsigned short>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<int>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<unsigned int>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<long>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<unsigned long>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<long long>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<unsigned long long>
+    : public true_type { };
+# 321 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp>
+    struct is_integral
+    : public __is_integral_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+  template<typename>
+    struct __is_floating_point_helper
+    : public false_type { };
+
+  template<>
+    struct __is_floating_point_helper<float>
+    : public true_type { };
+
+  template<>
+    struct __is_floating_point_helper<double>
+    : public true_type { };
+
+  template<>
+    struct __is_floating_point_helper<long double>
+    : public true_type { };
+# 349 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp>
+    struct is_floating_point
+    : public __is_floating_point_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+
+  template<typename>
+    struct is_array
+    : public false_type { };
+
+  template<typename _Tp, std::size_t _Size>
+    struct is_array<_Tp[_Size]>
+    : public true_type { };
+
+  template<typename _Tp>
+    struct is_array<_Tp[]>
+    : public true_type { };
+
+  template<typename>
+    struct __is_pointer_helper
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_pointer_helper<_Tp*>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_pointer
+    : public __is_pointer_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+
+  template<typename>
+    struct is_lvalue_reference
+    : public false_type { };
+
+  template<typename _Tp>
+    struct is_lvalue_reference<_Tp&>
+    : public true_type { };
+
+
+  template<typename>
+    struct is_rvalue_reference
+    : public false_type { };
+
+  template<typename _Tp>
+    struct is_rvalue_reference<_Tp&&>
+    : public true_type { };
+
+  template<typename>
+    struct is_function;
+
+  template<typename>
+    struct __is_member_object_pointer_helper
+    : public false_type { };
+
+  template<typename _Tp, typename _Cp>
+    struct __is_member_object_pointer_helper<_Tp _Cp::*>
+    : public integral_constant<bool, !is_function<_Tp>::value> { };
+
+
+  template<typename _Tp>
+    struct is_member_object_pointer
+    : public __is_member_object_pointer_helper<
+    typename remove_cv<_Tp>::type>::type
+    { };
+
+  template<typename>
+    struct __is_member_function_pointer_helper
+    : public false_type { };
+
+  template<typename _Tp, typename _Cp>
+    struct __is_member_function_pointer_helper<_Tp _Cp::*>
+    : public integral_constant<bool, is_function<_Tp>::value> { };
+
+
+  template<typename _Tp>
+    struct is_member_function_pointer
+    : public __is_member_function_pointer_helper<
+    typename remove_cv<_Tp>::type>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_enum
+    : public integral_constant<bool, __is_enum(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_union
+    : public integral_constant<bool, __is_union(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_class
+    : public integral_constant<bool, __is_class(_Tp)>
+    { };
+
+
+  template<typename>
+    struct is_function
+    : public false_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...)>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......)>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) volatile>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) volatile &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) volatile &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) volatile>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) volatile &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) volatile &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const volatile>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const volatile &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const volatile &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const volatile>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const volatile &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const volatile &&>
+    : public true_type { };
+
+
+
+  template<typename>
+    struct __is_null_pointer_helper
+    : public false_type { };
+
+  template<>
+    struct __is_null_pointer_helper<std::nullptr_t>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_null_pointer
+    : public __is_null_pointer_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+
+  template<typename _Tp>
+    struct __is_nullptr_t
+    : public is_null_pointer<_Tp>
+    { };
+
+
+
+
+  template<typename _Tp>
+    struct is_reference
+    : public __or_<is_lvalue_reference<_Tp>,
+                   is_rvalue_reference<_Tp>>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_arithmetic
+    : public __or_<is_integral<_Tp>, is_floating_point<_Tp>>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_fundamental
+    : public __or_<is_arithmetic<_Tp>, is_void<_Tp>,
+     is_null_pointer<_Tp>>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_object
+    : public __not_<__or_<is_function<_Tp>, is_reference<_Tp>,
+                          is_void<_Tp>>>::type
+    { };
+
+  template<typename>
+    struct is_member_pointer;
+
+
+  template<typename _Tp>
+    struct is_scalar
+    : public __or_<is_arithmetic<_Tp>, is_enum<_Tp>, is_pointer<_Tp>,
+                   is_member_pointer<_Tp>, is_null_pointer<_Tp>>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_compound
+    : public integral_constant<bool, !is_fundamental<_Tp>::value> { };
+
+  template<typename _Tp>
+    struct __is_member_pointer_helper
+    : public false_type { };
+
+  template<typename _Tp, typename _Cp>
+    struct __is_member_pointer_helper<_Tp _Cp::*>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_member_pointer
+    : public __is_member_pointer_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+
+
+  template<typename _Tp>
+    struct __is_referenceable
+    : public __or_<is_object<_Tp>, is_reference<_Tp>>::type
+    { };
+
+  template<typename _Res, typename... _Args>
+    struct __is_referenceable<_Res(_Args...)>
+    : public true_type
+    { };
+
+  template<typename _Res, typename... _Args>
+    struct __is_referenceable<_Res(_Args......)>
+    : public true_type
+    { };
+
+
+
+
+  template<typename>
+    struct is_const
+    : public false_type { };
+
+  template<typename _Tp>
+    struct is_const<_Tp const>
+    : public true_type { };
+
+
+  template<typename>
+    struct is_volatile
+    : public false_type { };
+
+  template<typename _Tp>
+    struct is_volatile<_Tp volatile>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_trivial
+    : public integral_constant<bool, __is_trivial(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_copyable
+    : public integral_constant<bool, __is_trivially_copyable(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_standard_layout
+    : public integral_constant<bool, __is_standard_layout(_Tp)>
+    { };
+
+
+
+  template<typename _Tp>
+    struct is_pod
+    : public integral_constant<bool, __is_pod(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_literal_type
+    : public integral_constant<bool, __is_literal_type(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_empty
+    : public integral_constant<bool, __is_empty(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_polymorphic
+    : public integral_constant<bool, __is_polymorphic(_Tp)>
+    { };
+
+
+
+
+  template<typename _Tp>
+    struct is_final
+    : public integral_constant<bool, __is_final(_Tp)>
+    { };
+
+
+
+  template<typename _Tp>
+    struct is_abstract
+    : public integral_constant<bool, __is_abstract(_Tp)>
+    { };
+
+  template<typename _Tp,
+    bool = is_arithmetic<_Tp>::value>
+    struct __is_signed_helper
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_signed_helper<_Tp, true>
+    : public integral_constant<bool, _Tp(-1) < _Tp(0)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_signed
+    : public __is_signed_helper<_Tp>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_unsigned
+    : public __and_<is_arithmetic<_Tp>, __not_<is_signed<_Tp>>>
+    { };
+
+
+
+
+  template<typename>
+    struct add_rvalue_reference;
+
+
+
+
+
+  template<typename _Tp>
+    typename add_rvalue_reference<_Tp>::type declval() noexcept;
+
+  template<typename, unsigned = 0>
+    struct extent;
+
+  template<typename>
+    struct remove_all_extents;
+
+  template<typename _Tp>
+    struct __is_array_known_bounds
+    : public integral_constant<bool, (extent<_Tp>::value > 0)>
+    { };
+
+  template<typename _Tp>
+    struct __is_array_unknown_bounds
+    : public __and_<is_array<_Tp>, __not_<extent<_Tp>>>
+    { };
+
+
+
+
+
+
+  struct __do_is_destructible_impl
+  {
+    template<typename _Tp, typename = decltype(declval<_Tp&>().~_Tp())>
+      static true_type __test(int);
+
+    template<typename>
+      static false_type __test(...);
+  };
+
+  template<typename _Tp>
+    struct __is_destructible_impl
+    : public __do_is_destructible_impl
+    {
+      typedef decltype(__test<_Tp>(0)) type;
+    };
+
+  template<typename _Tp,
+           bool = __or_<is_void<_Tp>,
+                        __is_array_unknown_bounds<_Tp>,
+                        is_function<_Tp>>::value,
+           bool = __or_<is_reference<_Tp>, is_scalar<_Tp>>::value>
+    struct __is_destructible_safe;
+
+  template<typename _Tp>
+    struct __is_destructible_safe<_Tp, false, false>
+    : public __is_destructible_impl<typename
+               remove_all_extents<_Tp>::type>::type
+    { };
+
+  template<typename _Tp>
+    struct __is_destructible_safe<_Tp, true, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_destructible_safe<_Tp, false, true>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_destructible
+    : public __is_destructible_safe<_Tp>::type
+    { };
+
+
+
+
+
+  struct __do_is_nt_destructible_impl
+  {
+    template<typename _Tp>
+      static integral_constant<bool, noexcept(declval<_Tp&>().~_Tp())>
+        __test(int);
+
+    template<typename>
+      static false_type __test(...);
+  };
+
+  template<typename _Tp>
+    struct __is_nt_destructible_impl
+    : public __do_is_nt_destructible_impl
+    {
+      typedef decltype(__test<_Tp>(0)) type;
+    };
+
+  template<typename _Tp,
+           bool = __or_<is_void<_Tp>,
+                        __is_array_unknown_bounds<_Tp>,
+                        is_function<_Tp>>::value,
+           bool = __or_<is_reference<_Tp>, is_scalar<_Tp>>::value>
+    struct __is_nt_destructible_safe;
+
+  template<typename _Tp>
+    struct __is_nt_destructible_safe<_Tp, false, false>
+    : public __is_nt_destructible_impl<typename
+               remove_all_extents<_Tp>::type>::type
+    { };
+
+  template<typename _Tp>
+    struct __is_nt_destructible_safe<_Tp, true, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_nt_destructible_safe<_Tp, false, true>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_destructible
+    : public __is_nt_destructible_safe<_Tp>::type
+    { };
+
+  struct __do_is_default_constructible_impl
+  {
+    template<typename _Tp, typename = decltype(_Tp())>
+      static true_type __test(int);
+
+    template<typename>
+      static false_type __test(...);
+  };
+
+  template<typename _Tp>
+    struct __is_default_constructible_impl
+    : public __do_is_default_constructible_impl
+    {
+      typedef decltype(__test<_Tp>(0)) type;
+    };
+
+  template<typename _Tp>
+    struct __is_default_constructible_atom
+    : public __and_<__not_<is_void<_Tp>>,
+                    __is_default_constructible_impl<_Tp>>
+    { };
+
+  template<typename _Tp, bool = is_array<_Tp>::value>
+    struct __is_default_constructible_safe;
+
+
+
+
+
+
+  template<typename _Tp>
+    struct __is_default_constructible_safe<_Tp, true>
+    : public __and_<__is_array_known_bounds<_Tp>,
+      __is_default_constructible_atom<typename
+                      remove_all_extents<_Tp>::type>>
+    { };
+
+  template<typename _Tp>
+    struct __is_default_constructible_safe<_Tp, false>
+    : public __is_default_constructible_atom<_Tp>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_default_constructible
+    : public __is_default_constructible_safe<_Tp>::type
+    { };
+# 933 "/usr/include/c++/6/type_traits" 3
+  struct __do_is_static_castable_impl
+  {
+    template<typename _From, typename _To, typename
+             = decltype(static_cast<_To>(declval<_From>()))>
+      static true_type __test(int);
+
+    template<typename, typename>
+      static false_type __test(...);
+  };
+
+  template<typename _From, typename _To>
+    struct __is_static_castable_impl
+    : public __do_is_static_castable_impl
+    {
+      typedef decltype(__test<_From, _To>(0)) type;
+    };
+
+  template<typename _From, typename _To>
+    struct __is_static_castable_safe
+    : public __is_static_castable_impl<_From, _To>::type
+    { };
+
+
+  template<typename _From, typename _To>
+    struct __is_static_castable
+    : public integral_constant<bool, (__is_static_castable_safe<
+          _From, _To>::value)>
+    { };
+
+
+
+
+
+
+  struct __do_is_direct_constructible_impl
+  {
+    template<typename _Tp, typename _Arg, typename
+      = decltype(::new _Tp(declval<_Arg>()))>
+      static true_type __test(int);
+
+    template<typename, typename>
+      static false_type __test(...);
+  };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_direct_constructible_impl
+    : public __do_is_direct_constructible_impl
+    {
+      typedef decltype(__test<_Tp, _Arg>(0)) type;
+    };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_direct_constructible_new_safe
+    : public __and_<is_destructible<_Tp>,
+                    __is_direct_constructible_impl<_Tp, _Arg>>
+    { };
+
+  template<typename, typename>
+    struct is_same;
+
+  template<typename, typename>
+    struct is_base_of;
+
+  template<typename>
+    struct remove_reference;
+
+  template<typename _From, typename _To, bool
+           = __not_<__or_<is_void<_From>,
+                          is_function<_From>>>::value>
+    struct __is_base_to_derived_ref;
+
+  template<typename _Tp, typename... _Args>
+    struct is_constructible;
+
+
+
+  template<typename _From, typename _To>
+    struct __is_base_to_derived_ref<_From, _To, true>
+    {
+      typedef typename remove_cv<typename remove_reference<_From
+        >::type>::type __src_t;
+      typedef typename remove_cv<typename remove_reference<_To
+        >::type>::type __dst_t;
+      typedef __and_<__not_<is_same<__src_t, __dst_t>>,
+       is_base_of<__src_t, __dst_t>,
+       __not_<is_constructible<__dst_t, _From>>> type;
+      static constexpr bool value = type::value;
+    };
+
+  template<typename _From, typename _To>
+    struct __is_base_to_derived_ref<_From, _To, false>
+    : public false_type
+    { };
+
+  template<typename _From, typename _To, bool
+           = __and_<is_lvalue_reference<_From>,
+                    is_rvalue_reference<_To>>::value>
+    struct __is_lvalue_to_rvalue_ref;
+
+
+
+  template<typename _From, typename _To>
+    struct __is_lvalue_to_rvalue_ref<_From, _To, true>
+    {
+      typedef typename remove_cv<typename remove_reference<
+        _From>::type>::type __src_t;
+      typedef typename remove_cv<typename remove_reference<
+        _To>::type>::type __dst_t;
+      typedef __and_<__not_<is_function<__src_t>>,
+        __or_<is_same<__src_t, __dst_t>,
+      is_base_of<__dst_t, __src_t>>> type;
+      static constexpr bool value = type::value;
+    };
+
+  template<typename _From, typename _To>
+    struct __is_lvalue_to_rvalue_ref<_From, _To, false>
+    : public false_type
+    { };
+
+
+
+
+
+
+
+  template<typename _Tp, typename _Arg>
+    struct __is_direct_constructible_ref_cast
+    : public __and_<__is_static_castable<_Arg, _Tp>,
+                    __not_<__or_<__is_base_to_derived_ref<_Arg, _Tp>,
+                                 __is_lvalue_to_rvalue_ref<_Arg, _Tp>
+                   >>>
+    { };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_direct_constructible_new
+    : public conditional<is_reference<_Tp>::value,
+    __is_direct_constructible_ref_cast<_Tp, _Arg>,
+    __is_direct_constructible_new_safe<_Tp, _Arg>
+    >::type
+    { };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_direct_constructible
+    : public __is_direct_constructible_new<_Tp, _Arg>::type
+    { };
+
+
+
+
+
+
+  struct __do_is_nary_constructible_impl
+  {
+    template<typename _Tp, typename... _Args, typename
+             = decltype(_Tp(declval<_Args>()...))>
+      static true_type __test(int);
+
+    template<typename, typename...>
+      static false_type __test(...);
+  };
+
+  template<typename _Tp, typename... _Args>
+    struct __is_nary_constructible_impl
+    : public __do_is_nary_constructible_impl
+    {
+      typedef decltype(__test<_Tp, _Args...>(0)) type;
+    };
+
+  template<typename _Tp, typename... _Args>
+    struct __is_nary_constructible
+    : public __is_nary_constructible_impl<_Tp, _Args...>::type
+    {
+      static_assert(sizeof...(_Args) > 1,
+                    "Only useful for > 1 arguments");
+    };
+
+  template<typename _Tp, typename... _Args>
+    struct __is_constructible_impl
+    : public __is_nary_constructible<_Tp, _Args...>
+    { };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_constructible_impl<_Tp, _Arg>
+    : public __is_direct_constructible<_Tp, _Arg>
+    { };
+
+  template<typename _Tp>
+    struct __is_constructible_impl<_Tp>
+    : public is_default_constructible<_Tp>
+    { };
+
+
+  template<typename _Tp, typename... _Args>
+    struct is_constructible
+    : public __is_constructible_impl<_Tp, _Args...>::type
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_copy_constructible_impl;
+
+  template<typename _Tp>
+    struct __is_copy_constructible_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_copy_constructible_impl<_Tp, true>
+    : public is_constructible<_Tp, const _Tp&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_copy_constructible
+    : public __is_copy_constructible_impl<_Tp>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_move_constructible_impl;
+
+  template<typename _Tp>
+    struct __is_move_constructible_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_move_constructible_impl<_Tp, true>
+    : public is_constructible<_Tp, _Tp&&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_move_constructible
+    : public __is_move_constructible_impl<_Tp>
+    { };
+
+  template<typename _Tp>
+    struct __is_nt_default_constructible_atom
+    : public integral_constant<bool, noexcept(_Tp())>
+    { };
+
+  template<typename _Tp, bool = is_array<_Tp>::value>
+    struct __is_nt_default_constructible_impl;
+
+  template<typename _Tp>
+    struct __is_nt_default_constructible_impl<_Tp, true>
+    : public __and_<__is_array_known_bounds<_Tp>,
+      __is_nt_default_constructible_atom<typename
+                      remove_all_extents<_Tp>::type>>
+    { };
+
+  template<typename _Tp>
+    struct __is_nt_default_constructible_impl<_Tp, false>
+    : public __is_nt_default_constructible_atom<_Tp>
+    { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_default_constructible
+    : public __and_<is_default_constructible<_Tp>,
+                    __is_nt_default_constructible_impl<_Tp>>
+    { };
+
+  template<typename _Tp, typename... _Args>
+    struct __is_nt_constructible_impl
+    : public integral_constant<bool, noexcept(_Tp(declval<_Args>()...))>
+    { };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_nt_constructible_impl<_Tp, _Arg>
+    : public integral_constant<bool,
+                               noexcept(static_cast<_Tp>(declval<_Arg>()))>
+    { };
+
+  template<typename _Tp>
+    struct __is_nt_constructible_impl<_Tp>
+    : public is_nothrow_default_constructible<_Tp>
+    { };
+
+
+  template<typename _Tp, typename... _Args>
+    struct is_nothrow_constructible
+    : public __and_<is_constructible<_Tp, _Args...>,
+      __is_nt_constructible_impl<_Tp, _Args...>>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_nothrow_copy_constructible_impl;
+
+  template<typename _Tp>
+    struct __is_nothrow_copy_constructible_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_nothrow_copy_constructible_impl<_Tp, true>
+    : public is_nothrow_constructible<_Tp, const _Tp&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_copy_constructible
+    : public __is_nothrow_copy_constructible_impl<_Tp>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_nothrow_move_constructible_impl;
+
+  template<typename _Tp>
+    struct __is_nothrow_move_constructible_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_nothrow_move_constructible_impl<_Tp, true>
+    : public is_nothrow_constructible<_Tp, _Tp&&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_move_constructible
+    : public __is_nothrow_move_constructible_impl<_Tp>
+    { };
+
+  template<typename _Tp, typename _Up>
+    class __is_assignable_helper
+    {
+      template<typename _Tp1, typename _Up1,
+        typename = decltype(declval<_Tp1>() = declval<_Up1>())>
+ static true_type
+ __test(int);
+
+      template<typename, typename>
+ static false_type
+ __test(...);
+
+    public:
+      typedef decltype(__test<_Tp, _Up>(0)) type;
+    };
+
+
+  template<typename _Tp, typename _Up>
+    struct is_assignable
+      : public __is_assignable_helper<_Tp, _Up>::type
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_copy_assignable_impl;
+
+  template<typename _Tp>
+    struct __is_copy_assignable_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_copy_assignable_impl<_Tp, true>
+    : public is_assignable<_Tp&, const _Tp&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_copy_assignable
+    : public __is_copy_assignable_impl<_Tp>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_move_assignable_impl;
+
+  template<typename _Tp>
+    struct __is_move_assignable_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_move_assignable_impl<_Tp, true>
+    : public is_assignable<_Tp&, _Tp&&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_move_assignable
+    : public __is_move_assignable_impl<_Tp>
+    { };
+
+  template<typename _Tp, typename _Up>
+    struct __is_nt_assignable_impl
+    : public integral_constant<bool, noexcept(declval<_Tp>() = declval<_Up>())>
+    { };
+
+
+  template<typename _Tp, typename _Up>
+    struct is_nothrow_assignable
+    : public __and_<is_assignable<_Tp, _Up>,
+      __is_nt_assignable_impl<_Tp, _Up>>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_nt_copy_assignable_impl;
+
+  template<typename _Tp>
+    struct __is_nt_copy_assignable_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_nt_copy_assignable_impl<_Tp, true>
+    : public is_nothrow_assignable<_Tp&, const _Tp&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_copy_assignable
+    : public __is_nt_copy_assignable_impl<_Tp>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_nt_move_assignable_impl;
+
+  template<typename _Tp>
+    struct __is_nt_move_assignable_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_nt_move_assignable_impl<_Tp, true>
+    : public is_nothrow_assignable<_Tp&, _Tp&&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_move_assignable
+    : public __is_nt_move_assignable_impl<_Tp>
+    { };
+
+
+  template<typename _Tp, typename... _Args>
+    struct is_trivially_constructible
+    : public __and_<is_constructible<_Tp, _Args...>, integral_constant<bool,
+   __is_trivially_constructible(_Tp, _Args...)>>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_default_constructible
+    : public is_trivially_constructible<_Tp>::type
+    { };
+
+  struct __do_is_implicitly_default_constructible_impl
+  {
+    template <typename _Tp>
+    static void __helper(const _Tp&);
+
+    template <typename _Tp>
+    static true_type __test(const _Tp&,
+                            decltype(__helper<const _Tp&>({}))* = 0);
+
+    static false_type __test(...);
+  };
+
+  template<typename _Tp>
+    struct __is_implicitly_default_constructible_impl
+      : public __do_is_implicitly_default_constructible_impl
+  {
+    typedef decltype(__test(declval<_Tp>())) type;
+  };
+
+  template<typename _Tp>
+    struct __is_implicitly_default_constructible_safe
+      : public __is_implicitly_default_constructible_impl<_Tp>::type
+  { };
+
+  template <typename _Tp>
+    struct __is_implicitly_default_constructible
+      : public __and_<is_default_constructible<_Tp>,
+                      __is_implicitly_default_constructible_safe<_Tp>>
+  { };
+
+
+  template<typename _Tp>
+    struct is_trivially_copy_constructible
+    : public __and_<is_copy_constructible<_Tp>,
+      integral_constant<bool,
+   __is_trivially_constructible(_Tp, const _Tp&)>>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_move_constructible
+    : public __and_<is_move_constructible<_Tp>,
+      integral_constant<bool,
+   __is_trivially_constructible(_Tp, _Tp&&)>>
+    { };
+
+
+  template<typename _Tp, typename _Up>
+    struct is_trivially_assignable
+    : public __and_<is_assignable<_Tp, _Up>,
+      integral_constant<bool,
+   __is_trivially_assignable(_Tp, _Up)>>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_copy_assignable
+    : public __and_<is_copy_assignable<_Tp>,
+      integral_constant<bool,
+   __is_trivially_assignable(_Tp&, const _Tp&)>>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_move_assignable
+    : public __and_<is_move_assignable<_Tp>,
+      integral_constant<bool,
+   __is_trivially_assignable(_Tp&, _Tp&&)>>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_destructible
+    : public __and_<is_destructible<_Tp>, integral_constant<bool,
+         __has_trivial_destructor(_Tp)>>
+    { };
+
+
+  template<typename _Tp>
+    struct has_trivial_default_constructor
+    : public integral_constant<bool, __has_trivial_constructor(_Tp)>
+    { } ;
+
+
+  template<typename _Tp>
+    struct has_trivial_copy_constructor
+    : public integral_constant<bool, __has_trivial_copy(_Tp)>
+    { } ;
+
+
+  template<typename _Tp>
+    struct has_trivial_copy_assign
+    : public integral_constant<bool, __has_trivial_assign(_Tp)>
+    { } ;
+
+
+  template<typename _Tp>
+    struct has_virtual_destructor
+    : public integral_constant<bool, __has_virtual_destructor(_Tp)>
+    { };
+
+
+
+
+
+  template<typename _Tp>
+    struct alignment_of
+    : public integral_constant<std::size_t, __alignof__(_Tp)> { };
+
+
+  template<typename>
+    struct rank
+    : public integral_constant<std::size_t, 0> { };
+
+  template<typename _Tp, std::size_t _Size>
+    struct rank<_Tp[_Size]>
+    : public integral_constant<std::size_t, 1 + rank<_Tp>::value> { };
+
+  template<typename _Tp>
+    struct rank<_Tp[]>
+    : public integral_constant<std::size_t, 1 + rank<_Tp>::value> { };
+
+
+  template<typename, unsigned _Uint>
+    struct extent
+    : public integral_constant<std::size_t, 0> { };
+
+  template<typename _Tp, unsigned _Uint, std::size_t _Size>
+    struct extent<_Tp[_Size], _Uint>
+    : public integral_constant<std::size_t,
+          _Uint == 0 ? _Size : extent<_Tp,
+          _Uint - 1>::value>
+    { };
+
+  template<typename _Tp, unsigned _Uint>
+    struct extent<_Tp[], _Uint>
+    : public integral_constant<std::size_t,
+          _Uint == 0 ? 0 : extent<_Tp,
+             _Uint - 1>::value>
+    { };
+
+
+
+
+
+  template<typename, typename>
+    struct is_same
+    : public false_type { };
+
+  template<typename _Tp>
+    struct is_same<_Tp, _Tp>
+    : public true_type { };
+
+
+  template<typename _Base, typename _Derived>
+    struct is_base_of
+    : public integral_constant<bool, __is_base_of(_Base, _Derived)>
+    { };
+
+  template<typename _From, typename _To,
+           bool = __or_<is_void<_From>, is_function<_To>,
+                        is_array<_To>>::value>
+    struct __is_convertible_helper
+    { typedef typename is_void<_To>::type type; };
+
+  template<typename _From, typename _To>
+    class __is_convertible_helper<_From, _To, false>
+    {
+       template<typename _To1>
+ static void __test_aux(_To1);
+
+      template<typename _From1, typename _To1,
+        typename = decltype(__test_aux<_To1>(std::declval<_From1>()))>
+ static true_type
+ __test(int);
+
+      template<typename, typename>
+ static false_type
+ __test(...);
+
+    public:
+      typedef decltype(__test<_From, _To>(0)) type;
+    };
+
+
+
+  template<typename _From, typename _To>
+    struct is_convertible
+    : public __is_convertible_helper<_From, _To>::type
+    { };
+
+
+
+
+
+  template<typename _Tp>
+    struct remove_const
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct remove_const<_Tp const>
+    { typedef _Tp type; };
+
+
+  template<typename _Tp>
+    struct remove_volatile
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct remove_volatile<_Tp volatile>
+    { typedef _Tp type; };
+
+
+  template<typename _Tp>
+    struct remove_cv
+    {
+      typedef typename
+      remove_const<typename remove_volatile<_Tp>::type>::type type;
+    };
+
+
+  template<typename _Tp>
+    struct add_const
+    { typedef _Tp const type; };
+
+
+  template<typename _Tp>
+    struct add_volatile
+    { typedef _Tp volatile type; };
+
+
+  template<typename _Tp>
+    struct add_cv
+    {
+      typedef typename
+      add_const<typename add_volatile<_Tp>::type>::type type;
+    };
+
+
+
+
+
+
+  template<typename _Tp>
+    using remove_const_t = typename remove_const<_Tp>::type;
+
+
+  template<typename _Tp>
+    using remove_volatile_t = typename remove_volatile<_Tp>::type;
+
+
+  template<typename _Tp>
+    using remove_cv_t = typename remove_cv<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_const_t = typename add_const<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_volatile_t = typename add_volatile<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_cv_t = typename add_cv<_Tp>::type;
+
+
+
+
+
+  template<typename _Tp>
+    struct remove_reference
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct remove_reference<_Tp&>
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct remove_reference<_Tp&&>
+    { typedef _Tp type; };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __add_lvalue_reference_helper
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct __add_lvalue_reference_helper<_Tp, true>
+    { typedef _Tp& type; };
+
+
+  template<typename _Tp>
+    struct add_lvalue_reference
+    : public __add_lvalue_reference_helper<_Tp>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __add_rvalue_reference_helper
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct __add_rvalue_reference_helper<_Tp, true>
+    { typedef _Tp&& type; };
+
+
+  template<typename _Tp>
+    struct add_rvalue_reference
+    : public __add_rvalue_reference_helper<_Tp>
+    { };
+
+
+
+  template<typename _Tp>
+    using remove_reference_t = typename remove_reference<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_lvalue_reference_t = typename add_lvalue_reference<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_rvalue_reference_t = typename add_rvalue_reference<_Tp>::type;
+
+
+
+
+
+  template<typename _Unqualified, bool _IsConst, bool _IsVol>
+    struct __cv_selector;
+
+  template<typename _Unqualified>
+    struct __cv_selector<_Unqualified, false, false>
+    { typedef _Unqualified __type; };
+
+  template<typename _Unqualified>
+    struct __cv_selector<_Unqualified, false, true>
+    { typedef volatile _Unqualified __type; };
+
+  template<typename _Unqualified>
+    struct __cv_selector<_Unqualified, true, false>
+    { typedef const _Unqualified __type; };
+
+  template<typename _Unqualified>
+    struct __cv_selector<_Unqualified, true, true>
+    { typedef const volatile _Unqualified __type; };
+
+  template<typename _Qualified, typename _Unqualified,
+    bool _IsConst = is_const<_Qualified>::value,
+    bool _IsVol = is_volatile<_Qualified>::value>
+    class __match_cv_qualifiers
+    {
+      typedef __cv_selector<_Unqualified, _IsConst, _IsVol> __match;
+
+    public:
+      typedef typename __match::__type __type;
+    };
+
+
+  template<typename _Tp>
+    struct __make_unsigned
+    { typedef _Tp __type; };
+
+  template<>
+    struct __make_unsigned<char>
+    { typedef unsigned char __type; };
+
+  template<>
+    struct __make_unsigned<signed char>
+    { typedef unsigned char __type; };
+
+  template<>
+    struct __make_unsigned<short>
+    { typedef unsigned short __type; };
+
+  template<>
+    struct __make_unsigned<int>
+    { typedef unsigned int __type; };
+
+  template<>
+    struct __make_unsigned<long>
+    { typedef unsigned long __type; };
+
+  template<>
+    struct __make_unsigned<long long>
+    { typedef unsigned long long __type; };
+# 1785 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp,
+    bool _IsInt = is_integral<_Tp>::value,
+    bool _IsEnum = is_enum<_Tp>::value>
+    class __make_unsigned_selector;
+
+  template<typename _Tp>
+    class __make_unsigned_selector<_Tp, true, false>
+    {
+      typedef __make_unsigned<typename remove_cv<_Tp>::type> __unsignedt;
+      typedef typename __unsignedt::__type __unsigned_type;
+      typedef __match_cv_qualifiers<_Tp, __unsigned_type> __cv_unsigned;
+
+    public:
+      typedef typename __cv_unsigned::__type __type;
+    };
+
+  template<typename _Tp>
+    class __make_unsigned_selector<_Tp, false, true>
+    {
+
+      typedef unsigned char __smallest;
+      static const bool __b0 = sizeof(_Tp) <= sizeof(__smallest);
+      static const bool __b1 = sizeof(_Tp) <= sizeof(unsigned short);
+      static const bool __b2 = sizeof(_Tp) <= sizeof(unsigned int);
+      static const bool __b3 = sizeof(_Tp) <= sizeof(unsigned long);
+      typedef conditional<__b3, unsigned long, unsigned long long> __cond3;
+      typedef typename __cond3::type __cond3_type;
+      typedef conditional<__b2, unsigned int, __cond3_type> __cond2;
+      typedef typename __cond2::type __cond2_type;
+      typedef conditional<__b1, unsigned short, __cond2_type> __cond1;
+      typedef typename __cond1::type __cond1_type;
+
+      typedef typename conditional<__b0, __smallest, __cond1_type>::type
+ __unsigned_type;
+      typedef __match_cv_qualifiers<_Tp, __unsigned_type> __cv_unsigned;
+
+    public:
+      typedef typename __cv_unsigned::__type __type;
+    };
+
+
+
+
+
+  template<typename _Tp>
+    struct make_unsigned
+    { typedef typename __make_unsigned_selector<_Tp>::__type type; };
+
+
+  template<>
+    struct make_unsigned<bool>;
+
+
+
+  template<typename _Tp>
+    struct __make_signed
+    { typedef _Tp __type; };
+
+  template<>
+    struct __make_signed<char>
+    { typedef signed char __type; };
+
+  template<>
+    struct __make_signed<unsigned char>
+    { typedef signed char __type; };
+
+  template<>
+    struct __make_signed<unsigned short>
+    { typedef signed short __type; };
+
+  template<>
+    struct __make_signed<unsigned int>
+    { typedef signed int __type; };
+
+  template<>
+    struct __make_signed<unsigned long>
+    { typedef signed long __type; };
+
+  template<>
+    struct __make_signed<unsigned long long>
+    { typedef signed long long __type; };
+
+
+  template<>
+    struct __make_signed<wchar_t> : __make_signed<unsigned int>
+    { };
+
+
+
+  template<>
+    struct __make_signed<char16_t> : __make_signed<uint_least16_t>
+    { };
+  template<>
+    struct __make_signed<char32_t> : __make_signed<uint_least32_t>
+    { };
+# 1904 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp,
+    bool _IsInt = is_integral<_Tp>::value,
+    bool _IsEnum = is_enum<_Tp>::value>
+    class __make_signed_selector;
+
+  template<typename _Tp>
+    class __make_signed_selector<_Tp, true, false>
+    {
+      typedef __make_signed<typename remove_cv<_Tp>::type> __signedt;
+      typedef typename __signedt::__type __signed_type;
+      typedef __match_cv_qualifiers<_Tp, __signed_type> __cv_signed;
+
+    public:
+      typedef typename __cv_signed::__type __type;
+    };
+
+  template<typename _Tp>
+    class __make_signed_selector<_Tp, false, true>
+    {
+      typedef typename __make_unsigned_selector<_Tp>::__type __unsigned_type;
+
+    public:
+      typedef typename __make_signed_selector<__unsigned_type>::__type __type;
+    };
+
+
+
+
+
+  template<typename _Tp>
+    struct make_signed
+    { typedef typename __make_signed_selector<_Tp>::__type type; };
+
+
+  template<>
+    struct make_signed<bool>;
+
+
+
+  template<typename _Tp>
+    using make_signed_t = typename make_signed<_Tp>::type;
+
+
+  template<typename _Tp>
+    using make_unsigned_t = typename make_unsigned<_Tp>::type;
+
+
+
+
+
+  template<typename _Tp>
+    struct remove_extent
+    { typedef _Tp type; };
+
+  template<typename _Tp, std::size_t _Size>
+    struct remove_extent<_Tp[_Size]>
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct remove_extent<_Tp[]>
+    { typedef _Tp type; };
+
+
+  template<typename _Tp>
+    struct remove_all_extents
+    { typedef _Tp type; };
+
+  template<typename _Tp, std::size_t _Size>
+    struct remove_all_extents<_Tp[_Size]>
+    { typedef typename remove_all_extents<_Tp>::type type; };
+
+  template<typename _Tp>
+    struct remove_all_extents<_Tp[]>
+    { typedef typename remove_all_extents<_Tp>::type type; };
+
+
+
+  template<typename _Tp>
+    using remove_extent_t = typename remove_extent<_Tp>::type;
+
+
+  template<typename _Tp>
+    using remove_all_extents_t = typename remove_all_extents<_Tp>::type;
+
+
+
+
+  template<typename _Tp, typename>
+    struct __remove_pointer_helper
+    { typedef _Tp type; };
+
+  template<typename _Tp, typename _Up>
+    struct __remove_pointer_helper<_Tp, _Up*>
+    { typedef _Up type; };
+
+
+  template<typename _Tp>
+    struct remove_pointer
+    : public __remove_pointer_helper<_Tp, typename remove_cv<_Tp>::type>
+    { };
+
+
+  template<typename _Tp, bool = __or_<__is_referenceable<_Tp>,
+          is_void<_Tp>>::value>
+    struct __add_pointer_helper
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct __add_pointer_helper<_Tp, true>
+    { typedef typename remove_reference<_Tp>::type* type; };
+
+  template<typename _Tp>
+    struct add_pointer
+    : public __add_pointer_helper<_Tp>
+    { };
+
+
+
+  template<typename _Tp>
+    using remove_pointer_t = typename remove_pointer<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_pointer_t = typename add_pointer<_Tp>::type;
+
+
+  template<std::size_t _Len>
+    struct __aligned_storage_msa
+    {
+      union __type
+      {
+ unsigned char __data[_Len];
+ struct __attribute__((__aligned__)) { } __align;
+      };
+    };
+# 2050 "/usr/include/c++/6/type_traits" 3
+  template<std::size_t _Len, std::size_t _Align =
+    __alignof__(typename __aligned_storage_msa<_Len>::__type)>
+    struct aligned_storage
+    {
+      union type
+      {
+ unsigned char __data[_Len];
+ struct __attribute__((__aligned__((_Align)))) { } __align;
+      };
+    };
+
+  template <typename... _Types>
+    struct __strictest_alignment
+    {
+      static const size_t _S_alignment = 0;
+      static const size_t _S_size = 0;
+    };
+
+  template <typename _Tp, typename... _Types>
+    struct __strictest_alignment<_Tp, _Types...>
+    {
+      static const size_t _S_alignment =
+        alignof(_Tp) > __strictest_alignment<_Types...>::_S_alignment
+ ? alignof(_Tp) : __strictest_alignment<_Types...>::_S_alignment;
+      static const size_t _S_size =
+        sizeof(_Tp) > __strictest_alignment<_Types...>::_S_size
+ ? sizeof(_Tp) : __strictest_alignment<_Types...>::_S_size;
+    };
+# 2089 "/usr/include/c++/6/type_traits" 3
+  template <size_t _Len, typename... _Types>
+    struct aligned_union
+    {
+    private:
+      static_assert(sizeof...(_Types) != 0, "At least one type is required");
+
+      using __strictest = __strictest_alignment<_Types...>;
+      static const size_t _S_len = _Len > __strictest::_S_size
+ ? _Len : __strictest::_S_size;
+    public:
+
+      static const size_t alignment_value = __strictest::_S_alignment;
+
+      typedef typename aligned_storage<_S_len, alignment_value>::type type;
+    };
+
+  template <size_t _Len, typename... _Types>
+    const size_t aligned_union<_Len, _Types...>::alignment_value;
+
+
+
+  template<typename _Up,
+    bool _IsArray = is_array<_Up>::value,
+    bool _IsFunction = is_function<_Up>::value>
+    struct __decay_selector;
+
+
+  template<typename _Up>
+    struct __decay_selector<_Up, false, false>
+    { typedef typename remove_cv<_Up>::type __type; };
+
+  template<typename _Up>
+    struct __decay_selector<_Up, true, false>
+    { typedef typename remove_extent<_Up>::type* __type; };
+
+  template<typename _Up>
+    struct __decay_selector<_Up, false, true>
+    { typedef typename add_pointer<_Up>::type __type; };
+
+
+  template<typename _Tp>
+    class decay
+    {
+      typedef typename remove_reference<_Tp>::type __remove_type;
+
+    public:
+      typedef typename __decay_selector<__remove_type>::__type type;
+    };
+
+  template<typename _Tp>
+    class reference_wrapper;
+
+
+  template<typename _Tp>
+    struct __strip_reference_wrapper
+    {
+      typedef _Tp __type;
+    };
+
+  template<typename _Tp>
+    struct __strip_reference_wrapper<reference_wrapper<_Tp> >
+    {
+      typedef _Tp& __type;
+    };
+
+  template<typename _Tp>
+    struct __decay_and_strip
+    {
+      typedef typename __strip_reference_wrapper<
+ typename decay<_Tp>::type>::__type __type;
+    };
+
+
+
+
+  template<bool, typename _Tp = void>
+    struct enable_if
+    { };
+
+
+  template<typename _Tp>
+    struct enable_if<true, _Tp>
+    { typedef _Tp type; };
+
+  template<typename... _Cond>
+    using _Require = typename enable_if<__and_<_Cond...>::value>::type;
+
+
+
+  template<bool _Cond, typename _Iftrue, typename _Iffalse>
+    struct conditional
+    { typedef _Iftrue type; };
+
+
+  template<typename _Iftrue, typename _Iffalse>
+    struct conditional<false, _Iftrue, _Iffalse>
+    { typedef _Iffalse type; };
+
+
+  template<typename... _Tp>
+    struct common_type;
+
+
+
+  struct __do_common_type_impl
+  {
+    template<typename _Tp, typename _Up>
+      static __success_type<typename decay<decltype
+       (true ? std::declval<_Tp>()
+        : std::declval<_Up>())>::type> _S_test(int);
+
+    template<typename, typename>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _Tp, typename _Up>
+    struct __common_type_impl
+    : private __do_common_type_impl
+    {
+      typedef decltype(_S_test<_Tp, _Up>(0)) type;
+    };
+
+  struct __do_member_type_wrapper
+  {
+    template<typename _Tp>
+      static __success_type<typename _Tp::type> _S_test(int);
+
+    template<typename>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _Tp>
+    struct __member_type_wrapper
+    : private __do_member_type_wrapper
+    {
+      typedef decltype(_S_test<_Tp>(0)) type;
+    };
+
+  template<typename _CTp, typename... _Args>
+    struct __expanded_common_type_wrapper
+    {
+      typedef common_type<typename _CTp::type, _Args...> type;
+    };
+
+  template<typename... _Args>
+    struct __expanded_common_type_wrapper<__failure_type, _Args...>
+    { typedef __failure_type type; };
+
+  template<typename _Tp>
+    struct common_type<_Tp>
+    { typedef typename decay<_Tp>::type type; };
+
+  template<typename _Tp, typename _Up>
+    struct common_type<_Tp, _Up>
+    : public __common_type_impl<_Tp, _Up>::type
+    { };
+
+  template<typename _Tp, typename _Up, typename... _Vp>
+    struct common_type<_Tp, _Up, _Vp...>
+    : public __expanded_common_type_wrapper<typename __member_type_wrapper<
+               common_type<_Tp, _Up>>::type, _Vp...>::type
+    { };
+
+
+  template<typename _Tp>
+    struct underlying_type
+    {
+      typedef __underlying_type(_Tp) type;
+    };
+
+  template<typename _Tp>
+    struct __declval_protector
+    {
+      static const bool __stop = false;
+      static typename add_rvalue_reference<_Tp>::type __delegate();
+    };
+
+  template<typename _Tp>
+    inline typename add_rvalue_reference<_Tp>::type
+    declval() noexcept
+    {
+      static_assert(__declval_protector<_Tp>::__stop,
+      "declval() must not be used!");
+      return __declval_protector<_Tp>::__delegate();
+    }
+
+
+  template<typename _Signature>
+    class result_of;
+
+
+
+
+
+  struct __invoke_memfun_ref { };
+  struct __invoke_memfun_deref { };
+  struct __invoke_memobj_ref { };
+  struct __invoke_memobj_deref { };
+  struct __invoke_other { };
+
+
+  template<typename _Tp, typename _Tag>
+    struct __result_of_success : __success_type<_Tp>
+    { using __invoke_type = _Tag; };
+
+
+  struct __result_of_memfun_ref_impl
+  {
+    template<typename _Fp, typename _Tp1, typename... _Args>
+      static __result_of_success<decltype(
+      (std::declval<_Tp1>().*std::declval<_Fp>())(std::declval<_Args>()...)
+      ), __invoke_memfun_ref> _S_test(int);
+
+    template<typename...>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _MemPtr, typename _Arg, typename... _Args>
+    struct __result_of_memfun_ref
+    : private __result_of_memfun_ref_impl
+    {
+      typedef decltype(_S_test<_MemPtr, _Arg, _Args...>(0)) type;
+    };
+
+
+  struct __result_of_memfun_deref_impl
+  {
+    template<typename _Fp, typename _Tp1, typename... _Args>
+      static __result_of_success<decltype(
+      ((*std::declval<_Tp1>()).*std::declval<_Fp>())(std::declval<_Args>()...)
+      ), __invoke_memfun_deref> _S_test(int);
+
+    template<typename...>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _MemPtr, typename _Arg, typename... _Args>
+    struct __result_of_memfun_deref
+    : private __result_of_memfun_deref_impl
+    {
+      typedef decltype(_S_test<_MemPtr, _Arg, _Args...>(0)) type;
+    };
+
+
+  struct __result_of_memobj_ref_impl
+  {
+    template<typename _Fp, typename _Tp1>
+      static __result_of_success<decltype(
+      std::declval<_Tp1>().*std::declval<_Fp>()
+      ), __invoke_memobj_ref> _S_test(int);
+
+    template<typename, typename>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _MemPtr, typename _Arg>
+    struct __result_of_memobj_ref
+    : private __result_of_memobj_ref_impl
+    {
+      typedef decltype(_S_test<_MemPtr, _Arg>(0)) type;
+    };
+
+
+  struct __result_of_memobj_deref_impl
+  {
+    template<typename _Fp, typename _Tp1>
+      static __result_of_success<decltype(
+      (*std::declval<_Tp1>()).*std::declval<_Fp>()
+      ), __invoke_memobj_deref> _S_test(int);
+
+    template<typename, typename>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _MemPtr, typename _Arg>
+    struct __result_of_memobj_deref
+    : private __result_of_memobj_deref_impl
+    {
+      typedef decltype(_S_test<_MemPtr, _Arg>(0)) type;
+    };
+
+  template<typename _MemPtr, typename _Arg>
+    struct __result_of_memobj;
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, _Arg>
+    {
+      typedef typename remove_cv<typename remove_reference<
+        _Arg>::type>::type _Argval;
+      typedef _Res _Class::* _MemPtr;
+      typedef typename conditional<__or_<is_same<_Argval, _Class>,
+        is_base_of<_Class, _Argval>>::value,
+        __result_of_memobj_ref<_MemPtr, _Arg>,
+        __result_of_memobj_deref<_MemPtr, _Arg>
+      >::type::type type;
+    };
+
+  template<typename _MemPtr, typename _Arg, typename... _Args>
+    struct __result_of_memfun;
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, _Arg, _Args...>
+    {
+      typedef typename remove_cv<typename remove_reference<
+        _Arg>::type>::type _Argval;
+      typedef _Res _Class::* _MemPtr;
+      typedef typename conditional<__or_<is_same<_Argval, _Class>,
+        is_base_of<_Class, _Argval>>::value,
+        __result_of_memfun_ref<_MemPtr, _Arg, _Args...>,
+        __result_of_memfun_deref<_MemPtr, _Arg, _Args...>
+      >::type::type type;
+    };
+
+
+
+
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, reference_wrapper<_Arg>>
+    : __result_of_memobj_ref<_Res _Class::*, _Arg&>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, reference_wrapper<_Arg>&>
+    : __result_of_memobj_ref<_Res _Class::*, _Arg&>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, const reference_wrapper<_Arg>&>
+    : __result_of_memobj_ref<_Res _Class::*, _Arg&>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, reference_wrapper<_Arg>&&>
+    : __result_of_memobj_ref<_Res _Class::*, _Arg&>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, const reference_wrapper<_Arg>&&>
+    : __result_of_memobj_ref<_Res _Class::*, _Arg&>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, reference_wrapper<_Arg>, _Args...>
+    : __result_of_memfun_ref<_Res _Class::*, _Arg&, _Args...>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, reference_wrapper<_Arg>&,
+         _Args...>
+    : __result_of_memfun_ref<_Res _Class::*, _Arg&, _Args...>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, const reference_wrapper<_Arg>&,
+         _Args...>
+    : __result_of_memfun_ref<_Res _Class::*, _Arg&, _Args...>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, reference_wrapper<_Arg>&&,
+         _Args...>
+    : __result_of_memfun_ref<_Res _Class::*, _Arg&, _Args...>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, const reference_wrapper<_Arg>&&,
+         _Args...>
+    : __result_of_memfun_ref<_Res _Class::*, _Arg&, _Args...>
+    { };
+
+  template<bool, bool, typename _Functor, typename... _ArgTypes>
+    struct __result_of_impl
+    {
+      typedef __failure_type type;
+    };
+
+  template<typename _MemPtr, typename _Arg>
+    struct __result_of_impl<true, false, _MemPtr, _Arg>
+    : public __result_of_memobj<typename decay<_MemPtr>::type, _Arg>
+    { };
+
+  template<typename _MemPtr, typename _Arg, typename... _Args>
+    struct __result_of_impl<false, true, _MemPtr, _Arg, _Args...>
+    : public __result_of_memfun<typename decay<_MemPtr>::type, _Arg, _Args...>
+    { };
+
+
+  struct __result_of_other_impl
+  {
+    template<typename _Fn, typename... _Args>
+      static __result_of_success<decltype(
+      std::declval<_Fn>()(std::declval<_Args>()...)
+      ), __invoke_other> _S_test(int);
+
+    template<typename...>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _Functor, typename... _ArgTypes>
+    struct __result_of_impl<false, false, _Functor, _ArgTypes...>
+    : private __result_of_other_impl
+    {
+      typedef decltype(_S_test<_Functor, _ArgTypes...>(0)) type;
+    };
+
+  template<typename _Functor, typename... _ArgTypes>
+    struct result_of<_Functor(_ArgTypes...)>
+    : public __result_of_impl<
+        is_member_object_pointer<
+          typename remove_reference<_Functor>::type
+        >::value,
+        is_member_function_pointer<
+          typename remove_reference<_Functor>::type
+        >::value,
+     _Functor, _ArgTypes...
+      >::type
+    { };
+
+
+
+  template<size_t _Len, size_t _Align =
+     __alignof__(typename __aligned_storage_msa<_Len>::__type)>
+    using aligned_storage_t = typename aligned_storage<_Len, _Align>::type;
+
+  template <size_t _Len, typename... _Types>
+    using aligned_union_t = typename aligned_union<_Len, _Types...>::type;
+
+
+  template<typename _Tp>
+    using decay_t = typename decay<_Tp>::type;
+
+
+  template<bool _Cond, typename _Tp = void>
+    using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+
+
+  template<bool _Cond, typename _Iftrue, typename _Iffalse>
+    using conditional_t = typename conditional<_Cond, _Iftrue, _Iffalse>::type;
+
+
+  template<typename... _Tp>
+    using common_type_t = typename common_type<_Tp...>::type;
+
+
+  template<typename _Tp>
+    using underlying_type_t = typename underlying_type<_Tp>::type;
+
+
+  template<typename _Tp>
+    using result_of_t = typename result_of<_Tp>::type;
+
+
+  template<typename...> using __void_t = void;
+# 2551 "/usr/include/c++/6/type_traits" 3
+  template<typename _Default, typename _AlwaysVoid,
+    template<typename...> class _Op, typename... _Args>
+    struct __detector
+    {
+      using value_t = false_type;
+      using type = _Default;
+    };
+
+
+  template<typename _Default, template<typename...> class _Op,
+     typename... _Args>
+    struct __detector<_Default, __void_t<_Op<_Args...>>, _Op, _Args...>
+    {
+      using value_t = true_type;
+      using type = _Op<_Args...>;
+    };
+
+
+  template<typename _Default, template<typename...> class _Op,
+    typename... _Args>
+    using __detected_or = __detector<_Default, void, _Op, _Args...>;
+
+
+  template<typename _Default, template<typename...> class _Op,
+    typename... _Args>
+    using __detected_or_t
+      = typename __detected_or<_Default, _Op, _Args...>::type;
+# 2595 "/usr/include/c++/6/type_traits" 3
+  template <typename _Tp>
+    struct __is_swappable;
+
+  template <typename _Tp>
+    struct __is_nothrow_swappable;
+
+  template<typename _Tp>
+    inline
+    typename enable_if<__and_<is_move_constructible<_Tp>,
+         is_move_assignable<_Tp>>::value>::type
+    swap(_Tp&, _Tp&)
+    noexcept(__and_<is_nothrow_move_constructible<_Tp>,
+             is_nothrow_move_assignable<_Tp>>::value);
+
+  template<typename _Tp, size_t _Nm>
+    inline
+    typename enable_if<__is_swappable<_Tp>::value>::type
+    swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
+    noexcept(__is_nothrow_swappable<_Tp>::value);
+
+  namespace __swappable_details {
+    using std::swap;
+
+    struct __do_is_swappable_impl
+    {
+      template<typename _Tp, typename
+               = decltype(swap(std::declval<_Tp&>(), std::declval<_Tp&>()))>
+        static true_type __test(int);
+
+      template<typename>
+        static false_type __test(...);
+    };
+
+    struct __do_is_nothrow_swappable_impl
+    {
+      template<typename _Tp>
+        static __bool_constant<
+          noexcept(swap(std::declval<_Tp&>(), std::declval<_Tp&>()))
+        > __test(int);
+
+      template<typename>
+        static false_type __test(...);
+    };
+
+  }
+
+  template<typename _Tp>
+    struct __is_swappable_impl
+    : public __swappable_details::__do_is_swappable_impl
+    {
+      typedef decltype(__test<_Tp>(0)) type;
+    };
+
+  template<typename _Tp>
+    struct __is_nothrow_swappable_impl
+    : public __swappable_details::__do_is_nothrow_swappable_impl
+    {
+      typedef decltype(__test<_Tp>(0)) type;
+    };
+
+  template<typename _Tp>
+    struct __is_swappable
+    : public __is_swappable_impl<_Tp>::type
+    { };
+
+  template<typename _Tp>
+    struct __is_nothrow_swappable
+    : public __is_nothrow_swappable_impl<_Tp>::type
+    { };
+
+
+}
+# 58 "/usr/include/c++/6/bits/move.h" 2 3
+
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+# 74 "/usr/include/c++/6/bits/move.h" 3
+  template<typename _Tp>
+    constexpr _Tp&&
+    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+    { return static_cast<_Tp&&>(__t); }
+
+
+
+
+
+
+
+  template<typename _Tp>
+    constexpr _Tp&&
+    forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+    {
+      static_assert(!std::is_lvalue_reference<_Tp>::value, "template argument"
+      " substituting _Tp is an lvalue reference type");
+      return static_cast<_Tp&&>(__t);
+    }
+
+
+
+
+
+
+  template<typename _Tp>
+    constexpr typename std::remove_reference<_Tp>::type&&
+    move(_Tp&& __t) noexcept
+    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+
+
+  template<typename _Tp>
+    struct __move_if_noexcept_cond
+    : public __and_<__not_<is_nothrow_move_constructible<_Tp>>,
+                    is_copy_constructible<_Tp>>::type { };
+# 118 "/usr/include/c++/6/bits/move.h" 3
+  template<typename _Tp>
+    constexpr typename
+    conditional<__move_if_noexcept_cond<_Tp>::value, const _Tp&, _Tp&&>::type
+    move_if_noexcept(_Tp& __x) noexcept
+    { return std::move(__x); }
+# 133 "/usr/include/c++/6/bits/move.h" 3
+  template<typename _Tp>
+    inline _Tp*
+    addressof(_Tp& __r) noexcept
+    { return std::__addressof(__r); }
+
+
+  template <typename _Tp, typename _Up = _Tp>
+    inline _Tp
+    __exchange(_Tp& __obj, _Up&& __new_val)
+    {
+      _Tp __old_val = std::move(__obj);
+      __obj = std::forward<_Up>(__new_val);
+      return __old_val;
+    }
+
+
+
+}
+# 159 "/usr/include/c++/6/bits/move.h" 3
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+# 174 "/usr/include/c++/6/bits/move.h" 3
+  template<typename _Tp>
+    inline
+
+    typename enable_if<__and_<is_move_constructible<_Tp>,
+         is_move_assignable<_Tp>>::value>::type
+    swap(_Tp& __a, _Tp& __b)
+    noexcept(__and_<is_nothrow_move_constructible<_Tp>,
+             is_nothrow_move_assignable<_Tp>>::value)
+
+
+
+
+    {
+
+     
+
+      _Tp __tmp = std::move(__a);
+      __a = std::move(__b);
+      __b = std::move(__tmp);
+    }
+
+
+
+
+  template<typename _Tp, size_t _Nm>
+    inline
+
+    typename enable_if<__is_swappable<_Tp>::value>::type
+    swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
+    noexcept(__is_nothrow_swappable<_Tp>::value)
+
+
+
+
+    {
+      for (size_t __n = 0; __n < _Nm; ++__n)
+ swap(__a[__n], __b[__n]);
+    }
+
+
+
+}
+# 41 "/usr/include/c++/6/bits/nested_exception.h" 2 3
+
+
+
+
+
+
+
+extern "C++" {
+
+namespace std
+{
+
+
+
+
+
+
+  class nested_exception
+  {
+    exception_ptr _M_ptr;
+
+  public:
+    nested_exception() noexcept : _M_ptr(current_exception()) { }
+
+    nested_exception(const nested_exception&) noexcept = default;
+
+    nested_exception& operator=(const nested_exception&) noexcept = default;
+
+    virtual ~nested_exception() noexcept;
+
+    [[noreturn]]
+    void
+    rethrow_nested() const
+    {
+      if (_M_ptr)
+ rethrow_exception(_M_ptr);
+      std::terminate();
+    }
+
+    exception_ptr
+    nested_ptr() const noexcept
+    { return _M_ptr; }
+  };
+
+  template<typename _Except>
+    struct _Nested_exception : public _Except, public nested_exception
+    {
+      explicit _Nested_exception(const _Except& __ex)
+      : _Except(__ex)
+      { }
+
+      explicit _Nested_exception(_Except&& __ex)
+      : _Except(static_cast<_Except&&>(__ex))
+      { }
+    };
+
+
+
+
+  template<typename _Tp>
+    inline void
+    __throw_with_nested_impl(_Tp&& __t, true_type)
+    {
+      using _Up = typename remove_reference<_Tp>::type;
+      throw _Nested_exception<_Up>{std::forward<_Tp>(__t)};
+    }
+
+  template<typename _Tp>
+    inline void
+    __throw_with_nested_impl(_Tp&& __t, false_type)
+    { throw std::forward<_Tp>(__t); }
+
+
+
+  template<typename _Tp>
+    [[noreturn]]
+    inline void
+    throw_with_nested(_Tp&& __t)
+    {
+      using _Up = typename decay<_Tp>::type;
+      using _CopyConstructible
+ = __and_<is_copy_constructible<_Up>, is_move_constructible<_Up>>;
+      static_assert(_CopyConstructible::value,
+   "throw_with_nested argument must be CopyConstructible");
+      using __nest = __and_<is_class<_Up>, __bool_constant<!__is_final(_Up)>,
+       __not_<is_base_of<nested_exception, _Up>>>;
+      std::__throw_with_nested_impl(std::forward<_Tp>(__t), __nest{});
+    }
+
+
+  template<typename _Tp>
+    using __rethrow_if_nested_cond = typename enable_if<
+      __and_<is_polymorphic<_Tp>,
+      __or_<__not_<is_base_of<nested_exception, _Tp>>,
+     is_convertible<_Tp*, nested_exception*>>>::value
+    >::type;
+
+
+  template<typename _Ex>
+    inline __rethrow_if_nested_cond<_Ex>
+    __rethrow_if_nested_impl(const _Ex* __ptr)
+    {
+      if (auto __ne_ptr = dynamic_cast<const nested_exception*>(__ptr))
+ __ne_ptr->rethrow_nested();
+    }
+
+
+  inline void
+  __rethrow_if_nested_impl(const void*)
+  { }
+
+
+  template<typename _Ex>
+    inline void
+    rethrow_if_nested(const _Ex& __ex)
+    { std::__rethrow_if_nested_impl(std::__addressof(__ex)); }
+
+
+}
+
+}
+
+
+
+#pragma GCC visibility pop
+# 174 "/usr/include/c++/6/exception" 2 3
+# 41 "/usr/include/c++/6/new" 2 3
+
+#pragma GCC visibility push(default)
+
+extern "C++" {
+
+namespace std
+{
+
+
+
+
+
+
+  class bad_alloc : public exception
+  {
+  public:
+    bad_alloc() throw() { }
+
+
+
+    virtual ~bad_alloc() throw();
+
+
+    virtual const char* what() const throw();
+  };
+
+
+  class bad_array_new_length : public bad_alloc
+  {
+  public:
+    bad_array_new_length() throw() { };
+
+
+
+    virtual ~bad_array_new_length() throw();
+
+
+    virtual const char* what() const throw();
+  };
+
+
+  struct nothrow_t
+  {
+
+    explicit nothrow_t() = default;
+
+  };
+
+  extern const nothrow_t nothrow;
+
+
+
+  typedef void (*new_handler)();
+
+
+
+  new_handler set_new_handler(new_handler) throw();
+
+
+
+  new_handler get_new_handler() noexcept;
+
+}
+# 116 "/usr/include/c++/6/new" 3
+void* operator new(std::size_t)
+  __attribute__((__externally_visible__));
+void* operator new[](std::size_t)
+  __attribute__((__externally_visible__));
+void operator delete(void*) noexcept
+  __attribute__((__externally_visible__));
+void operator delete[](void*) noexcept
+  __attribute__((__externally_visible__));
+
+void operator delete(void*, std::size_t) noexcept
+  __attribute__((__externally_visible__));
+void operator delete[](void*, std::size_t) noexcept
+  __attribute__((__externally_visible__));
+
+void* operator new(std::size_t, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+void* operator new[](std::size_t, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+void operator delete(void*, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+void operator delete[](void*, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+
+void operator delete(void*, std::size_t, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+void operator delete[](void*, std::size_t, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+
+
+
+inline void* operator new(std::size_t, void* __p) noexcept
+{ return __p; }
+inline void* operator new[](std::size_t, void* __p) noexcept
+{ return __p; }
+
+
+inline void operator delete (void*, void*) noexcept { }
+inline void operator delete[](void*, void*) noexcept { }
+
+}
+
+#pragma GCC visibility pop
+# 79 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/Configure.h" 2
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/Range.h" 2
+
+# 1 "/usr/include/assert.h" 1 3 4
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/Range.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Comparisons.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Comparisons.h"
+
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Comparisons.h"
+namespace openpal
+{
+
+template <class T>
+inline T Min(T a, T b)
+{
+ return (a < b) ? a : b;
+}
+
+template <class T>
+inline T Max(T a, T b)
+{
+ return (a > b) ? a : b;
+}
+
+template <class T>
+inline T Bounded(T value, T min, T max)
+{
+ return Min(Max(value, min), max);
+}
+
+template <class T>
+inline bool WithinLimits(T value, T min, T max)
+{
+ return (value >= min) && (value <= max);
+}
+
+template <class T>
+bool FloatEqual(T a, T b, T eapllon = 1e-6)
+{
+ T diff = a - b;
+ if(diff < 0) diff = -diff;
+ return diff <= eapllon;
+}
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/Range.h" 2
+
+namespace opendnp3
+{
+
+class Range
+{
+public:
+
+ static Range From(uint16_t start, uint16_t stop)
+ {
+  return Range(start, stop);
+ }
+
+ static Range Invalid()
+ {
+  return Range(1, 0);
+ }
+
+ Range() : start(1), stop(0)
+ {}
+
+ uint32_t Count() const
+ {
+  return IsValid() ? (static_cast<uint32_t>(stop) - static_cast<uint32_t>(start) + 1) : 0;
+ }
+
+ bool Advance()
+ {
+  if (this->IsValid())
+  {
+   if (start < stop)
+   {
+    ++start;
+   }
+   else
+   {
+
+    start = 1;
+    stop = 0;
+   }
+
+   return true;
+  }
+  else
+  {
+   return false;
+  }
+ }
+
+
+ Range Intersection(const Range& other) const
+ {
+  return Range(
+             openpal::Max<uint16_t>(start, other.start),
+             openpal::Min<uint16_t>(stop, other.stop)
+         );
+ }
+
+
+ Range Union(const Range& other) const
+ {
+  return Range(
+             openpal::Min<uint16_t>(start, other.start),
+             openpal::Max<uint16_t>(stop, other.stop)
+         );
+ }
+
+ bool Equals(const Range& other) const
+ {
+  return (other.start == start) && (other.stop == stop);
+ }
+
+ bool IsValid() const
+ {
+  return start <= stop;
+ }
+
+ bool IsOneByte() const
+ {
+  return IsValid() && (start <= 255) && (stop <= 255);
+ }
+
+ uint16_t start;
+ uint16_t stop;
+
+private:
+
+ Range(uint16_t index_) :
+  start(index_),
+  stop(index_)
+ {}
+
+ Range(uint16_t start_, uint16_t stop_) :
+  start(start_),
+  stop(stop_)
+ {}
+};
+
+}
+# 33 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h" 2
+
+
+namespace opendnp3
+{
+
+enum class GroupVariationType : int
+{
+ STATIC,
+ EVENT,
+ OTHER
+};
+
+struct EnumAndType
+{
+ EnumAndType(GroupVariation enumeration_, GroupVariationType type_) :
+  enumeration(enumeration_), type(type_)
+ {}
+
+ GroupVariation enumeration;
+ GroupVariationType type;
+};
+
+class GroupVariationRecord
+{
+
+public:
+
+ static EnumAndType GetEnumAndType(uint8_t group, uint8_t variation);
+
+ static uint16_t GetGroupVar(uint8_t group, uint8_t variation);
+
+ static GroupVariationRecord GetRecord(uint8_t group, uint8_t variation);
+
+ static GroupVariationType GetType(uint8_t group, uint8_t variation);
+
+ GroupVariationRecord(uint8_t group_, uint8_t variation_, GroupVariation enumeration_, GroupVariationType type_);
+
+ GroupVariationRecord() : enumeration(GroupVariation::UNKNOWN), type(GroupVariationType::OTHER), group(0), variation(0)
+ {}
+
+ GroupVariation enumeration;
+ GroupVariationType type;
+ uint8_t group;
+ uint8_t variation;
+};
+
+class HeaderRecord : public GroupVariationRecord
+{
+public:
+
+ HeaderRecord() : qualifier(0), headerIndex(0)
+ {}
+
+ HeaderRecord(const GroupVariationRecord& gv, uint8_t qualifier, uint32_t headerIndex);
+
+ QualifierCode GetQualifierCode() const;
+
+ uint8_t qualifier;
+ uint32_t headerIndex;
+};
+
+
+
+class AllObjectsHeader : public HeaderRecord
+{
+public:
+
+ explicit AllObjectsHeader(const HeaderRecord& record) : HeaderRecord(record)
+ {}
+
+};
+
+class CountHeader : public HeaderRecord
+{
+public:
+
+ CountHeader(const HeaderRecord& record, uint16_t count_) : HeaderRecord(record), count(count_)
+ {}
+
+ uint16_t count;
+};
+
+class FreeFormatHeader : public HeaderRecord
+{
+public:
+
+ FreeFormatHeader(const HeaderRecord& record, uint16_t count_) : HeaderRecord(record), count(count_)
+ {}
+
+ uint16_t count;
+};
+
+class RangeHeader : public HeaderRecord
+{
+public:
+
+ RangeHeader(const HeaderRecord& record, const Range& range_) : HeaderRecord(record), range(range_)
+ {}
+
+ Range range;
+};
+
+class PrefixHeader : public HeaderRecord
+{
+public:
+
+ PrefixHeader(const HeaderRecord& record, uint16_t count_) : HeaderRecord(record), count(count_)
+ {}
+
+ uint16_t count;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 2
+
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/IVariableLength.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/IVariableLength.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h"
+namespace opendnp3
+{
+
+
+struct GroupVariationID
+{
+ GroupVariationID() : group(0xFF), variation(0xFF)
+ {}
+
+ GroupVariationID(uint8_t aGroup, uint8_t aVariation):
+  group(aGroup),
+  variation(aVariation)
+ {
+
+ }
+
+ uint8_t group;
+ uint8_t variation;
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/IVariableLength.h" 2
+
+namespace opendnp3
+{
+
+class IVariableLength
+{
+
+public:
+
+ virtual ~IVariableLength() {}
+
+ virtual GroupVariationID InstanceID() const = 0;
+
+
+ virtual uint32_t Size() const = 0;
+
+
+ virtual bool Write(openpal::WSlice& dest) const = 0;
+
+
+ virtual bool Read(const openpal::RSlice& input) = 0;
+
+};
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/RangeWriteIterator.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/RangeWriteIterator.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Format.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Format.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h"
+namespace openpal
+{
+
+class UInt48Type
+{
+
+public:
+
+ explicit UInt48Type(int64_t value) : value(value)
+ {}
+
+ UInt48Type() : value(0)
+ {}
+
+ operator int64_t() const
+ {
+  return value;
+ }
+
+ int64_t value;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Format.h" 2
+
+
+
+namespace openpal
+{
+class Format : private StaticOnly
+{
+public:
+
+ static bool Write(WSlice& dest, const uint8_t& value);
+ static bool Write(WSlice& dest, const uint16_t& value);
+
+ static bool Write(WSlice& dest, const uint32_t& value);
+ static bool Write(WSlice& dest, const UInt48Type& value);
+
+ static bool Write(WSlice& dest, const int16_t& value);
+ static bool Write(WSlice& dest, const int32_t& value);
+
+ static bool Write(WSlice& dest, const double& value);
+ static bool Write(WSlice& dest, const float& value);
+
+ template <typename T, typename... Args>
+ static bool Many(WSlice& dest, const T& value, const Args& ... args)
+ {
+  return Write(dest, value) && Many(dest, args...);
+ }
+
+private:
+
+ static bool Many(WSlice& input)
+ {
+  return true;
+ }
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/RangeWriteIterator.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serializer.h" 1
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serializer.h"
+namespace openpal
+{
+
+template <class T>
+class Serializer
+{
+public:
+
+ typedef bool (*ReadFunc)(RSlice& buffer, T& output);
+ typedef bool (*WriteFunc)(const T& value, WSlice& buffer);
+
+ Serializer() : size(0), pReadFunc(nullptr), pWriteFunc(nullptr)
+ {}
+
+ Serializer(uint32_t size_, ReadFunc pReadFunc_, WriteFunc pWriteFunc_) :
+  size(size_), pReadFunc(pReadFunc_), pWriteFunc(pWriteFunc_)
+ {}
+
+
+
+
+ uint32_t Size() const
+ {
+  return size;
+ }
+
+
+
+
+ bool Read(RSlice& buffer, T& output) const
+ {
+  return (*pReadFunc)(buffer, output);
+ }
+
+
+
+
+ bool Write(const T& value, WSlice& buffer) const
+ {
+  return (*pWriteFunc)(value, buffer);
+ }
+
+private:
+
+ uint32_t size;
+ ReadFunc pReadFunc;
+ WriteFunc pWriteFunc;
+
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/RangeWriteIterator.h" 2
+
+namespace opendnp3
+{
+
+
+template <class IndexType, class WriteType>
+class RangeWriteIterator
+{
+public:
+
+ static RangeWriteIterator Null()
+ {
+  return RangeWriteIterator();
+ }
+
+ RangeWriteIterator() : start(0), count(0), isValid(false), pPosition(nullptr)
+ {}
+
+ RangeWriteIterator(typename IndexType::Type start_, const openpal::Serializer<WriteType>& serializer_, openpal::WSlice& position) :
+  start(start_),
+  serializer(serializer_),
+  count(0),
+  isValid(position.Size() >= 2 * IndexType::SIZE),
+  range(position),
+  pPosition(&position)
+ {
+  if (isValid)
+  {
+   openpal::Format::Write(range, start);
+   pPosition->Advance(2 * IndexType::SIZE);
+  }
+ }
+
+ ~RangeWriteIterator()
+ {
+  if (isValid && count > 0)
+  {
+   auto stop = start + count - 1;
+   IndexType::Write(range, static_cast<typename IndexType::Type>(stop));
+  }
+ }
+
+ bool Write(const WriteType& value)
+ {
+  if (isValid && (pPosition->Size() >= serializer.Size()) && (count <= IndexType::Max))
+  {
+   serializer.Write(value, *pPosition);
+   ++count;
+   return true;
+  }
+  else
+  {
+   return false;
+  }
+ }
+
+ bool IsValid() const
+ {
+  return isValid;
+ }
+
+private:
+
+ typename IndexType::Type start;
+ openpal::Serializer<WriteType> serializer;
+ uint32_t count;
+
+ bool isValid;
+
+ openpal::WSlice range;
+ openpal::WSlice* pPosition;
+};
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/CountWriteIterator.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/CountWriteIterator.h"
+namespace opendnp3
+{
+
+
+template <class CountType, class WriteType>
+class CountWriteIterator
+{
+public:
+
+ static CountWriteIterator Null()
+ {
+  return CountWriteIterator();
+ }
+
+ CountWriteIterator() : count(0), isValid(false), pPosition(nullptr)
+ {}
+
+ CountWriteIterator(const openpal::Serializer<WriteType>& serializer_, openpal::WSlice& position) :
+  count(0),
+  serializer(serializer_),
+  isValid(position.Size() >= CountType::SIZE),
+  countPosition(position),
+  pPosition(&position)
+ {
+  if(isValid)
+  {
+   position.Advance(CountType::SIZE);
+  }
+ }
+
+ ~CountWriteIterator()
+ {
+  if (isValid)
+  {
+   openpal::Format::Write(countPosition, count);
+  }
+ }
+
+ bool Write(const WriteType& value)
+ {
+  if (isValid && (serializer.Size() <= pPosition->Size()) && (count < CountType::Max))
+  {
+   serializer.Write(value, *this->pPosition);
+   ++count;
+   return true;
+  }
+  else
+  {
+   return false;
+  }
+ }
+
+ bool IsValid() const
+ {
+  return isValid;
+ }
+
+private:
+
+ typename CountType::Type count;
+ openpal::Serializer<WriteType> serializer;
+
+ bool isValid;
+
+ openpal::WSlice countPosition;
+ openpal::WSlice* pPosition;
+};
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/PrefixedWriteIterator.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/PrefixedWriteIterator.h"
+namespace opendnp3
+{
+
+
+template <class PrefixType, class WriteType>
+class PrefixedWriteIterator
+{
+public:
+
+ static PrefixedWriteIterator Null()
+ {
+  return PrefixedWriteIterator();
+ }
+
+ PrefixedWriteIterator() :
+  sizeOfTypePlusIndex(0),
+  count(0),
+  isValid(false),
+  pPosition(nullptr)
+ {}
+
+ PrefixedWriteIterator(const openpal::Serializer<WriteType>& serializer_, openpal::WSlice& position) :
+  serializer(serializer_),
+  sizeOfTypePlusIndex(serializer.Size() + PrefixType::SIZE),
+  count(0),
+  isValid(position.Size() >= PrefixType::SIZE),
+  countPosition(position),
+  pPosition(&position)
+ {
+  if(isValid)
+  {
+   pPosition->Advance(PrefixType::SIZE);
+  }
+ }
+
+ ~PrefixedWriteIterator()
+ {
+  if (isValid)
+  {
+   PrefixType::Write(countPosition, count);
+  }
+ }
+
+ bool Write(const WriteType& value, typename PrefixType::Type index)
+ {
+  if (isValid && (pPosition->Size() >= sizeOfTypePlusIndex))
+  {
+   PrefixType::WriteBuffer(*pPosition, index);
+   serializer.Write(value, *pPosition);
+   ++count;
+   return true;
+  }
+  else
+  {
+   return false;
+  }
+ }
+
+ bool IsValid() const
+ {
+  return isValid;
+ }
+
+private:
+
+ openpal::Serializer<WriteType> serializer;
+ uint32_t sizeOfTypePlusIndex;
+
+ typename PrefixType::Type count;
+
+ bool isValid;
+
+ openpal::WSlice countPosition;
+ openpal::WSlice* pPosition;
+};
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/BitfieldRangeWriteIterator.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/BitfieldRangeWriteIterator.h"
+namespace opendnp3
+{
+
+
+template <class IndexType>
+class BitfieldRangeWriteIterator
+{
+public:
+
+ static BitfieldRangeWriteIterator Null()
+ {
+  auto buffer = openpal::WSlice::Empty();
+  return BitfieldRangeWriteIterator(0, buffer);
+ }
+
+ BitfieldRangeWriteIterator(typename IndexType::Type start_, openpal::WSlice& position_) :
+  start(start_),
+  count(0),
+  maxCount(0),
+  isValid(position_.Size() >= (2 * IndexType::SIZE)),
+  range(position_),
+  pPosition(&position_)
+ {
+  if(isValid)
+  {
+   openpal::Format::Write(range, start_);
+   pPosition->Advance(2 * IndexType::SIZE);
+   maxCount = pPosition->Size() * 8;
+  }
+ }
+
+ ~BitfieldRangeWriteIterator()
+ {
+  if (isValid && count > 0)
+  {
+   typename IndexType::Type stop = start + count - 1;
+   openpal::Format::Write(range, stop);
+
+   auto num = count / 8;
+
+   if ((count % 8) > 0)
+   {
+    ++num;
+   }
+
+   pPosition->Advance(num);
+  }
+ }
+
+ bool Write(bool value)
+ {
+  if (isValid && count < maxCount)
+  {
+   auto byte = count / 8;
+   auto bit = count % 8;
+
+   if (bit == 0)
+   {
+    (*pPosition)[byte] = 0;
+   }
+
+   if (value)
+   {
+    (*pPosition)[byte] = ((*pPosition)[byte] | (1 << bit));
+   }
+
+   ++count;
+   return true;
+  }
+  else
+  {
+   return false;
+  }
+ }
+
+ bool IsValid() const
+ {
+  return isValid;
+ }
+
+private:
+
+ typename IndexType::Type start;
+ typename IndexType::Type count;
+
+ uint32_t maxCount;
+
+ bool isValid;
+
+ openpal::WSlice range;
+ openpal::WSlice* pPosition;
+};
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DNP3Serializer.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DNP3Serializer.h"
+namespace opendnp3
+{
+
+template <class T>
+class DNP3Serializer : public openpal::Serializer<T>
+{
+public:
+
+ DNP3Serializer(GroupVariationID id_, uint32_t size_, typename openpal::Serializer<T>::ReadFunc pReadFunc_, typename openpal::Serializer<T>::WriteFunc pWriteFunc_) :
+  openpal::Serializer<T>(size_, pReadFunc_, pWriteFunc_),
+  id(id_)
+ {}
+
+ GroupVariationID ID() const
+ {
+  return id;
+ }
+
+private:
+
+ GroupVariationID id;
+
+};
+
+}
+# 34 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 2
+
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/Settable.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/Settable.h"
+namespace openpal
+{
+
+
+template <class T>
+class Settable
+{
+public:
+
+ Settable() : valueIsSet(false)
+ {}
+
+ bool IsSet() const
+ {
+  return valueIsSet;
+ }
+
+ bool IsEmpty() const
+ {
+  return !valueIsSet;
+ }
+
+ T Get() const
+ {
+  return value;
+ }
+
+ bool Pop(T& output)
+ {
+  if (valueIsSet)
+  {
+   valueIsSet = false;
+   output = value;
+   return true;
+  }
+  else
+  {
+   return false;
+  }
+ }
+
+ void Clear()
+ {
+  valueIsSet = false;
+ }
+
+ void Set(const T& value_)
+ {
+  value = value_;
+  valueIsSet = true;
+ }
+
+ template <class Action>
+ bool IsSetAnd(Action action);
+
+ template <class Action>
+ void Foreach(Action action);
+
+
+private:
+
+ bool valueIsSet;
+ T value;
+};
+
+template <class T>
+template <class Action>
+bool Settable<T>::IsSetAnd(Action action)
+{
+ if (valueIsSet)
+ {
+  return action(value);
+ }
+ else
+ {
+  return false;
+ }
+}
+
+template <class T>
+template <class Action>
+void Settable<T>::Foreach(Action action)
+{
+ if (valueIsSet)
+ {
+  action(value);
+ }
+}
+
+}
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48LE.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48LE.h"
+# 1 "/usr/include/c++/6/cstring" 1 3
+# 39 "/usr/include/c++/6/cstring" 3
+       
+# 40 "/usr/include/c++/6/cstring" 3
+
+
+# 1 "/usr/include/string.h" 1 3 4
+# 27 "/usr/include/string.h" 3 4
+
+# 27 "/usr/include/string.h" 3 4
+extern "C" {
+
+
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 1 3 4
+# 216 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+typedef unsigned int size_t;
+# 33 "/usr/include/string.h" 2 3 4
+
+
+
+
+
+
+
+
+
+extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+       size_t __n) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern void *memmove (void *__dest, const void *__src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+
+extern void *memccpy (void *__restrict __dest, const void *__restrict __src,
+        int __c, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+extern void *memset (void *__s, int __c, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int memcmp (const void *__s1, const void *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern "C++"
+{
+extern void *memchr (void *__s, int __c, size_t __n)
+      throw () __asm ("memchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const void *memchr (const void *__s, int __c, size_t __n)
+      throw () __asm ("memchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) void *
+memchr (void *__s, int __c, size_t __n) throw ()
+{
+  return __builtin_memchr (__s, __c, __n);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const void *
+memchr (const void *__s, int __c, size_t __n) throw ()
+{
+  return __builtin_memchr (__s, __c, __n);
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+extern "C++" void *rawmemchr (void *__s, int __c)
+     throw () __asm ("rawmemchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern "C++" const void *rawmemchr (const void *__s, int __c)
+     throw () __asm ("rawmemchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+extern "C++" void *memrchr (void *__s, int __c, size_t __n)
+      throw () __asm ("memrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern "C++" const void *memrchr (const void *__s, int __c, size_t __n)
+      throw () __asm ("memrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+
+
+extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+extern char *strncpy (char *__restrict __dest,
+        const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern char *strcat (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+extern char *strncat (char *__restrict __dest, const char *__restrict __src,
+        size_t __n) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strcmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strcoll (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern size_t strxfrm (char *__restrict __dest,
+         const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+
+
+
+
+# 1 "/usr/include/xlocale.h" 1 3 4
+# 27 "/usr/include/xlocale.h" 3 4
+typedef struct __locale_struct
+{
+
+  struct __locale_data *__locales[13];
+
+
+  const unsigned short int *__ctype_b;
+  const int *__ctype_tolower;
+  const int *__ctype_toupper;
+
+
+  const char *__names[13];
+} *__locale_t;
+
+
+typedef __locale_t locale_t;
+# 160 "/usr/include/string.h" 2 3 4
+
+
+extern int strcoll_l (const char *__s1, const char *__s2, __locale_t __l)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 3)));
+
+extern size_t strxfrm_l (char *__dest, const char *__src, size_t __n,
+    __locale_t __l) throw () __attribute__ ((__nonnull__ (2, 4)));
+
+
+
+
+extern char *strdup (const char *__s)
+     throw () __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+extern char *strndup (const char *__string, size_t __n)
+     throw () __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
+# 206 "/usr/include/string.h" 3 4
+
+
+
+extern "C++"
+{
+extern char *strchr (char *__s, int __c)
+     throw () __asm ("strchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *strchr (const char *__s, int __c)
+     throw () __asm ("strchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strchr (char *__s, int __c) throw ()
+{
+  return __builtin_strchr (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strchr (const char *__s, int __c) throw ()
+{
+  return __builtin_strchr (__s, __c);
+}
+
+}
+
+
+
+
+
+
+extern "C++"
+{
+extern char *strrchr (char *__s, int __c)
+     throw () __asm ("strrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *strrchr (const char *__s, int __c)
+     throw () __asm ("strrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strrchr (char *__s, int __c) throw ()
+{
+  return __builtin_strrchr (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strrchr (const char *__s, int __c) throw ()
+{
+  return __builtin_strrchr (__s, __c);
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+extern "C++" char *strchrnul (char *__s, int __c)
+     throw () __asm ("strchrnul") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern "C++" const char *strchrnul (const char *__s, int __c)
+     throw () __asm ("strchrnul") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+
+
+extern size_t strcspn (const char *__s, const char *__reject)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern size_t strspn (const char *__s, const char *__accept)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern "C++"
+{
+extern char *strpbrk (char *__s, const char *__accept)
+     throw () __asm ("strpbrk") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern const char *strpbrk (const char *__s, const char *__accept)
+     throw () __asm ("strpbrk") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strpbrk (char *__s, const char *__accept) throw ()
+{
+  return __builtin_strpbrk (__s, __accept);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strpbrk (const char *__s, const char *__accept) throw ()
+{
+  return __builtin_strpbrk (__s, __accept);
+}
+
+}
+
+
+
+
+
+
+extern "C++"
+{
+extern char *strstr (char *__haystack, const char *__needle)
+     throw () __asm ("strstr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern const char *strstr (const char *__haystack, const char *__needle)
+     throw () __asm ("strstr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strstr (char *__haystack, const char *__needle) throw ()
+{
+  return __builtin_strstr (__haystack, __needle);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strstr (const char *__haystack, const char *__needle) throw ()
+{
+  return __builtin_strstr (__haystack, __needle);
+}
+
+}
+
+
+
+
+
+
+
+extern char *strtok (char *__restrict __s, const char *__restrict __delim)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+
+
+extern char *__strtok_r (char *__restrict __s,
+    const char *__restrict __delim,
+    char **__restrict __save_ptr)
+     throw () __attribute__ ((__nonnull__ (2, 3)));
+
+extern char *strtok_r (char *__restrict __s, const char *__restrict __delim,
+         char **__restrict __save_ptr)
+     throw () __attribute__ ((__nonnull__ (2, 3)));
+
+
+
+
+
+extern "C++" char *strcasestr (char *__haystack, const char *__needle)
+     throw () __asm ("strcasestr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern "C++" const char *strcasestr (const char *__haystack,
+         const char *__needle)
+     throw () __asm ("strcasestr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+# 377 "/usr/include/string.h" 3 4
+extern void *memmem (const void *__haystack, size_t __haystacklen,
+       const void *__needle, size_t __needlelen)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 3)));
+
+
+
+extern void *__mempcpy (void *__restrict __dest,
+   const void *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern void *mempcpy (void *__restrict __dest,
+        const void *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+extern size_t strlen (const char *__s)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+extern size_t strnlen (const char *__string, size_t __maxlen)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+extern char *strerror (int __errnum) throw ();
+
+# 433 "/usr/include/string.h" 3 4
+extern char *strerror_r (int __errnum, char *__buf, size_t __buflen)
+     throw () __attribute__ ((__nonnull__ (2))) ;
+
+
+
+
+
+extern char *strerror_l (int __errnum, __locale_t __l) throw ();
+
+
+
+
+
+extern void __bzero (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern void bcopy (const void *__src, void *__dest, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern void bzero (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int bcmp (const void *__s1, const void *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern "C++"
+{
+extern char *index (char *__s, int __c)
+     throw () __asm ("index") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *index (const char *__s, int __c)
+     throw () __asm ("index") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+index (char *__s, int __c) throw ()
+{
+  return __builtin_index (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+index (const char *__s, int __c) throw ()
+{
+  return __builtin_index (__s, __c);
+}
+
+}
+
+
+
+
+
+
+
+extern "C++"
+{
+extern char *rindex (char *__s, int __c)
+     throw () __asm ("rindex") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *rindex (const char *__s, int __c)
+     throw () __asm ("rindex") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+rindex (char *__s, int __c) throw ()
+{
+  return __builtin_rindex (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+rindex (const char *__s, int __c) throw ()
+{
+  return __builtin_rindex (__s, __c);
+}
+
+}
+
+
+
+
+
+
+
+extern int ffs (int __i) throw () __attribute__ ((__const__));
+
+
+
+
+extern int ffsl (long int __l) throw () __attribute__ ((__const__));
+__extension__ extern int ffsll (long long int __ll)
+     throw () __attribute__ ((__const__));
+
+
+
+extern int strcasecmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strncasecmp (const char *__s1, const char *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+extern int strcasecmp_l (const char *__s1, const char *__s2,
+    __locale_t __loc)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 3)));
+
+extern int strncasecmp_l (const char *__s1, const char *__s2,
+     size_t __n, __locale_t __loc)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 4)));
+
+
+
+
+
+extern char *strsep (char **__restrict __stringp,
+       const char *__restrict __delim)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern char *strsignal (int __sig) throw ();
+
+
+extern char *__stpcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern char *stpcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern char *__stpncpy (char *__restrict __dest,
+   const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern char *stpncpy (char *__restrict __dest,
+        const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern int strverscmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern char *strfry (char *__string) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern void *memfrob (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+extern "C++" char *basename (char *__filename)
+     throw () __asm ("basename") __attribute__ ((__nonnull__ (1)));
+extern "C++" const char *basename (const char *__filename)
+     throw () __asm ("basename") __attribute__ ((__nonnull__ (1)));
+# 646 "/usr/include/string.h" 3 4
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) void *
+__mempcpy_inline (void *__restrict __dest,
+    const void *__restrict __src, size_t __n)
+{
+  return (char *) memcpy (__dest, __src, __n) + __n;
+}
+
+
+
+
+}
+# 43 "/usr/include/c++/6/cstring" 2 3
+# 71 "/usr/include/c++/6/cstring" 3
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+
+  using ::memchr;
+  using ::memcmp;
+  using ::memcpy;
+  using ::memmove;
+  using ::memset;
+  using ::strcat;
+  using ::strcmp;
+  using ::strcoll;
+  using ::strcpy;
+  using ::strcspn;
+  using ::strerror;
+  using ::strlen;
+  using ::strncat;
+  using ::strncmp;
+  using ::strncpy;
+  using ::strspn;
+  using ::strtok;
+  using ::strxfrm;
+  using ::strchr;
+  using ::strpbrk;
+  using ::strrchr;
+  using ::strstr;
+# 120 "/usr/include/c++/6/cstring" 3
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48LE.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48LE.h" 2
+
+
+
+
+
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48LE.h"
+namespace openpal
+{
+
+class UInt48LE
+{
+public:
+
+ static UInt48Type Read(const uint8_t* data);
+
+ static void Write(uint8_t* data, UInt48Type value);
+
+ inline static UInt48Type ReadBuffer(RSlice& buffer)
+ {
+  auto ret = Read(buffer);
+  buffer.Advance(SIZE);
+  return ret;
+ }
+
+ static void WriteBuffer(WSlice& buffer, UInt48Type value)
+ {
+  Write(buffer, value);
+  buffer.Advance(SIZE);
+ }
+
+ const static int64_t MAX = 281474976710655ULL;
+ const static size_t SIZE = 6;
+ typedef UInt48Type Type;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SerializationTemplatesLE.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SerializationTemplatesLE.h"
+# 1 "/usr/include/c++/6/cstring" 1 3
+# 39 "/usr/include/c++/6/cstring" 3
+       
+# 40 "/usr/include/c++/6/cstring" 3
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SerializationTemplatesLE.h" 2
+
+
+
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Limits.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Limits.h"
+namespace openpal
+{
+
+template <class T>
+T MinValue();
+
+template <class T>
+T MaxValue();
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SerializationTemplatesLE.h" 2
+
+namespace openpal
+{
+
+template <class T>
+class Bit16LE
+{
+public:
+
+ static T Read(const uint8_t* data)
+ {
+  return (static_cast<T>(data[0]) << 0) | (static_cast<T>(data[1]) << 8);
+ }
+
+ static void Write(uint8_t* data, T value)
+ {
+  data[0] = static_cast<uint8_t>(value & 0xFF);
+  data[1] = static_cast<uint8_t>((value >> 8) & 0xFF);
+ }
+
+ static void WriteBuffer(WSlice& buffer, T aValue)
+ {
+  Write(buffer, aValue);
+  buffer.Advance(SIZE);
+ }
+
+ inline static T ReadBuffer(RSlice& arBuffer)
+ {
+  auto ret = Read(arBuffer);
+  arBuffer.Advance(SIZE);
+  return ret;
+ }
+
+ typedef T Type;
+
+ const static size_t SIZE = sizeof(T);
+ const static T Max;
+ const static T Min;
+};
+
+template <class T>
+const T Bit16LE<T>::Max = openpal::MaxValue<T>();
+
+template <class T>
+const T Bit16LE<T>::Min = openpal::MinValue<T>();
+
+template <class T>
+class Bit32LE
+{
+public:
+
+
+
+
+
+
+ static T Read(const uint8_t* data)
+ {
+  return (static_cast<T>(data[0]) << 0) |
+          (static_cast<T>(data[1]) << 8) |
+          (static_cast<T>(data[2]) << 16) |
+          (static_cast<T>(data[3]) << 24);
+ }
+
+ static void Write(uint8_t* data, T value)
+ {
+  data[0] = static_cast<uint8_t>(value & 0xFF);
+  data[1] = static_cast<uint8_t>((value >> 8) & 0xFF);
+  data[2] = static_cast<uint8_t>((value >> 16) & 0xFF);
+  data[3] = static_cast<uint8_t>((value >> 24) & 0xFF);
+ }
+
+ static void WriteBuffer(WSlice& buffer, T aValue)
+ {
+  Write(buffer, aValue);
+  buffer.Advance(SIZE);
+ }
+
+ inline static T ReadBuffer(RSlice& buffer)
+ {
+  auto ret = Read(buffer);
+  buffer.Advance(SIZE);
+  return ret;
+ }
+
+ typedef T Type;
+
+ const static size_t SIZE = sizeof(T);
+ const static T Max;
+ const static T Min;
+};
+
+template <class T>
+const T Bit32LE<T>::Max = openpal::MaxValue<T>();
+
+template <class T>
+const T Bit32LE<T>::Min = openpal::MinValue<T>();
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/ByteSerialization.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/ByteSerialization.h"
+# 1 "/usr/include/c++/6/cstring" 1 3
+# 39 "/usr/include/c++/6/cstring" 3
+       
+# 40 "/usr/include/c++/6/cstring" 3
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/ByteSerialization.h" 2
+
+
+
+
+namespace openpal
+{
+
+class UInt8Simple
+{
+public:
+
+ inline static uint8_t Read(const uint8_t* pStart)
+ {
+  return (*pStart);
+ }
+
+ inline static uint8_t ReadBuffer(RSlice& buffer)
+ {
+  auto ret = Read(buffer);
+  buffer.Advance(SIZE);
+  return ret;
+ }
+
+ static void WriteBuffer(WSlice& buffer, uint8_t value)
+ {
+  Write(buffer, value);
+  buffer.Advance(SIZE);
+ }
+
+ inline static void Write(uint8_t* pStart, uint8_t value)
+ {
+  *(pStart) = value;
+ }
+
+ const static size_t SIZE = 1;
+ const static uint8_t Max;
+ const static uint8_t Min;
+
+ typedef uint8_t Type;
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SingleFloat.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SingleFloat.h"
+# 1 "/usr/include/c++/6/cstddef" 1 3
+# 42 "/usr/include/c++/6/cstddef" 3
+       
+# 43 "/usr/include/c++/6/cstddef" 3
+
+
+
+
+
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 1 3 4
+# 149 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+
+# 149 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+typedef int ptrdiff_t;
+# 426 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+typedef struct {
+  long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
+  long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
+} max_align_t;
+
+
+
+
+
+
+  typedef decltype(nullptr) nullptr_t;
+# 51 "/usr/include/c++/6/cstddef" 2 3
+
+
+namespace std
+{
+
+  using ::max_align_t;
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SingleFloat.h" 2
+
+
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SingleFloat.h"
+namespace openpal
+{
+
+class SingleFloat : private StaticOnly
+{
+public:
+
+ static_assert(sizeof(float) == 4, "Unexpected size of single float");
+
+ typedef float Type;
+
+ static float ReadBuffer(RSlice& buffer);
+ static void WriteBuffer(WSlice& buffer, float value);
+
+ static float Read(const uint8_t* data);
+ static void Write(uint8_t* data, float value);
+
+ const static std::size_t SIZE = sizeof(float);
+ const static float Max;
+ const static float Min;
+};
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/DoubleFloat.h" 1
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/DoubleFloat.h"
+namespace openpal
+{
+
+class DoubleFloat : private StaticOnly
+{
+public:
+
+ static_assert(sizeof(double) == 8, "Unexpected size of double float");
+
+ typedef double Type;
+
+ static double ReadBuffer(RSlice& buffer);
+ static void WriteBuffer(WSlice& buffer, double value);
+
+ static double Read(const uint8_t* data);
+ static void Write(uint8_t* data, double value);
+
+ const static std::size_t SIZE = sizeof(double);
+ const static double Max;
+ const static double Min;
+};
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 2
+
+namespace openpal
+{
+
+typedef Bit16LE<int16_t> Int16;
+typedef Bit16LE<uint16_t> UInt16;
+typedef Bit32LE<int32_t> Int32;
+typedef Bit32LE<uint32_t> UInt32;
+typedef UInt48LE UInt48;
+typedef UInt8Simple UInt8;
+
+
+}
+# 38 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 2
+
+namespace opendnp3
+{
+
+
+class HeaderWriter
+{
+ friend class APDUWrapper;
+
+public:
+
+ bool WriteHeader(GroupVariationID id, QualifierCode qc);
+
+ template <class IndexType, class WriteType>
+ RangeWriteIterator<IndexType, WriteType> IterateOverRange(QualifierCode qc, const DNP3Serializer<WriteType>& serializer, typename IndexType::Type start);
+
+ template <class IndexType>
+ bool WriteRangeHeader(QualifierCode qc, GroupVariationID gvId, typename IndexType::Type start, typename IndexType::Type stop);
+
+ template <class IndexType>
+ bool WriteCountHeader(QualifierCode qc, GroupVariationID gvId, typename IndexType::Type count);
+
+ template <class CountType, class WriteType>
+ CountWriteIterator<CountType, WriteType> IterateOverCount(QualifierCode qc, const DNP3Serializer<WriteType>& serializer);
+
+ template <class IndexType>
+ BitfieldRangeWriteIterator<IndexType> IterateOverSingleBitfield(GroupVariationID id, QualifierCode qc, typename IndexType::Type start);
+
+ template <class CountType, class ValueType>
+ bool WriteSingleValue(QualifierCode qc, const DNP3Serializer<ValueType>& serializer, const ValueType&);
+
+ bool WriteFreeFormat(const IVariableLength&);
+
+ template <class CountType, class WriteType>
+ bool WriteSingleValue(QualifierCode qc, const WriteType&);
+
+ template <class CountType, class ValueType>
+ bool WriteSingleIndexedValue(QualifierCode qc, const DNP3Serializer<ValueType>& serializer, const ValueType&, typename CountType::Type index);
+
+ template <class PrefixType, class WriteType>
+ PrefixedWriteIterator<PrefixType, WriteType> IterateOverCountWithPrefix(QualifierCode qc, const DNP3Serializer<WriteType>& serializer);
+
+ template <class PrefixType, class WriteType, class CTOType>
+ PrefixedWriteIterator<PrefixType, WriteType> IterateOverCountWithPrefixAndCTO(QualifierCode qc, const DNP3Serializer<WriteType>& serializer, const CTOType& cto);
+
+
+
+ void Mark();
+
+
+ bool Rollback();
+
+ uint32_t Remaining() const;
+
+private:
+
+ explicit HeaderWriter(openpal::WSlice* position_);
+
+ bool WriteHeaderWithReserve(GroupVariationID id, QualifierCode qc, uint32_t reserve);
+
+ openpal::WSlice* position;
+
+ openpal::Settable<openpal::WSlice> mark;
+};
+
+template <class IndexType>
+bool HeaderWriter::WriteRangeHeader(QualifierCode qc, GroupVariationID gvId, typename IndexType::Type start, typename IndexType::Type stop)
+{
+ if (WriteHeaderWithReserve(gvId, qc, 2 * IndexType::SIZE))
+ {
+  IndexType::WriteBuffer(*position, start);
+  IndexType::WriteBuffer(*position, stop);
+  return true;
+ }
+ else
+ {
+  return false;
+ }
+}
+
+template <class IndexType>
+bool HeaderWriter::WriteCountHeader(QualifierCode qc, GroupVariationID gvId, typename IndexType::Type count)
+{
+ if (WriteHeaderWithReserve(gvId, qc, IndexType::SIZE))
+ {
+  IndexType::WriteBuffer(*position, count);
+  return true;
+ }
+ else
+ {
+  return false;
+ }
+}
+
+template <class CountType, class ValueType>
+bool HeaderWriter::WriteSingleValue(QualifierCode qc, const DNP3Serializer<ValueType>& serializer, const ValueType& value)
+{
+ auto reserveSize = CountType::SIZE + serializer.Size();
+ if(this->WriteHeaderWithReserve(ValueType::ID, qc, reserveSize))
+ {
+  CountType::WSlice(*position, 1);
+  serializer.Write(value, *position);
+  return true;
+ }
+ else return false;
+}
+
+template <class CountType, class WriteType>
+bool HeaderWriter::WriteSingleValue(QualifierCode qc, const WriteType& value)
+{
+ uint32_t reserveSize = CountType::SIZE + WriteType::Size();
+ if(this->WriteHeaderWithReserve(WriteType::ID(), qc, reserveSize))
+ {
+  CountType::WriteBuffer(*position, 1);
+  WriteType::Write(value, *position);
+  return true;
+ }
+ else
+ {
+  return false;
+ }
+}
+
+template <class CountType, class ValueType>
+bool HeaderWriter::WriteSingleIndexedValue(QualifierCode qc, const DNP3Serializer<ValueType>& serializer, const ValueType& value, typename CountType::Type index)
+{
+ uint32_t reserveSize = 2 * CountType::SIZE + serializer.Size();
+ if(this->WriteHeaderWithReserve(serializer.ID(), qc, reserveSize))
+ {
+  CountType::WriteBuffer(*position, 1);
+  CountType::WriteBuffer(*position, index);
+  serializer.Write(value, *position);
+  return true;
+ }
+ else return false;
+}
+
+template <class IndexType, class WriteType>
+RangeWriteIterator<IndexType, WriteType> HeaderWriter::IterateOverRange(QualifierCode qc, const DNP3Serializer<WriteType>& serializer, typename IndexType::Type start)
+{
+ uint32_t reserveSize = 2 * IndexType::SIZE + serializer.Size();
+ if(this->WriteHeaderWithReserve(serializer.ID(), qc, reserveSize))
+ {
+  return RangeWriteIterator<IndexType, WriteType>(start, serializer, *position);
+ }
+ else return RangeWriteIterator<IndexType, WriteType>::Null();
+}
+
+template <class CountType, class WriteType>
+CountWriteIterator<CountType, WriteType> HeaderWriter::IterateOverCount(QualifierCode qc, const DNP3Serializer<WriteType>& serializer)
+{
+ uint32_t reserveSize = CountType::SIZE + serializer.Size();
+ if(this->WriteHeaderWithReserve(serializer.ID(), qc, reserveSize))
+ {
+  return CountWriteIterator<CountType, WriteType>(serializer, *position);
+ }
+ else return CountWriteIterator<CountType, WriteType>::Null();
+}
+
+template <class IndexType>
+BitfieldRangeWriteIterator<IndexType> HeaderWriter::IterateOverSingleBitfield(GroupVariationID id, QualifierCode qc, typename IndexType::Type start)
+{
+ uint32_t reserveSize = 2 * IndexType::SIZE + 1;
+ if (this->WriteHeaderWithReserve(id, qc, reserveSize))
+ {
+  return BitfieldRangeWriteIterator<IndexType>(start, *position);
+ }
+ else return BitfieldRangeWriteIterator<IndexType>::Null();
+}
+
+template <class PrefixType, class WriteType>
+PrefixedWriteIterator<PrefixType, WriteType> HeaderWriter::IterateOverCountWithPrefix(QualifierCode qc, const DNP3Serializer<WriteType>& serializer)
+{
+ uint32_t reserveSize = 2 * PrefixType::SIZE + serializer.Size();
+ if(this->WriteHeaderWithReserve(serializer.ID(), qc, reserveSize))
+ {
+  return PrefixedWriteIterator<PrefixType, WriteType>(serializer, *position);
+ }
+ else return PrefixedWriteIterator<PrefixType, WriteType>::Null();
+}
+
+template <class PrefixType, class WriteType, class CTOType>
+PrefixedWriteIterator<PrefixType, WriteType> HeaderWriter::IterateOverCountWithPrefixAndCTO(QualifierCode qc, const DNP3Serializer<WriteType>& serializer, const CTOType& cto)
+{
+ this->Mark();
+ if (this->WriteSingleValue<openpal::UInt8, CTOType>(QualifierCode::UINT8_CNT, cto))
+ {
+  auto iter = IterateOverCountWithPrefix<PrefixType, WriteType>(qc, serializer);
+  if (!iter.IsValid())
+  {
+
+   this->Rollback();
+  }
+  return iter;
+ }
+ else
+ {
+  return PrefixedWriteIterator<PrefixType, WriteType>::Null();
+ }
+}
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUWrapper.h" 2
+
+namespace opendnp3
+{
+
+enum class APDUEquality
+{
+ FULL_EQUALITY,
+ OBJECT_HEADERS_EQUAL,
+ NONE
+};
+
+
+class APDUWrapper
+{
+public:
+
+ APDUWrapper();
+
+ explicit APDUWrapper(const openpal::WSlice& aBuffer);
+
+ bool IsValid() const;
+
+ void SetFunction(FunctionCode code);
+ FunctionCode GetFunction() const;
+
+ AppControlField GetControl() const;
+ void SetControl(AppControlField control);
+
+ uint32_t Size() const;
+
+ openpal::RSlice ToRSlice() const;
+
+ HeaderWriter GetWriter();
+
+ uint32_t Remaining() const;
+
+protected:
+
+ bool valid;
+ openpal::WSlice buffer;
+ openpal::WSlice remaining;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDURequest.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/HeaderWriter.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDURequest.h" 2
+
+namespace opendnp3
+{
+
+
+class APDURequest : public APDUWrapper
+{
+public:
+
+ explicit APDURequest(const openpal::WSlice& buffer);
+
+ void ConfigureHeader(FunctionCode code, uint8_t seq);
+
+
+ static APDUEquality Compare(const openpal::RSlice& lhs, const openpal::RSlice& rhs);
+
+private:
+
+ APDURequest();
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/APDUBuilders.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUResponse.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUResponse.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUWrapper.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUResponse.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/IINField.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/IINField.h"
+namespace opendnp3
+{
+
+enum class IINBit
+{
+ ALL_STATIONS = 0,
+ CLASS1_EVENTS,
+ CLASS2_EVENTS,
+ CLASS3_EVENTS,
+ NEED_TIME,
+ LOCAL_CONTROL,
+ DEVICE_TROUBLE,
+ DEVICE_RESTART,
+ FUNC_NOT_SUPPORTED,
+ OBJECT_UNKNOWN,
+ PARAM_ERROR,
+ EVENT_BUFFER_OVERFLOW,
+ ALREADY_EXECUTING,
+ CONFIG_CORRUPT,
+ RESERVED1,
+ RESERVED2 = 15
+};
+
+
+
+class IINField
+{
+
+private:
+
+ enum class LSBMask : uint8_t
+ {
+  ALL_STATIONS = 0x01,
+  CLASS1_EVENTS = 0x02,
+  CLASS2_EVENTS = 0x04,
+  CLASS3_EVENTS = 0x08,
+  NEED_TIME = 0x10,
+  LOCAL_CONTROL = 0x20,
+  DEVICE_TROUBLE = 0x40,
+  DEVICE_RESTART = 0x80,
+ };
+
+ enum class MSBMask : uint8_t
+ {
+  FUNC_NOT_SUPPORTED = 0x01,
+  OBJECT_UNKNOWN = 0x02,
+  PARAM_ERROR = 0x04,
+  EVENT_BUFFER_OVERFLOW = 0x08,
+  ALREADY_EXECUTING = 0x10,
+  CONFIG_CORRUPT = 0x20,
+  RESERVED1 = 0x40,
+  RESERVED2 = 0x80,
+
+
+  REQUEST_ERROR_MASK = FUNC_NOT_SUPPORTED | OBJECT_UNKNOWN | PARAM_ERROR
+ };
+
+
+public:
+
+ static IINField Empty()
+ {
+  return IINField(0, 0);
+ }
+
+ IINField(IINBit bit) : LSB(0), MSB(0)
+ {
+  this->SetBit(bit);
+ }
+
+ IINField(uint8_t aLSB, uint8_t aMSB) : LSB(aLSB), MSB(aMSB)
+ {}
+
+ IINField() : LSB(0), MSB(0)
+ {}
+
+ bool IsSet(IINBit bit) const;
+
+ bool IsClear(IINBit bit) const
+ {
+  return !IsSet(bit);
+ }
+
+ void SetBit(IINBit bit);
+ void ClearBit(IINBit bit);
+
+ void SetBitToValue(IINBit bit, bool value);
+
+ bool operator==(const IINField& arRHS) const;
+
+ bool Any() const
+ {
+  return (LSB | MSB) != 0;
+ }
+
+ void Clear()
+ {
+  LSB = MSB = 0;
+ }
+
+ bool HasRequestError() const
+ {
+  return Get(MSBMask::REQUEST_ERROR_MASK);
+ }
+
+ IINField operator|(const IINField& aIIN) const
+ {
+  return IINField(LSB | aIIN.LSB, MSB | aIIN.MSB);
+ }
+
+ IINField& operator|=(const IINField& aIIN)
+ {
+  MSB |= aIIN.MSB;
+  LSB |= aIIN.LSB;
+  return *this;
+ }
+
+ IINField operator&(const IINField& aIIN) const
+ {
+  return IINField(LSB & aIIN.LSB, MSB & aIIN.MSB);
+ }
+
+ IINField& operator&=(const IINField& aIIN)
+ {
+  MSB &= aIIN.MSB;
+  LSB &= aIIN.LSB;
+  return *this;
+ }
+
+ IINField operator~() const
+ {
+  return IINField(~LSB, ~MSB);
+ }
+
+ uint8_t LSB;
+ uint8_t MSB;
+
+private:
+
+ static const uint8_t REQUEST_ERROR_MASK;
+
+ inline bool Get(LSBMask bit) const
+ {
+  return (LSB & static_cast<uint8_t>(bit)) != 0;
+ }
+
+ inline bool Get(MSBMask bit) const
+ {
+  return (MSB & static_cast<uint8_t>(bit)) != 0;
+ }
+
+ inline void Set(LSBMask bit)
+ {
+  LSB |= static_cast<uint8_t>(bit);
+ }
+ inline void Set(MSBMask bit)
+ {
+  MSB |= static_cast<uint8_t>(bit);
+ }
+
+ inline void Clear(LSBMask bit)
+ {
+  LSB &= ~static_cast<uint8_t>(bit);
+ }
+ inline void Clear(MSBMask bit)
+ {
+  MSB &= ~static_cast<uint8_t>(bit);
+ }
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUResponse.h" 2
+
+namespace opendnp3
+{
+
+
+class APDUResponse : public APDUWrapper
+{
+public:
+
+ explicit APDUResponse(const openpal::WSlice& buffer);
+
+ void SetIIN(const IINField& indications);
+
+ IINField GetIIN() const;
+
+private:
+
+ APDUResponse();
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/APDUBuilders.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ClassField.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ClassField.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventType.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventType.h"
+namespace opendnp3
+{
+
+static const int NUM_OUTSTATION_EVENT_TYPES = 8;
+
+enum class EventType : uint16_t
+{
+ Binary = 0,
+ Analog = 1,
+ Counter = 2,
+ FrozenCounter = 3,
+ DoubleBitBinary = 4,
+ BinaryOutputStatus = 5,
+ AnalogOutputStatus = 6,
+ SecurityStat = 7
+};
+
+enum class EventClass : uint8_t
+{
+ EC1 = 0,
+ EC2 = 1,
+ EC3 = 2
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ClassField.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/PointClass.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/PointClass.h"
+namespace opendnp3 {
+
+
+
+
+enum class PointClass : uint8_t
+{
+
+  Class0 = 0x1,
+
+  Class1 = 0x2,
+
+  Class2 = 0x4,
+
+  Class3 = 0x8
+};
+
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ClassField.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class ClassField
+{
+public:
+
+ ClassField();
+
+ ClassField(PointClass pc);
+
+ ClassField(uint8_t mask_);
+
+ ClassField(bool class0, bool class1, bool class2, bool class3);
+
+ bool IsEmpty() const;
+
+ bool Intersects(const ClassField& other) const;
+
+ uint8_t GetBitfield() const
+ {
+  return bitfield;
+ };
+
+ ClassField OnlyEventClasses() const;
+
+ void Clear(const ClassField& field);
+
+ void Set(const ClassField& field);
+
+ void Set(PointClass pc);
+
+ static const uint8_t CLASS_0 = static_cast<uint8_t>(PointClass::Class0);
+ static const uint8_t CLASS_1 = static_cast<uint8_t>(PointClass::Class1);
+ static const uint8_t CLASS_2 = static_cast<uint8_t>(PointClass::Class2);
+ static const uint8_t CLASS_3 = static_cast<uint8_t>(PointClass::Class3);
+ static const uint8_t EVENT_CLASSES = CLASS_1 | CLASS_2 | CLASS_3;
+ static const uint8_t ALL_CLASSES = EVENT_CLASSES | CLASS_0;
+
+ bool HasEventType(EventClass ec) const;
+
+ bool HasClass0() const;
+ bool HasClass1() const;
+ bool HasClass2() const;
+ bool HasClass3() const;
+
+ bool HasEventClass() const;
+ bool HasAnyClass() const;
+
+ static ClassField None();
+ static ClassField AllClasses();
+ static ClassField AllEventClasses();
+
+private:
+ uint8_t bitfield;
+};
+
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/APDUBuilders.h" 2
+
+namespace opendnp3
+{
+namespace build
+{
+
+
+void ClassRequest(APDURequest& request, FunctionCode code, const ClassField& classes, uint8_t seq);
+
+bool WriteClassHeaders(HeaderWriter& writer, const ClassField& classes);
+
+void ReadIntegrity(APDURequest& request, const ClassField& classes, uint8_t seq = 0);
+
+void ReadAllObjects(APDURequest& request, GroupVariationID gvId, uint8_t seq = 0);
+
+void DisableUnsolicited(APDURequest& request, uint8_t seq = 0);
+
+void EnableUnsolicited(APDURequest& request, const ClassField& classes, uint8_t seq = 0);
+
+void ClearRestartIIN(APDURequest& request, uint8_t seq = 0);
+
+void MeasureDelay(APDURequest& request, uint8_t seq = 0);
+
+
+
+void NullUnsolicited(APDUResponse& response, uint8_t seq, const IINField& iin);
+
+}
+}
+# 22 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/APDUBuilders.cpp" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group60.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group60.h"
+namespace opendnp3 {
+
+
+struct Group60Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(60,1); }
+};
+
+
+struct Group60Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(60,2); }
+};
+
+
+struct Group60Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(60,3); }
+};
+
+
+struct Group60Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(60,4); }
+};
+
+
+}
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/APDUBuilders.cpp" 2
+
+
+
+
+
+namespace opendnp3
+{
+namespace build
+{
+
+void ReadIntegrity(APDURequest& request, const ClassField& classes, uint8_t seq)
+{
+ ClassRequest(request, FunctionCode::READ, classes, seq);
+}
+
+void ReadAllObjects(APDURequest& request, GroupVariationID gvId, uint8_t seq)
+{
+ request.SetControl(AppControlField(true, true, false, false, seq));
+ request.SetFunction(FunctionCode::READ);
+ auto writer = request.GetWriter();
+ writer.WriteHeader(gvId, QualifierCode::ALL_OBJECTS);
+}
+
+void ClassRequest(APDURequest& request, FunctionCode fc, const ClassField& classes, uint8_t seq)
+{
+ request.SetControl(AppControlField(true, true, false, false, seq));
+ request.SetFunction(fc);
+ auto writer = request.GetWriter();
+ WriteClassHeaders(writer, classes);
+}
+
+bool WriteClassHeaders(HeaderWriter& writer, const ClassField& classes)
+{
+ if (classes.HasClass1())
+ {
+  if (!writer.WriteHeader(Group60Var2::ID(), QualifierCode::ALL_OBJECTS))
+  {
+   return false;
+  }
+ }
+ if (classes.HasClass2())
+ {
+  if (!writer.WriteHeader(Group60Var3::ID(), QualifierCode::ALL_OBJECTS))
+  {
+   return false;
+  }
+ }
+ if (classes.HasClass3())
+ {
+  if (!writer.WriteHeader(Group60Var4::ID(), QualifierCode::ALL_OBJECTS))
+  {
+   return false;
+  }
+ }
+ if (classes.HasClass0())
+ {
+  if (!writer.WriteHeader(Group60Var1::ID(), QualifierCode::ALL_OBJECTS))
+  {
+   return false;
+  }
+ }
+
+ return true;
+}
+
+void DisableUnsolicited(APDURequest& request, uint8_t seq)
+{
+ ClassRequest(request, FunctionCode::DISABLE_UNSOLICITED, ClassField::AllEventClasses(), seq);
+}
+
+void EnableUnsolicited(APDURequest& request, const ClassField& classes, uint8_t seq)
+{
+ ClassRequest(request, FunctionCode::ENABLE_UNSOLICITED, classes, seq);
+}
+
+void ClearRestartIIN(APDURequest& request, uint8_t seq)
+{
+ request.SetFunction(FunctionCode::WRITE);
+ request.SetControl(AppControlField(true, true, false, false, seq));
+ auto writer = request.GetWriter();
+ auto iter = writer.IterateOverSingleBitfield<openpal::UInt8>(GroupVariationID(80, 1), QualifierCode::UINT8_START_STOP, static_cast<uint8_t>(IINBit::DEVICE_RESTART));
+ iter.Write(false);
+}
+
+void MeasureDelay(APDURequest& request, uint8_t seq)
+{
+ request.SetFunction(FunctionCode::DELAY_MEASURE);
+ request.SetControl(AppControlField::Request(seq));
+}
+
+void NullUnsolicited(APDUResponse& response, uint8_t seq, const IINField& iin)
+{
+ response.SetControl(AppControlField(true, true, true, true, seq));
+ response.SetFunction(FunctionCode::UNSOLICITED_RESPONSE);
+ response.SetIIN(iin);
+}
+
+}
+}

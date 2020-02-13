@@ -1,0 +1,910 @@
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/gen/GroupVariation.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/gen/GroupVariation.cpp"
+# 21 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/gen/GroupVariation.cpp"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/GroupVariation.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/GroupVariation.h"
+# 1 "/usr/include/c++/6/cstdint" 1 3
+# 32 "/usr/include/c++/6/cstdint" 3
+       
+# 33 "/usr/include/c++/6/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 1 3
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  typedef unsigned int size_t;
+  typedef int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 221 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 507 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 1 3
+# 39 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 364 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 1 3 4
+# 415 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 416 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 2 3 4
+# 365 "/usr/include/features.h" 2 3 4
+# 388 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h" 1 3 4
+# 11 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 2 3 4
+# 389 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 2 3
+# 508 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/cpu_defines.h" 1 3
+# 511 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/6/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wchar.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
+
+
+
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
+
+
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
+
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+
+
+
+__extension__
+typedef long long int int_least64_t;
+
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+
+
+__extension__
+typedef unsigned long long int uint_least64_t;
+
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+
+
+
+
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+
+
+
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+# 125 "/usr/include/stdint.h" 3 4
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/6/cstdint" 2 3
+
+
+
+
+namespace std
+{
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/GroupVariation.h" 2
+
+
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/GroupVariation.h"
+namespace opendnp3 {
+
+
+
+
+enum class GroupVariation : uint16_t
+{
+  Group1Var0 = 0x100,
+  Group1Var1 = 0x101,
+  Group1Var2 = 0x102,
+  Group2Var0 = 0x200,
+  Group2Var1 = 0x201,
+  Group2Var2 = 0x202,
+  Group2Var3 = 0x203,
+  Group3Var0 = 0x300,
+  Group3Var1 = 0x301,
+  Group3Var2 = 0x302,
+  Group4Var0 = 0x400,
+  Group4Var1 = 0x401,
+  Group4Var2 = 0x402,
+  Group4Var3 = 0x403,
+  Group10Var0 = 0xA00,
+  Group10Var1 = 0xA01,
+  Group10Var2 = 0xA02,
+  Group11Var0 = 0xB00,
+  Group11Var1 = 0xB01,
+  Group11Var2 = 0xB02,
+  Group12Var0 = 0xC00,
+  Group12Var1 = 0xC01,
+  Group13Var1 = 0xD01,
+  Group13Var2 = 0xD02,
+  Group20Var0 = 0x1400,
+  Group20Var1 = 0x1401,
+  Group20Var2 = 0x1402,
+  Group20Var5 = 0x1405,
+  Group20Var6 = 0x1406,
+  Group21Var0 = 0x1500,
+  Group21Var1 = 0x1501,
+  Group21Var2 = 0x1502,
+  Group21Var5 = 0x1505,
+  Group21Var6 = 0x1506,
+  Group21Var9 = 0x1509,
+  Group21Var10 = 0x150A,
+  Group22Var0 = 0x1600,
+  Group22Var1 = 0x1601,
+  Group22Var2 = 0x1602,
+  Group22Var5 = 0x1605,
+  Group22Var6 = 0x1606,
+  Group23Var0 = 0x1700,
+  Group23Var1 = 0x1701,
+  Group23Var2 = 0x1702,
+  Group23Var5 = 0x1705,
+  Group23Var6 = 0x1706,
+  Group30Var0 = 0x1E00,
+  Group30Var1 = 0x1E01,
+  Group30Var2 = 0x1E02,
+  Group30Var3 = 0x1E03,
+  Group30Var4 = 0x1E04,
+  Group30Var5 = 0x1E05,
+  Group30Var6 = 0x1E06,
+  Group32Var0 = 0x2000,
+  Group32Var1 = 0x2001,
+  Group32Var2 = 0x2002,
+  Group32Var3 = 0x2003,
+  Group32Var4 = 0x2004,
+  Group32Var5 = 0x2005,
+  Group32Var6 = 0x2006,
+  Group32Var7 = 0x2007,
+  Group32Var8 = 0x2008,
+  Group40Var0 = 0x2800,
+  Group40Var1 = 0x2801,
+  Group40Var2 = 0x2802,
+  Group40Var3 = 0x2803,
+  Group40Var4 = 0x2804,
+  Group41Var0 = 0x2900,
+  Group41Var1 = 0x2901,
+  Group41Var2 = 0x2902,
+  Group41Var3 = 0x2903,
+  Group41Var4 = 0x2904,
+  Group42Var0 = 0x2A00,
+  Group42Var1 = 0x2A01,
+  Group42Var2 = 0x2A02,
+  Group42Var3 = 0x2A03,
+  Group42Var4 = 0x2A04,
+  Group42Var5 = 0x2A05,
+  Group42Var6 = 0x2A06,
+  Group42Var7 = 0x2A07,
+  Group42Var8 = 0x2A08,
+  Group43Var1 = 0x2B01,
+  Group43Var2 = 0x2B02,
+  Group43Var3 = 0x2B03,
+  Group43Var4 = 0x2B04,
+  Group43Var5 = 0x2B05,
+  Group43Var6 = 0x2B06,
+  Group43Var7 = 0x2B07,
+  Group43Var8 = 0x2B08,
+  Group50Var1 = 0x3201,
+  Group50Var4 = 0x3204,
+  Group51Var1 = 0x3301,
+  Group51Var2 = 0x3302,
+  Group52Var1 = 0x3401,
+  Group52Var2 = 0x3402,
+  Group60Var1 = 0x3C01,
+  Group60Var2 = 0x3C02,
+  Group60Var3 = 0x3C03,
+  Group60Var4 = 0x3C04,
+  Group70Var1 = 0x4601,
+  Group70Var2 = 0x4602,
+  Group70Var3 = 0x4603,
+  Group70Var4 = 0x4604,
+  Group70Var5 = 0x4605,
+  Group70Var6 = 0x4606,
+  Group70Var7 = 0x4607,
+  Group70Var8 = 0x4608,
+  Group80Var1 = 0x5001,
+  Group110Var0 = 0x6E00,
+  Group111Var0 = 0x6F00,
+  Group112Var0 = 0x7000,
+  Group113Var0 = 0x7100,
+  Group120Var1 = 0x7801,
+  Group120Var2 = 0x7802,
+  Group120Var3 = 0x7803,
+  Group120Var4 = 0x7804,
+  Group120Var5 = 0x7805,
+  Group120Var6 = 0x7806,
+  Group120Var7 = 0x7807,
+  Group120Var8 = 0x7808,
+  Group120Var9 = 0x7809,
+  Group120Var10 = 0x780A,
+  Group120Var11 = 0x780B,
+  Group120Var12 = 0x780C,
+  Group120Var13 = 0x780D,
+  Group120Var14 = 0x780E,
+  Group120Var15 = 0x780F,
+  Group121Var0 = 0x7900,
+  Group121Var1 = 0x7901,
+  Group122Var0 = 0x7A00,
+  Group122Var1 = 0x7A01,
+  Group122Var2 = 0x7A02,
+  UNKNOWN = 0xFFFF
+};
+
+uint16_t GroupVariationToType(GroupVariation arg);
+GroupVariation GroupVariationFromType(uint16_t arg);
+char const* GroupVariationToString(GroupVariation arg);
+
+}
+# 22 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/gen/GroupVariation.cpp" 2
+
+namespace opendnp3 {
+
+uint16_t GroupVariationToType(GroupVariation arg)
+{
+  return static_cast<uint16_t>(arg);
+}
+GroupVariation GroupVariationFromType(uint16_t arg)
+{
+  switch(arg)
+  {
+    case(0x100):
+      return GroupVariation::Group1Var0;
+    case(0x101):
+      return GroupVariation::Group1Var1;
+    case(0x102):
+      return GroupVariation::Group1Var2;
+    case(0x200):
+      return GroupVariation::Group2Var0;
+    case(0x201):
+      return GroupVariation::Group2Var1;
+    case(0x202):
+      return GroupVariation::Group2Var2;
+    case(0x203):
+      return GroupVariation::Group2Var3;
+    case(0x300):
+      return GroupVariation::Group3Var0;
+    case(0x301):
+      return GroupVariation::Group3Var1;
+    case(0x302):
+      return GroupVariation::Group3Var2;
+    case(0x400):
+      return GroupVariation::Group4Var0;
+    case(0x401):
+      return GroupVariation::Group4Var1;
+    case(0x402):
+      return GroupVariation::Group4Var2;
+    case(0x403):
+      return GroupVariation::Group4Var3;
+    case(0xA00):
+      return GroupVariation::Group10Var0;
+    case(0xA01):
+      return GroupVariation::Group10Var1;
+    case(0xA02):
+      return GroupVariation::Group10Var2;
+    case(0xB00):
+      return GroupVariation::Group11Var0;
+    case(0xB01):
+      return GroupVariation::Group11Var1;
+    case(0xB02):
+      return GroupVariation::Group11Var2;
+    case(0xC00):
+      return GroupVariation::Group12Var0;
+    case(0xC01):
+      return GroupVariation::Group12Var1;
+    case(0xD01):
+      return GroupVariation::Group13Var1;
+    case(0xD02):
+      return GroupVariation::Group13Var2;
+    case(0x1400):
+      return GroupVariation::Group20Var0;
+    case(0x1401):
+      return GroupVariation::Group20Var1;
+    case(0x1402):
+      return GroupVariation::Group20Var2;
+    case(0x1405):
+      return GroupVariation::Group20Var5;
+    case(0x1406):
+      return GroupVariation::Group20Var6;
+    case(0x1500):
+      return GroupVariation::Group21Var0;
+    case(0x1501):
+      return GroupVariation::Group21Var1;
+    case(0x1502):
+      return GroupVariation::Group21Var2;
+    case(0x1505):
+      return GroupVariation::Group21Var5;
+    case(0x1506):
+      return GroupVariation::Group21Var6;
+    case(0x1509):
+      return GroupVariation::Group21Var9;
+    case(0x150A):
+      return GroupVariation::Group21Var10;
+    case(0x1600):
+      return GroupVariation::Group22Var0;
+    case(0x1601):
+      return GroupVariation::Group22Var1;
+    case(0x1602):
+      return GroupVariation::Group22Var2;
+    case(0x1605):
+      return GroupVariation::Group22Var5;
+    case(0x1606):
+      return GroupVariation::Group22Var6;
+    case(0x1700):
+      return GroupVariation::Group23Var0;
+    case(0x1701):
+      return GroupVariation::Group23Var1;
+    case(0x1702):
+      return GroupVariation::Group23Var2;
+    case(0x1705):
+      return GroupVariation::Group23Var5;
+    case(0x1706):
+      return GroupVariation::Group23Var6;
+    case(0x1E00):
+      return GroupVariation::Group30Var0;
+    case(0x1E01):
+      return GroupVariation::Group30Var1;
+    case(0x1E02):
+      return GroupVariation::Group30Var2;
+    case(0x1E03):
+      return GroupVariation::Group30Var3;
+    case(0x1E04):
+      return GroupVariation::Group30Var4;
+    case(0x1E05):
+      return GroupVariation::Group30Var5;
+    case(0x1E06):
+      return GroupVariation::Group30Var6;
+    case(0x2000):
+      return GroupVariation::Group32Var0;
+    case(0x2001):
+      return GroupVariation::Group32Var1;
+    case(0x2002):
+      return GroupVariation::Group32Var2;
+    case(0x2003):
+      return GroupVariation::Group32Var3;
+    case(0x2004):
+      return GroupVariation::Group32Var4;
+    case(0x2005):
+      return GroupVariation::Group32Var5;
+    case(0x2006):
+      return GroupVariation::Group32Var6;
+    case(0x2007):
+      return GroupVariation::Group32Var7;
+    case(0x2008):
+      return GroupVariation::Group32Var8;
+    case(0x2800):
+      return GroupVariation::Group40Var0;
+    case(0x2801):
+      return GroupVariation::Group40Var1;
+    case(0x2802):
+      return GroupVariation::Group40Var2;
+    case(0x2803):
+      return GroupVariation::Group40Var3;
+    case(0x2804):
+      return GroupVariation::Group40Var4;
+    case(0x2900):
+      return GroupVariation::Group41Var0;
+    case(0x2901):
+      return GroupVariation::Group41Var1;
+    case(0x2902):
+      return GroupVariation::Group41Var2;
+    case(0x2903):
+      return GroupVariation::Group41Var3;
+    case(0x2904):
+      return GroupVariation::Group41Var4;
+    case(0x2A00):
+      return GroupVariation::Group42Var0;
+    case(0x2A01):
+      return GroupVariation::Group42Var1;
+    case(0x2A02):
+      return GroupVariation::Group42Var2;
+    case(0x2A03):
+      return GroupVariation::Group42Var3;
+    case(0x2A04):
+      return GroupVariation::Group42Var4;
+    case(0x2A05):
+      return GroupVariation::Group42Var5;
+    case(0x2A06):
+      return GroupVariation::Group42Var6;
+    case(0x2A07):
+      return GroupVariation::Group42Var7;
+    case(0x2A08):
+      return GroupVariation::Group42Var8;
+    case(0x2B01):
+      return GroupVariation::Group43Var1;
+    case(0x2B02):
+      return GroupVariation::Group43Var2;
+    case(0x2B03):
+      return GroupVariation::Group43Var3;
+    case(0x2B04):
+      return GroupVariation::Group43Var4;
+    case(0x2B05):
+      return GroupVariation::Group43Var5;
+    case(0x2B06):
+      return GroupVariation::Group43Var6;
+    case(0x2B07):
+      return GroupVariation::Group43Var7;
+    case(0x2B08):
+      return GroupVariation::Group43Var8;
+    case(0x3201):
+      return GroupVariation::Group50Var1;
+    case(0x3204):
+      return GroupVariation::Group50Var4;
+    case(0x3301):
+      return GroupVariation::Group51Var1;
+    case(0x3302):
+      return GroupVariation::Group51Var2;
+    case(0x3401):
+      return GroupVariation::Group52Var1;
+    case(0x3402):
+      return GroupVariation::Group52Var2;
+    case(0x3C01):
+      return GroupVariation::Group60Var1;
+    case(0x3C02):
+      return GroupVariation::Group60Var2;
+    case(0x3C03):
+      return GroupVariation::Group60Var3;
+    case(0x3C04):
+      return GroupVariation::Group60Var4;
+    case(0x4601):
+      return GroupVariation::Group70Var1;
+    case(0x4602):
+      return GroupVariation::Group70Var2;
+    case(0x4603):
+      return GroupVariation::Group70Var3;
+    case(0x4604):
+      return GroupVariation::Group70Var4;
+    case(0x4605):
+      return GroupVariation::Group70Var5;
+    case(0x4606):
+      return GroupVariation::Group70Var6;
+    case(0x4607):
+      return GroupVariation::Group70Var7;
+    case(0x4608):
+      return GroupVariation::Group70Var8;
+    case(0x5001):
+      return GroupVariation::Group80Var1;
+    case(0x6E00):
+      return GroupVariation::Group110Var0;
+    case(0x6F00):
+      return GroupVariation::Group111Var0;
+    case(0x7000):
+      return GroupVariation::Group112Var0;
+    case(0x7100):
+      return GroupVariation::Group113Var0;
+    case(0x7801):
+      return GroupVariation::Group120Var1;
+    case(0x7802):
+      return GroupVariation::Group120Var2;
+    case(0x7803):
+      return GroupVariation::Group120Var3;
+    case(0x7804):
+      return GroupVariation::Group120Var4;
+    case(0x7805):
+      return GroupVariation::Group120Var5;
+    case(0x7806):
+      return GroupVariation::Group120Var6;
+    case(0x7807):
+      return GroupVariation::Group120Var7;
+    case(0x7808):
+      return GroupVariation::Group120Var8;
+    case(0x7809):
+      return GroupVariation::Group120Var9;
+    case(0x780A):
+      return GroupVariation::Group120Var10;
+    case(0x780B):
+      return GroupVariation::Group120Var11;
+    case(0x780C):
+      return GroupVariation::Group120Var12;
+    case(0x780D):
+      return GroupVariation::Group120Var13;
+    case(0x780E):
+      return GroupVariation::Group120Var14;
+    case(0x780F):
+      return GroupVariation::Group120Var15;
+    case(0x7900):
+      return GroupVariation::Group121Var0;
+    case(0x7901):
+      return GroupVariation::Group121Var1;
+    case(0x7A00):
+      return GroupVariation::Group122Var0;
+    case(0x7A01):
+      return GroupVariation::Group122Var1;
+    case(0x7A02):
+      return GroupVariation::Group122Var2;
+    default:
+      return GroupVariation::UNKNOWN;
+  }
+}
+char const* GroupVariationToString(GroupVariation arg)
+{
+  switch(arg)
+  {
+    case(GroupVariation::Group1Var0):
+      return "Binary Input - Any Variation";
+    case(GroupVariation::Group1Var1):
+      return "Binary Input - Packed Format";
+    case(GroupVariation::Group1Var2):
+      return "Binary Input - With Flags";
+    case(GroupVariation::Group2Var0):
+      return "Binary Input Event - Any Variation";
+    case(GroupVariation::Group2Var1):
+      return "Binary Input Event - Without Time";
+    case(GroupVariation::Group2Var2):
+      return "Binary Input Event - With Absolute Time";
+    case(GroupVariation::Group2Var3):
+      return "Binary Input Event - With Relative Time";
+    case(GroupVariation::Group3Var0):
+      return "Double-bit Binary Input - Any Variation";
+    case(GroupVariation::Group3Var1):
+      return "Double-bit Binary Input - Packed Format";
+    case(GroupVariation::Group3Var2):
+      return "Double-bit Binary Input - With Flags";
+    case(GroupVariation::Group4Var0):
+      return "Double-bit Binary Input Event - Any Variation";
+    case(GroupVariation::Group4Var1):
+      return "Double-bit Binary Input Event - Without Time";
+    case(GroupVariation::Group4Var2):
+      return "Double-bit Binary Input Event - With Absolute Time";
+    case(GroupVariation::Group4Var3):
+      return "Double-bit Binary Input Event - With Relative Time";
+    case(GroupVariation::Group10Var0):
+      return "Binary Output - Any Variation";
+    case(GroupVariation::Group10Var1):
+      return "Binary Output - Packed Format";
+    case(GroupVariation::Group10Var2):
+      return "Binary Output - Output Status With Flags";
+    case(GroupVariation::Group11Var0):
+      return "Binary Output Event - Any Variation";
+    case(GroupVariation::Group11Var1):
+      return "Binary Output Event - Output Status Without Time";
+    case(GroupVariation::Group11Var2):
+      return "Binary Output Event - Output Status With Time";
+    case(GroupVariation::Group12Var0):
+      return "Binary Command - Any Variation";
+    case(GroupVariation::Group12Var1):
+      return "Binary Command - CROB";
+    case(GroupVariation::Group13Var1):
+      return "Binary Command Event - Without Time";
+    case(GroupVariation::Group13Var2):
+      return "Binary Command Event - With Time";
+    case(GroupVariation::Group20Var0):
+      return "Counter - Any Variation";
+    case(GroupVariation::Group20Var1):
+      return "Counter - 32-bit With Flag";
+    case(GroupVariation::Group20Var2):
+      return "Counter - 16-bit With Flag";
+    case(GroupVariation::Group20Var5):
+      return "Counter - 32-bit Without Flag";
+    case(GroupVariation::Group20Var6):
+      return "Counter - 16-bit Without Flag";
+    case(GroupVariation::Group21Var0):
+      return "Frozen Counter - Any Variation";
+    case(GroupVariation::Group21Var1):
+      return "Frozen Counter - 32-bit With Flag";
+    case(GroupVariation::Group21Var2):
+      return "Frozen Counter - 16-bit With Flag";
+    case(GroupVariation::Group21Var5):
+      return "Frozen Counter - 32-bit With Flag and Time";
+    case(GroupVariation::Group21Var6):
+      return "Frozen Counter - 16-bit With Flag and Time";
+    case(GroupVariation::Group21Var9):
+      return "Frozen Counter - 32-bit Without Flag";
+    case(GroupVariation::Group21Var10):
+      return "Frozen Counter - 16-bit Without Flag";
+    case(GroupVariation::Group22Var0):
+      return "Counter Event - Any Variation";
+    case(GroupVariation::Group22Var1):
+      return "Counter Event - 32-bit With Flag";
+    case(GroupVariation::Group22Var2):
+      return "Counter Event - 16-bit With Flag";
+    case(GroupVariation::Group22Var5):
+      return "Counter Event - 32-bit With Flag and Time";
+    case(GroupVariation::Group22Var6):
+      return "Counter Event - 16-bit With Flag and Time";
+    case(GroupVariation::Group23Var0):
+      return "Frozen Counter Event - Any Variation";
+    case(GroupVariation::Group23Var1):
+      return "Frozen Counter Event - 32-bit With Flag";
+    case(GroupVariation::Group23Var2):
+      return "Frozen Counter Event - 16-bit With Flag";
+    case(GroupVariation::Group23Var5):
+      return "Frozen Counter Event - 32-bit With Flag and Time";
+    case(GroupVariation::Group23Var6):
+      return "Frozen Counter Event - 16-bit With Flag and Time";
+    case(GroupVariation::Group30Var0):
+      return "Analog Input - Any Variation";
+    case(GroupVariation::Group30Var1):
+      return "Analog Input - 32-bit With Flag";
+    case(GroupVariation::Group30Var2):
+      return "Analog Input - 16-bit With Flag";
+    case(GroupVariation::Group30Var3):
+      return "Analog Input - 32-bit Without Flag";
+    case(GroupVariation::Group30Var4):
+      return "Analog Input - 16-bit Without Flag";
+    case(GroupVariation::Group30Var5):
+      return "Analog Input - Single-precision With Flag";
+    case(GroupVariation::Group30Var6):
+      return "Analog Input - Double-precision With Flag";
+    case(GroupVariation::Group32Var0):
+      return "Analog Input Event - Any Variation";
+    case(GroupVariation::Group32Var1):
+      return "Analog Input Event - 32-bit With Flag";
+    case(GroupVariation::Group32Var2):
+      return "Analog Input Event - 16-bit With Flag";
+    case(GroupVariation::Group32Var3):
+      return "Analog Input Event - 32-bit With Flag and Time";
+    case(GroupVariation::Group32Var4):
+      return "Analog Input Event - 16-bit With Flag and Time";
+    case(GroupVariation::Group32Var5):
+      return "Analog Input Event - Single-precision With Flag";
+    case(GroupVariation::Group32Var6):
+      return "Analog Input Event - Double-precision With Flag";
+    case(GroupVariation::Group32Var7):
+      return "Analog Input Event - Single-precision With Flag and Time";
+    case(GroupVariation::Group32Var8):
+      return "Analog Input Event - Double-precision With Flag and Time";
+    case(GroupVariation::Group40Var0):
+      return "Analog Output Status - Any Variation";
+    case(GroupVariation::Group40Var1):
+      return "Analog Output Status - 32-bit With Flag";
+    case(GroupVariation::Group40Var2):
+      return "Analog Output Status - 16-bit With Flag";
+    case(GroupVariation::Group40Var3):
+      return "Analog Output Status - Single-precision With Flag";
+    case(GroupVariation::Group40Var4):
+      return "Analog Output Status - Double-precision With Flag";
+    case(GroupVariation::Group41Var0):
+      return "Analog Output - Any Variation";
+    case(GroupVariation::Group41Var1):
+      return "Analog Output - 32-bit With Flag";
+    case(GroupVariation::Group41Var2):
+      return "Analog Output - 16-bit With Flag";
+    case(GroupVariation::Group41Var3):
+      return "Analog Output - Single-precision";
+    case(GroupVariation::Group41Var4):
+      return "Analog Output - Double-precision";
+    case(GroupVariation::Group42Var0):
+      return "Analog Output Event - Any Variation";
+    case(GroupVariation::Group42Var1):
+      return "Analog Output Event - 32-bit With Flag";
+    case(GroupVariation::Group42Var2):
+      return "Analog Output Event - 16-bit With Flag";
+    case(GroupVariation::Group42Var3):
+      return "Analog Output Event - 32-bit With Flag and Time";
+    case(GroupVariation::Group42Var4):
+      return "Analog Output Event - 16-bit With Flag and Time";
+    case(GroupVariation::Group42Var5):
+      return "Analog Output Event - Single-precision With Flag";
+    case(GroupVariation::Group42Var6):
+      return "Analog Output Event - Double-precision With Flag";
+    case(GroupVariation::Group42Var7):
+      return "Analog Output Event - Single-precision With Flag and Time";
+    case(GroupVariation::Group42Var8):
+      return "Analog Output Event - Double-precision With Flag and Time";
+    case(GroupVariation::Group43Var1):
+      return "Analog Command Event - 32-bit";
+    case(GroupVariation::Group43Var2):
+      return "Analog Command Event - 16-bit";
+    case(GroupVariation::Group43Var3):
+      return "Analog Command Event - 32-bit With Time";
+    case(GroupVariation::Group43Var4):
+      return "Analog Command Event - 16-bit With Time";
+    case(GroupVariation::Group43Var5):
+      return "Analog Command Event - Single-precision";
+    case(GroupVariation::Group43Var6):
+      return "Analog Command Event - Double-precision";
+    case(GroupVariation::Group43Var7):
+      return "Analog Command Event - Single-precision With Time";
+    case(GroupVariation::Group43Var8):
+      return "Analog Command Event - Double-precision With Time";
+    case(GroupVariation::Group50Var1):
+      return "Time and Date - Absolute Time";
+    case(GroupVariation::Group50Var4):
+      return "Time and Date - Indexed absolute time and long interval";
+    case(GroupVariation::Group51Var1):
+      return "Time and Date CTO - Absolute time, synchronized";
+    case(GroupVariation::Group51Var2):
+      return "Time and Date CTO - Absolute time, unsynchronized";
+    case(GroupVariation::Group52Var1):
+      return "Time Delay - Coarse";
+    case(GroupVariation::Group52Var2):
+      return "Time Delay - Fine";
+    case(GroupVariation::Group60Var1):
+      return "Class Data - Class 0";
+    case(GroupVariation::Group60Var2):
+      return "Class Data - Class 1";
+    case(GroupVariation::Group60Var3):
+      return "Class Data - Class 2";
+    case(GroupVariation::Group60Var4):
+      return "Class Data - Class 3";
+    case(GroupVariation::Group70Var1):
+      return "File-control - File identifier";
+    case(GroupVariation::Group70Var2):
+      return "File-control - Authentication";
+    case(GroupVariation::Group70Var3):
+      return "File-control - File command";
+    case(GroupVariation::Group70Var4):
+      return "File-control - File command status";
+    case(GroupVariation::Group70Var5):
+      return "File-control - File transport";
+    case(GroupVariation::Group70Var6):
+      return "File-control - File transport status";
+    case(GroupVariation::Group70Var7):
+      return "File-control - File descriptor";
+    case(GroupVariation::Group70Var8):
+      return "File-control - File specification string";
+    case(GroupVariation::Group80Var1):
+      return "Internal Indications - Packed Format";
+    case(GroupVariation::Group110Var0):
+      return "Octet String - Sized by variation";
+    case(GroupVariation::Group111Var0):
+      return "Octet String Event - Sized by variation";
+    case(GroupVariation::Group112Var0):
+      return "Virtual Terminal Output Block - Sized by variation";
+    case(GroupVariation::Group113Var0):
+      return "Virtual Terminal Event Data - Sized by variation";
+    case(GroupVariation::Group120Var1):
+      return "Authentication - Challenge";
+    case(GroupVariation::Group120Var2):
+      return "Authentication - Reply";
+    case(GroupVariation::Group120Var3):
+      return "Authentication - Aggressive Mode Request";
+    case(GroupVariation::Group120Var4):
+      return "Authentication - Session Key Status Request";
+    case(GroupVariation::Group120Var5):
+      return "Authentication - Session Key Status";
+    case(GroupVariation::Group120Var6):
+      return "Authentication - Session Key Change";
+    case(GroupVariation::Group120Var7):
+      return "Authentication - Error";
+    case(GroupVariation::Group120Var8):
+      return "Authentication - User Certificate";
+    case(GroupVariation::Group120Var9):
+      return "Authentication - HMAC";
+    case(GroupVariation::Group120Var10):
+      return "Authentication - User Status Change";
+    case(GroupVariation::Group120Var11):
+      return "Authentication - Update Key Change Request";
+    case(GroupVariation::Group120Var12):
+      return "Authentication - Update Key Change Reply";
+    case(GroupVariation::Group120Var13):
+      return "Authentication - Update Key Change";
+    case(GroupVariation::Group120Var14):
+      return "Authentication - Update Key Change Signature";
+    case(GroupVariation::Group120Var15):
+      return "Authentication - Update Key Change Confirmation";
+    case(GroupVariation::Group121Var0):
+      return "Security statistic - Any Variation";
+    case(GroupVariation::Group121Var1):
+      return "Security statistic - 32-bit With Flag";
+    case(GroupVariation::Group122Var0):
+      return "Security Statistic event - Any Variation";
+    case(GroupVariation::Group122Var1):
+      return "Security Statistic event - 32-bit With Flag";
+    case(GroupVariation::Group122Var2):
+      return "Security Statistic event - 32-bit With Flag and Time";
+    default:
+      return "UNKNOWN";
+  }
+}
+
+}

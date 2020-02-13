@@ -1,0 +1,257 @@
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/gen/ChallengeReason.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/gen/ChallengeReason.cpp"
+# 21 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/gen/ChallengeReason.cpp"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ChallengeReason.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ChallengeReason.h"
+# 1 "/usr/include/c++/6/cstdint" 1 3
+# 32 "/usr/include/c++/6/cstdint" 3
+       
+# 33 "/usr/include/c++/6/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 1 3
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  typedef unsigned int size_t;
+  typedef int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 221 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 507 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 1 3
+# 39 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 364 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 1 3 4
+# 415 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 416 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 2 3 4
+# 365 "/usr/include/features.h" 2 3 4
+# 388 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h" 1 3 4
+# 11 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 2 3 4
+# 389 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 2 3
+# 508 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/cpu_defines.h" 1 3
+# 511 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/6/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wchar.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
+
+
+
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
+
+
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
+
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+
+
+
+__extension__
+typedef long long int int_least64_t;
+
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+
+
+__extension__
+typedef unsigned long long int uint_least64_t;
+
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+
+
+
+
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+
+
+
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+# 125 "/usr/include/stdint.h" 3 4
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/6/cstdint" 2 3
+
+
+
+
+namespace std
+{
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ChallengeReason.h" 2
+
+
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ChallengeReason.h"
+namespace opendnp3 {
+
+
+
+
+enum class ChallengeReason : uint8_t
+{
+
+  CRITICAL = 0x1,
+
+  UNKNOWN = 0xFF
+};
+
+uint8_t ChallengeReasonToType(ChallengeReason arg);
+ChallengeReason ChallengeReasonFromType(uint8_t arg);
+char const* ChallengeReasonToString(ChallengeReason arg);
+
+}
+# 22 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/gen/ChallengeReason.cpp" 2
+
+namespace opendnp3 {
+
+uint8_t ChallengeReasonToType(ChallengeReason arg)
+{
+  return static_cast<uint8_t>(arg);
+}
+ChallengeReason ChallengeReasonFromType(uint8_t arg)
+{
+  switch(arg)
+  {
+    case(0x1):
+      return ChallengeReason::CRITICAL;
+    default:
+      return ChallengeReason::UNKNOWN;
+  }
+}
+char const* ChallengeReasonToString(ChallengeReason arg)
+{
+  switch(arg)
+  {
+    case(ChallengeReason::CRITICAL):
+      return "CRITICAL";
+    default:
+      return "UNKNOWN";
+  }
+}
+
+}

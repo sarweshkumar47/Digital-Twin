@@ -1,0 +1,112 @@
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/master/ITaskLock.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/master/ITaskLock.cpp"
+# 21 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/master/ITaskLock.cpp"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/master/ITaskLock.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/master/ITaskLock.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h"
+namespace openpal
+{
+
+
+
+class Uncopyable
+{
+protected:
+ Uncopyable() {}
+ ~Uncopyable() {}
+
+private:
+
+ Uncopyable(const Uncopyable&) = delete;
+ Uncopyable& operator=(const Uncopyable&) = delete;
+};
+
+class StaticOnly
+{
+
+private:
+
+ StaticOnly() = delete;
+ StaticOnly(const StaticOnly&) = delete;
+ StaticOnly& operator=(const StaticOnly&) = delete;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/master/ITaskLock.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/master/IScheduleCallback.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/master/IScheduleCallback.h"
+namespace opendnp3
+{
+
+class IScheduleCallback
+{
+public:
+
+ virtual void OnPendingTask() = 0;
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/master/ITaskLock.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+
+class ITaskLock
+{
+public:
+
+
+ virtual bool Acquire(IScheduleCallback&) = 0;
+
+
+ virtual bool Release(IScheduleCallback&) = 0;
+
+};
+
+class NullTaskLock final : public ITaskLock, private openpal::Uncopyable
+{
+public:
+
+ virtual bool Acquire(IScheduleCallback&) override
+ {
+  return true;
+ }
+
+ virtual bool Release(IScheduleCallback&) override
+ {
+  return true;
+ }
+
+ static ITaskLock& Instance();
+
+private:
+
+ NullTaskLock() {}
+
+ static NullTaskLock instance;
+};
+
+}
+# 22 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/master/ITaskLock.cpp" 2
+
+namespace opendnp3
+{
+
+NullTaskLock NullTaskLock::instance;
+
+ITaskLock& NullTaskLock::Instance()
+{
+ return instance;
+}
+
+}

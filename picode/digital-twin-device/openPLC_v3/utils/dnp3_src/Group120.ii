@@ -1,0 +1,2976 @@
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.cpp"
+# 21 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.cpp"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h"
+# 1 "/usr/include/c++/6/cstdint" 1 3
+# 32 "/usr/include/c++/6/cstdint" 3
+       
+# 33 "/usr/include/c++/6/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 1 3
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  typedef unsigned int size_t;
+  typedef int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 221 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 507 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 1 3
+# 39 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 364 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 1 3 4
+# 415 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 416 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 2 3 4
+# 365 "/usr/include/features.h" 2 3 4
+# 388 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h" 1 3 4
+# 11 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 2 3 4
+# 389 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 2 3
+# 508 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/cpu_defines.h" 1 3
+# 511 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/6/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wchar.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
+
+
+
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
+
+
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
+
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+
+
+
+__extension__
+typedef long long int int_least64_t;
+
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+
+
+__extension__
+typedef unsigned long long int uint_least64_t;
+
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+
+
+
+
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+
+
+
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+# 125 "/usr/include/stdint.h" 3 4
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/6/cstdint" 2 3
+
+
+
+
+namespace std
+{
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h" 2
+
+
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h"
+namespace opendnp3
+{
+
+
+struct GroupVariationID
+{
+ GroupVariationID() : group(0xFF), variation(0xFF)
+ {}
+
+ GroupVariationID(uint8_t aGroup, uint8_t aVariation):
+  group(aGroup),
+  variation(aVariation)
+ {
+
+ }
+
+ uint8_t group;
+ uint8_t variation;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/HasSize.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/HasSize.h"
+namespace openpal
+{
+
+template <class SizeType>
+class HasSize
+{
+
+public:
+
+ HasSize(SizeType size_) : size(size_)
+ {}
+
+ SizeType Size() const
+ {
+  return size;
+ }
+
+ bool IsEmpty() const
+ {
+  return size == 0;
+ }
+
+ bool IsNotEmpty() const
+ {
+  return size != 0;
+ }
+
+protected:
+
+ SizeType size;
+
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 2
+
+
+
+namespace openpal
+{
+
+class WSlice;
+
+
+
+
+
+class RSlice : public HasSize<uint32_t>
+{
+
+public:
+
+ static RSlice Empty();
+
+ RSlice();
+
+ RSlice(uint8_t const* pBuffer, uint32_t size);
+
+ void Clear();
+
+ RSlice CopyTo(WSlice&) const;
+
+ RSlice Take(uint32_t count) const;
+
+ RSlice Skip(uint32_t count) const;
+
+ bool Equals(const RSlice& rhs) const;
+
+ void Advance(uint32_t count);
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+ uint8_t const* pBuffer;
+
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/WSlice.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/WSlice.h"
+namespace openpal
+{
+
+class RSlice;
+
+
+
+
+
+class WSlice : public HasSize<uint32_t>
+{
+public:
+
+ static WSlice Empty();
+
+ void SetAllTo(uint8_t value);
+
+ WSlice();
+ WSlice(uint8_t* pBuffer, uint32_t size);
+
+ void Clear();
+
+ uint32_t Advance(uint32_t count);
+
+ WSlice Skip(uint32_t count) const;
+
+ RSlice ToRSlice() const;
+
+ operator uint8_t* ()
+ {
+  return pBuffer;
+ };
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+
+ uint8_t* pBuffer;
+};
+
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h"
+namespace openpal
+{
+
+class UInt48Type
+{
+
+public:
+
+ explicit UInt48Type(int64_t value) : value(value)
+ {}
+
+ UInt48Type() : value(0)
+ {}
+
+ operator int64_t() const
+ {
+  return value;
+ }
+
+ int64_t value;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h" 2
+
+namespace opendnp3
+{
+
+typedef openpal::UInt48Type DNPTime;
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/IVariableLength.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/IVariableLength.h"
+namespace opendnp3
+{
+
+class IVariableLength
+{
+
+public:
+
+ virtual ~IVariableLength() {}
+
+ virtual GroupVariationID InstanceID() const = 0;
+
+
+ virtual uint32_t Size() const = 0;
+
+
+ virtual bool Write(openpal::WSlice& dest) const = 0;
+
+
+ virtual bool Read(const openpal::RSlice& input) = 0;
+
+};
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/HMACType.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/HMACType.h"
+namespace opendnp3 {
+
+
+
+
+enum class HMACType : uint8_t
+{
+
+  NO_MAC_VALUE = 0x0,
+
+  HMAC_SHA1_TRUNC_10 = 0x2,
+
+  HMAC_SHA256_TRUNC_8 = 0x3,
+
+  HMAC_SHA256_TRUNC_16 = 0x4,
+
+  HMAC_SHA1_TRUNC_8 = 0x5,
+
+  AES_GMAC = 0x6,
+
+  UNKNOWN = 0xFF
+};
+
+uint8_t HMACTypeToType(HMACType arg);
+HMACType HMACTypeFromType(uint8_t arg);
+char const* HMACTypeToString(HMACType arg);
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ChallengeReason.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ChallengeReason.h"
+namespace opendnp3 {
+
+
+
+
+enum class ChallengeReason : uint8_t
+{
+
+  CRITICAL = 0x1,
+
+  UNKNOWN = 0xFF
+};
+
+uint8_t ChallengeReasonToType(ChallengeReason arg);
+ChallengeReason ChallengeReasonFromType(uint8_t arg);
+char const* ChallengeReasonToString(ChallengeReason arg);
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyWrapAlgorithm.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyWrapAlgorithm.h"
+namespace opendnp3 {
+
+
+
+
+enum class KeyWrapAlgorithm : uint8_t
+{
+
+  AES_128 = 0x1,
+
+  AES_256 = 0x2,
+  UNDEFINED = 0x0
+};
+
+uint8_t KeyWrapAlgorithmToType(KeyWrapAlgorithm arg);
+KeyWrapAlgorithm KeyWrapAlgorithmFromType(uint8_t arg);
+char const* KeyWrapAlgorithmToString(KeyWrapAlgorithm arg);
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyStatus.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyStatus.h"
+namespace opendnp3 {
+
+
+
+
+enum class KeyStatus : uint8_t
+{
+
+  OK = 0x1,
+
+  NOT_INIT = 0x2,
+
+  COMM_FAIL = 0x3,
+
+  AUTH_FAIL = 0x4,
+  UNDEFINED = 0x0
+};
+
+uint8_t KeyStatusToType(KeyStatus arg);
+KeyStatus KeyStatusFromType(uint8_t arg);
+char const* KeyStatusToString(KeyStatus arg);
+
+}
+# 33 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AuthErrorCode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AuthErrorCode.h"
+namespace opendnp3 {
+
+
+
+
+enum class AuthErrorCode : uint8_t
+{
+
+  AUTHENTICATION_FAILED = 0x1,
+
+  AGGRESSIVE_MODE_UNSUPPORTED = 0x4,
+
+  MAC_NOT_SUPPORTED = 0x5,
+
+  KEY_WRAP_NOT_SUPPORTED = 0x6,
+
+  AUTHORIZATION_FAILED = 0x7,
+
+  UPDATE_KEY_METHOD_NOT_PERMITTED = 0x8,
+
+  INVALID_SIGNATURE = 0x9,
+
+  INVALID_CERTIFICATION_DATA = 0xA,
+
+  UNKNOWN_USER = 0xB,
+
+  MAX_SESSION_KEY_STATUS_REQUESTS_EXCEEDED = 0xC,
+
+  UNKNOWN = 0x0
+};
+
+uint8_t AuthErrorCodeToType(AuthErrorCode arg);
+AuthErrorCode AuthErrorCodeFromType(uint8_t arg);
+char const* AuthErrorCodeToString(AuthErrorCode arg);
+
+}
+# 34 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyChangeMethod.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyChangeMethod.h"
+namespace opendnp3 {
+
+
+
+
+enum class KeyChangeMethod : uint8_t
+{
+  AES_128_SHA1_HMAC = 0x3,
+  AES_256_SHA256_HMAC = 0x4,
+  AES_256_AES_GMAC = 0x5,
+  RSA_1024_DSA_SHA1_HMAC_SHA1 = 0x43,
+  RSA_2048_DSA_SHA256_HMAC_SHA256 = 0x44,
+  RSA_3072_DSA_SHA256_HMAC_SHA256 = 0x45,
+  RSA_2048_DSA_SHA256_AES_GMAC = 0x46,
+  RSA_3072_DSA_SHA256_AES_GMAC = 0x47,
+  UNDEFINED = 0x0
+};
+
+uint8_t KeyChangeMethodToType(KeyChangeMethod arg);
+KeyChangeMethod KeyChangeMethodFromType(uint8_t arg);
+char const* KeyChangeMethodToString(KeyChangeMethod arg);
+
+}
+# 35 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CertificateType.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CertificateType.h"
+namespace opendnp3 {
+
+
+
+
+enum class CertificateType : uint8_t
+{
+
+  ID_CERTIFICATE = 0x1,
+
+  ATTRIBUTE_CERTIFICATE = 0x2,
+
+  UNKNOWN = 0x0
+};
+
+uint8_t CertificateTypeToType(CertificateType arg);
+CertificateType CertificateTypeFromType(uint8_t arg);
+char const* CertificateTypeToString(CertificateType arg);
+
+}
+# 36 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/UserOperation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/UserOperation.h"
+namespace opendnp3 {
+
+
+
+
+enum class UserOperation : uint8_t
+{
+  OP_ADD = 0x1,
+  OP_DELETE = 0x2,
+  OP_CHANGE = 0x3,
+  OP_UNDEFINED = 0xFF
+};
+
+uint8_t UserOperationToType(UserOperation arg);
+UserOperation UserOperationFromType(uint8_t arg);
+char const* UserOperationToString(UserOperation arg);
+
+}
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.h" 2
+
+namespace opendnp3 {
+
+
+struct Group120Var1 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,1); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var1();
+
+  Group120Var1(
+    uint32_t challengeSeqNum,
+    uint16_t userNum,
+    HMACType hmacAlgo,
+    ChallengeReason challengeReason,
+    const openpal::RSlice& challengeData
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 8;
+
+
+  uint32_t challengeSeqNum;
+  uint16_t userNum;
+  HMACType hmacAlgo;
+  ChallengeReason challengeReason;
+  openpal::RSlice challengeData;
+};
+
+
+struct Group120Var2 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,2); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var2();
+
+  Group120Var2(
+    uint32_t challengeSeqNum,
+    uint16_t userNum,
+    const openpal::RSlice& hmacValue
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 6;
+
+
+  uint32_t challengeSeqNum;
+  uint16_t userNum;
+  openpal::RSlice hmacValue;
+};
+
+
+struct Group120Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(120,3); }
+
+  Group120Var3();
+
+  static uint32_t Size() { return 6; }
+  static bool Read(openpal::RSlice&, Group120Var3&);
+  static bool Write(const Group120Var3&, openpal::WSlice&);
+
+  uint32_t challengeSeqNum;
+  uint16_t userNum;
+};
+
+
+struct Group120Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(120,4); }
+
+  Group120Var4();
+
+  static uint32_t Size() { return 2; }
+  static bool Read(openpal::RSlice&, Group120Var4&);
+  static bool Write(const Group120Var4&, openpal::WSlice&);
+
+  uint16_t userNum;
+};
+
+
+struct Group120Var5 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,5); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var5();
+
+  Group120Var5(
+    uint32_t keyChangeSeqNum,
+    uint16_t userNum,
+    KeyWrapAlgorithm keyWrapAlgo,
+    KeyStatus keyStatus,
+    HMACType hmacAlgo,
+    const openpal::RSlice& challengeData,
+    const openpal::RSlice& hmacValue
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 11;
+
+
+  uint32_t keyChangeSeqNum;
+  uint16_t userNum;
+  KeyWrapAlgorithm keyWrapAlgo;
+  KeyStatus keyStatus;
+  HMACType hmacAlgo;
+  openpal::RSlice challengeData;
+  openpal::RSlice hmacValue;
+};
+
+
+struct Group120Var6 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,6); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var6();
+
+  Group120Var6(
+    uint32_t keyChangeSeqNum,
+    uint16_t userNum,
+    const openpal::RSlice& keyWrapData
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 6;
+
+
+  uint32_t keyChangeSeqNum;
+  uint16_t userNum;
+  openpal::RSlice keyWrapData;
+};
+
+
+struct Group120Var7 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,7); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var7();
+
+  Group120Var7(
+    uint32_t challengeSeqNum,
+    uint16_t userNum,
+    uint16_t assocId,
+    AuthErrorCode errorCode,
+    DNPTime time,
+    const openpal::RSlice& errorText
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 15;
+
+
+  uint32_t challengeSeqNum;
+  uint16_t userNum;
+  uint16_t assocId;
+  AuthErrorCode errorCode;
+  DNPTime time;
+  openpal::RSlice errorText;
+};
+
+
+struct Group120Var8 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,8); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var8();
+
+  Group120Var8(
+    KeyChangeMethod keyChangeMethod,
+    CertificateType certificateType,
+    const openpal::RSlice& certificate
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 2;
+
+
+  KeyChangeMethod keyChangeMethod;
+  CertificateType certificateType;
+  openpal::RSlice certificate;
+};
+
+
+struct Group120Var9 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,9); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var9();
+
+  explicit Group120Var9(
+    const openpal::RSlice& hmacValue
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 0;
+
+
+  openpal::RSlice hmacValue;
+};
+
+
+struct Group120Var10 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,10); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var10();
+
+  Group120Var10(
+    KeyChangeMethod keyChangeMethod,
+    UserOperation userOperation,
+    uint32_t statusChangeSeqNum,
+    uint16_t userRole,
+    uint16_t userRoleExpDays,
+    const openpal::RSlice& userName,
+    const openpal::RSlice& userPublicKey,
+    const openpal::RSlice& certificationData
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 16;
+
+
+  KeyChangeMethod keyChangeMethod;
+  UserOperation userOperation;
+  uint32_t statusChangeSeqNum;
+  uint16_t userRole;
+  uint16_t userRoleExpDays;
+  openpal::RSlice userName;
+  openpal::RSlice userPublicKey;
+  openpal::RSlice certificationData;
+};
+
+
+struct Group120Var11 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,11); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var11();
+
+  Group120Var11(
+    KeyChangeMethod keyChangeMethod,
+    const openpal::RSlice& userName,
+    const openpal::RSlice& challengeData
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 5;
+
+
+  KeyChangeMethod keyChangeMethod;
+  openpal::RSlice userName;
+  openpal::RSlice challengeData;
+};
+
+
+struct Group120Var12 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,12); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var12();
+
+  Group120Var12(
+    uint32_t keyChangeSeqNum,
+    uint16_t userNum,
+    const openpal::RSlice& challengeData
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 8;
+
+
+  uint32_t keyChangeSeqNum;
+  uint16_t userNum;
+  openpal::RSlice challengeData;
+};
+
+
+struct Group120Var13 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,13); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var13();
+
+  Group120Var13(
+    uint32_t keyChangeSeqNum,
+    uint16_t userNum,
+    const openpal::RSlice& encryptedUpdateKey
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 8;
+
+
+  uint32_t keyChangeSeqNum;
+  uint16_t userNum;
+  openpal::RSlice encryptedUpdateKey;
+};
+
+
+struct Group120Var14 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,14); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var14();
+
+  explicit Group120Var14(
+    const openpal::RSlice& digitalSignature
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 0;
+
+
+  openpal::RSlice digitalSignature;
+};
+
+
+struct Group120Var15 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,15); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var15();
+
+  explicit Group120Var15(
+    const openpal::RSlice& hmacValue
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 0;
+
+
+  openpal::RSlice hmacValue;
+};
+
+
+}
+# 22 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.cpp" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48LE.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48LE.h"
+# 1 "/usr/include/c++/6/cstring" 1 3
+# 39 "/usr/include/c++/6/cstring" 3
+       
+# 40 "/usr/include/c++/6/cstring" 3
+
+
+# 1 "/usr/include/string.h" 1 3 4
+# 27 "/usr/include/string.h" 3 4
+
+# 27 "/usr/include/string.h" 3 4
+extern "C" {
+
+
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 1 3 4
+# 216 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+typedef unsigned int size_t;
+# 33 "/usr/include/string.h" 2 3 4
+
+
+
+
+
+
+
+
+
+extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+       size_t __n) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern void *memmove (void *__dest, const void *__src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+
+extern void *memccpy (void *__restrict __dest, const void *__restrict __src,
+        int __c, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+extern void *memset (void *__s, int __c, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int memcmp (const void *__s1, const void *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern "C++"
+{
+extern void *memchr (void *__s, int __c, size_t __n)
+      throw () __asm ("memchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const void *memchr (const void *__s, int __c, size_t __n)
+      throw () __asm ("memchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) void *
+memchr (void *__s, int __c, size_t __n) throw ()
+{
+  return __builtin_memchr (__s, __c, __n);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const void *
+memchr (const void *__s, int __c, size_t __n) throw ()
+{
+  return __builtin_memchr (__s, __c, __n);
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+extern "C++" void *rawmemchr (void *__s, int __c)
+     throw () __asm ("rawmemchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern "C++" const void *rawmemchr (const void *__s, int __c)
+     throw () __asm ("rawmemchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+extern "C++" void *memrchr (void *__s, int __c, size_t __n)
+      throw () __asm ("memrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern "C++" const void *memrchr (const void *__s, int __c, size_t __n)
+      throw () __asm ("memrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+
+
+extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+extern char *strncpy (char *__restrict __dest,
+        const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern char *strcat (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+extern char *strncat (char *__restrict __dest, const char *__restrict __src,
+        size_t __n) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strcmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strcoll (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern size_t strxfrm (char *__restrict __dest,
+         const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+
+
+
+
+# 1 "/usr/include/xlocale.h" 1 3 4
+# 27 "/usr/include/xlocale.h" 3 4
+typedef struct __locale_struct
+{
+
+  struct __locale_data *__locales[13];
+
+
+  const unsigned short int *__ctype_b;
+  const int *__ctype_tolower;
+  const int *__ctype_toupper;
+
+
+  const char *__names[13];
+} *__locale_t;
+
+
+typedef __locale_t locale_t;
+# 160 "/usr/include/string.h" 2 3 4
+
+
+extern int strcoll_l (const char *__s1, const char *__s2, __locale_t __l)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 3)));
+
+extern size_t strxfrm_l (char *__dest, const char *__src, size_t __n,
+    __locale_t __l) throw () __attribute__ ((__nonnull__ (2, 4)));
+
+
+
+
+extern char *strdup (const char *__s)
+     throw () __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+extern char *strndup (const char *__string, size_t __n)
+     throw () __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
+# 206 "/usr/include/string.h" 3 4
+
+
+
+extern "C++"
+{
+extern char *strchr (char *__s, int __c)
+     throw () __asm ("strchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *strchr (const char *__s, int __c)
+     throw () __asm ("strchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strchr (char *__s, int __c) throw ()
+{
+  return __builtin_strchr (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strchr (const char *__s, int __c) throw ()
+{
+  return __builtin_strchr (__s, __c);
+}
+
+}
+
+
+
+
+
+
+extern "C++"
+{
+extern char *strrchr (char *__s, int __c)
+     throw () __asm ("strrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *strrchr (const char *__s, int __c)
+     throw () __asm ("strrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strrchr (char *__s, int __c) throw ()
+{
+  return __builtin_strrchr (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strrchr (const char *__s, int __c) throw ()
+{
+  return __builtin_strrchr (__s, __c);
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+extern "C++" char *strchrnul (char *__s, int __c)
+     throw () __asm ("strchrnul") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern "C++" const char *strchrnul (const char *__s, int __c)
+     throw () __asm ("strchrnul") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+
+
+extern size_t strcspn (const char *__s, const char *__reject)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern size_t strspn (const char *__s, const char *__accept)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern "C++"
+{
+extern char *strpbrk (char *__s, const char *__accept)
+     throw () __asm ("strpbrk") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern const char *strpbrk (const char *__s, const char *__accept)
+     throw () __asm ("strpbrk") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strpbrk (char *__s, const char *__accept) throw ()
+{
+  return __builtin_strpbrk (__s, __accept);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strpbrk (const char *__s, const char *__accept) throw ()
+{
+  return __builtin_strpbrk (__s, __accept);
+}
+
+}
+
+
+
+
+
+
+extern "C++"
+{
+extern char *strstr (char *__haystack, const char *__needle)
+     throw () __asm ("strstr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern const char *strstr (const char *__haystack, const char *__needle)
+     throw () __asm ("strstr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strstr (char *__haystack, const char *__needle) throw ()
+{
+  return __builtin_strstr (__haystack, __needle);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strstr (const char *__haystack, const char *__needle) throw ()
+{
+  return __builtin_strstr (__haystack, __needle);
+}
+
+}
+
+
+
+
+
+
+
+extern char *strtok (char *__restrict __s, const char *__restrict __delim)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+
+
+extern char *__strtok_r (char *__restrict __s,
+    const char *__restrict __delim,
+    char **__restrict __save_ptr)
+     throw () __attribute__ ((__nonnull__ (2, 3)));
+
+extern char *strtok_r (char *__restrict __s, const char *__restrict __delim,
+         char **__restrict __save_ptr)
+     throw () __attribute__ ((__nonnull__ (2, 3)));
+
+
+
+
+
+extern "C++" char *strcasestr (char *__haystack, const char *__needle)
+     throw () __asm ("strcasestr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern "C++" const char *strcasestr (const char *__haystack,
+         const char *__needle)
+     throw () __asm ("strcasestr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+# 377 "/usr/include/string.h" 3 4
+extern void *memmem (const void *__haystack, size_t __haystacklen,
+       const void *__needle, size_t __needlelen)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 3)));
+
+
+
+extern void *__mempcpy (void *__restrict __dest,
+   const void *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern void *mempcpy (void *__restrict __dest,
+        const void *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+extern size_t strlen (const char *__s)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+extern size_t strnlen (const char *__string, size_t __maxlen)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+extern char *strerror (int __errnum) throw ();
+
+# 433 "/usr/include/string.h" 3 4
+extern char *strerror_r (int __errnum, char *__buf, size_t __buflen)
+     throw () __attribute__ ((__nonnull__ (2))) ;
+
+
+
+
+
+extern char *strerror_l (int __errnum, __locale_t __l) throw ();
+
+
+
+
+
+extern void __bzero (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern void bcopy (const void *__src, void *__dest, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern void bzero (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int bcmp (const void *__s1, const void *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern "C++"
+{
+extern char *index (char *__s, int __c)
+     throw () __asm ("index") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *index (const char *__s, int __c)
+     throw () __asm ("index") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+index (char *__s, int __c) throw ()
+{
+  return __builtin_index (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+index (const char *__s, int __c) throw ()
+{
+  return __builtin_index (__s, __c);
+}
+
+}
+
+
+
+
+
+
+
+extern "C++"
+{
+extern char *rindex (char *__s, int __c)
+     throw () __asm ("rindex") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *rindex (const char *__s, int __c)
+     throw () __asm ("rindex") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+rindex (char *__s, int __c) throw ()
+{
+  return __builtin_rindex (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+rindex (const char *__s, int __c) throw ()
+{
+  return __builtin_rindex (__s, __c);
+}
+
+}
+
+
+
+
+
+
+
+extern int ffs (int __i) throw () __attribute__ ((__const__));
+
+
+
+
+extern int ffsl (long int __l) throw () __attribute__ ((__const__));
+__extension__ extern int ffsll (long long int __ll)
+     throw () __attribute__ ((__const__));
+
+
+
+extern int strcasecmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strncasecmp (const char *__s1, const char *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+extern int strcasecmp_l (const char *__s1, const char *__s2,
+    __locale_t __loc)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 3)));
+
+extern int strncasecmp_l (const char *__s1, const char *__s2,
+     size_t __n, __locale_t __loc)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 4)));
+
+
+
+
+
+extern char *strsep (char **__restrict __stringp,
+       const char *__restrict __delim)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern char *strsignal (int __sig) throw ();
+
+
+extern char *__stpcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern char *stpcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern char *__stpncpy (char *__restrict __dest,
+   const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern char *stpncpy (char *__restrict __dest,
+        const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern int strverscmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern char *strfry (char *__string) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern void *memfrob (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+extern "C++" char *basename (char *__filename)
+     throw () __asm ("basename") __attribute__ ((__nonnull__ (1)));
+extern "C++" const char *basename (const char *__filename)
+     throw () __asm ("basename") __attribute__ ((__nonnull__ (1)));
+# 646 "/usr/include/string.h" 3 4
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) void *
+__mempcpy_inline (void *__restrict __dest,
+    const void *__restrict __src, size_t __n)
+{
+  return (char *) memcpy (__dest, __src, __n) + __n;
+}
+
+
+
+
+}
+# 43 "/usr/include/c++/6/cstring" 2 3
+# 71 "/usr/include/c++/6/cstring" 3
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+
+  using ::memchr;
+  using ::memcmp;
+  using ::memcpy;
+  using ::memmove;
+  using ::memset;
+  using ::strcat;
+  using ::strcmp;
+  using ::strcoll;
+  using ::strcpy;
+  using ::strcspn;
+  using ::strerror;
+  using ::strlen;
+  using ::strncat;
+  using ::strncmp;
+  using ::strncpy;
+  using ::strspn;
+  using ::strtok;
+  using ::strxfrm;
+  using ::strchr;
+  using ::strpbrk;
+  using ::strrchr;
+  using ::strstr;
+# 120 "/usr/include/c++/6/cstring" 3
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48LE.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48LE.h" 2
+
+
+
+
+
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48LE.h"
+namespace openpal
+{
+
+class UInt48LE
+{
+public:
+
+ static UInt48Type Read(const uint8_t* data);
+
+ static void Write(uint8_t* data, UInt48Type value);
+
+ inline static UInt48Type ReadBuffer(RSlice& buffer)
+ {
+  auto ret = Read(buffer);
+  buffer.Advance(SIZE);
+  return ret;
+ }
+
+ static void WriteBuffer(WSlice& buffer, UInt48Type value)
+ {
+  Write(buffer, value);
+  buffer.Advance(SIZE);
+ }
+
+ const static int64_t MAX = 281474976710655ULL;
+ const static size_t SIZE = 6;
+ typedef UInt48Type Type;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SerializationTemplatesLE.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SerializationTemplatesLE.h"
+# 1 "/usr/include/c++/6/cstring" 1 3
+# 39 "/usr/include/c++/6/cstring" 3
+       
+# 40 "/usr/include/c++/6/cstring" 3
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SerializationTemplatesLE.h" 2
+
+
+
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Limits.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Limits.h"
+namespace openpal
+{
+
+template <class T>
+T MinValue();
+
+template <class T>
+T MaxValue();
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SerializationTemplatesLE.h" 2
+
+namespace openpal
+{
+
+template <class T>
+class Bit16LE
+{
+public:
+
+ static T Read(const uint8_t* data)
+ {
+  return (static_cast<T>(data[0]) << 0) | (static_cast<T>(data[1]) << 8);
+ }
+
+ static void Write(uint8_t* data, T value)
+ {
+  data[0] = static_cast<uint8_t>(value & 0xFF);
+  data[1] = static_cast<uint8_t>((value >> 8) & 0xFF);
+ }
+
+ static void WriteBuffer(WSlice& buffer, T aValue)
+ {
+  Write(buffer, aValue);
+  buffer.Advance(SIZE);
+ }
+
+ inline static T ReadBuffer(RSlice& arBuffer)
+ {
+  auto ret = Read(arBuffer);
+  arBuffer.Advance(SIZE);
+  return ret;
+ }
+
+ typedef T Type;
+
+ const static size_t SIZE = sizeof(T);
+ const static T Max;
+ const static T Min;
+};
+
+template <class T>
+const T Bit16LE<T>::Max = openpal::MaxValue<T>();
+
+template <class T>
+const T Bit16LE<T>::Min = openpal::MinValue<T>();
+
+template <class T>
+class Bit32LE
+{
+public:
+
+
+
+
+
+
+ static T Read(const uint8_t* data)
+ {
+  return (static_cast<T>(data[0]) << 0) |
+          (static_cast<T>(data[1]) << 8) |
+          (static_cast<T>(data[2]) << 16) |
+          (static_cast<T>(data[3]) << 24);
+ }
+
+ static void Write(uint8_t* data, T value)
+ {
+  data[0] = static_cast<uint8_t>(value & 0xFF);
+  data[1] = static_cast<uint8_t>((value >> 8) & 0xFF);
+  data[2] = static_cast<uint8_t>((value >> 16) & 0xFF);
+  data[3] = static_cast<uint8_t>((value >> 24) & 0xFF);
+ }
+
+ static void WriteBuffer(WSlice& buffer, T aValue)
+ {
+  Write(buffer, aValue);
+  buffer.Advance(SIZE);
+ }
+
+ inline static T ReadBuffer(RSlice& buffer)
+ {
+  auto ret = Read(buffer);
+  buffer.Advance(SIZE);
+  return ret;
+ }
+
+ typedef T Type;
+
+ const static size_t SIZE = sizeof(T);
+ const static T Max;
+ const static T Min;
+};
+
+template <class T>
+const T Bit32LE<T>::Max = openpal::MaxValue<T>();
+
+template <class T>
+const T Bit32LE<T>::Min = openpal::MinValue<T>();
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/ByteSerialization.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/ByteSerialization.h"
+# 1 "/usr/include/c++/6/cstring" 1 3
+# 39 "/usr/include/c++/6/cstring" 3
+       
+# 40 "/usr/include/c++/6/cstring" 3
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/ByteSerialization.h" 2
+
+
+
+
+namespace openpal
+{
+
+class UInt8Simple
+{
+public:
+
+ inline static uint8_t Read(const uint8_t* pStart)
+ {
+  return (*pStart);
+ }
+
+ inline static uint8_t ReadBuffer(RSlice& buffer)
+ {
+  auto ret = Read(buffer);
+  buffer.Advance(SIZE);
+  return ret;
+ }
+
+ static void WriteBuffer(WSlice& buffer, uint8_t value)
+ {
+  Write(buffer, value);
+  buffer.Advance(SIZE);
+ }
+
+ inline static void Write(uint8_t* pStart, uint8_t value)
+ {
+  *(pStart) = value;
+ }
+
+ const static size_t SIZE = 1;
+ const static uint8_t Max;
+ const static uint8_t Min;
+
+ typedef uint8_t Type;
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SingleFloat.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SingleFloat.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h"
+namespace openpal
+{
+
+
+
+class Uncopyable
+{
+protected:
+ Uncopyable() {}
+ ~Uncopyable() {}
+
+private:
+
+ Uncopyable(const Uncopyable&) = delete;
+ Uncopyable& operator=(const Uncopyable&) = delete;
+};
+
+class StaticOnly
+{
+
+private:
+
+ StaticOnly() = delete;
+ StaticOnly(const StaticOnly&) = delete;
+ StaticOnly& operator=(const StaticOnly&) = delete;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SingleFloat.h" 2
+
+
+
+# 1 "/usr/include/c++/6/cstddef" 1 3
+# 42 "/usr/include/c++/6/cstddef" 3
+       
+# 43 "/usr/include/c++/6/cstddef" 3
+
+
+
+
+
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 1 3 4
+# 149 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+
+# 149 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+typedef int ptrdiff_t;
+# 426 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+typedef struct {
+  long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
+  long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
+} max_align_t;
+
+
+
+
+
+
+  typedef decltype(nullptr) nullptr_t;
+# 51 "/usr/include/c++/6/cstddef" 2 3
+
+
+namespace std
+{
+
+  using ::max_align_t;
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SingleFloat.h" 2
+
+
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/SingleFloat.h"
+namespace openpal
+{
+
+class SingleFloat : private StaticOnly
+{
+public:
+
+ static_assert(sizeof(float) == 4, "Unexpected size of single float");
+
+ typedef float Type;
+
+ static float ReadBuffer(RSlice& buffer);
+ static void WriteBuffer(WSlice& buffer, float value);
+
+ static float Read(const uint8_t* data);
+ static void Write(uint8_t* data, float value);
+
+ const static std::size_t SIZE = sizeof(float);
+ const static float Max;
+ const static float Min;
+};
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/DoubleFloat.h" 1
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/DoubleFloat.h"
+namespace openpal
+{
+
+class DoubleFloat : private StaticOnly
+{
+public:
+
+ static_assert(sizeof(double) == 8, "Unexpected size of double float");
+
+ typedef double Type;
+
+ static double ReadBuffer(RSlice& buffer);
+ static void WriteBuffer(WSlice& buffer, double value);
+
+ static double Read(const uint8_t* data);
+ static void Write(uint8_t* data, double value);
+
+ const static std::size_t SIZE = sizeof(double);
+ const static double Max;
+ const static double Min;
+};
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serialization.h" 2
+
+namespace openpal
+{
+
+typedef Bit16LE<int16_t> Int16;
+typedef Bit16LE<uint16_t> UInt16;
+typedef Bit32LE<int32_t> Int32;
+typedef Bit32LE<uint32_t> UInt32;
+typedef UInt48LE UInt48;
+typedef UInt8Simple UInt8;
+
+
+}
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.cpp" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/parsing/PrefixFields.h" 1
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/parsing/PrefixFields.h"
+namespace opendnp3
+{
+
+class PrefixFields : private openpal::StaticOnly
+{
+public:
+
+ template <typename... Args>
+ static bool Read(openpal::RSlice& input, Args& ... fields)
+ {
+  if (input.Size() < (sizeof...(Args)*openpal::UInt16::SIZE))
+  {
+
+   return false;
+  }
+
+  uint16_t lengths[sizeof...(Args)];
+
+  for (size_t i = 0; i < sizeof...(Args); ++i)
+  {
+   lengths[i] = openpal::UInt16::ReadBuffer(input);
+  }
+
+  uint32_t sum = 0;
+
+  for (size_t i = 0; i < sizeof...(Args); ++i)
+  {
+   sum += lengths[i];
+  }
+
+  if (input.Size() < sum)
+  {
+
+   return false;
+  }
+
+  ReadFields(input, lengths, fields...);
+
+  return true;
+ }
+
+ template <typename... Args>
+ static bool Write(openpal::WSlice& dest, const Args& ... fields)
+ {
+  const uint32_t TOTAL_SIZE = (sizeof...(Args) * openpal::UInt16::SIZE) + SumSizes(fields...);
+
+  if (dest.Size() < TOTAL_SIZE)
+  {
+   return false;
+  }
+
+  WriteLengths(dest, fields...);
+  WriteFields(dest, fields...);
+
+  return true;
+ }
+
+ template <typename... Args>
+ static bool LengthFitsInUInt16(const openpal::RSlice& arg1, Args& ... fields)
+ {
+  return (arg1.Size() <= openpal::MaxValue<uint16_t>()) && LengthFitsInUInt16(fields...);
+ }
+
+private:
+
+ template <typename... Args>
+ static uint32_t SumSizes(const openpal::RSlice& arg1, Args& ... fields)
+ {
+  return arg1.Size() + SumSizes(fields...);
+ }
+
+ static bool LengthFitsInUInt16()
+ {
+  return true;
+ }
+
+ static uint32_t SumSizes()
+ {
+  return 0;
+ }
+
+ template <typename... Args>
+ static void ReadFields(openpal::RSlice& input, uint16_t* pLength, openpal::RSlice& output, Args& ... fields)
+ {
+  output = input.Take(*pLength);
+  input.Advance(*pLength);
+  ReadFields(input, ++pLength, fields...);
+ }
+
+ static void ReadFields(openpal::RSlice& input, uint16_t* pLength) {}
+
+ template <typename... Args>
+ static void WriteLengths(openpal::WSlice& dest, const openpal::RSlice& arg1, Args& ... fields)
+ {
+  openpal::UInt16::WriteBuffer(dest, static_cast<uint16_t>(arg1.Size()));
+  WriteLengths(dest, fields...);
+ }
+
+ static void WriteLengths(openpal::WSlice& dest) {}
+
+ template <typename... Args>
+ static void WriteFields(openpal::WSlice& dest, const openpal::RSlice& arg1, Args& ... fields)
+ {
+  arg1.CopyTo(dest);
+  WriteFields(dest, fields...);
+ }
+
+ static void WriteFields(openpal::WSlice& dest) {}
+
+
+};
+
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.cpp" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Format.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Format.h"
+namespace openpal
+{
+class Format : private StaticOnly
+{
+public:
+
+ static bool Write(WSlice& dest, const uint8_t& value);
+ static bool Write(WSlice& dest, const uint16_t& value);
+
+ static bool Write(WSlice& dest, const uint32_t& value);
+ static bool Write(WSlice& dest, const UInt48Type& value);
+
+ static bool Write(WSlice& dest, const int16_t& value);
+ static bool Write(WSlice& dest, const int32_t& value);
+
+ static bool Write(WSlice& dest, const double& value);
+ static bool Write(WSlice& dest, const float& value);
+
+ template <typename T, typename... Args>
+ static bool Many(WSlice& dest, const T& value, const Args& ... args)
+ {
+  return Write(dest, value) && Many(dest, args...);
+ }
+
+private:
+
+ static bool Many(WSlice& input)
+ {
+  return true;
+ }
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.cpp" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Parse.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Parse.h"
+namespace openpal
+{
+class Parse : private StaticOnly
+{
+public:
+
+ static bool Read(RSlice& input, uint8_t& output);
+ static bool Read(RSlice& input, uint16_t& output);
+
+ static bool Read(RSlice& input, uint32_t& output);
+ static bool Read(RSlice& input, UInt48Type& output);
+
+ static bool Read(RSlice& input, int16_t& output);
+ static bool Read(RSlice& input, int32_t& output);
+
+
+ static bool Read(RSlice& input, double& output);
+ static bool Read(RSlice& input, float& output);
+
+ template <typename T, typename... Args>
+ static bool Many(RSlice& input, T& output, Args& ... args)
+ {
+  return Read(input, output) && Many(input, args...);
+ }
+
+private:
+
+ static bool Many(RSlice& input)
+ {
+  return true;
+ }
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group120.cpp" 2
+
+using namespace openpal;
+
+namespace opendnp3 {
+
+
+
+Group120Var1::Group120Var1() :
+  challengeSeqNum(0), userNum(0), hmacAlgo(HMACType::UNKNOWN), challengeReason(ChallengeReason::UNKNOWN)
+{}
+
+Group120Var1::Group120Var1(
+  uint32_t challengeSeqNum_,
+  uint16_t userNum_,
+  HMACType hmacAlgo_,
+  ChallengeReason challengeReason_,
+  const openpal::RSlice& challengeData_
+) :
+  challengeSeqNum(challengeSeqNum_),
+  userNum(userNum_),
+  hmacAlgo(hmacAlgo_),
+  challengeReason(challengeReason_),
+  challengeData(challengeData_)
+{}
+
+uint32_t Group120Var1::Size() const
+{
+  return MIN_SIZE + challengeData.Size();
+}
+
+bool Group120Var1::Read(const RSlice& buffer)
+{
+  if(buffer.Size() < Group120Var1::MIN_SIZE)
+  {
+    return false;
+  }
+
+  RSlice copy(buffer);
+
+  this->challengeSeqNum = UInt32::ReadBuffer(copy);
+  this->userNum = UInt16::ReadBuffer(copy);
+  this->hmacAlgo = HMACTypeFromType(UInt8::ReadBuffer(copy));
+  this->challengeReason = ChallengeReasonFromType(UInt8::ReadBuffer(copy));
+
+  this->challengeData = copy;
+  return true;
+}
+
+bool Group120Var1::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+  UInt32::WriteBuffer(buffer, this->challengeSeqNum);
+  UInt16::WriteBuffer(buffer, this->userNum);
+  UInt8::WriteBuffer(buffer, HMACTypeToType(this->hmacAlgo));
+  UInt8::WriteBuffer(buffer, ChallengeReasonToType(this->challengeReason));
+
+  challengeData.CopyTo(buffer);
+  return true;
+}
+
+
+
+Group120Var2::Group120Var2() :
+  challengeSeqNum(0), userNum(0)
+{}
+
+Group120Var2::Group120Var2(
+  uint32_t challengeSeqNum_,
+  uint16_t userNum_,
+  const openpal::RSlice& hmacValue_
+) :
+  challengeSeqNum(challengeSeqNum_),
+  userNum(userNum_),
+  hmacValue(hmacValue_)
+{}
+
+uint32_t Group120Var2::Size() const
+{
+  return MIN_SIZE + hmacValue.Size();
+}
+
+bool Group120Var2::Read(const RSlice& buffer)
+{
+  if(buffer.Size() < Group120Var2::MIN_SIZE)
+  {
+    return false;
+  }
+
+  RSlice copy(buffer);
+
+  this->challengeSeqNum = UInt32::ReadBuffer(copy);
+  this->userNum = UInt16::ReadBuffer(copy);
+
+  this->hmacValue = copy;
+  return true;
+}
+
+bool Group120Var2::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+  UInt32::WriteBuffer(buffer, this->challengeSeqNum);
+  UInt16::WriteBuffer(buffer, this->userNum);
+
+  hmacValue.CopyTo(buffer);
+  return true;
+}
+
+
+
+Group120Var3::Group120Var3() : challengeSeqNum(0), userNum(0)
+{}
+
+bool Group120Var3::Read(RSlice& buffer, Group120Var3& output)
+{
+  return Parse::Many(buffer, output.challengeSeqNum, output.userNum);
+}
+
+bool Group120Var3::Write(const Group120Var3& arg, openpal::WSlice& buffer)
+{
+  return Format::Many(buffer, arg.challengeSeqNum, arg.userNum);
+}
+
+
+
+Group120Var4::Group120Var4() : userNum(0)
+{}
+
+bool Group120Var4::Read(RSlice& buffer, Group120Var4& output)
+{
+  return Parse::Many(buffer, output.userNum);
+}
+
+bool Group120Var4::Write(const Group120Var4& arg, openpal::WSlice& buffer)
+{
+  return Format::Many(buffer, arg.userNum);
+}
+
+
+
+Group120Var5::Group120Var5() :
+  keyChangeSeqNum(0), userNum(0), keyWrapAlgo(KeyWrapAlgorithm::UNDEFINED), keyStatus(KeyStatus::UNDEFINED), hmacAlgo(HMACType::UNKNOWN)
+{}
+
+Group120Var5::Group120Var5(
+  uint32_t keyChangeSeqNum_,
+  uint16_t userNum_,
+  KeyWrapAlgorithm keyWrapAlgo_,
+  KeyStatus keyStatus_,
+  HMACType hmacAlgo_,
+  const openpal::RSlice& challengeData_,
+  const openpal::RSlice& hmacValue_
+) :
+  keyChangeSeqNum(keyChangeSeqNum_),
+  userNum(userNum_),
+  keyWrapAlgo(keyWrapAlgo_),
+  keyStatus(keyStatus_),
+  hmacAlgo(hmacAlgo_),
+  challengeData(challengeData_),
+  hmacValue(hmacValue_)
+{}
+
+uint32_t Group120Var5::Size() const
+{
+  return MIN_SIZE + challengeData.Size() + hmacValue.Size();
+}
+
+bool Group120Var5::Read(const RSlice& buffer)
+{
+  if(buffer.Size() < Group120Var5::MIN_SIZE)
+  {
+    return false;
+  }
+
+  RSlice copy(buffer);
+
+  this->keyChangeSeqNum = UInt32::ReadBuffer(copy);
+  this->userNum = UInt16::ReadBuffer(copy);
+  this->keyWrapAlgo = KeyWrapAlgorithmFromType(UInt8::ReadBuffer(copy));
+  this->keyStatus = KeyStatusFromType(UInt8::ReadBuffer(copy));
+  this->hmacAlgo = HMACTypeFromType(UInt8::ReadBuffer(copy));
+
+  if(!PrefixFields::Read(copy, challengeData))
+  {
+    return false;
+  }
+
+  this->hmacValue = copy;
+  return true;
+}
+
+bool Group120Var5::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+
+  if(!PrefixFields::LengthFitsInUInt16(challengeData))
+  {
+    return false;
+  }
+
+  UInt32::WriteBuffer(buffer, this->keyChangeSeqNum);
+  UInt16::WriteBuffer(buffer, this->userNum);
+  UInt8::WriteBuffer(buffer, KeyWrapAlgorithmToType(this->keyWrapAlgo));
+  UInt8::WriteBuffer(buffer, KeyStatusToType(this->keyStatus));
+  UInt8::WriteBuffer(buffer, HMACTypeToType(this->hmacAlgo));
+
+  if(!PrefixFields::Write(buffer, challengeData))
+  {
+    return false;
+  }
+
+  hmacValue.CopyTo(buffer);
+  return true;
+}
+
+
+
+Group120Var6::Group120Var6() :
+  keyChangeSeqNum(0), userNum(0)
+{}
+
+Group120Var6::Group120Var6(
+  uint32_t keyChangeSeqNum_,
+  uint16_t userNum_,
+  const openpal::RSlice& keyWrapData_
+) :
+  keyChangeSeqNum(keyChangeSeqNum_),
+  userNum(userNum_),
+  keyWrapData(keyWrapData_)
+{}
+
+uint32_t Group120Var6::Size() const
+{
+  return MIN_SIZE + keyWrapData.Size();
+}
+
+bool Group120Var6::Read(const RSlice& buffer)
+{
+  if(buffer.Size() < Group120Var6::MIN_SIZE)
+  {
+    return false;
+  }
+
+  RSlice copy(buffer);
+
+  this->keyChangeSeqNum = UInt32::ReadBuffer(copy);
+  this->userNum = UInt16::ReadBuffer(copy);
+
+  this->keyWrapData = copy;
+  return true;
+}
+
+bool Group120Var6::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+  UInt32::WriteBuffer(buffer, this->keyChangeSeqNum);
+  UInt16::WriteBuffer(buffer, this->userNum);
+
+  keyWrapData.CopyTo(buffer);
+  return true;
+}
+
+
+
+Group120Var7::Group120Var7() :
+  challengeSeqNum(0), userNum(0), assocId(0), errorCode(AuthErrorCode::UNKNOWN), time(0)
+{}
+
+Group120Var7::Group120Var7(
+  uint32_t challengeSeqNum_,
+  uint16_t userNum_,
+  uint16_t assocId_,
+  AuthErrorCode errorCode_,
+  DNPTime time_,
+  const openpal::RSlice& errorText_
+) :
+  challengeSeqNum(challengeSeqNum_),
+  userNum(userNum_),
+  assocId(assocId_),
+  errorCode(errorCode_),
+  time(time_),
+  errorText(errorText_)
+{}
+
+uint32_t Group120Var7::Size() const
+{
+  return MIN_SIZE + errorText.Size();
+}
+
+bool Group120Var7::Read(const RSlice& buffer)
+{
+  if(buffer.Size() < Group120Var7::MIN_SIZE)
+  {
+    return false;
+  }
+
+  RSlice copy(buffer);
+
+  this->challengeSeqNum = UInt32::ReadBuffer(copy);
+  this->userNum = UInt16::ReadBuffer(copy);
+  this->assocId = UInt16::ReadBuffer(copy);
+  this->errorCode = AuthErrorCodeFromType(UInt8::ReadBuffer(copy));
+  this->time = UInt48::ReadBuffer(copy);
+
+  this->errorText = copy;
+  return true;
+}
+
+bool Group120Var7::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+  UInt32::WriteBuffer(buffer, this->challengeSeqNum);
+  UInt16::WriteBuffer(buffer, this->userNum);
+  UInt16::WriteBuffer(buffer, this->assocId);
+  UInt8::WriteBuffer(buffer, AuthErrorCodeToType(this->errorCode));
+  UInt48::WriteBuffer(buffer, this->time);
+
+  errorText.CopyTo(buffer);
+  return true;
+}
+
+
+
+Group120Var8::Group120Var8() :
+  keyChangeMethod(KeyChangeMethod::UNDEFINED), certificateType(CertificateType::UNKNOWN)
+{}
+
+Group120Var8::Group120Var8(
+  KeyChangeMethod keyChangeMethod_,
+  CertificateType certificateType_,
+  const openpal::RSlice& certificate_
+) :
+  keyChangeMethod(keyChangeMethod_),
+  certificateType(certificateType_),
+  certificate(certificate_)
+{}
+
+uint32_t Group120Var8::Size() const
+{
+  return MIN_SIZE + certificate.Size();
+}
+
+bool Group120Var8::Read(const RSlice& buffer)
+{
+  if(buffer.Size() < Group120Var8::MIN_SIZE)
+  {
+    return false;
+  }
+
+  RSlice copy(buffer);
+
+  this->keyChangeMethod = KeyChangeMethodFromType(UInt8::ReadBuffer(copy));
+  this->certificateType = CertificateTypeFromType(UInt8::ReadBuffer(copy));
+
+  this->certificate = copy;
+  return true;
+}
+
+bool Group120Var8::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+  UInt8::WriteBuffer(buffer, KeyChangeMethodToType(this->keyChangeMethod));
+  UInt8::WriteBuffer(buffer, CertificateTypeToType(this->certificateType));
+
+  certificate.CopyTo(buffer);
+  return true;
+}
+
+
+
+Group120Var9::Group120Var9()
+{}
+
+Group120Var9::Group120Var9(
+  const openpal::RSlice& hmacValue_
+) :
+  hmacValue(hmacValue_)
+{}
+
+uint32_t Group120Var9::Size() const
+{
+  return MIN_SIZE + hmacValue.Size();
+}
+
+bool Group120Var9::Read(const RSlice& buffer)
+{
+  this->hmacValue = buffer;
+  return true;
+}
+
+bool Group120Var9::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+  hmacValue.CopyTo(buffer);
+  return true;
+}
+
+
+
+Group120Var10::Group120Var10() :
+  keyChangeMethod(KeyChangeMethod::UNDEFINED), userOperation(UserOperation::OP_UNDEFINED), statusChangeSeqNum(0), userRole(0), userRoleExpDays(0)
+{}
+
+Group120Var10::Group120Var10(
+  KeyChangeMethod keyChangeMethod_,
+  UserOperation userOperation_,
+  uint32_t statusChangeSeqNum_,
+  uint16_t userRole_,
+  uint16_t userRoleExpDays_,
+  const openpal::RSlice& userName_,
+  const openpal::RSlice& userPublicKey_,
+  const openpal::RSlice& certificationData_
+) :
+  keyChangeMethod(keyChangeMethod_),
+  userOperation(userOperation_),
+  statusChangeSeqNum(statusChangeSeqNum_),
+  userRole(userRole_),
+  userRoleExpDays(userRoleExpDays_),
+  userName(userName_),
+  userPublicKey(userPublicKey_),
+  certificationData(certificationData_)
+{}
+
+uint32_t Group120Var10::Size() const
+{
+  return MIN_SIZE + userName.Size() + userPublicKey.Size() + certificationData.Size();
+}
+
+bool Group120Var10::Read(const RSlice& buffer)
+{
+  if(buffer.Size() < Group120Var10::MIN_SIZE)
+  {
+    return false;
+  }
+
+  RSlice copy(buffer);
+
+  this->keyChangeMethod = KeyChangeMethodFromType(UInt8::ReadBuffer(copy));
+  this->userOperation = UserOperationFromType(UInt8::ReadBuffer(copy));
+  this->statusChangeSeqNum = UInt32::ReadBuffer(copy);
+  this->userRole = UInt16::ReadBuffer(copy);
+  this->userRoleExpDays = UInt16::ReadBuffer(copy);
+
+  if(!PrefixFields::Read(copy, userName, userPublicKey, certificationData))
+  {
+    return false;
+  }
+
+
+
+  if(copy.IsNotEmpty())
+  {
+    return false;
+  }
+
+  return true;
+}
+
+bool Group120Var10::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+
+  if(!PrefixFields::LengthFitsInUInt16(userName, userPublicKey, certificationData))
+  {
+    return false;
+  }
+
+  UInt8::WriteBuffer(buffer, KeyChangeMethodToType(this->keyChangeMethod));
+  UInt8::WriteBuffer(buffer, UserOperationToType(this->userOperation));
+  UInt32::WriteBuffer(buffer, this->statusChangeSeqNum);
+  UInt16::WriteBuffer(buffer, this->userRole);
+  UInt16::WriteBuffer(buffer, this->userRoleExpDays);
+
+  if(!PrefixFields::Write(buffer, userName, userPublicKey, certificationData))
+  {
+    return false;
+  }
+
+  return true;
+}
+
+
+
+Group120Var11::Group120Var11() :
+  keyChangeMethod(KeyChangeMethod::UNDEFINED)
+{}
+
+Group120Var11::Group120Var11(
+  KeyChangeMethod keyChangeMethod_,
+  const openpal::RSlice& userName_,
+  const openpal::RSlice& challengeData_
+) :
+  keyChangeMethod(keyChangeMethod_),
+  userName(userName_),
+  challengeData(challengeData_)
+{}
+
+uint32_t Group120Var11::Size() const
+{
+  return MIN_SIZE + userName.Size() + challengeData.Size();
+}
+
+bool Group120Var11::Read(const RSlice& buffer)
+{
+  if(buffer.Size() < Group120Var11::MIN_SIZE)
+  {
+    return false;
+  }
+
+  RSlice copy(buffer);
+
+  this->keyChangeMethod = KeyChangeMethodFromType(UInt8::ReadBuffer(copy));
+
+  if(!PrefixFields::Read(copy, userName, challengeData))
+  {
+    return false;
+  }
+
+
+
+  if(copy.IsNotEmpty())
+  {
+    return false;
+  }
+
+  return true;
+}
+
+bool Group120Var11::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+
+  if(!PrefixFields::LengthFitsInUInt16(userName, challengeData))
+  {
+    return false;
+  }
+
+  UInt8::WriteBuffer(buffer, KeyChangeMethodToType(this->keyChangeMethod));
+
+  if(!PrefixFields::Write(buffer, userName, challengeData))
+  {
+    return false;
+  }
+
+  return true;
+}
+
+
+
+Group120Var12::Group120Var12() :
+  keyChangeSeqNum(0), userNum(0)
+{}
+
+Group120Var12::Group120Var12(
+  uint32_t keyChangeSeqNum_,
+  uint16_t userNum_,
+  const openpal::RSlice& challengeData_
+) :
+  keyChangeSeqNum(keyChangeSeqNum_),
+  userNum(userNum_),
+  challengeData(challengeData_)
+{}
+
+uint32_t Group120Var12::Size() const
+{
+  return MIN_SIZE + challengeData.Size();
+}
+
+bool Group120Var12::Read(const RSlice& buffer)
+{
+  if(buffer.Size() < Group120Var12::MIN_SIZE)
+  {
+    return false;
+  }
+
+  RSlice copy(buffer);
+
+  this->keyChangeSeqNum = UInt32::ReadBuffer(copy);
+  this->userNum = UInt16::ReadBuffer(copy);
+
+  if(!PrefixFields::Read(copy, challengeData))
+  {
+    return false;
+  }
+
+
+
+  if(copy.IsNotEmpty())
+  {
+    return false;
+  }
+
+  return true;
+}
+
+bool Group120Var12::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+
+  if(!PrefixFields::LengthFitsInUInt16(challengeData))
+  {
+    return false;
+  }
+
+  UInt32::WriteBuffer(buffer, this->keyChangeSeqNum);
+  UInt16::WriteBuffer(buffer, this->userNum);
+
+  if(!PrefixFields::Write(buffer, challengeData))
+  {
+    return false;
+  }
+
+  return true;
+}
+
+
+
+Group120Var13::Group120Var13() :
+  keyChangeSeqNum(0), userNum(0)
+{}
+
+Group120Var13::Group120Var13(
+  uint32_t keyChangeSeqNum_,
+  uint16_t userNum_,
+  const openpal::RSlice& encryptedUpdateKey_
+) :
+  keyChangeSeqNum(keyChangeSeqNum_),
+  userNum(userNum_),
+  encryptedUpdateKey(encryptedUpdateKey_)
+{}
+
+uint32_t Group120Var13::Size() const
+{
+  return MIN_SIZE + encryptedUpdateKey.Size();
+}
+
+bool Group120Var13::Read(const RSlice& buffer)
+{
+  if(buffer.Size() < Group120Var13::MIN_SIZE)
+  {
+    return false;
+  }
+
+  RSlice copy(buffer);
+
+  this->keyChangeSeqNum = UInt32::ReadBuffer(copy);
+  this->userNum = UInt16::ReadBuffer(copy);
+
+  if(!PrefixFields::Read(copy, encryptedUpdateKey))
+  {
+    return false;
+  }
+
+
+
+  if(copy.IsNotEmpty())
+  {
+    return false;
+  }
+
+  return true;
+}
+
+bool Group120Var13::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+
+  if(!PrefixFields::LengthFitsInUInt16(encryptedUpdateKey))
+  {
+    return false;
+  }
+
+  UInt32::WriteBuffer(buffer, this->keyChangeSeqNum);
+  UInt16::WriteBuffer(buffer, this->userNum);
+
+  if(!PrefixFields::Write(buffer, encryptedUpdateKey))
+  {
+    return false;
+  }
+
+  return true;
+}
+
+
+
+Group120Var14::Group120Var14()
+{}
+
+Group120Var14::Group120Var14(
+  const openpal::RSlice& digitalSignature_
+) :
+  digitalSignature(digitalSignature_)
+{}
+
+uint32_t Group120Var14::Size() const
+{
+  return MIN_SIZE + digitalSignature.Size();
+}
+
+bool Group120Var14::Read(const RSlice& buffer)
+{
+  this->digitalSignature = buffer;
+  return true;
+}
+
+bool Group120Var14::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+  digitalSignature.CopyTo(buffer);
+  return true;
+}
+
+
+
+Group120Var15::Group120Var15()
+{}
+
+Group120Var15::Group120Var15(
+  const openpal::RSlice& hmacValue_
+) :
+  hmacValue(hmacValue_)
+{}
+
+uint32_t Group120Var15::Size() const
+{
+  return MIN_SIZE + hmacValue.Size();
+}
+
+bool Group120Var15::Read(const RSlice& buffer)
+{
+  this->hmacValue = buffer;
+  return true;
+}
+
+bool Group120Var15::Write(openpal::WSlice& buffer) const
+{
+  if(this->Size() > buffer.Size())
+  {
+    return false;
+  }
+
+  hmacValue.CopyTo(buffer);
+  return true;
+}
+
+
+}

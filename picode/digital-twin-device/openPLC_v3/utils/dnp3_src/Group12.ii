@@ -1,0 +1,4874 @@
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.cpp"
+# 21 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.cpp"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h"
+# 1 "/usr/include/c++/6/cstdint" 1 3
+# 32 "/usr/include/c++/6/cstdint" 3
+       
+# 33 "/usr/include/c++/6/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 1 3
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  typedef unsigned int size_t;
+  typedef int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 221 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 507 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 1 3
+# 39 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 364 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 1 3 4
+# 415 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 416 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 2 3 4
+# 365 "/usr/include/features.h" 2 3 4
+# 388 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h" 1 3 4
+# 11 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 2 3 4
+# 389 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 2 3
+# 508 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/cpu_defines.h" 1 3
+# 511 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/6/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wchar.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
+
+
+
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
+
+
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
+
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+
+
+
+__extension__
+typedef long long int int_least64_t;
+
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+
+
+__extension__
+typedef unsigned long long int uint_least64_t;
+
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+
+
+
+
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+
+
+
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+# 125 "/usr/include/stdint.h" 3 4
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/6/cstdint" 2 3
+
+
+
+
+namespace std
+{
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h" 2
+
+
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h"
+namespace opendnp3
+{
+
+
+struct GroupVariationID
+{
+ GroupVariationID() : group(0xFF), variation(0xFF)
+ {}
+
+ GroupVariationID(uint8_t aGroup, uint8_t aVariation):
+  group(aGroup),
+  variation(aVariation)
+ {
+
+ }
+
+ uint8_t group;
+ uint8_t variation;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/HasSize.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/HasSize.h"
+namespace openpal
+{
+
+template <class SizeType>
+class HasSize
+{
+
+public:
+
+ HasSize(SizeType size_) : size(size_)
+ {}
+
+ SizeType Size() const
+ {
+  return size;
+ }
+
+ bool IsEmpty() const
+ {
+  return size == 0;
+ }
+
+ bool IsNotEmpty() const
+ {
+  return size != 0;
+ }
+
+protected:
+
+ SizeType size;
+
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 2
+
+
+
+namespace openpal
+{
+
+class WSlice;
+
+
+
+
+
+class RSlice : public HasSize<uint32_t>
+{
+
+public:
+
+ static RSlice Empty();
+
+ RSlice();
+
+ RSlice(uint8_t const* pBuffer, uint32_t size);
+
+ void Clear();
+
+ RSlice CopyTo(WSlice&) const;
+
+ RSlice Take(uint32_t count) const;
+
+ RSlice Skip(uint32_t count) const;
+
+ bool Equals(const RSlice& rhs) const;
+
+ void Advance(uint32_t count);
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+ uint8_t const* pBuffer;
+
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/WSlice.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/WSlice.h"
+namespace openpal
+{
+
+class RSlice;
+
+
+
+
+
+class WSlice : public HasSize<uint32_t>
+{
+public:
+
+ static WSlice Empty();
+
+ void SetAllTo(uint8_t value);
+
+ WSlice();
+ WSlice(uint8_t* pBuffer, uint32_t size);
+
+ void Clear();
+
+ uint32_t Advance(uint32_t count);
+
+ WSlice Skip(uint32_t count) const;
+
+ RSlice ToRSlice() const;
+
+ operator uint8_t* ()
+ {
+  return pBuffer;
+ };
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+
+ uint8_t* pBuffer;
+};
+
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h"
+namespace openpal
+{
+
+class UInt48Type
+{
+
+public:
+
+ explicit UInt48Type(int64_t value) : value(value)
+ {}
+
+ UInt48Type() : value(0)
+ {}
+
+ operator int64_t() const
+ {
+  return value;
+ }
+
+ int64_t value;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h" 2
+
+namespace opendnp3
+{
+
+typedef openpal::UInt48Type DNPTime;
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DNP3Serializer.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DNP3Serializer.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serializer.h" 1
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serializer.h"
+namespace openpal
+{
+
+template <class T>
+class Serializer
+{
+public:
+
+ typedef bool (*ReadFunc)(RSlice& buffer, T& output);
+ typedef bool (*WriteFunc)(const T& value, WSlice& buffer);
+
+ Serializer() : size(0), pReadFunc(nullptr), pWriteFunc(nullptr)
+ {}
+
+ Serializer(uint32_t size_, ReadFunc pReadFunc_, WriteFunc pWriteFunc_) :
+  size(size_), pReadFunc(pReadFunc_), pWriteFunc(pWriteFunc_)
+ {}
+
+
+
+
+ uint32_t Size() const
+ {
+  return size;
+ }
+
+
+
+
+ bool Read(RSlice& buffer, T& output) const
+ {
+  return (*pReadFunc)(buffer, output);
+ }
+
+
+
+
+ bool Write(const T& value, WSlice& buffer) const
+ {
+  return (*pWriteFunc)(value, buffer);
+ }
+
+private:
+
+ uint32_t size;
+ ReadFunc pReadFunc;
+ WriteFunc pWriteFunc;
+
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DNP3Serializer.h" 2
+
+
+
+namespace opendnp3
+{
+
+template <class T>
+class DNP3Serializer : public openpal::Serializer<T>
+{
+public:
+
+ DNP3Serializer(GroupVariationID id_, uint32_t size_, typename openpal::Serializer<T>::ReadFunc pReadFunc_, typename openpal::Serializer<T>::WriteFunc pWriteFunc_) :
+  openpal::Serializer<T>(size_, pReadFunc_, pWriteFunc_),
+  id(id_)
+ {}
+
+ GroupVariationID ID() const
+ {
+  return id;
+ }
+
+private:
+
+ GroupVariationID id;
+
+};
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CommandStatus.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CommandStatus.h"
+namespace opendnp3 {
+
+
+
+
+
+enum class CommandStatus : uint8_t
+{
+
+  SUCCESS = 0,
+
+  TIMEOUT = 1,
+
+  NO_SELECT = 2,
+
+  FORMAT_ERROR = 3,
+
+  NOT_SUPPORTED = 4,
+
+  ALREADY_ACTIVE = 5,
+
+  HARDWARE_ERROR = 6,
+
+  LOCAL = 7,
+
+  TOO_MANY_OPS = 8,
+
+  NOT_AUTHORIZED = 9,
+
+  AUTOMATION_INHIBIT = 10,
+
+  PROCESSING_LIMITED = 11,
+
+  OUT_OF_RANGE = 12,
+
+  DOWNSTREAM_LOCAL = 13,
+
+  ALREADY_COMPLETE = 14,
+
+  BLOCKED = 15,
+
+  CANCELLED = 16,
+
+  BLOCKED_OTHER_MASTER = 17,
+
+  DOWNSTREAM_FAIL = 18,
+
+  NON_PARTICIPATING = 126,
+
+  UNDEFINED = 127
+};
+
+uint8_t CommandStatusToType(CommandStatus arg);
+CommandStatus CommandStatusFromType(uint8_t arg);
+char const* CommandStatusToString(CommandStatus arg);
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ControlCode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ControlCode.h"
+namespace opendnp3 {
+
+
+
+
+
+enum class ControlCode : uint8_t
+{
+
+  NUL = 0x0,
+
+  NUL_CANCEL = 0x20,
+
+  PULSE_ON = 0x1,
+
+  PULSE_ON_CANCEL = 0x21,
+
+  PULSE_OFF = 0x2,
+
+  PULSE_OFF_CANCEL = 0x22,
+
+  LATCH_ON = 0x3,
+
+  LATCH_ON_CANCEL = 0x23,
+
+  LATCH_OFF = 0x4,
+
+  LATCH_OFF_CANCEL = 0x24,
+
+  CLOSE_PULSE_ON = 0x41,
+
+  CLOSE_PULSE_ON_CANCEL = 0x61,
+
+  TRIP_PULSE_ON = 0x81,
+
+  TRIP_PULSE_ON_CANCEL = 0xA1,
+
+  UNDEFINED = 0xFF
+};
+
+uint8_t ControlCodeToType(ControlCode arg);
+ControlCode ControlCodeFromType(uint8_t arg);
+char const* ControlCodeToString(ControlCode arg);
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h" 2
+
+namespace opendnp3
+{
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h"
+class ControlRelayOutputBlock
+{
+public:
+
+
+ ControlRelayOutputBlock(
+     ControlCode code = ControlCode::LATCH_ON,
+     uint8_t count = 1,
+     uint32_t onTime = 100,
+     uint32_t offTime = 100,
+     CommandStatus status = CommandStatus::SUCCESS);
+
+
+ ControlRelayOutputBlock(
+     uint8_t rawCode,
+     uint8_t count = 1,
+     uint32_t onTime = 100,
+     uint32_t offTime = 100,
+     CommandStatus status = CommandStatus::SUCCESS);
+
+
+ ControlCode functionCode;
+
+ uint8_t rawCode;
+
+ uint8_t count;
+
+ uint32_t onTimeMS;
+
+ uint32_t offTimeMS;
+
+ CommandStatus status;
+
+ bool ValuesEqual(const ControlRelayOutputBlock& lhs) const
+ {
+  return (functionCode == lhs.functionCode) &&
+         (count == lhs.count) &&
+         (onTimeMS == lhs.onTimeMS) &&
+         (offTimeMS == lhs.offTimeMS);
+ }
+
+ bool operator==(const ControlRelayOutputBlock& lhs) const
+ {
+  return this->ValuesEqual(lhs) && (this->status == lhs.status);
+ }
+};
+
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.h" 2
+
+namespace opendnp3 {
+
+
+struct Group12Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(12,0); }
+};
+
+
+struct Group12Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(12,1); }
+
+  Group12Var1();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group12Var1&);
+  static bool Write(const Group12Var1&, openpal::WSlice&);
+
+  uint8_t code;
+  uint8_t count;
+  uint32_t onTime;
+  uint32_t offTime;
+  uint8_t status;
+
+  typedef ControlRelayOutputBlock Target;
+  static bool ReadTarget(openpal::RSlice&, ControlRelayOutputBlock&);
+  static bool WriteTarget(const ControlRelayOutputBlock&, openpal::WSlice&);
+  static DNP3Serializer<ControlRelayOutputBlock> Inst() { return DNP3Serializer<ControlRelayOutputBlock>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 22 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.cpp" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Format.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Format.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h"
+namespace openpal
+{
+
+
+
+class Uncopyable
+{
+protected:
+ Uncopyable() {}
+ ~Uncopyable() {}
+
+private:
+
+ Uncopyable(const Uncopyable&) = delete;
+ Uncopyable& operator=(const Uncopyable&) = delete;
+};
+
+class StaticOnly
+{
+
+private:
+
+ StaticOnly() = delete;
+ StaticOnly(const StaticOnly&) = delete;
+ StaticOnly& operator=(const StaticOnly&) = delete;
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Format.h" 2
+
+namespace openpal
+{
+class Format : private StaticOnly
+{
+public:
+
+ static bool Write(WSlice& dest, const uint8_t& value);
+ static bool Write(WSlice& dest, const uint16_t& value);
+
+ static bool Write(WSlice& dest, const uint32_t& value);
+ static bool Write(WSlice& dest, const UInt48Type& value);
+
+ static bool Write(WSlice& dest, const int16_t& value);
+ static bool Write(WSlice& dest, const int32_t& value);
+
+ static bool Write(WSlice& dest, const double& value);
+ static bool Write(WSlice& dest, const float& value);
+
+ template <typename T, typename... Args>
+ static bool Many(WSlice& dest, const T& value, const Args& ... args)
+ {
+  return Write(dest, value) && Many(dest, args...);
+ }
+
+private:
+
+ static bool Many(WSlice& input)
+ {
+  return true;
+ }
+};
+
+}
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.cpp" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Parse.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Parse.h"
+namespace openpal
+{
+class Parse : private StaticOnly
+{
+public:
+
+ static bool Read(RSlice& input, uint8_t& output);
+ static bool Read(RSlice& input, uint16_t& output);
+
+ static bool Read(RSlice& input, uint32_t& output);
+ static bool Read(RSlice& input, UInt48Type& output);
+
+ static bool Read(RSlice& input, int16_t& output);
+ static bool Read(RSlice& input, int32_t& output);
+
+
+ static bool Read(RSlice& input, double& output);
+ static bool Read(RSlice& input, float& output);
+
+ template <typename T, typename... Args>
+ static bool Many(RSlice& input, T& output, Args& ... args)
+ {
+  return Read(input, output) && Many(input, args...);
+ }
+
+private:
+
+ static bool Many(RSlice& input)
+ {
+  return true;
+ }
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.cpp" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/MeasurementFactory.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/MeasurementFactory.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h" 1
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Flags.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Flags.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class BinaryQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  CHATTER_FILTER = 0x20,
+
+  RESERVED = 0x40,
+
+  STATE = 0x80
+};
+
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBitBinaryQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBitBinaryQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class DoubleBitBinaryQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  CHATTER_FILTER = 0x20,
+
+  STATE1 = 0x40,
+
+  STATE2 = 0x80
+};
+
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CounterQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CounterQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class CounterQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  ROLLOVER = 0x20,
+
+  DISCONTINUITY = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FrozenCounterQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FrozenCounterQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class FrozenCounterQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  ROLLOVER = 0x20,
+
+  DISCONTINUITY = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class AnalogQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  OVERRANGE = 0x20,
+
+  REFERENCE_ERR = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogOutputStatusQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogOutputStatusQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class AnalogOutputStatusQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  OVERRANGE = 0x20,
+
+  REFERENCE_ERR = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryOutputStatusQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryOutputStatusQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class BinaryOutputStatusQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  RESERVED1 = 0x20,
+
+  RESERVED2 = 0x40,
+
+  STATE = 0x80
+};
+
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+
+namespace opendnp3
+{
+
+template <class T>
+inline uint8_t ToUnderlying(T flag)
+{
+ return static_cast<uint8_t>(flag);
+}
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Flags.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class Flags
+{
+public:
+
+ Flags() : value(0)
+ {}
+
+ Flags(uint8_t value) : value(value)
+ {}
+
+ inline bool IsSet(BinaryQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(AnalogQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(CounterQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(FrozenCounterQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(BinaryOutputStatusQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(AnalogOutputStatusQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+
+ inline void Set(BinaryQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(AnalogQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(CounterQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(FrozenCounterQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(BinaryOutputStatusQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(AnalogOutputStatusQuality flag)
+ {
+  SetAny(flag);
+ }
+
+ uint8_t value;
+
+protected:
+
+ template <class T>
+ bool IsSetAny(T flag) const
+ {
+  return (value & static_cast<uint8_t>(flag)) != 0;
+ }
+
+ template <class T>
+ void SetAny(T flag)
+ {
+  value |= static_cast<uint8_t>(flag);
+ }
+};
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class Measurement
+{
+public:
+
+ Flags flags;
+ DNPTime time;
+
+protected:
+
+ Measurement()
+ {}
+
+ Measurement(Flags flags) : flags(flags)
+ {}
+
+ Measurement(Flags flags, DNPTime time) : flags(flags), time(time)
+ {}
+
+};
+
+
+
+template <class T>
+class TypedMeasurement : public Measurement
+{
+public:
+
+ T value;
+
+ typedef T Type;
+
+protected:
+
+ TypedMeasurement(): Measurement(), value(0) {}
+ TypedMeasurement(Flags flags) : Measurement(flags), value(0) {}
+ TypedMeasurement(T value, Flags flags) : Measurement(flags), value(value) {}
+ TypedMeasurement(T value, Flags flags, DNPTime time) : Measurement(flags, time), value(value) {}
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBit.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBit.h"
+namespace opendnp3 {
+
+
+
+
+enum class DoubleBit : uint8_t
+{
+
+  INTERMEDIATE = 0x0,
+
+  DETERMINED_OFF = 0x1,
+
+  DETERMINED_ON = 0x2,
+
+  INDETERMINATE = 0x3
+};
+
+uint8_t DoubleBitToType(DoubleBit arg);
+DoubleBit DoubleBitFromType(uint8_t arg);
+char const* DoubleBitToString(DoubleBit arg);
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/IntervalUnits.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/IntervalUnits.h"
+namespace opendnp3 {
+
+
+
+
+enum class IntervalUnits : uint8_t
+{
+
+  NoRepeat = 0x0,
+
+  Milliseconds = 0x1,
+
+  Seconds = 0x2,
+
+  Minutes = 0x3,
+
+  Hours = 0x4,
+
+  Days = 0x5,
+
+  Weeks = 0x6,
+
+  Months7 = 0x7,
+
+  Months8 = 0x8,
+
+  Months9 = 0x9,
+
+  Seasons = 0xA,
+
+  Undefined = 0x7F
+};
+
+uint8_t IntervalUnitsToType(IntervalUnits arg);
+IntervalUnits IntervalUnitsFromType(uint8_t arg);
+char const* IntervalUnitsToString(IntervalUnits arg);
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+
+
+class Binary : public TypedMeasurement<bool>
+{
+public:
+
+ Binary();
+
+ Binary(bool value);
+
+ Binary(Flags flags);
+
+ Binary(Flags flags, DNPTime time);
+
+ Binary(bool value, Flags flags);
+
+ Binary(bool value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class DoubleBitBinary : public TypedMeasurement<DoubleBit>
+{
+public:
+
+
+ DoubleBitBinary();
+
+ DoubleBitBinary(DoubleBit value);
+
+ DoubleBitBinary(Flags flags);
+
+ DoubleBitBinary(Flags flags, DNPTime time);
+
+ DoubleBitBinary(DoubleBit value, Flags flags);
+
+ DoubleBitBinary(DoubleBit value, Flags flags, DNPTime time);
+
+private:
+
+ static const uint8_t ValueMask = 0xC0;
+ static const uint8_t QualityMask = 0x3F;
+
+ static DoubleBit GetValue(Flags flags);
+
+ static Flags GetFlags(Flags flags, DoubleBit state);
+};
+
+
+
+
+
+
+
+class BinaryOutputStatus : public TypedMeasurement<bool>
+{
+public:
+
+ BinaryOutputStatus();
+
+ BinaryOutputStatus(bool value);
+
+ BinaryOutputStatus(Flags flags);
+
+ BinaryOutputStatus(Flags flags, DNPTime time);
+
+ BinaryOutputStatus(bool value, Flags flags);
+
+ BinaryOutputStatus(bool value, Flags flags, DNPTime time);
+
+};
+
+
+
+
+
+
+class Analog : public TypedMeasurement<double>
+{
+public:
+
+ Analog();
+
+ Analog(double value);
+
+ Analog(double value, Flags flags);
+
+ Analog(double value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class Counter : public TypedMeasurement<uint32_t>
+{
+public:
+
+ Counter();
+
+ Counter(uint32_t value);
+
+ Counter(uint32_t value, Flags flags);
+
+ Counter(uint32_t value, Flags flags, DNPTime time);
+};
+
+
+
+
+class FrozenCounter : public TypedMeasurement<uint32_t>
+{
+public:
+
+ FrozenCounter();
+
+ FrozenCounter(uint32_t value);
+
+ FrozenCounter(uint32_t value, Flags flags);
+
+ FrozenCounter(uint32_t value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class AnalogOutputStatus : public TypedMeasurement<double>
+{
+public:
+
+ AnalogOutputStatus();
+
+ AnalogOutputStatus(double value);
+
+ AnalogOutputStatus(double value, Flags flags);
+
+ AnalogOutputStatus(double value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class TimeAndInterval
+{
+public:
+
+ TimeAndInterval();
+
+ TimeAndInterval(DNPTime time, uint32_t interval, uint8_t units);
+
+ TimeAndInterval(DNPTime time, uint32_t interval, IntervalUnits units);
+
+ IntervalUnits GetUnitsEnum() const;
+
+ DNPTime time;
+ uint32_t interval;
+ uint8_t units;
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/MeasurementFactory.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BinaryCommandEvent.h" 1
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BinaryCommandEvent.h"
+namespace opendnp3
+{
+
+
+
+
+class BinaryCommandEvent
+{
+public:
+
+ BinaryCommandEvent();
+
+ BinaryCommandEvent(Flags flags);
+
+ BinaryCommandEvent(Flags flags, DNPTime time);
+
+ BinaryCommandEvent(bool value, CommandStatus status);
+
+ BinaryCommandEvent(bool value, CommandStatus status, DNPTime time);
+
+ bool value;
+ CommandStatus status;
+ DNPTime time;
+
+ Flags GetFlags() const;
+
+ bool operator==(const BinaryCommandEvent& rhs) const;
+
+private:
+
+ static const uint8_t ValueMask = 0x80;
+ static const uint8_t StatusMask = 0x7F;
+
+ static bool GetValueFromFlags(Flags flags);
+ static CommandStatus GetStatusFromFlags(Flags flags);
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/MeasurementFactory.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/AnalogCommandEvent.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/AnalogCommandEvent.h"
+namespace opendnp3
+{
+
+
+
+
+class AnalogCommandEvent
+{
+public:
+
+ AnalogCommandEvent();
+
+ AnalogCommandEvent(double value, CommandStatus status);
+
+ AnalogCommandEvent(double value, CommandStatus status, DNPTime time);
+
+ double value;
+ CommandStatus status;
+ DNPTime time;
+
+ bool operator==(const AnalogCommandEvent& rhs) const;
+};
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/MeasurementFactory.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/AnalogOutput.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/AnalogOutput.h"
+namespace opendnp3
+{
+
+
+
+
+
+template <class T>
+class AnalogOutput
+{
+public:
+
+ AnalogOutput() :
+  value(0),
+  status(CommandStatus::SUCCESS)
+ {}
+
+ AnalogOutput(T value_) :
+  value(value_),
+  status(CommandStatus::SUCCESS)
+ {}
+
+ AnalogOutput(T value_, CommandStatus status_) :
+  value(value_),
+  status(status_)
+ {}
+
+ bool ValuesEqual(const AnalogOutput<T>& lhs) const
+ {
+  return value == lhs.value;
+ }
+
+ T value;
+
+
+
+
+ CommandStatus status;
+};
+
+
+
+
+class AnalogOutputInt16 : public AnalogOutput<int16_t>
+{
+public:
+
+ AnalogOutputInt16();
+ AnalogOutputInt16(int16_t);
+ AnalogOutputInt16(int16_t, CommandStatus);
+
+ bool operator==(const AnalogOutputInt16& arRHS) const;
+};
+
+
+
+
+class AnalogOutputInt32 : public AnalogOutput<int32_t>
+{
+public:
+
+ AnalogOutputInt32();
+ AnalogOutputInt32(int32_t);
+ AnalogOutputInt32(int32_t, CommandStatus);
+
+ bool operator==(const AnalogOutputInt32& arRHS) const;
+};
+
+
+
+
+class AnalogOutputFloat32 : public AnalogOutput<float>
+{
+public:
+
+ AnalogOutputFloat32();
+ AnalogOutputFloat32(float);
+ AnalogOutputFloat32(float, CommandStatus);
+
+ bool operator==(const AnalogOutputFloat32& arRHS) const;
+};
+
+
+
+
+class AnalogOutputDouble64 : public AnalogOutput<double>
+{
+public:
+
+ AnalogOutputDouble64();
+ AnalogOutputDouble64(double);
+ AnalogOutputDouble64(double, CommandStatus);
+
+ bool operator==(const AnalogOutputDouble64& arRHS) const;
+};
+
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/MeasurementFactory.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/SecurityStat.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/SecurityStat.h"
+namespace opendnp3
+{
+
+
+
+
+
+
+class SecurityStat
+{
+public:
+
+
+ struct Value
+ {
+  uint16_t assocId;
+  uint32_t count;
+ };
+
+ SecurityStat();
+
+ SecurityStat(Value value, uint8_t quality, DNPTime time);
+
+ SecurityStat(uint8_t quality, uint16_t assocId, uint32_t count);
+
+ SecurityStat(uint8_t quality, uint16_t assocId, uint32_t count, DNPTime time);
+
+ uint8_t quality;
+ Value value;
+ DNPTime time;
+};
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/MeasurementFactory.h" 2
+
+namespace opendnp3
+{
+
+struct BinaryFactory: private openpal::StaticOnly
+{
+ inline static Binary From(Flags flags)
+ {
+  return Binary(flags);
+ }
+
+ inline static Binary From(uint8_t flags, uint16_t time)
+ {
+  return From(flags, DNPTime(time));
+ }
+
+ inline static Binary From(uint8_t flags, DNPTime time)
+ {
+  return Binary(flags, time);
+ }
+};
+
+struct DoubleBitBinaryFactory : private openpal::StaticOnly
+{
+ inline static DoubleBitBinary From(Flags flags)
+ {
+  return DoubleBitBinary(flags);
+ }
+
+ inline static DoubleBitBinary From(Flags flags, uint16_t time)
+ {
+  return From(flags, DNPTime(time));
+ }
+
+ inline static DoubleBitBinary From(Flags flags, DNPTime time)
+ {
+  return DoubleBitBinary(flags, time);
+ }
+};
+
+struct AnalogFactory: private openpal::StaticOnly
+{
+ static Analog From(int32_t count)
+ {
+  return Analog(count);
+ }
+ static Analog From(Flags flags, double value)
+ {
+  return Analog(value, flags);
+ }
+ static Analog From(Flags flags, double value, DNPTime time)
+ {
+  return Analog(value, flags, time);
+ }
+};
+
+struct CounterFactory: private openpal::StaticOnly
+{
+ inline static Counter From(uint32_t count)
+ {
+  return Counter(count);
+ }
+ inline static Counter From(Flags flags, uint32_t count)
+ {
+  return Counter(count, flags);
+ }
+ inline static Counter From(Flags flags, uint32_t count, DNPTime time)
+ {
+  return Counter(count, flags, time);
+ }
+};
+
+struct FrozenCounterFactory: private openpal::StaticOnly
+{
+ inline static FrozenCounter From(uint32_t count)
+ {
+  return FrozenCounter(count);
+ }
+ inline static FrozenCounter From(Flags flags, uint32_t count)
+ {
+  return FrozenCounter(count, flags);
+ }
+ inline static FrozenCounter From(Flags flags, uint32_t count, DNPTime time)
+ {
+  return FrozenCounter(count, flags, time);
+ }
+};
+
+struct TimeAndIntervalFactory : private openpal::StaticOnly
+{
+ inline static TimeAndInterval From(DNPTime time, uint32_t interval, uint8_t units)
+ {
+  return TimeAndInterval(time, interval, units);
+ }
+};
+
+struct ControlRelayOutputBlockFactory: private openpal::StaticOnly
+{
+ inline static ControlRelayOutputBlock From(
+     uint8_t code,
+     uint8_t count,
+     uint32_t onTime,
+     uint32_t offTime,
+     uint8_t status)
+ {
+  return ControlRelayOutputBlock(code, count, onTime, offTime, CommandStatusFromType(status));
+ }
+};
+
+struct BinaryOutputStatusFactory: private openpal::StaticOnly
+{
+ inline static BinaryOutputStatus From(Flags flags)
+ {
+  return BinaryOutputStatus(flags);
+ }
+
+ inline static BinaryOutputStatus From(Flags flags, DNPTime time)
+ {
+  return BinaryOutputStatus(flags, time);
+ }
+};
+
+struct BinaryCommandEventFactory : private openpal::StaticOnly
+{
+ inline static BinaryCommandEvent From(Flags flags)
+ {
+  return BinaryCommandEvent(flags);
+ }
+
+ inline static BinaryCommandEvent From(uint8_t flags, DNPTime time)
+ {
+  return BinaryCommandEvent(flags, time);
+ }
+};
+
+struct AnalogOutputStatusFactory: private openpal::StaticOnly
+{
+ inline static AnalogOutputStatus From(uint8_t flags, double value)
+ {
+  return AnalogOutputStatus(value, flags);
+ }
+
+ inline static AnalogOutputStatus From(uint8_t flags, double value, DNPTime time)
+ {
+  return AnalogOutputStatus(value, flags, time);
+ }
+};
+
+struct AnalogCommandEventFactory : private openpal::StaticOnly
+{
+ inline static AnalogCommandEvent From(uint8_t status, double value)
+ {
+  return AnalogCommandEvent(value, CommandStatusFromType(status));
+ }
+
+ inline static AnalogCommandEvent From(uint8_t status, double value, DNPTime time)
+ {
+  return AnalogCommandEvent(value, CommandStatusFromType(status), time);
+ }
+};
+
+struct SecurityStatFactory : private openpal::StaticOnly
+{
+ inline static SecurityStat From(uint8_t flags, uint16_t assocId, uint32_t value)
+ {
+  return SecurityStat(flags, assocId, value);
+ }
+
+ inline static SecurityStat From(uint8_t flags, uint16_t assocId, uint32_t value, DNPTime time)
+ {
+  return SecurityStat(flags, assocId, value, time);
+ }
+};
+
+template <class Target, class ValueType>
+struct AnalogOutputFactory: private openpal::StaticOnly
+{
+ inline static Target From(ValueType value, uint8_t status)
+ {
+  return Target(value, CommandStatusFromType(status));
+ }
+};
+
+typedef AnalogOutputFactory<AnalogOutputInt32, int32_t> AnalogOutputInt32Factory;
+typedef AnalogOutputFactory<AnalogOutputInt16, int16_t> AnalogOutputInt16Factory;
+typedef AnalogOutputFactory<AnalogOutputFloat32, float> AnalogOutputFloat32Factory;
+typedef AnalogOutputFactory<AnalogOutputDouble64, double> AnalogOutputDouble64Factory;
+
+
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.cpp" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversionTemplates.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversionTemplates.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DownSampling.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DownSampling.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Limits.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Limits.h"
+namespace openpal
+{
+
+template <class T>
+T MinValue();
+
+template <class T>
+T MaxValue();
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DownSampling.h" 2
+
+
+
+namespace opendnp3
+{
+
+template <class Source, class Target>
+class DownSampling : private openpal::Uncopyable
+{
+ static const Target TARGET_MAX;
+ static const Target TARGET_MIN;
+
+public:
+
+ static bool Apply(Source src, Target& target)
+ {
+  if(src > TARGET_MAX)
+  {
+   target = TARGET_MAX;
+   return true;
+  }
+  else if( src < TARGET_MIN)
+  {
+   target = TARGET_MIN;
+   return true;
+  }
+  else
+  {
+   target = static_cast<Target>(src);
+   return false;
+  }
+ }
+};
+
+template <class Source, class Target>
+const Target DownSampling<Source, Target>::TARGET_MAX(openpal::MaxValue<Target>());
+
+template <class Source, class Target>
+const Target DownSampling<Source, Target>::TARGET_MIN(openpal::MinValue<Target>());
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversionTemplates.h" 2
+
+
+
+namespace opendnp3
+{
+template <class Target, class Source>
+struct ConvertQ : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  t.flags = src.flags.value;
+  return t;
+ }
+};
+
+template <class Target, class Source>
+struct ConvertQV : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  t.value = src.value;
+  t.flags = src.flags.value;
+  return t;
+ }
+};
+
+template <class Target, class Source>
+struct ConvertV : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  t.value = src.value;
+  return t;
+ }
+};
+
+template <class Target, class Source>
+struct ConvertVandTruncate : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  t.value = static_cast<typename Target::ValueType>(src.value);
+  return t;
+ }
+};
+
+template <class Target, class Source>
+struct ConvertVRangeCheck : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
+  return t;
+ }
+};
+
+template <class Target, class Source, uint8_t Overrange>
+struct ConvertQVRangeCheck : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  auto overrange = DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
+  t.flags = overrange ? Overrange : 0;
+  t.flags |= src.flags.value;
+  return t;
+ }
+};
+
+template <class Target, class Source>
+struct ConvertQVandTruncate : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  t.flags = src.flags.value;
+  t.value = static_cast<typename Target::ValueType>(src.value);
+  return t;
+ }
+};
+
+template <class Target, class Source>
+struct ConvertQVT : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  t.flags = src.flags.value;
+  t.value = src.value;
+  t.time = src.time;
+  return t;
+ }
+};
+
+template <class Target, class Source>
+struct ConvertQVTandTruncate : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  t.flags = src.flags.value;
+  t.value = static_cast<typename Target::ValueType>(src.value);
+  t.time = src.time;
+  return t;
+ }
+};
+
+template <class Target, class Source, uint8_t Overrange>
+struct ConvertQVTRangeCheck : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  auto overrange = DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
+  t.flags = overrange ? Overrange : 0;
+  t.flags |= src.flags.value;
+  t.time = src.time;
+  return t;
+ }
+};
+
+template <class Target, class Source>
+struct ConvertQT : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  t.flags = src.flags.value;
+  t.time = src.time;
+  return t;
+ }
+};
+
+template <class Target, class Source, class Downcast>
+struct ConvertQTDowncast : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  t.flags = src.flags.value;
+  t.time = static_cast<Downcast>(src.time);
+  return t;
+ }
+};
+
+template <class Target, class Source>
+struct ConvertQS : private openpal::StaticOnly
+{
+ static Target Apply(const Source& src)
+ {
+  Target t;
+  t.value = src.value;
+  t.status = CommandStatusToType(src.status);
+  return t;
+ }
+};
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group1.h" 1
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group1.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 1
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventType.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventType.h"
+namespace opendnp3
+{
+
+static const int NUM_OUTSTATION_EVENT_TYPES = 8;
+
+enum class EventType : uint16_t
+{
+ Binary = 0,
+ Analog = 1,
+ Counter = 2,
+ FrozenCounter = 3,
+ DoubleBitBinary = 4,
+ BinaryOutputStatus = 5,
+ AnalogOutputStatus = 6,
+ SecurityStat = 7
+};
+
+enum class EventClass : uint8_t
+{
+ EC1 = 0,
+ EC2 = 1,
+ EC3 = 2
+};
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryVariation.h"
+namespace opendnp3 {
+
+enum class StaticBinaryVariation : uint8_t
+{
+  Group1Var1 = 0,
+  Group1Var2 = 1
+};
+
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticDoubleBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticDoubleBinaryVariation.h"
+namespace opendnp3 {
+
+enum class StaticDoubleBinaryVariation : uint8_t
+{
+  Group3Var2 = 0
+};
+
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class StaticBinaryOutputStatusVariation : uint8_t
+{
+  Group10Var2 = 0
+};
+
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticCounterVariation.h"
+namespace opendnp3 {
+
+enum class StaticCounterVariation : uint8_t
+{
+  Group20Var1 = 0,
+  Group20Var2 = 1,
+  Group20Var5 = 2,
+  Group20Var6 = 3
+};
+
+
+}
+# 33 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticFrozenCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticFrozenCounterVariation.h"
+namespace opendnp3 {
+
+enum class StaticFrozenCounterVariation : uint8_t
+{
+  Group21Var1 = 0,
+  Group21Var2 = 1,
+  Group21Var5 = 2,
+  Group21Var6 = 3,
+  Group21Var9 = 4,
+  Group21Var10 = 5
+};
+
+
+}
+# 34 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogVariation.h"
+namespace opendnp3 {
+
+enum class StaticAnalogVariation : uint8_t
+{
+  Group30Var1 = 0,
+  Group30Var2 = 1,
+  Group30Var3 = 2,
+  Group30Var4 = 3,
+  Group30Var5 = 4,
+  Group30Var6 = 5
+};
+
+
+}
+# 35 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class StaticAnalogOutputStatusVariation : uint8_t
+{
+  Group40Var1 = 0,
+  Group40Var2 = 1,
+  Group40Var3 = 2,
+  Group40Var4 = 3
+};
+
+
+}
+# 36 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTimeAndIntervalVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTimeAndIntervalVariation.h"
+namespace opendnp3 {
+
+enum class StaticTimeAndIntervalVariation : uint8_t
+{
+  Group50Var4 = 0
+};
+
+
+}
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticSecurityStatVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticSecurityStatVariation.h"
+namespace opendnp3 {
+
+enum class StaticSecurityStatVariation : uint8_t
+{
+  Group121Var1 = 0
+};
+
+
+}
+# 38 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryVariation.h"
+namespace opendnp3 {
+
+enum class EventBinaryVariation : uint8_t
+{
+  Group2Var1 = 0,
+  Group2Var2 = 1,
+  Group2Var3 = 2
+};
+
+
+}
+# 40 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventDoubleBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventDoubleBinaryVariation.h"
+namespace opendnp3 {
+
+enum class EventDoubleBinaryVariation : uint8_t
+{
+  Group4Var1 = 0,
+  Group4Var2 = 1,
+  Group4Var3 = 2
+};
+
+
+}
+# 41 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class EventBinaryOutputStatusVariation : uint8_t
+{
+  Group11Var1 = 0,
+  Group11Var2 = 1
+};
+
+
+}
+# 42 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventCounterVariation.h"
+namespace opendnp3 {
+
+enum class EventCounterVariation : uint8_t
+{
+  Group22Var1 = 0,
+  Group22Var2 = 1,
+  Group22Var5 = 2,
+  Group22Var6 = 3
+};
+
+
+}
+# 43 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventFrozenCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventFrozenCounterVariation.h"
+namespace opendnp3 {
+
+enum class EventFrozenCounterVariation : uint8_t
+{
+  Group23Var1 = 0,
+  Group23Var2 = 1,
+  Group23Var5 = 2,
+  Group23Var6 = 3
+};
+
+
+}
+# 44 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogVariation.h"
+namespace opendnp3 {
+
+enum class EventAnalogVariation : uint8_t
+{
+  Group32Var1 = 0,
+  Group32Var2 = 1,
+  Group32Var3 = 2,
+  Group32Var4 = 3,
+  Group32Var5 = 4,
+  Group32Var6 = 5,
+  Group32Var7 = 6,
+  Group32Var8 = 7
+};
+
+
+}
+# 45 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class EventAnalogOutputStatusVariation : uint8_t
+{
+  Group42Var1 = 0,
+  Group42Var2 = 1,
+  Group42Var3 = 2,
+  Group42Var4 = 3,
+  Group42Var5 = 4,
+  Group42Var6 = 5,
+  Group42Var7 = 6,
+  Group42Var8 = 7
+};
+
+
+}
+# 46 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventSecurityStatVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventSecurityStatVariation.h"
+namespace opendnp3 {
+
+enum class EventSecurityStatVariation : uint8_t
+{
+  Group122Var1 = 0,
+  Group122Var2 = 1
+};
+
+
+}
+# 47 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTypeBitmask.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTypeBitmask.h"
+namespace opendnp3 {
+
+
+
+
+enum class StaticTypeBitmask : uint16_t
+{
+  BinaryInput = 0x1,
+  DoubleBinaryInput = 0x2,
+  Counter = 0x4,
+  FrozenCounter = 0x8,
+  AnalogInput = 0x10,
+  BinaryOutputStatus = 0x20,
+  AnalogOutputStatus = 0x40,
+  TimeAndInterval = 0x80
+};
+
+
+}
+# 49 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+
+
+namespace opendnp3
+{
+
+
+struct BinaryInfo : private openpal::StaticOnly
+{
+ typedef Binary meas_t;
+ typedef bool value_t;
+ typedef EventBinaryVariation event_variation_t;
+ typedef StaticBinaryVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::Binary;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::BinaryInput;
+ static const event_variation_t DefaultEventVariation = EventBinaryVariation::Group2Var1;
+ static const static_variation_t DefaultStaticVariation = StaticBinaryVariation::Group1Var2;
+};
+
+struct DoubleBitBinaryInfo : private openpal::StaticOnly
+{
+ typedef DoubleBitBinary meas_t;
+ typedef DoubleBit value_t;
+ typedef EventDoubleBinaryVariation event_variation_t;
+ typedef StaticDoubleBinaryVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::DoubleBitBinary;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::DoubleBinaryInput;
+ static const event_variation_t DefaultEventVariation = EventDoubleBinaryVariation::Group4Var1;
+ static const static_variation_t DefaultStaticVariation = StaticDoubleBinaryVariation::Group3Var2;
+};
+
+class BinaryOutputStatusInfo : private openpal::StaticOnly
+{
+public:
+
+ typedef BinaryOutputStatus meas_t;
+ typedef bool value_t;
+ typedef EventBinaryOutputStatusVariation event_variation_t;
+ typedef StaticBinaryOutputStatusVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::BinaryOutputStatus;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::BinaryOutputStatus;
+ static const event_variation_t DefaultEventVariation = EventBinaryOutputStatusVariation::Group11Var1;
+ static const static_variation_t DefaultStaticVariation = StaticBinaryOutputStatusVariation::Group10Var2;
+
+
+};
+
+
+struct AnalogInfo : private openpal::StaticOnly
+{
+ typedef Analog meas_t;
+ typedef double value_t;
+ typedef EventAnalogVariation event_variation_t;
+ typedef StaticAnalogVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::Analog;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::AnalogInput;
+ static const event_variation_t DefaultEventVariation = EventAnalogVariation::Group32Var1;
+ static const static_variation_t DefaultStaticVariation = StaticAnalogVariation::Group30Var1;
+};
+
+struct CounterInfo : private openpal::StaticOnly
+{
+ typedef Counter meas_t;
+ typedef uint32_t value_t;
+ typedef EventCounterVariation event_variation_t;
+ typedef StaticCounterVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::Counter;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::Counter;
+ static const event_variation_t DefaultEventVariation = EventCounterVariation::Group22Var1;
+ static const static_variation_t DefaultStaticVariation = StaticCounterVariation::Group20Var1;
+};
+
+struct FrozenCounterInfo : private openpal::StaticOnly
+{
+ typedef FrozenCounter meas_t;
+ typedef uint32_t value_t;
+ typedef EventFrozenCounterVariation event_variation_t;
+ typedef StaticFrozenCounterVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::FrozenCounter;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::FrozenCounter;
+ static const event_variation_t DefaultEventVariation = EventFrozenCounterVariation::Group23Var1;
+ static const static_variation_t DefaultStaticVariation = StaticFrozenCounterVariation::Group21Var1;
+};
+
+struct AnalogOutputStatusInfo : private openpal::StaticOnly
+{
+ typedef AnalogOutputStatus meas_t;
+ typedef double value_t;
+ typedef EventAnalogOutputStatusVariation event_variation_t;
+ typedef StaticAnalogOutputStatusVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::AnalogOutputStatus;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::AnalogOutputStatus;
+ static const event_variation_t DefaultEventVariation = EventAnalogOutputStatusVariation::Group42Var1;
+ static const static_variation_t DefaultStaticVariation = StaticAnalogOutputStatusVariation::Group40Var1;
+};
+
+struct TimeAndIntervalInfo : private openpal::StaticOnly
+{
+ typedef TimeAndInterval meas_t;
+ typedef StaticTimeAndIntervalVariation static_variation_t;
+
+ const static StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::TimeAndInterval;
+ const static StaticTimeAndIntervalVariation DefaultStaticVariation = StaticTimeAndIntervalVariation::Group50Var4;
+};
+
+struct SecurityStatInfo : private openpal::StaticOnly
+{
+ typedef SecurityStat meas_t;
+ typedef SecurityStat::Value value_t;
+ typedef EventSecurityStatVariation event_variation_t;
+ typedef StaticSecurityStatVariation static_variation_t;
+
+ const static EventType EventTypeEnum = EventType::SecurityStat;
+ const static event_variation_t DefaultEventVariation = EventSecurityStatVariation::Group122Var1;
+ const static static_variation_t DefaultStaticVariation = StaticSecurityStatVariation::Group121Var1;
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/PointClass.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/PointClass.h"
+namespace opendnp3 {
+
+
+
+
+enum class PointClass : uint8_t
+{
+
+  Class0 = 0x1,
+
+  Class1 = 0x2,
+
+  Class2 = 0x4,
+
+  Class3 = 0x8
+};
+
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h" 2
+
+namespace opendnp3
+{
+
+
+struct IndexConfig
+{
+
+ uint16_t vIndex = 0;
+};
+
+
+template <class Info>
+struct StaticConfig : IndexConfig
+{
+ typename Info::static_variation_t svariation = Info::DefaultStaticVariation;
+};
+
+template <class Info>
+struct EventConfig : StaticConfig<Info>
+{
+ PointClass clazz = PointClass::Class1;
+ typename Info::event_variation_t evariation = Info::DefaultEventVariation;
+};
+
+template <class Info>
+struct DeadbandConfig : EventConfig<Info>
+{
+ typename Info::value_t deadband = 0;
+};
+
+class BinaryConfig : public EventConfig<BinaryInfo> {};
+class DoubleBitBinaryConfig : public EventConfig<DoubleBitBinaryInfo> {};
+class AnalogConfig : public DeadbandConfig<AnalogInfo> {};
+class CounterConfig : public DeadbandConfig<CounterInfo> {};
+class FrozenCounterConfig : public DeadbandConfig<FrozenCounterInfo> {};
+class BOStatusConfig : public EventConfig<BinaryOutputStatusInfo> {};
+class AOStatusConfig : public DeadbandConfig<AnalogOutputStatusInfo> {};
+class TimeAndIntervalConfig : public StaticConfig<TimeAndIntervalInfo> {};
+class SecurityStatConfig : public IndexConfig {};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventCells.h" 1
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventCells.h"
+namespace opendnp3
+{
+
+
+struct EmptyEventCell
+{
+
+};
+
+
+template <class Spec>
+struct EventCellBase
+{
+ PointClass clazz;
+ typename Spec::meas_t lastEvent;
+ typename Spec::event_variation_t evariation;
+
+ void SetEventValue(const typename Spec::meas_t& value)
+ {
+  lastEvent = value;
+ }
+
+protected:
+
+ EventCellBase() : clazz(PointClass::Class1), lastEvent(), evariation(Spec::DefaultEventVariation)
+ {}
+};
+
+
+template <class Spec>
+struct SimpleEventCell : EventCellBase<Spec>
+{
+ bool IsEvent(const typename Spec::config_t& config, const typename Spec::meas_t& newValue) const
+ {
+  return Spec::IsEvent(this->lastEvent, newValue);
+ }
+};
+
+
+template <class Spec>
+struct DeadbandEventCell : SimpleEventCell<Spec>
+{
+ bool IsEvent(const typename Spec::config_t& config, const typename Spec::meas_t& newValue) const
+ {
+  return Spec::IsEvent(this->lastEvent, newValue, config.deadband);
+ }
+};
+
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventTriggers.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventTriggers.h"
+namespace opendnp3
+{
+namespace measurements
+{
+template <class T, class U>
+bool IsEvent(const T& val1, const T& val2, T deadband)
+{
+
+
+
+ U diff = (val2 > val1) ? (static_cast<U>(val2) - static_cast<U>(val1)) : (static_cast<U>(val1) - static_cast<U>(val2));
+
+ return diff > deadband;
+}
+
+
+bool IsEvent(const TypedMeasurement<double>& newMeas, const TypedMeasurement<double>& oldMeas, double deadband);
+
+}
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 2
+
+namespace opendnp3
+{
+
+
+struct BinarySpec : public BinaryInfo
+{
+ typedef BinaryConfig config_t;
+ typedef SimpleEventCell<BinarySpec> event_cell_t;
+
+ inline static bool IsQualityOnlineOnly(const Binary& binary)
+ {
+  return (binary.flags.value & 0b01111111) == static_cast<uint8_t>(BinaryQuality::ONLINE);
+ }
+
+ inline static bool IsEvent(const Binary& oldValue, const Binary& newValue)
+ {
+  return oldValue.flags.value != newValue.flags.value;
+ }
+};
+
+struct DoubleBitBinarySpec : public DoubleBitBinaryInfo
+{
+ typedef DoubleBitBinaryConfig config_t;
+ typedef SimpleEventCell<DoubleBitBinarySpec> event_cell_t;
+
+ inline static bool IsEvent(const DoubleBitBinary& oldValue, const DoubleBitBinary& newValue)
+ {
+  return oldValue.flags.value != newValue.flags.value;
+ }
+};
+
+struct BinaryOutputStatusSpec : public BinaryOutputStatusInfo
+{
+ typedef BOStatusConfig config_t;
+ typedef SimpleEventCell<BinaryOutputStatusSpec> event_cell_t;
+
+ inline static bool IsEvent(const BinaryOutputStatus& oldValue, const BinaryOutputStatus& newValue)
+ {
+  return oldValue.flags.value != newValue.flags.value;
+ }
+};
+
+
+struct AnalogSpec : public AnalogInfo
+{
+ typedef AnalogConfig config_t;
+ typedef DeadbandEventCell<AnalogSpec> event_cell_t;
+
+ inline static bool IsEvent(const Analog& oldValue, const Analog& newValue, double deadband)
+ {
+  return measurements::IsEvent(newValue, oldValue, deadband);
+ }
+};
+
+struct CounterSpec : public CounterInfo
+{
+ typedef CounterConfig config_t;
+ typedef DeadbandEventCell<CounterSpec> event_cell_t;
+
+ inline static bool IsEvent(const Counter& oldValue, const Counter& newValue, uint32_t deadband)
+ {
+  if (oldValue.flags.value != newValue.flags.value)
+  {
+   return true;
+  }
+  else
+  {
+   return measurements::IsEvent<uint32_t, uint64_t>(oldValue.value, newValue.value, deadband);
+  }
+ }
+};
+
+struct FrozenCounterSpec : public FrozenCounterInfo
+{
+ typedef FrozenCounterConfig config_t;
+ typedef DeadbandEventCell<FrozenCounterSpec> event_cell_t;
+
+ inline static bool IsEvent(const FrozenCounter& oldValue, const FrozenCounter& newValue, uint32_t deadband)
+ {
+  if (oldValue.flags.value != newValue.flags.value)
+  {
+   return true;
+  }
+  else
+  {
+   return measurements::IsEvent<uint32_t, uint64_t>(oldValue.value, newValue.value, deadband);
+  }
+ }
+};
+
+struct AnalogOutputStatusSpec : public AnalogOutputStatusInfo
+{
+ typedef AOStatusConfig config_t;
+ typedef DeadbandEventCell<AnalogOutputStatusSpec> event_cell_t;
+
+ inline static bool IsEvent(const AnalogOutputStatus& oldValue, const AnalogOutputStatus& newValue, double deadband)
+ {
+  return measurements::IsEvent(newValue, oldValue, deadband);
+ }
+};
+
+struct TimeAndIntervalSpec : public TimeAndIntervalInfo
+{
+ typedef TimeAndIntervalConfig config_t;
+ typedef EmptyEventCell event_cell_t;
+};
+
+struct SecurityStatSpec : public SecurityStatInfo
+{
+ typedef SecurityStatConfig config_t;
+ typedef EmptyEventCell event_cell_t;
+
+ inline static bool IsEvent(const SecurityStat& oldValue, const SecurityStat& newValue, uint32_t deadband)
+ {
+  if (oldValue.quality != newValue.quality)
+  {
+   return true;
+  }
+  else
+  {
+   return measurements::IsEvent<uint32_t, uint64_t>(oldValue.value.count, newValue.value.count, deadband);
+  }
+ }
+};
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group1.h" 2
+
+namespace opendnp3 {
+
+
+struct Group1Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(1,0); }
+};
+
+
+struct Group1Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(1,1); }
+};
+
+
+struct Group1Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(1,2); }
+
+  Group1Var2();
+
+  static uint32_t Size() { return 1; }
+  static bool Read(openpal::RSlice&, Group1Var2&);
+  static bool Write(const Group1Var2&, openpal::WSlice&);
+
+  uint8_t flags;
+
+  typedef Binary Target;
+  typedef BinarySpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Binary&);
+  static bool WriteTarget(const Binary&, openpal::WSlice&);
+  static DNP3Serializer<Binary> Inst() { return DNP3Serializer<Binary>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group2.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group2.h"
+namespace opendnp3 {
+
+
+struct Group2Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(2,0); }
+};
+
+
+struct Group2Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(2,1); }
+
+  Group2Var1();
+
+  static uint32_t Size() { return 1; }
+  static bool Read(openpal::RSlice&, Group2Var1&);
+  static bool Write(const Group2Var1&, openpal::WSlice&);
+
+  uint8_t flags;
+
+  typedef Binary Target;
+  typedef BinarySpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Binary&);
+  static bool WriteTarget(const Binary&, openpal::WSlice&);
+  static DNP3Serializer<Binary> Inst() { return DNP3Serializer<Binary>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group2Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(2,2); }
+
+  Group2Var2();
+
+  static uint32_t Size() { return 7; }
+  static bool Read(openpal::RSlice&, Group2Var2&);
+  static bool Write(const Group2Var2&, openpal::WSlice&);
+
+  uint8_t flags;
+  DNPTime time;
+
+  typedef Binary Target;
+  typedef BinarySpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Binary&);
+  static bool WriteTarget(const Binary&, openpal::WSlice&);
+  static DNP3Serializer<Binary> Inst() { return DNP3Serializer<Binary>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group2Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(2,3); }
+
+  Group2Var3();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group2Var3&);
+  static bool Write(const Group2Var3&, openpal::WSlice&);
+
+  uint8_t flags;
+  uint16_t time;
+
+  typedef Binary Target;
+  typedef BinarySpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Binary&);
+  static bool WriteTarget(const Binary&, openpal::WSlice&);
+  static DNP3Serializer<Binary> Inst() { return DNP3Serializer<Binary>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group3.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group3.h"
+namespace opendnp3 {
+
+
+struct Group3Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(3,0); }
+};
+
+
+struct Group3Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(3,1); }
+};
+
+
+struct Group3Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(3,2); }
+
+  Group3Var2();
+
+  static uint32_t Size() { return 1; }
+  static bool Read(openpal::RSlice&, Group3Var2&);
+  static bool Write(const Group3Var2&, openpal::WSlice&);
+
+  uint8_t flags;
+
+  typedef DoubleBitBinary Target;
+  typedef DoubleBitBinarySpec Spec;
+  static bool ReadTarget(openpal::RSlice&, DoubleBitBinary&);
+  static bool WriteTarget(const DoubleBitBinary&, openpal::WSlice&);
+  static DNP3Serializer<DoubleBitBinary> Inst() { return DNP3Serializer<DoubleBitBinary>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group4.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group4.h"
+namespace opendnp3 {
+
+
+struct Group4Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(4,0); }
+};
+
+
+struct Group4Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(4,1); }
+
+  Group4Var1();
+
+  static uint32_t Size() { return 1; }
+  static bool Read(openpal::RSlice&, Group4Var1&);
+  static bool Write(const Group4Var1&, openpal::WSlice&);
+
+  uint8_t flags;
+
+  typedef DoubleBitBinary Target;
+  typedef DoubleBitBinarySpec Spec;
+  static bool ReadTarget(openpal::RSlice&, DoubleBitBinary&);
+  static bool WriteTarget(const DoubleBitBinary&, openpal::WSlice&);
+  static DNP3Serializer<DoubleBitBinary> Inst() { return DNP3Serializer<DoubleBitBinary>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group4Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(4,2); }
+
+  Group4Var2();
+
+  static uint32_t Size() { return 7; }
+  static bool Read(openpal::RSlice&, Group4Var2&);
+  static bool Write(const Group4Var2&, openpal::WSlice&);
+
+  uint8_t flags;
+  DNPTime time;
+
+  typedef DoubleBitBinary Target;
+  typedef DoubleBitBinarySpec Spec;
+  static bool ReadTarget(openpal::RSlice&, DoubleBitBinary&);
+  static bool WriteTarget(const DoubleBitBinary&, openpal::WSlice&);
+  static DNP3Serializer<DoubleBitBinary> Inst() { return DNP3Serializer<DoubleBitBinary>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group4Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(4,3); }
+
+  Group4Var3();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group4Var3&);
+  static bool Write(const Group4Var3&, openpal::WSlice&);
+
+  uint8_t flags;
+  uint16_t time;
+
+  typedef DoubleBitBinary Target;
+  typedef DoubleBitBinarySpec Spec;
+  static bool ReadTarget(openpal::RSlice&, DoubleBitBinary&);
+  static bool WriteTarget(const DoubleBitBinary&, openpal::WSlice&);
+  static DNP3Serializer<DoubleBitBinary> Inst() { return DNP3Serializer<DoubleBitBinary>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group10.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group10.h"
+namespace opendnp3 {
+
+
+struct Group10Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(10,0); }
+};
+
+
+struct Group10Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(10,1); }
+};
+
+
+struct Group10Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(10,2); }
+
+  Group10Var2();
+
+  static uint32_t Size() { return 1; }
+  static bool Read(openpal::RSlice&, Group10Var2&);
+  static bool Write(const Group10Var2&, openpal::WSlice&);
+
+  uint8_t flags;
+
+  typedef BinaryOutputStatus Target;
+  typedef BinaryOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, BinaryOutputStatus&);
+  static bool WriteTarget(const BinaryOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<BinaryOutputStatus> Inst() { return DNP3Serializer<BinaryOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group11.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group11.h"
+namespace opendnp3 {
+
+
+struct Group11Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(11,0); }
+};
+
+
+struct Group11Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(11,1); }
+
+  Group11Var1();
+
+  static uint32_t Size() { return 1; }
+  static bool Read(openpal::RSlice&, Group11Var1&);
+  static bool Write(const Group11Var1&, openpal::WSlice&);
+
+  uint8_t flags;
+
+  typedef BinaryOutputStatus Target;
+  typedef BinaryOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, BinaryOutputStatus&);
+  static bool WriteTarget(const BinaryOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<BinaryOutputStatus> Inst() { return DNP3Serializer<BinaryOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group11Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(11,2); }
+
+  Group11Var2();
+
+  static uint32_t Size() { return 7; }
+  static bool Read(openpal::RSlice&, Group11Var2&);
+  static bool Write(const Group11Var2&, openpal::WSlice&);
+
+  uint8_t flags;
+  DNPTime time;
+
+  typedef BinaryOutputStatus Target;
+  typedef BinaryOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, BinaryOutputStatus&);
+  static bool WriteTarget(const BinaryOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<BinaryOutputStatus> Inst() { return DNP3Serializer<BinaryOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 33 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group12.h" 1
+# 34 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group13.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group13.h"
+namespace opendnp3 {
+
+
+struct Group13Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(13,1); }
+
+  Group13Var1();
+
+  static uint32_t Size() { return 1; }
+  static bool Read(openpal::RSlice&, Group13Var1&);
+  static bool Write(const Group13Var1&, openpal::WSlice&);
+
+  uint8_t flags;
+
+  typedef BinaryCommandEvent Target;
+  static bool ReadTarget(openpal::RSlice&, BinaryCommandEvent&);
+  static bool WriteTarget(const BinaryCommandEvent&, openpal::WSlice&);
+  static DNP3Serializer<BinaryCommandEvent> Inst() { return DNP3Serializer<BinaryCommandEvent>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group13Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(13,2); }
+
+  Group13Var2();
+
+  static uint32_t Size() { return 7; }
+  static bool Read(openpal::RSlice&, Group13Var2&);
+  static bool Write(const Group13Var2&, openpal::WSlice&);
+
+  uint8_t flags;
+  DNPTime time;
+
+  typedef BinaryCommandEvent Target;
+  static bool ReadTarget(openpal::RSlice&, BinaryCommandEvent&);
+  static bool WriteTarget(const BinaryCommandEvent&, openpal::WSlice&);
+  static DNP3Serializer<BinaryCommandEvent> Inst() { return DNP3Serializer<BinaryCommandEvent>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 35 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group20.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group20.h"
+namespace opendnp3 {
+
+
+struct Group20Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(20,0); }
+};
+
+
+struct Group20Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(20,1); }
+
+  Group20Var1();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group20Var1&);
+  static bool Write(const Group20Var1&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint32_t value;
+
+  typedef Counter Target;
+  typedef CounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Counter&);
+  static bool WriteTarget(const Counter&, openpal::WSlice&);
+  static DNP3Serializer<Counter> Inst() { return DNP3Serializer<Counter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group20Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(20,2); }
+
+  Group20Var2();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group20Var2&);
+  static bool Write(const Group20Var2&, openpal::WSlice&);
+
+  typedef uint16_t ValueType;
+  uint8_t flags;
+  uint16_t value;
+
+  typedef Counter Target;
+  typedef CounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Counter&);
+  static bool WriteTarget(const Counter&, openpal::WSlice&);
+  static DNP3Serializer<Counter> Inst() { return DNP3Serializer<Counter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group20Var5
+{
+  static GroupVariationID ID() { return GroupVariationID(20,5); }
+
+  Group20Var5();
+
+  static uint32_t Size() { return 4; }
+  static bool Read(openpal::RSlice&, Group20Var5&);
+  static bool Write(const Group20Var5&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint32_t value;
+
+  typedef Counter Target;
+  typedef CounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Counter&);
+  static bool WriteTarget(const Counter&, openpal::WSlice&);
+  static DNP3Serializer<Counter> Inst() { return DNP3Serializer<Counter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group20Var6
+{
+  static GroupVariationID ID() { return GroupVariationID(20,6); }
+
+  Group20Var6();
+
+  static uint32_t Size() { return 2; }
+  static bool Read(openpal::RSlice&, Group20Var6&);
+  static bool Write(const Group20Var6&, openpal::WSlice&);
+
+  typedef uint16_t ValueType;
+  uint16_t value;
+
+  typedef Counter Target;
+  typedef CounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Counter&);
+  static bool WriteTarget(const Counter&, openpal::WSlice&);
+  static DNP3Serializer<Counter> Inst() { return DNP3Serializer<Counter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 36 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group21.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group21.h"
+namespace opendnp3 {
+
+
+struct Group21Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(21,0); }
+};
+
+
+struct Group21Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(21,1); }
+
+  Group21Var1();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group21Var1&);
+  static bool Write(const Group21Var1&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint32_t value;
+
+  typedef FrozenCounter Target;
+  typedef FrozenCounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, FrozenCounter&);
+  static bool WriteTarget(const FrozenCounter&, openpal::WSlice&);
+  static DNP3Serializer<FrozenCounter> Inst() { return DNP3Serializer<FrozenCounter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group21Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(21,2); }
+
+  Group21Var2();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group21Var2&);
+  static bool Write(const Group21Var2&, openpal::WSlice&);
+
+  typedef uint16_t ValueType;
+  uint8_t flags;
+  uint16_t value;
+
+  typedef FrozenCounter Target;
+  typedef FrozenCounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, FrozenCounter&);
+  static bool WriteTarget(const FrozenCounter&, openpal::WSlice&);
+  static DNP3Serializer<FrozenCounter> Inst() { return DNP3Serializer<FrozenCounter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group21Var5
+{
+  static GroupVariationID ID() { return GroupVariationID(21,5); }
+
+  Group21Var5();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group21Var5&);
+  static bool Write(const Group21Var5&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint32_t value;
+  DNPTime time;
+
+  typedef FrozenCounter Target;
+  typedef FrozenCounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, FrozenCounter&);
+  static bool WriteTarget(const FrozenCounter&, openpal::WSlice&);
+  static DNP3Serializer<FrozenCounter> Inst() { return DNP3Serializer<FrozenCounter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group21Var6
+{
+  static GroupVariationID ID() { return GroupVariationID(21,6); }
+
+  Group21Var6();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group21Var6&);
+  static bool Write(const Group21Var6&, openpal::WSlice&);
+
+  typedef uint16_t ValueType;
+  uint8_t flags;
+  uint16_t value;
+  DNPTime time;
+
+  typedef FrozenCounter Target;
+  typedef FrozenCounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, FrozenCounter&);
+  static bool WriteTarget(const FrozenCounter&, openpal::WSlice&);
+  static DNP3Serializer<FrozenCounter> Inst() { return DNP3Serializer<FrozenCounter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group21Var9
+{
+  static GroupVariationID ID() { return GroupVariationID(21,9); }
+
+  Group21Var9();
+
+  static uint32_t Size() { return 4; }
+  static bool Read(openpal::RSlice&, Group21Var9&);
+  static bool Write(const Group21Var9&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint32_t value;
+
+  typedef FrozenCounter Target;
+  typedef FrozenCounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, FrozenCounter&);
+  static bool WriteTarget(const FrozenCounter&, openpal::WSlice&);
+  static DNP3Serializer<FrozenCounter> Inst() { return DNP3Serializer<FrozenCounter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group21Var10
+{
+  static GroupVariationID ID() { return GroupVariationID(21,10); }
+
+  Group21Var10();
+
+  static uint32_t Size() { return 2; }
+  static bool Read(openpal::RSlice&, Group21Var10&);
+  static bool Write(const Group21Var10&, openpal::WSlice&);
+
+  typedef uint16_t ValueType;
+  uint16_t value;
+
+  typedef FrozenCounter Target;
+  typedef FrozenCounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, FrozenCounter&);
+  static bool WriteTarget(const FrozenCounter&, openpal::WSlice&);
+  static DNP3Serializer<FrozenCounter> Inst() { return DNP3Serializer<FrozenCounter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group22.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group22.h"
+namespace opendnp3 {
+
+
+struct Group22Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(22,0); }
+};
+
+
+struct Group22Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(22,1); }
+
+  Group22Var1();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group22Var1&);
+  static bool Write(const Group22Var1&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint32_t value;
+
+  typedef Counter Target;
+  typedef CounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Counter&);
+  static bool WriteTarget(const Counter&, openpal::WSlice&);
+  static DNP3Serializer<Counter> Inst() { return DNP3Serializer<Counter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group22Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(22,2); }
+
+  Group22Var2();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group22Var2&);
+  static bool Write(const Group22Var2&, openpal::WSlice&);
+
+  typedef uint16_t ValueType;
+  uint8_t flags;
+  uint16_t value;
+
+  typedef Counter Target;
+  typedef CounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Counter&);
+  static bool WriteTarget(const Counter&, openpal::WSlice&);
+  static DNP3Serializer<Counter> Inst() { return DNP3Serializer<Counter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group22Var5
+{
+  static GroupVariationID ID() { return GroupVariationID(22,5); }
+
+  Group22Var5();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group22Var5&);
+  static bool Write(const Group22Var5&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint32_t value;
+  DNPTime time;
+
+  typedef Counter Target;
+  typedef CounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Counter&);
+  static bool WriteTarget(const Counter&, openpal::WSlice&);
+  static DNP3Serializer<Counter> Inst() { return DNP3Serializer<Counter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group22Var6
+{
+  static GroupVariationID ID() { return GroupVariationID(22,6); }
+
+  Group22Var6();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group22Var6&);
+  static bool Write(const Group22Var6&, openpal::WSlice&);
+
+  typedef uint16_t ValueType;
+  uint8_t flags;
+  uint16_t value;
+  DNPTime time;
+
+  typedef Counter Target;
+  typedef CounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Counter&);
+  static bool WriteTarget(const Counter&, openpal::WSlice&);
+  static DNP3Serializer<Counter> Inst() { return DNP3Serializer<Counter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 38 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group23.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group23.h"
+namespace opendnp3 {
+
+
+struct Group23Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(23,0); }
+};
+
+
+struct Group23Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(23,1); }
+
+  Group23Var1();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group23Var1&);
+  static bool Write(const Group23Var1&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint32_t value;
+
+  typedef FrozenCounter Target;
+  typedef FrozenCounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, FrozenCounter&);
+  static bool WriteTarget(const FrozenCounter&, openpal::WSlice&);
+  static DNP3Serializer<FrozenCounter> Inst() { return DNP3Serializer<FrozenCounter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group23Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(23,2); }
+
+  Group23Var2();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group23Var2&);
+  static bool Write(const Group23Var2&, openpal::WSlice&);
+
+  typedef uint16_t ValueType;
+  uint8_t flags;
+  uint16_t value;
+
+  typedef FrozenCounter Target;
+  typedef FrozenCounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, FrozenCounter&);
+  static bool WriteTarget(const FrozenCounter&, openpal::WSlice&);
+  static DNP3Serializer<FrozenCounter> Inst() { return DNP3Serializer<FrozenCounter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group23Var5
+{
+  static GroupVariationID ID() { return GroupVariationID(23,5); }
+
+  Group23Var5();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group23Var5&);
+  static bool Write(const Group23Var5&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint32_t value;
+  DNPTime time;
+
+  typedef FrozenCounter Target;
+  typedef FrozenCounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, FrozenCounter&);
+  static bool WriteTarget(const FrozenCounter&, openpal::WSlice&);
+  static DNP3Serializer<FrozenCounter> Inst() { return DNP3Serializer<FrozenCounter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group23Var6
+{
+  static GroupVariationID ID() { return GroupVariationID(23,6); }
+
+  Group23Var6();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group23Var6&);
+  static bool Write(const Group23Var6&, openpal::WSlice&);
+
+  typedef uint16_t ValueType;
+  uint8_t flags;
+  uint16_t value;
+  DNPTime time;
+
+  typedef FrozenCounter Target;
+  typedef FrozenCounterSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, FrozenCounter&);
+  static bool WriteTarget(const FrozenCounter&, openpal::WSlice&);
+  static DNP3Serializer<FrozenCounter> Inst() { return DNP3Serializer<FrozenCounter>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 39 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group30.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group30.h"
+namespace opendnp3 {
+
+
+struct Group30Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(30,0); }
+};
+
+
+struct Group30Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(30,1); }
+
+  Group30Var1();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group30Var1&);
+  static bool Write(const Group30Var1&, openpal::WSlice&);
+
+  typedef int32_t ValueType;
+  uint8_t flags;
+  int32_t value;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group30Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(30,2); }
+
+  Group30Var2();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group30Var2&);
+  static bool Write(const Group30Var2&, openpal::WSlice&);
+
+  typedef int16_t ValueType;
+  uint8_t flags;
+  int16_t value;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group30Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(30,3); }
+
+  Group30Var3();
+
+  static uint32_t Size() { return 4; }
+  static bool Read(openpal::RSlice&, Group30Var3&);
+  static bool Write(const Group30Var3&, openpal::WSlice&);
+
+  typedef int32_t ValueType;
+  int32_t value;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group30Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(30,4); }
+
+  Group30Var4();
+
+  static uint32_t Size() { return 2; }
+  static bool Read(openpal::RSlice&, Group30Var4&);
+  static bool Write(const Group30Var4&, openpal::WSlice&);
+
+  typedef int16_t ValueType;
+  int16_t value;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group30Var5
+{
+  static GroupVariationID ID() { return GroupVariationID(30,5); }
+
+  Group30Var5();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group30Var5&);
+  static bool Write(const Group30Var5&, openpal::WSlice&);
+
+  typedef float ValueType;
+  uint8_t flags;
+  float value;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group30Var6
+{
+  static GroupVariationID ID() { return GroupVariationID(30,6); }
+
+  Group30Var6();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group30Var6&);
+  static bool Write(const Group30Var6&, openpal::WSlice&);
+
+  typedef double ValueType;
+  uint8_t flags;
+  double value;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 40 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group32.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group32.h"
+namespace opendnp3 {
+
+
+struct Group32Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(32,0); }
+};
+
+
+struct Group32Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(32,1); }
+
+  Group32Var1();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group32Var1&);
+  static bool Write(const Group32Var1&, openpal::WSlice&);
+
+  typedef int32_t ValueType;
+  uint8_t flags;
+  int32_t value;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group32Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(32,2); }
+
+  Group32Var2();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group32Var2&);
+  static bool Write(const Group32Var2&, openpal::WSlice&);
+
+  typedef int16_t ValueType;
+  uint8_t flags;
+  int16_t value;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group32Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(32,3); }
+
+  Group32Var3();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group32Var3&);
+  static bool Write(const Group32Var3&, openpal::WSlice&);
+
+  typedef int32_t ValueType;
+  uint8_t flags;
+  int32_t value;
+  DNPTime time;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group32Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(32,4); }
+
+  Group32Var4();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group32Var4&);
+  static bool Write(const Group32Var4&, openpal::WSlice&);
+
+  typedef int16_t ValueType;
+  uint8_t flags;
+  int16_t value;
+  DNPTime time;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group32Var5
+{
+  static GroupVariationID ID() { return GroupVariationID(32,5); }
+
+  Group32Var5();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group32Var5&);
+  static bool Write(const Group32Var5&, openpal::WSlice&);
+
+  typedef float ValueType;
+  uint8_t flags;
+  float value;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group32Var6
+{
+  static GroupVariationID ID() { return GroupVariationID(32,6); }
+
+  Group32Var6();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group32Var6&);
+  static bool Write(const Group32Var6&, openpal::WSlice&);
+
+  typedef double ValueType;
+  uint8_t flags;
+  double value;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group32Var7
+{
+  static GroupVariationID ID() { return GroupVariationID(32,7); }
+
+  Group32Var7();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group32Var7&);
+  static bool Write(const Group32Var7&, openpal::WSlice&);
+
+  typedef float ValueType;
+  uint8_t flags;
+  float value;
+  DNPTime time;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group32Var8
+{
+  static GroupVariationID ID() { return GroupVariationID(32,8); }
+
+  Group32Var8();
+
+  static uint32_t Size() { return 15; }
+  static bool Read(openpal::RSlice&, Group32Var8&);
+  static bool Write(const Group32Var8&, openpal::WSlice&);
+
+  typedef double ValueType;
+  uint8_t flags;
+  double value;
+  DNPTime time;
+
+  typedef Analog Target;
+  typedef AnalogSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, Analog&);
+  static bool WriteTarget(const Analog&, openpal::WSlice&);
+  static DNP3Serializer<Analog> Inst() { return DNP3Serializer<Analog>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 41 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group40.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group40.h"
+namespace opendnp3 {
+
+
+struct Group40Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(40,0); }
+};
+
+
+struct Group40Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(40,1); }
+
+  Group40Var1();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group40Var1&);
+  static bool Write(const Group40Var1&, openpal::WSlice&);
+
+  typedef int32_t ValueType;
+  uint8_t flags;
+  int32_t value;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group40Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(40,2); }
+
+  Group40Var2();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group40Var2&);
+  static bool Write(const Group40Var2&, openpal::WSlice&);
+
+  typedef int16_t ValueType;
+  uint8_t flags;
+  int16_t value;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group40Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(40,3); }
+
+  Group40Var3();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group40Var3&);
+  static bool Write(const Group40Var3&, openpal::WSlice&);
+
+  typedef float ValueType;
+  uint8_t flags;
+  float value;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group40Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(40,4); }
+
+  Group40Var4();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group40Var4&);
+  static bool Write(const Group40Var4&, openpal::WSlice&);
+
+  typedef double ValueType;
+  uint8_t flags;
+  double value;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 42 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group41.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group41.h"
+namespace opendnp3 {
+
+
+struct Group41Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(41,0); }
+};
+
+
+struct Group41Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(41,1); }
+
+  Group41Var1();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group41Var1&);
+  static bool Write(const Group41Var1&, openpal::WSlice&);
+
+  typedef int32_t ValueType;
+  int32_t value;
+  uint8_t status;
+
+  typedef AnalogOutputInt32 Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputInt32&);
+  static bool WriteTarget(const AnalogOutputInt32&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputInt32> Inst() { return DNP3Serializer<AnalogOutputInt32>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group41Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(41,2); }
+
+  Group41Var2();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group41Var2&);
+  static bool Write(const Group41Var2&, openpal::WSlice&);
+
+  typedef int16_t ValueType;
+  int16_t value;
+  uint8_t status;
+
+  typedef AnalogOutputInt16 Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputInt16&);
+  static bool WriteTarget(const AnalogOutputInt16&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputInt16> Inst() { return DNP3Serializer<AnalogOutputInt16>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group41Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(41,3); }
+
+  Group41Var3();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group41Var3&);
+  static bool Write(const Group41Var3&, openpal::WSlice&);
+
+  typedef float ValueType;
+  float value;
+  uint8_t status;
+
+  typedef AnalogOutputFloat32 Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputFloat32&);
+  static bool WriteTarget(const AnalogOutputFloat32&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputFloat32> Inst() { return DNP3Serializer<AnalogOutputFloat32>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group41Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(41,4); }
+
+  Group41Var4();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group41Var4&);
+  static bool Write(const Group41Var4&, openpal::WSlice&);
+
+  typedef double ValueType;
+  double value;
+  uint8_t status;
+
+  typedef AnalogOutputDouble64 Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputDouble64&);
+  static bool WriteTarget(const AnalogOutputDouble64&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputDouble64> Inst() { return DNP3Serializer<AnalogOutputDouble64>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 43 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group42.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group42.h"
+namespace opendnp3 {
+
+
+struct Group42Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(42,0); }
+};
+
+
+struct Group42Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(42,1); }
+
+  Group42Var1();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group42Var1&);
+  static bool Write(const Group42Var1&, openpal::WSlice&);
+
+  typedef int32_t ValueType;
+  uint8_t flags;
+  int32_t value;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group42Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(42,2); }
+
+  Group42Var2();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group42Var2&);
+  static bool Write(const Group42Var2&, openpal::WSlice&);
+
+  typedef int16_t ValueType;
+  uint8_t flags;
+  int16_t value;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group42Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(42,3); }
+
+  Group42Var3();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group42Var3&);
+  static bool Write(const Group42Var3&, openpal::WSlice&);
+
+  typedef int32_t ValueType;
+  uint8_t flags;
+  int32_t value;
+  DNPTime time;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group42Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(42,4); }
+
+  Group42Var4();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group42Var4&);
+  static bool Write(const Group42Var4&, openpal::WSlice&);
+
+  typedef int16_t ValueType;
+  uint8_t flags;
+  int16_t value;
+  DNPTime time;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group42Var5
+{
+  static GroupVariationID ID() { return GroupVariationID(42,5); }
+
+  Group42Var5();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group42Var5&);
+  static bool Write(const Group42Var5&, openpal::WSlice&);
+
+  typedef float ValueType;
+  uint8_t flags;
+  float value;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group42Var6
+{
+  static GroupVariationID ID() { return GroupVariationID(42,6); }
+
+  Group42Var6();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group42Var6&);
+  static bool Write(const Group42Var6&, openpal::WSlice&);
+
+  typedef double ValueType;
+  uint8_t flags;
+  double value;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group42Var7
+{
+  static GroupVariationID ID() { return GroupVariationID(42,7); }
+
+  Group42Var7();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group42Var7&);
+  static bool Write(const Group42Var7&, openpal::WSlice&);
+
+  typedef float ValueType;
+  uint8_t flags;
+  float value;
+  DNPTime time;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group42Var8
+{
+  static GroupVariationID ID() { return GroupVariationID(42,8); }
+
+  Group42Var8();
+
+  static uint32_t Size() { return 15; }
+  static bool Read(openpal::RSlice&, Group42Var8&);
+  static bool Write(const Group42Var8&, openpal::WSlice&);
+
+  typedef double ValueType;
+  uint8_t flags;
+  double value;
+  DNPTime time;
+
+  typedef AnalogOutputStatus Target;
+  typedef AnalogOutputStatusSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, AnalogOutputStatus&);
+  static bool WriteTarget(const AnalogOutputStatus&, openpal::WSlice&);
+  static DNP3Serializer<AnalogOutputStatus> Inst() { return DNP3Serializer<AnalogOutputStatus>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 44 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group43.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group43.h"
+namespace opendnp3 {
+
+
+struct Group43Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(43,1); }
+
+  Group43Var1();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group43Var1&);
+  static bool Write(const Group43Var1&, openpal::WSlice&);
+
+  typedef int32_t ValueType;
+  uint8_t status;
+  int32_t value;
+
+  typedef AnalogCommandEvent Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogCommandEvent&);
+  static bool WriteTarget(const AnalogCommandEvent&, openpal::WSlice&);
+  static DNP3Serializer<AnalogCommandEvent> Inst() { return DNP3Serializer<AnalogCommandEvent>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group43Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(43,2); }
+
+  Group43Var2();
+
+  static uint32_t Size() { return 3; }
+  static bool Read(openpal::RSlice&, Group43Var2&);
+  static bool Write(const Group43Var2&, openpal::WSlice&);
+
+  typedef int16_t ValueType;
+  uint8_t status;
+  int16_t value;
+
+  typedef AnalogCommandEvent Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogCommandEvent&);
+  static bool WriteTarget(const AnalogCommandEvent&, openpal::WSlice&);
+  static DNP3Serializer<AnalogCommandEvent> Inst() { return DNP3Serializer<AnalogCommandEvent>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group43Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(43,3); }
+
+  Group43Var3();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group43Var3&);
+  static bool Write(const Group43Var3&, openpal::WSlice&);
+
+  typedef int32_t ValueType;
+  uint8_t status;
+  int32_t value;
+  DNPTime time;
+
+  typedef AnalogCommandEvent Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogCommandEvent&);
+  static bool WriteTarget(const AnalogCommandEvent&, openpal::WSlice&);
+  static DNP3Serializer<AnalogCommandEvent> Inst() { return DNP3Serializer<AnalogCommandEvent>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group43Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(43,4); }
+
+  Group43Var4();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group43Var4&);
+  static bool Write(const Group43Var4&, openpal::WSlice&);
+
+  typedef int16_t ValueType;
+  uint8_t status;
+  int16_t value;
+  DNPTime time;
+
+  typedef AnalogCommandEvent Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogCommandEvent&);
+  static bool WriteTarget(const AnalogCommandEvent&, openpal::WSlice&);
+  static DNP3Serializer<AnalogCommandEvent> Inst() { return DNP3Serializer<AnalogCommandEvent>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group43Var5
+{
+  static GroupVariationID ID() { return GroupVariationID(43,5); }
+
+  Group43Var5();
+
+  static uint32_t Size() { return 5; }
+  static bool Read(openpal::RSlice&, Group43Var5&);
+  static bool Write(const Group43Var5&, openpal::WSlice&);
+
+  typedef float ValueType;
+  uint8_t status;
+  float value;
+
+  typedef AnalogCommandEvent Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogCommandEvent&);
+  static bool WriteTarget(const AnalogCommandEvent&, openpal::WSlice&);
+  static DNP3Serializer<AnalogCommandEvent> Inst() { return DNP3Serializer<AnalogCommandEvent>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group43Var6
+{
+  static GroupVariationID ID() { return GroupVariationID(43,6); }
+
+  Group43Var6();
+
+  static uint32_t Size() { return 9; }
+  static bool Read(openpal::RSlice&, Group43Var6&);
+  static bool Write(const Group43Var6&, openpal::WSlice&);
+
+  typedef double ValueType;
+  uint8_t status;
+  double value;
+
+  typedef AnalogCommandEvent Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogCommandEvent&);
+  static bool WriteTarget(const AnalogCommandEvent&, openpal::WSlice&);
+  static DNP3Serializer<AnalogCommandEvent> Inst() { return DNP3Serializer<AnalogCommandEvent>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group43Var7
+{
+  static GroupVariationID ID() { return GroupVariationID(43,7); }
+
+  Group43Var7();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group43Var7&);
+  static bool Write(const Group43Var7&, openpal::WSlice&);
+
+  typedef float ValueType;
+  uint8_t status;
+  float value;
+  DNPTime time;
+
+  typedef AnalogCommandEvent Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogCommandEvent&);
+  static bool WriteTarget(const AnalogCommandEvent&, openpal::WSlice&);
+  static DNP3Serializer<AnalogCommandEvent> Inst() { return DNP3Serializer<AnalogCommandEvent>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group43Var8
+{
+  static GroupVariationID ID() { return GroupVariationID(43,8); }
+
+  Group43Var8();
+
+  static uint32_t Size() { return 15; }
+  static bool Read(openpal::RSlice&, Group43Var8&);
+  static bool Write(const Group43Var8&, openpal::WSlice&);
+
+  typedef double ValueType;
+  uint8_t status;
+  double value;
+  DNPTime time;
+
+  typedef AnalogCommandEvent Target;
+  static bool ReadTarget(openpal::RSlice&, AnalogCommandEvent&);
+  static bool WriteTarget(const AnalogCommandEvent&, openpal::WSlice&);
+  static DNP3Serializer<AnalogCommandEvent> Inst() { return DNP3Serializer<AnalogCommandEvent>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 45 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group50.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group50.h"
+namespace opendnp3 {
+
+
+struct Group50Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(50,1); }
+
+  Group50Var1();
+
+  static uint32_t Size() { return 6; }
+  static bool Read(openpal::RSlice&, Group50Var1&);
+  static bool Write(const Group50Var1&, openpal::WSlice&);
+
+  DNPTime time;
+};
+
+
+struct Group50Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(50,4); }
+
+  Group50Var4();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group50Var4&);
+  static bool Write(const Group50Var4&, openpal::WSlice&);
+
+  DNPTime time;
+  uint32_t interval;
+  uint8_t units;
+
+  typedef TimeAndInterval Target;
+  typedef TimeAndIntervalSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, TimeAndInterval&);
+  static bool WriteTarget(const TimeAndInterval&, openpal::WSlice&);
+  static DNP3Serializer<TimeAndInterval> Inst() { return DNP3Serializer<TimeAndInterval>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 46 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group121.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group121.h"
+namespace opendnp3 {
+
+
+struct Group121Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(121,0); }
+};
+
+
+struct Group121Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(121,1); }
+
+  Group121Var1();
+
+  static uint32_t Size() { return 7; }
+  static bool Read(openpal::RSlice&, Group121Var1&);
+  static bool Write(const Group121Var1&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint16_t assocId;
+  uint32_t value;
+
+  typedef SecurityStat Target;
+  typedef SecurityStatSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, SecurityStat&);
+  static bool WriteTarget(const SecurityStat&, openpal::WSlice&);
+  static DNP3Serializer<SecurityStat> Inst() { return DNP3Serializer<SecurityStat>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 47 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group122.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group122.h"
+namespace opendnp3 {
+
+
+struct Group122Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(122,0); }
+};
+
+
+struct Group122Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(122,1); }
+
+  Group122Var1();
+
+  static uint32_t Size() { return 7; }
+  static bool Read(openpal::RSlice&, Group122Var1&);
+  static bool Write(const Group122Var1&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint16_t assocId;
+  uint32_t value;
+
+  typedef SecurityStat Target;
+  typedef SecurityStatSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, SecurityStat&);
+  static bool WriteTarget(const SecurityStat&, openpal::WSlice&);
+  static DNP3Serializer<SecurityStat> Inst() { return DNP3Serializer<SecurityStat>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group122Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(122,2); }
+
+  Group122Var2();
+
+  static uint32_t Size() { return 13; }
+  static bool Read(openpal::RSlice&, Group122Var2&);
+  static bool Write(const Group122Var2&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint16_t assocId;
+  uint32_t value;
+  DNPTime time;
+
+  typedef SecurityStat Target;
+  typedef SecurityStatSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, SecurityStat&);
+  static bool WriteTarget(const SecurityStat&, openpal::WSlice&);
+  static DNP3Serializer<SecurityStat> Inst() { return DNP3Serializer<SecurityStat>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 48 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/WriteConversions.h" 2
+
+namespace opendnp3
+{
+
+
+typedef ConvertQ<Group1Var2, Binary> ConvertGroup1Var2;
+
+
+typedef ConvertQ<Group2Var1, Binary> ConvertGroup2Var1;
+typedef ConvertQT<Group2Var2, Binary> ConvertGroup2Var2;
+typedef ConvertQTDowncast<Group2Var3, Binary, uint16_t> ConvertGroup2Var3;
+
+
+typedef ConvertQ<Group3Var2, DoubleBitBinary> ConvertGroup3Var2;
+
+
+typedef ConvertQ<Group4Var1, DoubleBitBinary> ConvertGroup4Var1;
+typedef ConvertQT<Group4Var2, DoubleBitBinary> ConvertGroup4Var2;
+typedef ConvertQTDowncast<Group4Var3, DoubleBitBinary, uint16_t> ConvertGroup4Var3;
+
+
+typedef ConvertQ<Group10Var2, BinaryOutputStatus> ConvertGroup10Var2;
+
+
+typedef ConvertQ<Group11Var1, BinaryOutputStatus> ConvertGroup11Var1;
+typedef ConvertQT<Group11Var2, BinaryOutputStatus> ConvertGroup11Var2;
+
+
+struct ConvertGroup12Var1 : private openpal::StaticOnly
+{
+ static Group12Var1 Apply(const ControlRelayOutputBlock& crob)
+ {
+  Group12Var1 ret;
+  ret.code = crob.rawCode;
+  ret.count = crob.count;
+  ret.onTime = crob.onTimeMS;
+  ret.offTime = crob.offTimeMS;
+  ret.status = CommandStatusToType(crob.status);
+  return ret;
+ }
+};
+
+
+struct ConvertGroup13Var1 : private openpal::StaticOnly
+{
+ static Group13Var1 Apply(const BinaryCommandEvent& ev)
+ {
+  Group13Var1 ret;
+  ret.flags = ev.GetFlags().value;
+  return ret;
+ }
+};
+
+struct ConvertGroup13Var2 : private openpal::StaticOnly
+{
+ static Group13Var2 Apply(const BinaryCommandEvent& ev)
+ {
+  Group13Var2 ret;
+  ret.flags = ev.GetFlags().value;
+  ret.time = ev.time;
+  return ret;
+ }
+};
+
+
+typedef ConvertQV<Group20Var1, Counter> ConvertGroup20Var1;
+typedef ConvertQVandTruncate<Group20Var2, Counter> ConvertGroup20Var2;
+
+typedef ConvertV<Group20Var5, Counter> ConvertGroup20Var5;
+typedef ConvertVandTruncate<Group20Var6, Counter> ConvertGroup20Var6;
+
+
+typedef ConvertQV<Group21Var1, FrozenCounter> ConvertGroup21Var1;
+typedef ConvertQVandTruncate<Group21Var2, FrozenCounter> ConvertGroup21Var2;
+
+typedef ConvertQVT<Group21Var5, FrozenCounter> ConvertGroup21Var5;
+typedef ConvertQVTandTruncate<Group21Var6, FrozenCounter> ConvertGroup21Var6;
+
+typedef ConvertV<Group21Var9, FrozenCounter> ConvertGroup21Var9;
+typedef ConvertVandTruncate<Group21Var10, FrozenCounter> ConvertGroup21Var10;
+
+
+typedef ConvertQV<Group22Var1, Counter> ConvertGroup22Var1;
+typedef ConvertQVandTruncate<Group22Var2, Counter> ConvertGroup22Var2;
+
+typedef ConvertQVT<Group22Var5, Counter> ConvertGroup22Var5;
+typedef ConvertQVTandTruncate<Group22Var6, Counter> ConvertGroup22Var6;
+
+
+typedef ConvertQV<Group23Var1, FrozenCounter> ConvertGroup23Var1;
+typedef ConvertQVandTruncate<Group23Var2, FrozenCounter> ConvertGroup23Var2;
+typedef ConvertQVT<Group23Var5, FrozenCounter> ConvertGroup23Var5;
+typedef ConvertQVTandTruncate<Group23Var6, FrozenCounter> ConvertGroup23Var6;
+
+
+typedef ConvertQVRangeCheck<Group30Var1, Analog, 0x20> ConvertGroup30Var1;
+typedef ConvertQVRangeCheck<Group30Var2, Analog, 0x20> ConvertGroup30Var2;
+typedef ConvertVRangeCheck<Group30Var3, Analog> ConvertGroup30Var3;
+typedef ConvertVRangeCheck<Group30Var4, Analog> ConvertGroup30Var4;
+typedef ConvertQVRangeCheck<Group30Var5, Analog, 0x20> ConvertGroup30Var5;
+typedef ConvertQV<Group30Var6, Analog> ConvertGroup30Var6;
+
+
+typedef ConvertQVRangeCheck<Group32Var1, Analog, 0x20> ConvertGroup32Var1;
+typedef ConvertQVRangeCheck<Group32Var2, Analog, 0x20> ConvertGroup32Var2;
+typedef ConvertQVTRangeCheck<Group32Var3, Analog, 0x20> ConvertGroup32Var3;
+typedef ConvertQVTRangeCheck<Group32Var4, Analog, 0x20> ConvertGroup32Var4;
+typedef ConvertQVRangeCheck<Group32Var5, Analog, 0x20> ConvertGroup32Var5;
+typedef ConvertQV<Group32Var6, Analog> ConvertGroup32Var6;
+typedef ConvertQVTRangeCheck<Group32Var7, Analog, 0x20> ConvertGroup32Var7;
+typedef ConvertQVT<Group32Var8, Analog> ConvertGroup32Var8;
+
+typedef ConvertQVRangeCheck<Group40Var1, AnalogOutputStatus, 0x20> ConvertGroup40Var1;
+typedef ConvertQVRangeCheck<Group40Var2, AnalogOutputStatus, 0x20> ConvertGroup40Var2;
+typedef ConvertQVRangeCheck<Group40Var3, AnalogOutputStatus, 0x20> ConvertGroup40Var3;
+typedef ConvertQV<Group40Var4, AnalogOutputStatus> ConvertGroup40Var4;
+
+
+typedef ConvertQS<Group41Var1, AnalogOutputInt32> ConvertGroup41Var1;
+typedef ConvertQS<Group41Var2, AnalogOutputInt16> ConvertGroup41Var2;
+typedef ConvertQS<Group41Var3, AnalogOutputFloat32> ConvertGroup41Var3;
+typedef ConvertQS<Group41Var4, AnalogOutputDouble64> ConvertGroup41Var4;
+
+
+typedef ConvertQVRangeCheck<Group42Var1, AnalogOutputStatus, 0x20> ConvertGroup42Var1;
+typedef ConvertQVRangeCheck<Group42Var2, AnalogOutputStatus, 0x20> ConvertGroup42Var2;
+typedef ConvertQVTRangeCheck<Group42Var3, AnalogOutputStatus, 0x20> ConvertGroup42Var3;
+typedef ConvertQVTRangeCheck<Group42Var4, AnalogOutputStatus, 0x20> ConvertGroup42Var4;
+typedef ConvertQVRangeCheck<Group42Var5, AnalogOutputStatus, 0x20> ConvertGroup42Var5;
+typedef ConvertQV<Group42Var6, AnalogOutputStatus> ConvertGroup42Var6;
+typedef ConvertQVTRangeCheck<Group42Var7, AnalogOutputStatus, 0x20> ConvertGroup42Var7;
+typedef ConvertQVT<Group42Var8, AnalogOutputStatus> ConvertGroup42Var8;
+
+
+template <class Target>
+struct ConvertGroup43RangeCheck : private openpal::StaticOnly
+{
+ static Target Apply(const AnalogCommandEvent& src)
+ {
+  Target t;
+  DownSampling<double, typename Target::ValueType>::Apply(src.value, t.value);
+  t.status = CommandStatusToType(src.status);
+  return t;
+ }
+};
+
+template <class Target>
+struct ConvertGroup43WithTimeRangeCheck : private openpal::StaticOnly
+{
+ static Target Apply(const AnalogCommandEvent& src)
+ {
+  Target t;
+  DownSampling<double, typename Target::ValueType>::Apply(src.value, t.value);
+  t.status = CommandStatusToType(src.status);
+  t.time = src.time;
+  return t;
+ }
+};
+
+typedef ConvertGroup43RangeCheck<Group43Var1> ConvertGroup43Var1;
+typedef ConvertGroup43RangeCheck<Group43Var2> ConvertGroup43Var2;
+typedef ConvertGroup43WithTimeRangeCheck<Group43Var3> ConvertGroup43Var3;
+typedef ConvertGroup43WithTimeRangeCheck<Group43Var4> ConvertGroup43Var4;
+typedef ConvertGroup43RangeCheck<Group43Var5> ConvertGroup43Var5;
+
+struct ConvertGroup43Var6 : private openpal::StaticOnly
+{
+ static Group43Var6 Apply(const AnalogCommandEvent& src)
+ {
+  Group43Var6 t;
+  t.value = src.value;
+  t.status = CommandStatusToType(src.status);
+  return t;
+ }
+};
+
+typedef ConvertGroup43WithTimeRangeCheck<Group43Var7> ConvertGroup43Var7;
+
+struct ConvertGroup43Var8 : private openpal::StaticOnly
+{
+ static Group43Var8 Apply(const AnalogCommandEvent& src)
+ {
+  Group43Var8 t;
+  t.value = src.value;
+  t.status = CommandStatusToType(src.status);
+  t.time = src.time;
+  return t;
+ }
+};
+
+
+struct ConvertGroup50Var4 : private openpal::StaticOnly
+{
+ static Group50Var4 Apply(const TimeAndInterval& value)
+ {
+  Group50Var4 ret;
+  ret.time = value.time;
+  ret.interval = value.interval;
+  ret.units = value.units;
+  return ret;
+ }
+};
+
+
+struct ConvertGroup121Var1 : private openpal::StaticOnly
+{
+ static Group121Var1 Apply(const SecurityStat& value)
+ {
+  Group121Var1 ret;
+  ret.flags = value.quality;
+  ret.assocId = value.value.assocId;
+  ret.value = value.value.count;
+  return ret;
+ }
+};
+
+
+struct ConvertGroup122Var1 : private openpal::StaticOnly
+{
+ static Group122Var1 Apply(const SecurityStat& value)
+ {
+  Group122Var1 ret;
+  ret.flags = value.quality;
+  ret.assocId = value.value.assocId;
+  ret.value = value.value.count;
+  return ret;
+ }
+};
+
+struct ConvertGroup122Var2 : private openpal::StaticOnly
+{
+ static Group122Var2 Apply(const SecurityStat& value)
+ {
+  Group122Var2 ret;
+  ret.flags = value.quality;
+  ret.assocId = value.value.assocId;
+  ret.value = value.value.count;
+  ret.time = value.time;
+  return ret;
+ }
+};
+
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/objects/Group12.cpp" 2
+
+using namespace openpal;
+
+namespace opendnp3 {
+
+
+
+Group12Var1::Group12Var1() : code(0), count(0), onTime(0), offTime(0), status(0)
+{}
+
+bool Group12Var1::Read(RSlice& buffer, Group12Var1& output)
+{
+  return Parse::Many(buffer, output.code, output.count, output.onTime, output.offTime, output.status);
+}
+
+bool Group12Var1::Write(const Group12Var1& arg, openpal::WSlice& buffer)
+{
+  return Format::Many(buffer, arg.code, arg.count, arg.onTime, arg.offTime, arg.status);
+}
+
+bool Group12Var1::ReadTarget(RSlice& buff, ControlRelayOutputBlock& output)
+{
+  Group12Var1 value;
+  if(Read(buff, value))
+  {
+    output = ControlRelayOutputBlockFactory::From(value.code, value.count, value.onTime, value.offTime, value.status);
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+bool Group12Var1::WriteTarget(const ControlRelayOutputBlock& value, openpal::WSlice& buff)
+{
+  return Group12Var1::Write(ConvertGroup12Var1::Apply(value), buff);
+}
+
+
+}

@@ -1,0 +1,755 @@
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/RequestHistory.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/RequestHistory.cpp"
+# 21 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/RequestHistory.cpp"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/RequestHistory.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/RequestHistory.h"
+# 1 "/usr/include/c++/6/cstdint" 1 3
+# 32 "/usr/include/c++/6/cstdint" 3
+       
+# 33 "/usr/include/c++/6/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 1 3
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  typedef unsigned int size_t;
+  typedef int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 221 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 507 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 1 3
+# 39 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 364 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 1 3 4
+# 415 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 416 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 2 3 4
+# 365 "/usr/include/features.h" 2 3 4
+# 388 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h" 1 3 4
+# 11 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 2 3 4
+# 389 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 2 3
+# 508 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/cpu_defines.h" 1 3
+# 511 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/6/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wchar.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
+
+
+
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
+
+
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
+
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+
+
+
+__extension__
+typedef long long int int_least64_t;
+
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+
+
+__extension__
+typedef unsigned long long int uint_least64_t;
+
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+
+
+
+
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+
+
+
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+# 125 "/usr/include/stdint.h" 3 4
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/6/cstdint" 2 3
+
+
+
+
+namespace std
+{
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/RequestHistory.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUHeader.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUHeader.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FunctionCode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FunctionCode.h"
+
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FunctionCode.h"
+namespace opendnp3 {
+
+
+
+
+enum class FunctionCode : uint8_t
+{
+
+  CONFIRM = 0x0,
+
+  READ = 0x1,
+
+  WRITE = 0x2,
+
+  SELECT = 0x3,
+
+  OPERATE = 0x4,
+
+  DIRECT_OPERATE = 0x5,
+
+  DIRECT_OPERATE_NR = 0x6,
+
+  IMMED_FREEZE = 0x7,
+
+  IMMED_FREEZE_NR = 0x8,
+
+  FREEZE_CLEAR = 0x9,
+
+  FREEZE_CLEAR_NR = 0xA,
+
+  FREEZE_AT_TIME = 0xB,
+
+  FREEZE_AT_TIME_NR = 0xC,
+
+  COLD_RESTART = 0xD,
+
+  WARM_RESTART = 0xE,
+
+  INITIALIZE_DATA = 0xF,
+
+  INITIALIZE_APPLICATION = 0x10,
+
+  START_APPLICATION = 0x11,
+
+  STOP_APPLICATION = 0x12,
+
+  SAVE_CONFIGURATION = 0x13,
+
+  ENABLE_UNSOLICITED = 0x14,
+
+  DISABLE_UNSOLICITED = 0x15,
+
+  ASSIGN_CLASS = 0x16,
+
+  DELAY_MEASURE = 0x17,
+
+  RECORD_CURRENT_TIME = 0x18,
+
+  OPEN_FILE = 0x19,
+
+  CLOSE_FILE = 0x1A,
+
+  DELETE_FILE = 0x1B,
+
+  GET_FILE_INFO = 0x1C,
+
+  AUTHENTICATE_FILE = 0x1D,
+
+  ABORT_FILE = 0x1E,
+
+  AUTH_REQUEST = 0x20,
+
+  AUTH_REQUEST_NO_ACK = 0x21,
+
+  RESPONSE = 0x81,
+
+  UNSOLICITED_RESPONSE = 0x82,
+
+  AUTH_RESPONSE = 0x83,
+
+  UNKNOWN = 0xFF
+};
+
+uint8_t FunctionCodeToType(FunctionCode arg);
+FunctionCode FunctionCodeFromType(uint8_t arg);
+char const* FunctionCodeToString(FunctionCode arg);
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUHeader.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/AppControlField.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/AppControlField.h"
+namespace opendnp3
+{
+
+
+
+struct AppControlField
+{
+ const static AppControlField DEFAULT;
+
+ static AppControlField Request(uint8_t seq);
+
+ AppControlField();
+
+ explicit AppControlField(uint8_t byte);
+
+ AppControlField(bool fir, bool fin, bool con, bool uns, uint8_t seq = 0);
+
+ uint8_t ToByte() const;
+
+ bool IsFirAndFin() const
+ {
+  return FIR && FIN;
+ }
+
+ bool FIR;
+ bool FIN;
+ bool CON;
+ bool UNS;
+ uint8_t SEQ;
+
+private:
+
+ static const uint8_t FIR_MASK = 0x80;
+ static const uint8_t FIN_MASK = 0x40;
+ static const uint8_t CON_MASK = 0x20;
+ static const uint8_t UNS_MASK = 0x10;
+ static const uint8_t SEQ_MASK = 0x0F;
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUHeader.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/IINField.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/IINField.h"
+namespace opendnp3
+{
+
+enum class IINBit
+{
+ ALL_STATIONS = 0,
+ CLASS1_EVENTS,
+ CLASS2_EVENTS,
+ CLASS3_EVENTS,
+ NEED_TIME,
+ LOCAL_CONTROL,
+ DEVICE_TROUBLE,
+ DEVICE_RESTART,
+ FUNC_NOT_SUPPORTED,
+ OBJECT_UNKNOWN,
+ PARAM_ERROR,
+ EVENT_BUFFER_OVERFLOW,
+ ALREADY_EXECUTING,
+ CONFIG_CORRUPT,
+ RESERVED1,
+ RESERVED2 = 15
+};
+
+
+
+class IINField
+{
+
+private:
+
+ enum class LSBMask : uint8_t
+ {
+  ALL_STATIONS = 0x01,
+  CLASS1_EVENTS = 0x02,
+  CLASS2_EVENTS = 0x04,
+  CLASS3_EVENTS = 0x08,
+  NEED_TIME = 0x10,
+  LOCAL_CONTROL = 0x20,
+  DEVICE_TROUBLE = 0x40,
+  DEVICE_RESTART = 0x80,
+ };
+
+ enum class MSBMask : uint8_t
+ {
+  FUNC_NOT_SUPPORTED = 0x01,
+  OBJECT_UNKNOWN = 0x02,
+  PARAM_ERROR = 0x04,
+  EVENT_BUFFER_OVERFLOW = 0x08,
+  ALREADY_EXECUTING = 0x10,
+  CONFIG_CORRUPT = 0x20,
+  RESERVED1 = 0x40,
+  RESERVED2 = 0x80,
+
+
+  REQUEST_ERROR_MASK = FUNC_NOT_SUPPORTED | OBJECT_UNKNOWN | PARAM_ERROR
+ };
+
+
+public:
+
+ static IINField Empty()
+ {
+  return IINField(0, 0);
+ }
+
+ IINField(IINBit bit) : LSB(0), MSB(0)
+ {
+  this->SetBit(bit);
+ }
+
+ IINField(uint8_t aLSB, uint8_t aMSB) : LSB(aLSB), MSB(aMSB)
+ {}
+
+ IINField() : LSB(0), MSB(0)
+ {}
+
+ bool IsSet(IINBit bit) const;
+
+ bool IsClear(IINBit bit) const
+ {
+  return !IsSet(bit);
+ }
+
+ void SetBit(IINBit bit);
+ void ClearBit(IINBit bit);
+
+ void SetBitToValue(IINBit bit, bool value);
+
+ bool operator==(const IINField& arRHS) const;
+
+ bool Any() const
+ {
+  return (LSB | MSB) != 0;
+ }
+
+ void Clear()
+ {
+  LSB = MSB = 0;
+ }
+
+ bool HasRequestError() const
+ {
+  return Get(MSBMask::REQUEST_ERROR_MASK);
+ }
+
+ IINField operator|(const IINField& aIIN) const
+ {
+  return IINField(LSB | aIIN.LSB, MSB | aIIN.MSB);
+ }
+
+ IINField& operator|=(const IINField& aIIN)
+ {
+  MSB |= aIIN.MSB;
+  LSB |= aIIN.LSB;
+  return *this;
+ }
+
+ IINField operator&(const IINField& aIIN) const
+ {
+  return IINField(LSB & aIIN.LSB, MSB & aIIN.MSB);
+ }
+
+ IINField& operator&=(const IINField& aIIN)
+ {
+  MSB &= aIIN.MSB;
+  LSB &= aIIN.LSB;
+  return *this;
+ }
+
+ IINField operator~() const
+ {
+  return IINField(~LSB, ~MSB);
+ }
+
+ uint8_t LSB;
+ uint8_t MSB;
+
+private:
+
+ static const uint8_t REQUEST_ERROR_MASK;
+
+ inline bool Get(LSBMask bit) const
+ {
+  return (LSB & static_cast<uint8_t>(bit)) != 0;
+ }
+
+ inline bool Get(MSBMask bit) const
+ {
+  return (MSB & static_cast<uint8_t>(bit)) != 0;
+ }
+
+ inline void Set(LSBMask bit)
+ {
+  LSB |= static_cast<uint8_t>(bit);
+ }
+ inline void Set(MSBMask bit)
+ {
+  MSB |= static_cast<uint8_t>(bit);
+ }
+
+ inline void Clear(LSBMask bit)
+ {
+  LSB &= ~static_cast<uint8_t>(bit);
+ }
+ inline void Clear(MSBMask bit)
+ {
+  MSB &= ~static_cast<uint8_t>(bit);
+ }
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/APDUHeader.h" 2
+
+namespace opendnp3
+{
+
+const uint32_t APDU_REQUEST_HEADER_SIZE = 2;
+const uint32_t APDU_RESPONSE_HEADER_SIZE = 4;
+
+struct APDUHeader
+{
+ static APDUHeader SolicitedConfirm(uint8_t seq);
+ static APDUHeader UnsolicitedConfirm(uint8_t seq);
+ static APDUHeader Confirm(uint8_t seq, bool unsolicited);
+
+ APDUHeader() : function(FunctionCode::UNKNOWN), control(true, true, false, false)
+ {}
+
+ explicit APDUHeader(const AppControlField& control_) : function(FunctionCode::UNKNOWN), control(control_)
+ {}
+
+ bool Equals(const APDUHeader& header) const
+ {
+  return (header.function == function) && (header.control.ToByte() == control.ToByte());
+ }
+
+ FunctionCode function;
+ AppControlField control;
+};
+
+struct APDUResponseHeader : public APDUHeader
+{
+ APDUResponseHeader(const AppControlField control_, const IINField& iin) : APDUHeader(control_), IIN(iin)
+ {}
+
+ explicit APDUResponseHeader(const IINField& iin) : IIN(iin)
+ {}
+
+ APDUResponseHeader()
+ {}
+
+ IINField IIN;
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/RequestHistory.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/HasSize.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/HasSize.h"
+namespace openpal
+{
+
+template <class SizeType>
+class HasSize
+{
+
+public:
+
+ HasSize(SizeType size_) : size(size_)
+ {}
+
+ SizeType Size() const
+ {
+  return size;
+ }
+
+ bool IsEmpty() const
+ {
+  return size == 0;
+ }
+
+ bool IsNotEmpty() const
+ {
+  return size != 0;
+ }
+
+protected:
+
+ SizeType size;
+
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 2
+
+
+
+namespace openpal
+{
+
+class WSlice;
+
+
+
+
+
+class RSlice : public HasSize<uint32_t>
+{
+
+public:
+
+ static RSlice Empty();
+
+ RSlice();
+
+ RSlice(uint8_t const* pBuffer, uint32_t size);
+
+ void Clear();
+
+ RSlice CopyTo(WSlice&) const;
+
+ RSlice Take(uint32_t count) const;
+
+ RSlice Skip(uint32_t count) const;
+
+ bool Equals(const RSlice& rhs) const;
+
+ void Advance(uint32_t count);
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+ uint8_t const* pBuffer;
+
+};
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/RequestHistory.h" 2
+
+
+namespace opendnp3
+{
+
+
+class RequestHistory
+{
+public:
+
+ RequestHistory();
+
+ bool HasLastRequest() const
+ {
+  return hasLast;
+ }
+
+ void Reset();
+ void RecordLastProcessedRequest(const APDUHeader& header, const openpal::RSlice& objects);
+
+ APDUHeader GetLastHeader() const;
+ bool EqualsLastObjects(const openpal::RSlice& objects) const;
+ bool FullyEqualsLastRequest(const APDUHeader& header, const openpal::RSlice& objects) const;
+
+private:
+
+ bool hasLast;
+ APDUHeader lastHeader;
+ uint16_t lastDigest;
+ uint32_t lastObjectsLength;
+};
+
+
+}
+# 22 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/RequestHistory.cpp" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/link/CRC.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/link/CRC.h"
+namespace opendnp3
+{
+
+class CRC
+{
+public:
+
+ static uint16_t CalcCrc(const uint8_t* input, uint32_t length);
+
+ static uint16_t CalcCrc(const openpal::RSlice& view);
+
+ static void AddCrc(uint8_t* input, uint32_t length);
+
+ static bool IsCorrectCRC(const uint8_t* input, uint32_t length);
+
+private:
+
+ static uint16_t crcTable[256];
+
+};
+
+}
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/RequestHistory.cpp" 2
+
+namespace opendnp3
+{
+
+RequestHistory::RequestHistory() :
+ hasLast(false),
+ lastDigest(0),
+ lastObjectsLength(0)
+{
+
+}
+
+void RequestHistory::Reset()
+{
+ hasLast = false;
+}
+
+void RequestHistory::RecordLastProcessedRequest(const APDUHeader& header, const openpal::RSlice& objects)
+{
+ hasLast = true;
+ lastHeader = header;
+ lastObjectsLength = objects.Size();
+ lastDigest = CRC::CalcCrc(objects);
+}
+
+bool RequestHistory::FullyEqualsLastRequest(const APDUHeader& header, const openpal::RSlice& objects) const
+{
+ return lastHeader.Equals(header) && EqualsLastObjects(objects);
+}
+
+APDUHeader RequestHistory::GetLastHeader() const
+{
+ return hasLast ? lastHeader : APDUHeader();
+}
+
+bool RequestHistory::EqualsLastObjects(const openpal::RSlice& objects) const
+{
+
+ return hasLast &&
+         (lastObjectsLength == objects.Size()) &&
+         (lastDigest == CRC::CalcCrc(objects));
+}
+
+}

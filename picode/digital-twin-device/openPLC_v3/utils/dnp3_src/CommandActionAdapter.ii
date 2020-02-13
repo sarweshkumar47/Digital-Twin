@@ -1,0 +1,775 @@
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/CommandActionAdapter.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/CommandActionAdapter.cpp"
+# 21 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/CommandActionAdapter.cpp"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/CommandActionAdapter.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/CommandActionAdapter.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/ICommandAction.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/ICommandAction.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CommandStatus.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CommandStatus.h"
+# 1 "/usr/include/c++/6/cstdint" 1 3
+# 32 "/usr/include/c++/6/cstdint" 3
+       
+# 33 "/usr/include/c++/6/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 1 3
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  typedef unsigned int size_t;
+  typedef int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 221 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 507 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 1 3
+# 39 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 364 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 1 3 4
+# 415 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 416 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 2 3 4
+# 365 "/usr/include/features.h" 2 3 4
+# 388 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h" 1 3 4
+# 11 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 2 3 4
+# 389 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 2 3
+# 508 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/cpu_defines.h" 1 3
+# 511 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/6/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wchar.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
+
+
+
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
+
+
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
+
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+
+
+
+__extension__
+typedef long long int int_least64_t;
+
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+
+
+__extension__
+typedef unsigned long long int uint_least64_t;
+
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+
+
+
+
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+
+
+
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+# 125 "/usr/include/stdint.h" 3 4
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/6/cstdint" 2 3
+
+
+
+
+namespace std
+{
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CommandStatus.h" 2
+
+
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CommandStatus.h"
+namespace opendnp3 {
+
+
+
+
+
+enum class CommandStatus : uint8_t
+{
+
+  SUCCESS = 0,
+
+  TIMEOUT = 1,
+
+  NO_SELECT = 2,
+
+  FORMAT_ERROR = 3,
+
+  NOT_SUPPORTED = 4,
+
+  ALREADY_ACTIVE = 5,
+
+  HARDWARE_ERROR = 6,
+
+  LOCAL = 7,
+
+  TOO_MANY_OPS = 8,
+
+  NOT_AUTHORIZED = 9,
+
+  AUTOMATION_INHIBIT = 10,
+
+  PROCESSING_LIMITED = 11,
+
+  OUT_OF_RANGE = 12,
+
+  DOWNSTREAM_LOCAL = 13,
+
+  ALREADY_COMPLETE = 14,
+
+  BLOCKED = 15,
+
+  CANCELLED = 16,
+
+  BLOCKED_OTHER_MASTER = 17,
+
+  DOWNSTREAM_FAIL = 18,
+
+  NON_PARTICIPATING = 126,
+
+  UNDEFINED = 127
+};
+
+uint8_t CommandStatusToType(CommandStatus arg);
+CommandStatus CommandStatusFromType(uint8_t arg);
+char const* CommandStatusToString(CommandStatus arg);
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ControlCode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ControlCode.h"
+namespace opendnp3 {
+
+
+
+
+
+enum class ControlCode : uint8_t
+{
+
+  NUL = 0x0,
+
+  NUL_CANCEL = 0x20,
+
+  PULSE_ON = 0x1,
+
+  PULSE_ON_CANCEL = 0x21,
+
+  PULSE_OFF = 0x2,
+
+  PULSE_OFF_CANCEL = 0x22,
+
+  LATCH_ON = 0x3,
+
+  LATCH_ON_CANCEL = 0x23,
+
+  LATCH_OFF = 0x4,
+
+  LATCH_OFF_CANCEL = 0x24,
+
+  CLOSE_PULSE_ON = 0x41,
+
+  CLOSE_PULSE_ON_CANCEL = 0x61,
+
+  TRIP_PULSE_ON = 0x81,
+
+  TRIP_PULSE_ON_CANCEL = 0xA1,
+
+  UNDEFINED = 0xFF
+};
+
+uint8_t ControlCodeToType(ControlCode arg);
+ControlCode ControlCodeFromType(uint8_t arg);
+char const* ControlCodeToString(ControlCode arg);
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h" 2
+
+namespace opendnp3
+{
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h"
+class ControlRelayOutputBlock
+{
+public:
+
+
+ ControlRelayOutputBlock(
+     ControlCode code = ControlCode::LATCH_ON,
+     uint8_t count = 1,
+     uint32_t onTime = 100,
+     uint32_t offTime = 100,
+     CommandStatus status = CommandStatus::SUCCESS);
+
+
+ ControlRelayOutputBlock(
+     uint8_t rawCode,
+     uint8_t count = 1,
+     uint32_t onTime = 100,
+     uint32_t offTime = 100,
+     CommandStatus status = CommandStatus::SUCCESS);
+
+
+ ControlCode functionCode;
+
+ uint8_t rawCode;
+
+ uint8_t count;
+
+ uint32_t onTimeMS;
+
+ uint32_t offTimeMS;
+
+ CommandStatus status;
+
+ bool ValuesEqual(const ControlRelayOutputBlock& lhs) const
+ {
+  return (functionCode == lhs.functionCode) &&
+         (count == lhs.count) &&
+         (onTimeMS == lhs.onTimeMS) &&
+         (offTimeMS == lhs.offTimeMS);
+ }
+
+ bool operator==(const ControlRelayOutputBlock& lhs) const
+ {
+  return this->ValuesEqual(lhs) && (this->status == lhs.status);
+ }
+};
+
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/ICommandAction.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/AnalogOutput.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/AnalogOutput.h"
+namespace opendnp3
+{
+
+
+
+
+
+template <class T>
+class AnalogOutput
+{
+public:
+
+ AnalogOutput() :
+  value(0),
+  status(CommandStatus::SUCCESS)
+ {}
+
+ AnalogOutput(T value_) :
+  value(value_),
+  status(CommandStatus::SUCCESS)
+ {}
+
+ AnalogOutput(T value_, CommandStatus status_) :
+  value(value_),
+  status(status_)
+ {}
+
+ bool ValuesEqual(const AnalogOutput<T>& lhs) const
+ {
+  return value == lhs.value;
+ }
+
+ T value;
+
+
+
+
+ CommandStatus status;
+};
+
+
+
+
+class AnalogOutputInt16 : public AnalogOutput<int16_t>
+{
+public:
+
+ AnalogOutputInt16();
+ AnalogOutputInt16(int16_t);
+ AnalogOutputInt16(int16_t, CommandStatus);
+
+ bool operator==(const AnalogOutputInt16& arRHS) const;
+};
+
+
+
+
+class AnalogOutputInt32 : public AnalogOutput<int32_t>
+{
+public:
+
+ AnalogOutputInt32();
+ AnalogOutputInt32(int32_t);
+ AnalogOutputInt32(int32_t, CommandStatus);
+
+ bool operator==(const AnalogOutputInt32& arRHS) const;
+};
+
+
+
+
+class AnalogOutputFloat32 : public AnalogOutput<float>
+{
+public:
+
+ AnalogOutputFloat32();
+ AnalogOutputFloat32(float);
+ AnalogOutputFloat32(float, CommandStatus);
+
+ bool operator==(const AnalogOutputFloat32& arRHS) const;
+};
+
+
+
+
+class AnalogOutputDouble64 : public AnalogOutput<double>
+{
+public:
+
+ AnalogOutputDouble64();
+ AnalogOutputDouble64(double);
+ AnalogOutputDouble64(double, CommandStatus);
+
+ bool operator==(const AnalogOutputDouble64& arRHS) const;
+};
+
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/ICommandAction.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class ICommandAction
+{
+public:
+ virtual ~ICommandAction() {}
+
+ virtual CommandStatus Action(const ControlRelayOutputBlock& arCommand, uint16_t aIndex) = 0;
+
+ virtual CommandStatus Action(const AnalogOutputInt16& arCommand, uint16_t aIndex) = 0;
+
+ virtual CommandStatus Action(const AnalogOutputInt32& arCommand, uint16_t aIndex) = 0;
+
+ virtual CommandStatus Action(const AnalogOutputFloat32& arCommand, uint16_t aIndex) = 0;
+
+ virtual CommandStatus Action(const AnalogOutputDouble64& arCommand, uint16_t aIndex) = 0;
+
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/CommandActionAdapter.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ITransactable.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ITransactable.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h"
+namespace openpal
+{
+
+
+
+class Uncopyable
+{
+protected:
+ Uncopyable() {}
+ ~Uncopyable() {}
+
+private:
+
+ Uncopyable(const Uncopyable&) = delete;
+ Uncopyable& operator=(const Uncopyable&) = delete;
+};
+
+class StaticOnly
+{
+
+private:
+
+ StaticOnly() = delete;
+ StaticOnly(const StaticOnly&) = delete;
+ StaticOnly& operator=(const StaticOnly&) = delete;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ITransactable.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class ITransactable
+{
+public:
+
+ friend class Transaction;
+ virtual ~ITransactable() {}
+
+protected:
+
+ virtual void Start() = 0;
+ virtual void End() = 0;
+};
+
+
+
+
+class Transaction : private openpal::Uncopyable
+{
+public:
+
+ Transaction(ITransactable& transactable) : pTransactable(&transactable)
+ {
+  pTransactable->Start();
+ }
+
+ Transaction(ITransactable* pTransactable_) : pTransactable(pTransactable_)
+ {
+  if (pTransactable)
+  {
+   pTransactable->Start();
+  }
+ }
+
+ ~Transaction()
+ {
+  if (pTransactable)
+  {
+   pTransactable->End();
+  }
+ }
+
+ static void Start(ITransactable* t)
+ {
+  if (t)
+  {
+   t->Start();
+  }
+ }
+ static void End(ITransactable* t)
+ {
+  if (t)
+  {
+   t->End();
+  }
+ }
+
+ template <class ReturnType, class TransactionType, class Fun>
+ static ReturnType Apply(TransactionType& transactable, const Fun& fun)
+ {
+  Transaction t(transactable);
+  return fun(transactable);
+ }
+
+private:
+ ITransactable* pTransactable;
+
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/OperateType.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/OperateType.h"
+namespace opendnp3 {
+
+
+
+
+enum class OperateType : uint8_t
+{
+
+  SelectBeforeOperate = 0x0,
+
+  DirectOperate = 0x1,
+
+  DirectOperateNoAck = 0x2
+};
+
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+
+
+class ICommandHandler : public ITransactable
+{
+public:
+ virtual ~ICommandHandler() {}
+# 49 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+ virtual CommandStatus Select(const ControlRelayOutputBlock& command, uint16_t index) = 0;
+# 59 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+ virtual CommandStatus Operate(const ControlRelayOutputBlock& command, uint16_t index, OperateType opType) = 0;
+# 69 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+ virtual CommandStatus Select(const AnalogOutputInt16& command, uint16_t index) = 0;
+# 79 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+ virtual CommandStatus Operate(const AnalogOutputInt16& command, uint16_t index, OperateType opType) = 0;
+# 89 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+ virtual CommandStatus Select(const AnalogOutputInt32& command, uint16_t index) = 0;
+# 99 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+ virtual CommandStatus Operate(const AnalogOutputInt32& command, uint16_t index, OperateType opType) = 0;
+# 108 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+ virtual CommandStatus Select(const AnalogOutputFloat32& command, uint16_t index) = 0;
+# 118 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+ virtual CommandStatus Operate(const AnalogOutputFloat32& command, uint16_t index, OperateType opType) = 0;
+# 127 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+ virtual CommandStatus Select(const AnalogOutputDouble64& command, uint16_t index) = 0;
+# 137 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/ICommandHandler.h"
+ virtual CommandStatus Operate(const AnalogOutputDouble64& command, uint16_t index, OperateType opType) = 0;
+
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/CommandActionAdapter.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class CommandActionAdapter : public ICommandAction
+{
+
+public:
+
+ CommandActionAdapter(ICommandHandler* handler, bool isSelect, OperateType opType);
+
+ ~CommandActionAdapter();
+
+ virtual CommandStatus Action(const ControlRelayOutputBlock& command, uint16_t index) final;
+
+ virtual CommandStatus Action(const AnalogOutputInt16& command, uint16_t index) final;
+
+ virtual CommandStatus Action(const AnalogOutputInt32& command, uint16_t index) final;
+
+ virtual CommandStatus Action(const AnalogOutputFloat32& command, uint16_t index) final;
+
+ virtual CommandStatus Action(const AnalogOutputDouble64& command, uint16_t index) final;
+
+private:
+
+ template <class T>
+ CommandStatus ActionT(const T& command, uint16_t index)
+ {
+  this->CheckStart();
+  return m_isSelect ? m_handler->Select(command, index) : m_handler->Operate(command, index, m_opType);
+ }
+
+ void CheckStart();
+
+ ICommandHandler* m_handler;
+ bool m_isSelect;
+ OperateType m_opType;
+ bool m_isStarted;
+
+};
+
+}
+# 22 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/outstation/CommandActionAdapter.cpp" 2
+
+
+
+namespace opendnp3
+{
+
+CommandActionAdapter::CommandActionAdapter(ICommandHandler* handler, bool isSelect, OperateType opType) :
+ m_handler(handler),
+ m_isSelect(isSelect),
+ m_opType(opType),
+ m_isStarted(false)
+{}
+
+CommandActionAdapter::~CommandActionAdapter()
+{
+ if (m_isStarted)
+ {
+  Transaction::End(m_handler);
+ }
+}
+
+void CommandActionAdapter::CheckStart()
+{
+ if (!m_isStarted)
+ {
+  m_isStarted = true;
+  Transaction::Start(m_handler);
+ }
+}
+
+CommandStatus CommandActionAdapter::Action(const ControlRelayOutputBlock& command, uint16_t index)
+{
+ return this->ActionT(command, index);
+}
+
+CommandStatus CommandActionAdapter::Action(const AnalogOutputInt16& command, uint16_t index)
+{
+ return this->ActionT(command, index);
+}
+
+CommandStatus CommandActionAdapter::Action(const AnalogOutputInt32& command, uint16_t index)
+{
+ return this->ActionT(command, index);
+}
+
+CommandStatus CommandActionAdapter::Action(const AnalogOutputFloat32& command, uint16_t index)
+{
+ return this->ActionT(command, index);
+}
+
+CommandStatus CommandActionAdapter::Action(const AnalogOutputDouble64& command, uint16_t index)
+{
+ return this->ActionT(command, index);
+}
+
+}

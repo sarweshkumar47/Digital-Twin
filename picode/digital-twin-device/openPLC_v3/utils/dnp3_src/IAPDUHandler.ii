@@ -1,0 +1,7849 @@
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.cpp"
+# 21 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.cpp"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/parsing/IWhiteList.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/parsing/IWhiteList.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/GroupVariation.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/GroupVariation.h"
+# 1 "/usr/include/c++/6/cstdint" 1 3
+# 32 "/usr/include/c++/6/cstdint" 3
+       
+# 33 "/usr/include/c++/6/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 1 3
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+
+# 199 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  typedef unsigned int size_t;
+  typedef int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 221 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 507 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 3
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 1 3
+# 39 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 364 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 1 3 4
+# 415 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 416 "/usr/include/arm-linux-gnueabihf/sys/cdefs.h" 2 3 4
+# 365 "/usr/include/features.h" 2 3 4
+# 388 "/usr/include/features.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h" 1 3 4
+# 11 "/usr/include/arm-linux-gnueabihf/gnu/stubs.h" 2 3 4
+# 389 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/arm-linux-gnueabihf/c++/6/bits/os_defines.h" 2 3
+# 508 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/arm-linux-gnueabihf/c++/6/bits/cpu_defines.h" 1 3
+# 511 "/usr/include/arm-linux-gnueabihf/c++/6/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/6/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wchar.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/arm-linux-gnueabihf/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
+
+
+
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
+
+
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
+
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+
+
+
+__extension__
+typedef long long int int_least64_t;
+
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+
+
+__extension__
+typedef unsigned long long int uint_least64_t;
+
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+
+
+
+
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+
+
+
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+# 125 "/usr/include/stdint.h" 3 4
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/6/cstdint" 2 3
+
+
+
+
+namespace std
+{
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/GroupVariation.h" 2
+
+
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/GroupVariation.h"
+namespace opendnp3 {
+
+
+
+
+enum class GroupVariation : uint16_t
+{
+  Group1Var0 = 0x100,
+  Group1Var1 = 0x101,
+  Group1Var2 = 0x102,
+  Group2Var0 = 0x200,
+  Group2Var1 = 0x201,
+  Group2Var2 = 0x202,
+  Group2Var3 = 0x203,
+  Group3Var0 = 0x300,
+  Group3Var1 = 0x301,
+  Group3Var2 = 0x302,
+  Group4Var0 = 0x400,
+  Group4Var1 = 0x401,
+  Group4Var2 = 0x402,
+  Group4Var3 = 0x403,
+  Group10Var0 = 0xA00,
+  Group10Var1 = 0xA01,
+  Group10Var2 = 0xA02,
+  Group11Var0 = 0xB00,
+  Group11Var1 = 0xB01,
+  Group11Var2 = 0xB02,
+  Group12Var0 = 0xC00,
+  Group12Var1 = 0xC01,
+  Group13Var1 = 0xD01,
+  Group13Var2 = 0xD02,
+  Group20Var0 = 0x1400,
+  Group20Var1 = 0x1401,
+  Group20Var2 = 0x1402,
+  Group20Var5 = 0x1405,
+  Group20Var6 = 0x1406,
+  Group21Var0 = 0x1500,
+  Group21Var1 = 0x1501,
+  Group21Var2 = 0x1502,
+  Group21Var5 = 0x1505,
+  Group21Var6 = 0x1506,
+  Group21Var9 = 0x1509,
+  Group21Var10 = 0x150A,
+  Group22Var0 = 0x1600,
+  Group22Var1 = 0x1601,
+  Group22Var2 = 0x1602,
+  Group22Var5 = 0x1605,
+  Group22Var6 = 0x1606,
+  Group23Var0 = 0x1700,
+  Group23Var1 = 0x1701,
+  Group23Var2 = 0x1702,
+  Group23Var5 = 0x1705,
+  Group23Var6 = 0x1706,
+  Group30Var0 = 0x1E00,
+  Group30Var1 = 0x1E01,
+  Group30Var2 = 0x1E02,
+  Group30Var3 = 0x1E03,
+  Group30Var4 = 0x1E04,
+  Group30Var5 = 0x1E05,
+  Group30Var6 = 0x1E06,
+  Group32Var0 = 0x2000,
+  Group32Var1 = 0x2001,
+  Group32Var2 = 0x2002,
+  Group32Var3 = 0x2003,
+  Group32Var4 = 0x2004,
+  Group32Var5 = 0x2005,
+  Group32Var6 = 0x2006,
+  Group32Var7 = 0x2007,
+  Group32Var8 = 0x2008,
+  Group40Var0 = 0x2800,
+  Group40Var1 = 0x2801,
+  Group40Var2 = 0x2802,
+  Group40Var3 = 0x2803,
+  Group40Var4 = 0x2804,
+  Group41Var0 = 0x2900,
+  Group41Var1 = 0x2901,
+  Group41Var2 = 0x2902,
+  Group41Var3 = 0x2903,
+  Group41Var4 = 0x2904,
+  Group42Var0 = 0x2A00,
+  Group42Var1 = 0x2A01,
+  Group42Var2 = 0x2A02,
+  Group42Var3 = 0x2A03,
+  Group42Var4 = 0x2A04,
+  Group42Var5 = 0x2A05,
+  Group42Var6 = 0x2A06,
+  Group42Var7 = 0x2A07,
+  Group42Var8 = 0x2A08,
+  Group43Var1 = 0x2B01,
+  Group43Var2 = 0x2B02,
+  Group43Var3 = 0x2B03,
+  Group43Var4 = 0x2B04,
+  Group43Var5 = 0x2B05,
+  Group43Var6 = 0x2B06,
+  Group43Var7 = 0x2B07,
+  Group43Var8 = 0x2B08,
+  Group50Var1 = 0x3201,
+  Group50Var4 = 0x3204,
+  Group51Var1 = 0x3301,
+  Group51Var2 = 0x3302,
+  Group52Var1 = 0x3401,
+  Group52Var2 = 0x3402,
+  Group60Var1 = 0x3C01,
+  Group60Var2 = 0x3C02,
+  Group60Var3 = 0x3C03,
+  Group60Var4 = 0x3C04,
+  Group70Var1 = 0x4601,
+  Group70Var2 = 0x4602,
+  Group70Var3 = 0x4603,
+  Group70Var4 = 0x4604,
+  Group70Var5 = 0x4605,
+  Group70Var6 = 0x4606,
+  Group70Var7 = 0x4607,
+  Group70Var8 = 0x4608,
+  Group80Var1 = 0x5001,
+  Group110Var0 = 0x6E00,
+  Group111Var0 = 0x6F00,
+  Group112Var0 = 0x7000,
+  Group113Var0 = 0x7100,
+  Group120Var1 = 0x7801,
+  Group120Var2 = 0x7802,
+  Group120Var3 = 0x7803,
+  Group120Var4 = 0x7804,
+  Group120Var5 = 0x7805,
+  Group120Var6 = 0x7806,
+  Group120Var7 = 0x7807,
+  Group120Var8 = 0x7808,
+  Group120Var9 = 0x7809,
+  Group120Var10 = 0x780A,
+  Group120Var11 = 0x780B,
+  Group120Var12 = 0x780C,
+  Group120Var13 = 0x780D,
+  Group120Var14 = 0x780E,
+  Group120Var15 = 0x780F,
+  Group121Var0 = 0x7900,
+  Group121Var1 = 0x7901,
+  Group122Var0 = 0x7A00,
+  Group122Var1 = 0x7A01,
+  Group122Var2 = 0x7A02,
+  UNKNOWN = 0xFFFF
+};
+
+uint16_t GroupVariationToType(GroupVariation arg);
+GroupVariation GroupVariationFromType(uint16_t arg);
+char const* GroupVariationToString(GroupVariation arg);
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/parsing/IWhiteList.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/QualifierCode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/QualifierCode.h"
+namespace opendnp3 {
+
+
+
+
+enum class QualifierCode : uint8_t
+{
+  UINT8_START_STOP = 0x0,
+  UINT16_START_STOP = 0x1,
+  ALL_OBJECTS = 0x6,
+  UINT8_CNT = 0x7,
+  UINT16_CNT = 0x8,
+  UINT8_CNT_UINT8_INDEX = 0x17,
+  UINT16_CNT_UINT16_INDEX = 0x28,
+  UINT16_FREE_FORMAT = 0x5B,
+  UNDEFINED = 0xFF
+};
+
+uint8_t QualifierCodeToType(QualifierCode arg);
+QualifierCode QualifierCodeFromType(uint8_t arg);
+char const* QualifierCodeToString(QualifierCode arg);
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/parsing/IWhiteList.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class IWhiteList
+{
+public:
+
+ virtual bool IsAllowed(uint32_t headerCount, GroupVariation gv, QualifierCode qc) = 0;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Uncopyable.h"
+namespace openpal
+{
+
+
+
+class Uncopyable
+{
+protected:
+ Uncopyable() {}
+ ~Uncopyable() {}
+
+private:
+
+ Uncopyable(const Uncopyable&) = delete;
+ Uncopyable& operator=(const Uncopyable&) = delete;
+};
+
+class StaticOnly
+{
+
+private:
+
+ StaticOnly() = delete;
+ StaticOnly(const StaticOnly&) = delete;
+ StaticOnly& operator=(const StaticOnly&) = delete;
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h" 2
+
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/TimestampMode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/TimestampMode.h"
+namespace opendnp3 {
+
+
+
+
+enum class TimestampMode : uint8_t
+{
+
+  SYNCHRONIZED = 1,
+
+  UNSYNCHRONIZED = 2,
+
+  INVALID = 0
+};
+
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h" 2
+
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/Range.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/Range.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/Configure.h" 1
+# 34 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/Configure.h"
+namespace openpal
+{
+namespace sizes
+{
+
+static const uint16_t MAX_ERASURE_SIZE = 12 * sizeof(void*);
+
+}
+}
+# 78 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/Configure.h"
+# 1 "/usr/include/c++/6/new" 1 3
+# 37 "/usr/include/c++/6/new" 3
+       
+# 38 "/usr/include/c++/6/new" 3
+
+
+# 1 "/usr/include/c++/6/exception" 1 3
+# 33 "/usr/include/c++/6/exception" 3
+       
+# 34 "/usr/include/c++/6/exception" 3
+
+#pragma GCC visibility push(default)
+
+
+
+# 1 "/usr/include/c++/6/bits/atomic_lockfree_defines.h" 1 3
+# 33 "/usr/include/c++/6/bits/atomic_lockfree_defines.h" 3
+       
+# 34 "/usr/include/c++/6/bits/atomic_lockfree_defines.h" 3
+# 40 "/usr/include/c++/6/exception" 2 3
+
+
+
+# 42 "/usr/include/c++/6/exception" 3
+extern "C++" {
+
+namespace std
+{
+# 62 "/usr/include/c++/6/exception" 3
+  class exception
+  {
+  public:
+    exception() noexcept { }
+    virtual ~exception() noexcept;
+
+
+
+    virtual const char*
+    what() const noexcept;
+  };
+
+
+
+  class bad_exception : public exception
+  {
+  public:
+    bad_exception() noexcept { }
+
+
+
+    virtual ~bad_exception() noexcept;
+
+
+    virtual const char*
+    what() const noexcept;
+  };
+
+
+  typedef void (*terminate_handler) ();
+
+
+  typedef void (*unexpected_handler) ();
+
+
+  terminate_handler set_terminate(terminate_handler) noexcept;
+
+
+
+  terminate_handler get_terminate() noexcept;
+
+
+
+
+  void terminate() noexcept __attribute__ ((__noreturn__));
+
+
+  unexpected_handler set_unexpected(unexpected_handler) noexcept;
+
+
+
+  unexpected_handler get_unexpected() noexcept;
+
+
+
+
+  void unexpected() __attribute__ ((__noreturn__));
+# 131 "/usr/include/c++/6/exception" 3
+  bool uncaught_exception() noexcept __attribute__ ((__pure__));
+# 140 "/usr/include/c++/6/exception" 3
+}
+
+namespace __gnu_cxx
+{
+
+# 162 "/usr/include/c++/6/exception" 3
+  void __verbose_terminate_handler();
+
+
+}
+
+}
+
+#pragma GCC visibility pop
+
+
+# 1 "/usr/include/c++/6/bits/exception_ptr.h" 1 3
+# 34 "/usr/include/c++/6/bits/exception_ptr.h" 3
+#pragma GCC visibility push(default)
+
+
+# 1 "/usr/include/c++/6/bits/exception_defines.h" 1 3
+# 38 "/usr/include/c++/6/bits/exception_ptr.h" 2 3
+
+
+
+
+
+
+
+extern "C++" {
+
+namespace std
+{
+  class type_info;
+
+
+
+
+
+  namespace __exception_ptr
+  {
+    class exception_ptr;
+  }
+
+  using __exception_ptr::exception_ptr;
+
+
+
+
+
+  exception_ptr current_exception() noexcept;
+
+
+  void rethrow_exception(exception_ptr) __attribute__ ((__noreturn__));
+
+  namespace __exception_ptr
+  {
+    using std::rethrow_exception;
+
+
+
+
+
+    class exception_ptr
+    {
+      void* _M_exception_object;
+
+      explicit exception_ptr(void* __e) noexcept;
+
+      void _M_addref() noexcept;
+      void _M_release() noexcept;
+
+      void *_M_get() const noexcept __attribute__ ((__pure__));
+
+      friend exception_ptr std::current_exception() noexcept;
+      friend void std::rethrow_exception(exception_ptr);
+
+    public:
+      exception_ptr() noexcept;
+
+      exception_ptr(const exception_ptr&) noexcept;
+
+
+      exception_ptr(nullptr_t) noexcept
+      : _M_exception_object(0)
+      { }
+
+      exception_ptr(exception_ptr&& __o) noexcept
+      : _M_exception_object(__o._M_exception_object)
+      { __o._M_exception_object = 0; }
+# 115 "/usr/include/c++/6/bits/exception_ptr.h" 3
+      exception_ptr&
+      operator=(const exception_ptr&) noexcept;
+
+
+      exception_ptr&
+      operator=(exception_ptr&& __o) noexcept
+      {
+        exception_ptr(static_cast<exception_ptr&&>(__o)).swap(*this);
+        return *this;
+      }
+
+
+      ~exception_ptr() noexcept;
+
+      void
+      swap(exception_ptr&) noexcept;
+# 142 "/usr/include/c++/6/bits/exception_ptr.h" 3
+      explicit operator bool() const
+      { return _M_exception_object; }
+
+
+      friend bool
+      operator==(const exception_ptr&, const exception_ptr&)
+ noexcept __attribute__ ((__pure__));
+
+      const class std::type_info*
+      __cxa_exception_type() const noexcept
+ __attribute__ ((__pure__));
+    };
+
+    bool
+    operator==(const exception_ptr&, const exception_ptr&)
+      noexcept __attribute__ ((__pure__));
+
+    bool
+    operator!=(const exception_ptr&, const exception_ptr&)
+      noexcept __attribute__ ((__pure__));
+
+    inline void
+    swap(exception_ptr& __lhs, exception_ptr& __rhs)
+    { __lhs.swap(__rhs); }
+
+  }
+
+
+
+  template<typename _Ex>
+    exception_ptr
+    make_exception_ptr(_Ex __ex) noexcept
+    {
+
+      try
+ {
+   throw __ex;
+ }
+      catch(...)
+ {
+   return current_exception();
+ }
+
+
+
+    }
+
+
+
+
+
+  template<typename _Ex>
+    exception_ptr
+    copy_exception(_Ex __ex) noexcept ;
+
+  template<typename _Ex>
+    exception_ptr
+    copy_exception(_Ex __ex) noexcept
+    { return std::make_exception_ptr<_Ex>(__ex); }
+
+
+}
+
+}
+
+#pragma GCC visibility pop
+# 173 "/usr/include/c++/6/exception" 2 3
+# 1 "/usr/include/c++/6/bits/nested_exception.h" 1 3
+# 33 "/usr/include/c++/6/bits/nested_exception.h" 3
+#pragma GCC visibility push(default)
+
+
+
+
+
+
+# 1 "/usr/include/c++/6/bits/move.h" 1 3
+# 34 "/usr/include/c++/6/bits/move.h" 3
+# 1 "/usr/include/c++/6/bits/concept_check.h" 1 3
+# 33 "/usr/include/c++/6/bits/concept_check.h" 3
+       
+# 34 "/usr/include/c++/6/bits/concept_check.h" 3
+# 35 "/usr/include/c++/6/bits/move.h" 2 3
+
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+
+
+
+
+
+
+  template<typename _Tp>
+    inline _Tp*
+    __addressof(_Tp& __r) noexcept
+    {
+      return reinterpret_cast<_Tp*>
+ (&const_cast<char&>(reinterpret_cast<const volatile char&>(__r)));
+    }
+
+
+}
+
+
+# 1 "/usr/include/c++/6/type_traits" 1 3
+# 32 "/usr/include/c++/6/type_traits" 3
+       
+# 33 "/usr/include/c++/6/type_traits" 3
+# 42 "/usr/include/c++/6/type_traits" 3
+namespace std
+{
+  typedef short unsigned int uint_least16_t;
+  typedef unsigned int uint_least32_t;
+}
+
+
+
+
+
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+# 68 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp, _Tp __v>
+    struct integral_constant
+    {
+      static constexpr _Tp value = __v;
+      typedef _Tp value_type;
+      typedef integral_constant<_Tp, __v> type;
+      constexpr operator value_type() const { return value; }
+
+
+
+
+      constexpr value_type operator()() const { return value; }
+
+    };
+
+  template<typename _Tp, _Tp __v>
+    constexpr _Tp integral_constant<_Tp, __v>::value;
+
+
+  typedef integral_constant<bool, true> true_type;
+
+
+  typedef integral_constant<bool, false> false_type;
+
+  template<bool __v>
+    using __bool_constant = integral_constant<bool, __v>;
+# 103 "/usr/include/c++/6/type_traits" 3
+  template<bool, typename, typename>
+    struct conditional;
+
+  template<typename...>
+    struct __or_;
+
+  template<>
+    struct __or_<>
+    : public false_type
+    { };
+
+  template<typename _B1>
+    struct __or_<_B1>
+    : public _B1
+    { };
+
+  template<typename _B1, typename _B2>
+    struct __or_<_B1, _B2>
+    : public conditional<_B1::value, _B1, _B2>::type
+    { };
+
+  template<typename _B1, typename _B2, typename _B3, typename... _Bn>
+    struct __or_<_B1, _B2, _B3, _Bn...>
+    : public conditional<_B1::value, _B1, __or_<_B2, _B3, _Bn...>>::type
+    { };
+
+  template<typename...>
+    struct __and_;
+
+  template<>
+    struct __and_<>
+    : public true_type
+    { };
+
+  template<typename _B1>
+    struct __and_<_B1>
+    : public _B1
+    { };
+
+  template<typename _B1, typename _B2>
+    struct __and_<_B1, _B2>
+    : public conditional<_B1::value, _B2, _B1>::type
+    { };
+
+  template<typename _B1, typename _B2, typename _B3, typename... _Bn>
+    struct __and_<_B1, _B2, _B3, _Bn...>
+    : public conditional<_B1::value, __and_<_B2, _B3, _Bn...>, _B1>::type
+    { };
+
+  template<typename _Pp>
+    struct __not_
+    : public integral_constant<bool, !_Pp::value>
+    { };
+
+  struct __nonesuch {
+    __nonesuch() = delete;
+    ~__nonesuch() = delete;
+    __nonesuch(__nonesuch const&) = delete;
+    void operator=(__nonesuch const&) = delete;
+  };
+# 189 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp>
+    struct __success_type
+    { typedef _Tp type; };
+
+  struct __failure_type
+  { };
+
+
+
+  template<typename>
+    struct remove_cv;
+
+  template<typename>
+    struct __is_void_helper
+    : public false_type { };
+
+  template<>
+    struct __is_void_helper<void>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_void
+    : public __is_void_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+  template<typename>
+    struct __is_integral_helper
+    : public false_type { };
+
+  template<>
+    struct __is_integral_helper<bool>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<char>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<signed char>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<unsigned char>
+    : public true_type { };
+
+
+  template<>
+    struct __is_integral_helper<wchar_t>
+    : public true_type { };
+
+
+  template<>
+    struct __is_integral_helper<char16_t>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<char32_t>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<short>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<unsigned short>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<int>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<unsigned int>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<long>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<unsigned long>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<long long>
+    : public true_type { };
+
+  template<>
+    struct __is_integral_helper<unsigned long long>
+    : public true_type { };
+# 321 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp>
+    struct is_integral
+    : public __is_integral_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+  template<typename>
+    struct __is_floating_point_helper
+    : public false_type { };
+
+  template<>
+    struct __is_floating_point_helper<float>
+    : public true_type { };
+
+  template<>
+    struct __is_floating_point_helper<double>
+    : public true_type { };
+
+  template<>
+    struct __is_floating_point_helper<long double>
+    : public true_type { };
+# 349 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp>
+    struct is_floating_point
+    : public __is_floating_point_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+
+  template<typename>
+    struct is_array
+    : public false_type { };
+
+  template<typename _Tp, std::size_t _Size>
+    struct is_array<_Tp[_Size]>
+    : public true_type { };
+
+  template<typename _Tp>
+    struct is_array<_Tp[]>
+    : public true_type { };
+
+  template<typename>
+    struct __is_pointer_helper
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_pointer_helper<_Tp*>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_pointer
+    : public __is_pointer_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+
+  template<typename>
+    struct is_lvalue_reference
+    : public false_type { };
+
+  template<typename _Tp>
+    struct is_lvalue_reference<_Tp&>
+    : public true_type { };
+
+
+  template<typename>
+    struct is_rvalue_reference
+    : public false_type { };
+
+  template<typename _Tp>
+    struct is_rvalue_reference<_Tp&&>
+    : public true_type { };
+
+  template<typename>
+    struct is_function;
+
+  template<typename>
+    struct __is_member_object_pointer_helper
+    : public false_type { };
+
+  template<typename _Tp, typename _Cp>
+    struct __is_member_object_pointer_helper<_Tp _Cp::*>
+    : public integral_constant<bool, !is_function<_Tp>::value> { };
+
+
+  template<typename _Tp>
+    struct is_member_object_pointer
+    : public __is_member_object_pointer_helper<
+    typename remove_cv<_Tp>::type>::type
+    { };
+
+  template<typename>
+    struct __is_member_function_pointer_helper
+    : public false_type { };
+
+  template<typename _Tp, typename _Cp>
+    struct __is_member_function_pointer_helper<_Tp _Cp::*>
+    : public integral_constant<bool, is_function<_Tp>::value> { };
+
+
+  template<typename _Tp>
+    struct is_member_function_pointer
+    : public __is_member_function_pointer_helper<
+    typename remove_cv<_Tp>::type>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_enum
+    : public integral_constant<bool, __is_enum(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_union
+    : public integral_constant<bool, __is_union(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_class
+    : public integral_constant<bool, __is_class(_Tp)>
+    { };
+
+
+  template<typename>
+    struct is_function
+    : public false_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...)>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......)>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) volatile>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) volatile &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) volatile &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) volatile>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) volatile &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) volatile &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const volatile>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const volatile &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes...) const volatile &&>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const volatile>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const volatile &>
+    : public true_type { };
+
+  template<typename _Res, typename... _ArgTypes>
+    struct is_function<_Res(_ArgTypes......) const volatile &&>
+    : public true_type { };
+
+
+
+  template<typename>
+    struct __is_null_pointer_helper
+    : public false_type { };
+
+  template<>
+    struct __is_null_pointer_helper<std::nullptr_t>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_null_pointer
+    : public __is_null_pointer_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+
+  template<typename _Tp>
+    struct __is_nullptr_t
+    : public is_null_pointer<_Tp>
+    { };
+
+
+
+
+  template<typename _Tp>
+    struct is_reference
+    : public __or_<is_lvalue_reference<_Tp>,
+                   is_rvalue_reference<_Tp>>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_arithmetic
+    : public __or_<is_integral<_Tp>, is_floating_point<_Tp>>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_fundamental
+    : public __or_<is_arithmetic<_Tp>, is_void<_Tp>,
+     is_null_pointer<_Tp>>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_object
+    : public __not_<__or_<is_function<_Tp>, is_reference<_Tp>,
+                          is_void<_Tp>>>::type
+    { };
+
+  template<typename>
+    struct is_member_pointer;
+
+
+  template<typename _Tp>
+    struct is_scalar
+    : public __or_<is_arithmetic<_Tp>, is_enum<_Tp>, is_pointer<_Tp>,
+                   is_member_pointer<_Tp>, is_null_pointer<_Tp>>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_compound
+    : public integral_constant<bool, !is_fundamental<_Tp>::value> { };
+
+  template<typename _Tp>
+    struct __is_member_pointer_helper
+    : public false_type { };
+
+  template<typename _Tp, typename _Cp>
+    struct __is_member_pointer_helper<_Tp _Cp::*>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_member_pointer
+    : public __is_member_pointer_helper<typename remove_cv<_Tp>::type>::type
+    { };
+
+
+
+  template<typename _Tp>
+    struct __is_referenceable
+    : public __or_<is_object<_Tp>, is_reference<_Tp>>::type
+    { };
+
+  template<typename _Res, typename... _Args>
+    struct __is_referenceable<_Res(_Args...)>
+    : public true_type
+    { };
+
+  template<typename _Res, typename... _Args>
+    struct __is_referenceable<_Res(_Args......)>
+    : public true_type
+    { };
+
+
+
+
+  template<typename>
+    struct is_const
+    : public false_type { };
+
+  template<typename _Tp>
+    struct is_const<_Tp const>
+    : public true_type { };
+
+
+  template<typename>
+    struct is_volatile
+    : public false_type { };
+
+  template<typename _Tp>
+    struct is_volatile<_Tp volatile>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_trivial
+    : public integral_constant<bool, __is_trivial(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_copyable
+    : public integral_constant<bool, __is_trivially_copyable(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_standard_layout
+    : public integral_constant<bool, __is_standard_layout(_Tp)>
+    { };
+
+
+
+  template<typename _Tp>
+    struct is_pod
+    : public integral_constant<bool, __is_pod(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_literal_type
+    : public integral_constant<bool, __is_literal_type(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_empty
+    : public integral_constant<bool, __is_empty(_Tp)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_polymorphic
+    : public integral_constant<bool, __is_polymorphic(_Tp)>
+    { };
+
+
+
+
+  template<typename _Tp>
+    struct is_final
+    : public integral_constant<bool, __is_final(_Tp)>
+    { };
+
+
+
+  template<typename _Tp>
+    struct is_abstract
+    : public integral_constant<bool, __is_abstract(_Tp)>
+    { };
+
+  template<typename _Tp,
+    bool = is_arithmetic<_Tp>::value>
+    struct __is_signed_helper
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_signed_helper<_Tp, true>
+    : public integral_constant<bool, _Tp(-1) < _Tp(0)>
+    { };
+
+
+  template<typename _Tp>
+    struct is_signed
+    : public __is_signed_helper<_Tp>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_unsigned
+    : public __and_<is_arithmetic<_Tp>, __not_<is_signed<_Tp>>>
+    { };
+
+
+
+
+  template<typename>
+    struct add_rvalue_reference;
+
+
+
+
+
+  template<typename _Tp>
+    typename add_rvalue_reference<_Tp>::type declval() noexcept;
+
+  template<typename, unsigned = 0>
+    struct extent;
+
+  template<typename>
+    struct remove_all_extents;
+
+  template<typename _Tp>
+    struct __is_array_known_bounds
+    : public integral_constant<bool, (extent<_Tp>::value > 0)>
+    { };
+
+  template<typename _Tp>
+    struct __is_array_unknown_bounds
+    : public __and_<is_array<_Tp>, __not_<extent<_Tp>>>
+    { };
+
+
+
+
+
+
+  struct __do_is_destructible_impl
+  {
+    template<typename _Tp, typename = decltype(declval<_Tp&>().~_Tp())>
+      static true_type __test(int);
+
+    template<typename>
+      static false_type __test(...);
+  };
+
+  template<typename _Tp>
+    struct __is_destructible_impl
+    : public __do_is_destructible_impl
+    {
+      typedef decltype(__test<_Tp>(0)) type;
+    };
+
+  template<typename _Tp,
+           bool = __or_<is_void<_Tp>,
+                        __is_array_unknown_bounds<_Tp>,
+                        is_function<_Tp>>::value,
+           bool = __or_<is_reference<_Tp>, is_scalar<_Tp>>::value>
+    struct __is_destructible_safe;
+
+  template<typename _Tp>
+    struct __is_destructible_safe<_Tp, false, false>
+    : public __is_destructible_impl<typename
+               remove_all_extents<_Tp>::type>::type
+    { };
+
+  template<typename _Tp>
+    struct __is_destructible_safe<_Tp, true, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_destructible_safe<_Tp, false, true>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_destructible
+    : public __is_destructible_safe<_Tp>::type
+    { };
+
+
+
+
+
+  struct __do_is_nt_destructible_impl
+  {
+    template<typename _Tp>
+      static integral_constant<bool, noexcept(declval<_Tp&>().~_Tp())>
+        __test(int);
+
+    template<typename>
+      static false_type __test(...);
+  };
+
+  template<typename _Tp>
+    struct __is_nt_destructible_impl
+    : public __do_is_nt_destructible_impl
+    {
+      typedef decltype(__test<_Tp>(0)) type;
+    };
+
+  template<typename _Tp,
+           bool = __or_<is_void<_Tp>,
+                        __is_array_unknown_bounds<_Tp>,
+                        is_function<_Tp>>::value,
+           bool = __or_<is_reference<_Tp>, is_scalar<_Tp>>::value>
+    struct __is_nt_destructible_safe;
+
+  template<typename _Tp>
+    struct __is_nt_destructible_safe<_Tp, false, false>
+    : public __is_nt_destructible_impl<typename
+               remove_all_extents<_Tp>::type>::type
+    { };
+
+  template<typename _Tp>
+    struct __is_nt_destructible_safe<_Tp, true, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_nt_destructible_safe<_Tp, false, true>
+    : public true_type { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_destructible
+    : public __is_nt_destructible_safe<_Tp>::type
+    { };
+
+  struct __do_is_default_constructible_impl
+  {
+    template<typename _Tp, typename = decltype(_Tp())>
+      static true_type __test(int);
+
+    template<typename>
+      static false_type __test(...);
+  };
+
+  template<typename _Tp>
+    struct __is_default_constructible_impl
+    : public __do_is_default_constructible_impl
+    {
+      typedef decltype(__test<_Tp>(0)) type;
+    };
+
+  template<typename _Tp>
+    struct __is_default_constructible_atom
+    : public __and_<__not_<is_void<_Tp>>,
+                    __is_default_constructible_impl<_Tp>>
+    { };
+
+  template<typename _Tp, bool = is_array<_Tp>::value>
+    struct __is_default_constructible_safe;
+
+
+
+
+
+
+  template<typename _Tp>
+    struct __is_default_constructible_safe<_Tp, true>
+    : public __and_<__is_array_known_bounds<_Tp>,
+      __is_default_constructible_atom<typename
+                      remove_all_extents<_Tp>::type>>
+    { };
+
+  template<typename _Tp>
+    struct __is_default_constructible_safe<_Tp, false>
+    : public __is_default_constructible_atom<_Tp>::type
+    { };
+
+
+  template<typename _Tp>
+    struct is_default_constructible
+    : public __is_default_constructible_safe<_Tp>::type
+    { };
+# 933 "/usr/include/c++/6/type_traits" 3
+  struct __do_is_static_castable_impl
+  {
+    template<typename _From, typename _To, typename
+             = decltype(static_cast<_To>(declval<_From>()))>
+      static true_type __test(int);
+
+    template<typename, typename>
+      static false_type __test(...);
+  };
+
+  template<typename _From, typename _To>
+    struct __is_static_castable_impl
+    : public __do_is_static_castable_impl
+    {
+      typedef decltype(__test<_From, _To>(0)) type;
+    };
+
+  template<typename _From, typename _To>
+    struct __is_static_castable_safe
+    : public __is_static_castable_impl<_From, _To>::type
+    { };
+
+
+  template<typename _From, typename _To>
+    struct __is_static_castable
+    : public integral_constant<bool, (__is_static_castable_safe<
+          _From, _To>::value)>
+    { };
+
+
+
+
+
+
+  struct __do_is_direct_constructible_impl
+  {
+    template<typename _Tp, typename _Arg, typename
+      = decltype(::new _Tp(declval<_Arg>()))>
+      static true_type __test(int);
+
+    template<typename, typename>
+      static false_type __test(...);
+  };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_direct_constructible_impl
+    : public __do_is_direct_constructible_impl
+    {
+      typedef decltype(__test<_Tp, _Arg>(0)) type;
+    };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_direct_constructible_new_safe
+    : public __and_<is_destructible<_Tp>,
+                    __is_direct_constructible_impl<_Tp, _Arg>>
+    { };
+
+  template<typename, typename>
+    struct is_same;
+
+  template<typename, typename>
+    struct is_base_of;
+
+  template<typename>
+    struct remove_reference;
+
+  template<typename _From, typename _To, bool
+           = __not_<__or_<is_void<_From>,
+                          is_function<_From>>>::value>
+    struct __is_base_to_derived_ref;
+
+  template<typename _Tp, typename... _Args>
+    struct is_constructible;
+
+
+
+  template<typename _From, typename _To>
+    struct __is_base_to_derived_ref<_From, _To, true>
+    {
+      typedef typename remove_cv<typename remove_reference<_From
+        >::type>::type __src_t;
+      typedef typename remove_cv<typename remove_reference<_To
+        >::type>::type __dst_t;
+      typedef __and_<__not_<is_same<__src_t, __dst_t>>,
+       is_base_of<__src_t, __dst_t>,
+       __not_<is_constructible<__dst_t, _From>>> type;
+      static constexpr bool value = type::value;
+    };
+
+  template<typename _From, typename _To>
+    struct __is_base_to_derived_ref<_From, _To, false>
+    : public false_type
+    { };
+
+  template<typename _From, typename _To, bool
+           = __and_<is_lvalue_reference<_From>,
+                    is_rvalue_reference<_To>>::value>
+    struct __is_lvalue_to_rvalue_ref;
+
+
+
+  template<typename _From, typename _To>
+    struct __is_lvalue_to_rvalue_ref<_From, _To, true>
+    {
+      typedef typename remove_cv<typename remove_reference<
+        _From>::type>::type __src_t;
+      typedef typename remove_cv<typename remove_reference<
+        _To>::type>::type __dst_t;
+      typedef __and_<__not_<is_function<__src_t>>,
+        __or_<is_same<__src_t, __dst_t>,
+      is_base_of<__dst_t, __src_t>>> type;
+      static constexpr bool value = type::value;
+    };
+
+  template<typename _From, typename _To>
+    struct __is_lvalue_to_rvalue_ref<_From, _To, false>
+    : public false_type
+    { };
+
+
+
+
+
+
+
+  template<typename _Tp, typename _Arg>
+    struct __is_direct_constructible_ref_cast
+    : public __and_<__is_static_castable<_Arg, _Tp>,
+                    __not_<__or_<__is_base_to_derived_ref<_Arg, _Tp>,
+                                 __is_lvalue_to_rvalue_ref<_Arg, _Tp>
+                   >>>
+    { };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_direct_constructible_new
+    : public conditional<is_reference<_Tp>::value,
+    __is_direct_constructible_ref_cast<_Tp, _Arg>,
+    __is_direct_constructible_new_safe<_Tp, _Arg>
+    >::type
+    { };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_direct_constructible
+    : public __is_direct_constructible_new<_Tp, _Arg>::type
+    { };
+
+
+
+
+
+
+  struct __do_is_nary_constructible_impl
+  {
+    template<typename _Tp, typename... _Args, typename
+             = decltype(_Tp(declval<_Args>()...))>
+      static true_type __test(int);
+
+    template<typename, typename...>
+      static false_type __test(...);
+  };
+
+  template<typename _Tp, typename... _Args>
+    struct __is_nary_constructible_impl
+    : public __do_is_nary_constructible_impl
+    {
+      typedef decltype(__test<_Tp, _Args...>(0)) type;
+    };
+
+  template<typename _Tp, typename... _Args>
+    struct __is_nary_constructible
+    : public __is_nary_constructible_impl<_Tp, _Args...>::type
+    {
+      static_assert(sizeof...(_Args) > 1,
+                    "Only useful for > 1 arguments");
+    };
+
+  template<typename _Tp, typename... _Args>
+    struct __is_constructible_impl
+    : public __is_nary_constructible<_Tp, _Args...>
+    { };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_constructible_impl<_Tp, _Arg>
+    : public __is_direct_constructible<_Tp, _Arg>
+    { };
+
+  template<typename _Tp>
+    struct __is_constructible_impl<_Tp>
+    : public is_default_constructible<_Tp>
+    { };
+
+
+  template<typename _Tp, typename... _Args>
+    struct is_constructible
+    : public __is_constructible_impl<_Tp, _Args...>::type
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_copy_constructible_impl;
+
+  template<typename _Tp>
+    struct __is_copy_constructible_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_copy_constructible_impl<_Tp, true>
+    : public is_constructible<_Tp, const _Tp&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_copy_constructible
+    : public __is_copy_constructible_impl<_Tp>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_move_constructible_impl;
+
+  template<typename _Tp>
+    struct __is_move_constructible_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_move_constructible_impl<_Tp, true>
+    : public is_constructible<_Tp, _Tp&&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_move_constructible
+    : public __is_move_constructible_impl<_Tp>
+    { };
+
+  template<typename _Tp>
+    struct __is_nt_default_constructible_atom
+    : public integral_constant<bool, noexcept(_Tp())>
+    { };
+
+  template<typename _Tp, bool = is_array<_Tp>::value>
+    struct __is_nt_default_constructible_impl;
+
+  template<typename _Tp>
+    struct __is_nt_default_constructible_impl<_Tp, true>
+    : public __and_<__is_array_known_bounds<_Tp>,
+      __is_nt_default_constructible_atom<typename
+                      remove_all_extents<_Tp>::type>>
+    { };
+
+  template<typename _Tp>
+    struct __is_nt_default_constructible_impl<_Tp, false>
+    : public __is_nt_default_constructible_atom<_Tp>
+    { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_default_constructible
+    : public __and_<is_default_constructible<_Tp>,
+                    __is_nt_default_constructible_impl<_Tp>>
+    { };
+
+  template<typename _Tp, typename... _Args>
+    struct __is_nt_constructible_impl
+    : public integral_constant<bool, noexcept(_Tp(declval<_Args>()...))>
+    { };
+
+  template<typename _Tp, typename _Arg>
+    struct __is_nt_constructible_impl<_Tp, _Arg>
+    : public integral_constant<bool,
+                               noexcept(static_cast<_Tp>(declval<_Arg>()))>
+    { };
+
+  template<typename _Tp>
+    struct __is_nt_constructible_impl<_Tp>
+    : public is_nothrow_default_constructible<_Tp>
+    { };
+
+
+  template<typename _Tp, typename... _Args>
+    struct is_nothrow_constructible
+    : public __and_<is_constructible<_Tp, _Args...>,
+      __is_nt_constructible_impl<_Tp, _Args...>>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_nothrow_copy_constructible_impl;
+
+  template<typename _Tp>
+    struct __is_nothrow_copy_constructible_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_nothrow_copy_constructible_impl<_Tp, true>
+    : public is_nothrow_constructible<_Tp, const _Tp&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_copy_constructible
+    : public __is_nothrow_copy_constructible_impl<_Tp>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_nothrow_move_constructible_impl;
+
+  template<typename _Tp>
+    struct __is_nothrow_move_constructible_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_nothrow_move_constructible_impl<_Tp, true>
+    : public is_nothrow_constructible<_Tp, _Tp&&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_move_constructible
+    : public __is_nothrow_move_constructible_impl<_Tp>
+    { };
+
+  template<typename _Tp, typename _Up>
+    class __is_assignable_helper
+    {
+      template<typename _Tp1, typename _Up1,
+        typename = decltype(declval<_Tp1>() = declval<_Up1>())>
+ static true_type
+ __test(int);
+
+      template<typename, typename>
+ static false_type
+ __test(...);
+
+    public:
+      typedef decltype(__test<_Tp, _Up>(0)) type;
+    };
+
+
+  template<typename _Tp, typename _Up>
+    struct is_assignable
+      : public __is_assignable_helper<_Tp, _Up>::type
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_copy_assignable_impl;
+
+  template<typename _Tp>
+    struct __is_copy_assignable_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_copy_assignable_impl<_Tp, true>
+    : public is_assignable<_Tp&, const _Tp&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_copy_assignable
+    : public __is_copy_assignable_impl<_Tp>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_move_assignable_impl;
+
+  template<typename _Tp>
+    struct __is_move_assignable_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_move_assignable_impl<_Tp, true>
+    : public is_assignable<_Tp&, _Tp&&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_move_assignable
+    : public __is_move_assignable_impl<_Tp>
+    { };
+
+  template<typename _Tp, typename _Up>
+    struct __is_nt_assignable_impl
+    : public integral_constant<bool, noexcept(declval<_Tp>() = declval<_Up>())>
+    { };
+
+
+  template<typename _Tp, typename _Up>
+    struct is_nothrow_assignable
+    : public __and_<is_assignable<_Tp, _Up>,
+      __is_nt_assignable_impl<_Tp, _Up>>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_nt_copy_assignable_impl;
+
+  template<typename _Tp>
+    struct __is_nt_copy_assignable_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_nt_copy_assignable_impl<_Tp, true>
+    : public is_nothrow_assignable<_Tp&, const _Tp&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_copy_assignable
+    : public __is_nt_copy_assignable_impl<_Tp>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __is_nt_move_assignable_impl;
+
+  template<typename _Tp>
+    struct __is_nt_move_assignable_impl<_Tp, false>
+    : public false_type { };
+
+  template<typename _Tp>
+    struct __is_nt_move_assignable_impl<_Tp, true>
+    : public is_nothrow_assignable<_Tp&, _Tp&&>
+    { };
+
+
+  template<typename _Tp>
+    struct is_nothrow_move_assignable
+    : public __is_nt_move_assignable_impl<_Tp>
+    { };
+
+
+  template<typename _Tp, typename... _Args>
+    struct is_trivially_constructible
+    : public __and_<is_constructible<_Tp, _Args...>, integral_constant<bool,
+   __is_trivially_constructible(_Tp, _Args...)>>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_default_constructible
+    : public is_trivially_constructible<_Tp>::type
+    { };
+
+  struct __do_is_implicitly_default_constructible_impl
+  {
+    template <typename _Tp>
+    static void __helper(const _Tp&);
+
+    template <typename _Tp>
+    static true_type __test(const _Tp&,
+                            decltype(__helper<const _Tp&>({}))* = 0);
+
+    static false_type __test(...);
+  };
+
+  template<typename _Tp>
+    struct __is_implicitly_default_constructible_impl
+      : public __do_is_implicitly_default_constructible_impl
+  {
+    typedef decltype(__test(declval<_Tp>())) type;
+  };
+
+  template<typename _Tp>
+    struct __is_implicitly_default_constructible_safe
+      : public __is_implicitly_default_constructible_impl<_Tp>::type
+  { };
+
+  template <typename _Tp>
+    struct __is_implicitly_default_constructible
+      : public __and_<is_default_constructible<_Tp>,
+                      __is_implicitly_default_constructible_safe<_Tp>>
+  { };
+
+
+  template<typename _Tp>
+    struct is_trivially_copy_constructible
+    : public __and_<is_copy_constructible<_Tp>,
+      integral_constant<bool,
+   __is_trivially_constructible(_Tp, const _Tp&)>>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_move_constructible
+    : public __and_<is_move_constructible<_Tp>,
+      integral_constant<bool,
+   __is_trivially_constructible(_Tp, _Tp&&)>>
+    { };
+
+
+  template<typename _Tp, typename _Up>
+    struct is_trivially_assignable
+    : public __and_<is_assignable<_Tp, _Up>,
+      integral_constant<bool,
+   __is_trivially_assignable(_Tp, _Up)>>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_copy_assignable
+    : public __and_<is_copy_assignable<_Tp>,
+      integral_constant<bool,
+   __is_trivially_assignable(_Tp&, const _Tp&)>>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_move_assignable
+    : public __and_<is_move_assignable<_Tp>,
+      integral_constant<bool,
+   __is_trivially_assignable(_Tp&, _Tp&&)>>
+    { };
+
+
+  template<typename _Tp>
+    struct is_trivially_destructible
+    : public __and_<is_destructible<_Tp>, integral_constant<bool,
+         __has_trivial_destructor(_Tp)>>
+    { };
+
+
+  template<typename _Tp>
+    struct has_trivial_default_constructor
+    : public integral_constant<bool, __has_trivial_constructor(_Tp)>
+    { } ;
+
+
+  template<typename _Tp>
+    struct has_trivial_copy_constructor
+    : public integral_constant<bool, __has_trivial_copy(_Tp)>
+    { } ;
+
+
+  template<typename _Tp>
+    struct has_trivial_copy_assign
+    : public integral_constant<bool, __has_trivial_assign(_Tp)>
+    { } ;
+
+
+  template<typename _Tp>
+    struct has_virtual_destructor
+    : public integral_constant<bool, __has_virtual_destructor(_Tp)>
+    { };
+
+
+
+
+
+  template<typename _Tp>
+    struct alignment_of
+    : public integral_constant<std::size_t, __alignof__(_Tp)> { };
+
+
+  template<typename>
+    struct rank
+    : public integral_constant<std::size_t, 0> { };
+
+  template<typename _Tp, std::size_t _Size>
+    struct rank<_Tp[_Size]>
+    : public integral_constant<std::size_t, 1 + rank<_Tp>::value> { };
+
+  template<typename _Tp>
+    struct rank<_Tp[]>
+    : public integral_constant<std::size_t, 1 + rank<_Tp>::value> { };
+
+
+  template<typename, unsigned _Uint>
+    struct extent
+    : public integral_constant<std::size_t, 0> { };
+
+  template<typename _Tp, unsigned _Uint, std::size_t _Size>
+    struct extent<_Tp[_Size], _Uint>
+    : public integral_constant<std::size_t,
+          _Uint == 0 ? _Size : extent<_Tp,
+          _Uint - 1>::value>
+    { };
+
+  template<typename _Tp, unsigned _Uint>
+    struct extent<_Tp[], _Uint>
+    : public integral_constant<std::size_t,
+          _Uint == 0 ? 0 : extent<_Tp,
+             _Uint - 1>::value>
+    { };
+
+
+
+
+
+  template<typename, typename>
+    struct is_same
+    : public false_type { };
+
+  template<typename _Tp>
+    struct is_same<_Tp, _Tp>
+    : public true_type { };
+
+
+  template<typename _Base, typename _Derived>
+    struct is_base_of
+    : public integral_constant<bool, __is_base_of(_Base, _Derived)>
+    { };
+
+  template<typename _From, typename _To,
+           bool = __or_<is_void<_From>, is_function<_To>,
+                        is_array<_To>>::value>
+    struct __is_convertible_helper
+    { typedef typename is_void<_To>::type type; };
+
+  template<typename _From, typename _To>
+    class __is_convertible_helper<_From, _To, false>
+    {
+       template<typename _To1>
+ static void __test_aux(_To1);
+
+      template<typename _From1, typename _To1,
+        typename = decltype(__test_aux<_To1>(std::declval<_From1>()))>
+ static true_type
+ __test(int);
+
+      template<typename, typename>
+ static false_type
+ __test(...);
+
+    public:
+      typedef decltype(__test<_From, _To>(0)) type;
+    };
+
+
+
+  template<typename _From, typename _To>
+    struct is_convertible
+    : public __is_convertible_helper<_From, _To>::type
+    { };
+
+
+
+
+
+  template<typename _Tp>
+    struct remove_const
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct remove_const<_Tp const>
+    { typedef _Tp type; };
+
+
+  template<typename _Tp>
+    struct remove_volatile
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct remove_volatile<_Tp volatile>
+    { typedef _Tp type; };
+
+
+  template<typename _Tp>
+    struct remove_cv
+    {
+      typedef typename
+      remove_const<typename remove_volatile<_Tp>::type>::type type;
+    };
+
+
+  template<typename _Tp>
+    struct add_const
+    { typedef _Tp const type; };
+
+
+  template<typename _Tp>
+    struct add_volatile
+    { typedef _Tp volatile type; };
+
+
+  template<typename _Tp>
+    struct add_cv
+    {
+      typedef typename
+      add_const<typename add_volatile<_Tp>::type>::type type;
+    };
+
+
+
+
+
+
+  template<typename _Tp>
+    using remove_const_t = typename remove_const<_Tp>::type;
+
+
+  template<typename _Tp>
+    using remove_volatile_t = typename remove_volatile<_Tp>::type;
+
+
+  template<typename _Tp>
+    using remove_cv_t = typename remove_cv<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_const_t = typename add_const<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_volatile_t = typename add_volatile<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_cv_t = typename add_cv<_Tp>::type;
+
+
+
+
+
+  template<typename _Tp>
+    struct remove_reference
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct remove_reference<_Tp&>
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct remove_reference<_Tp&&>
+    { typedef _Tp type; };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __add_lvalue_reference_helper
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct __add_lvalue_reference_helper<_Tp, true>
+    { typedef _Tp& type; };
+
+
+  template<typename _Tp>
+    struct add_lvalue_reference
+    : public __add_lvalue_reference_helper<_Tp>
+    { };
+
+  template<typename _Tp, bool = __is_referenceable<_Tp>::value>
+    struct __add_rvalue_reference_helper
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct __add_rvalue_reference_helper<_Tp, true>
+    { typedef _Tp&& type; };
+
+
+  template<typename _Tp>
+    struct add_rvalue_reference
+    : public __add_rvalue_reference_helper<_Tp>
+    { };
+
+
+
+  template<typename _Tp>
+    using remove_reference_t = typename remove_reference<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_lvalue_reference_t = typename add_lvalue_reference<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_rvalue_reference_t = typename add_rvalue_reference<_Tp>::type;
+
+
+
+
+
+  template<typename _Unqualified, bool _IsConst, bool _IsVol>
+    struct __cv_selector;
+
+  template<typename _Unqualified>
+    struct __cv_selector<_Unqualified, false, false>
+    { typedef _Unqualified __type; };
+
+  template<typename _Unqualified>
+    struct __cv_selector<_Unqualified, false, true>
+    { typedef volatile _Unqualified __type; };
+
+  template<typename _Unqualified>
+    struct __cv_selector<_Unqualified, true, false>
+    { typedef const _Unqualified __type; };
+
+  template<typename _Unqualified>
+    struct __cv_selector<_Unqualified, true, true>
+    { typedef const volatile _Unqualified __type; };
+
+  template<typename _Qualified, typename _Unqualified,
+    bool _IsConst = is_const<_Qualified>::value,
+    bool _IsVol = is_volatile<_Qualified>::value>
+    class __match_cv_qualifiers
+    {
+      typedef __cv_selector<_Unqualified, _IsConst, _IsVol> __match;
+
+    public:
+      typedef typename __match::__type __type;
+    };
+
+
+  template<typename _Tp>
+    struct __make_unsigned
+    { typedef _Tp __type; };
+
+  template<>
+    struct __make_unsigned<char>
+    { typedef unsigned char __type; };
+
+  template<>
+    struct __make_unsigned<signed char>
+    { typedef unsigned char __type; };
+
+  template<>
+    struct __make_unsigned<short>
+    { typedef unsigned short __type; };
+
+  template<>
+    struct __make_unsigned<int>
+    { typedef unsigned int __type; };
+
+  template<>
+    struct __make_unsigned<long>
+    { typedef unsigned long __type; };
+
+  template<>
+    struct __make_unsigned<long long>
+    { typedef unsigned long long __type; };
+# 1785 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp,
+    bool _IsInt = is_integral<_Tp>::value,
+    bool _IsEnum = is_enum<_Tp>::value>
+    class __make_unsigned_selector;
+
+  template<typename _Tp>
+    class __make_unsigned_selector<_Tp, true, false>
+    {
+      typedef __make_unsigned<typename remove_cv<_Tp>::type> __unsignedt;
+      typedef typename __unsignedt::__type __unsigned_type;
+      typedef __match_cv_qualifiers<_Tp, __unsigned_type> __cv_unsigned;
+
+    public:
+      typedef typename __cv_unsigned::__type __type;
+    };
+
+  template<typename _Tp>
+    class __make_unsigned_selector<_Tp, false, true>
+    {
+
+      typedef unsigned char __smallest;
+      static const bool __b0 = sizeof(_Tp) <= sizeof(__smallest);
+      static const bool __b1 = sizeof(_Tp) <= sizeof(unsigned short);
+      static const bool __b2 = sizeof(_Tp) <= sizeof(unsigned int);
+      static const bool __b3 = sizeof(_Tp) <= sizeof(unsigned long);
+      typedef conditional<__b3, unsigned long, unsigned long long> __cond3;
+      typedef typename __cond3::type __cond3_type;
+      typedef conditional<__b2, unsigned int, __cond3_type> __cond2;
+      typedef typename __cond2::type __cond2_type;
+      typedef conditional<__b1, unsigned short, __cond2_type> __cond1;
+      typedef typename __cond1::type __cond1_type;
+
+      typedef typename conditional<__b0, __smallest, __cond1_type>::type
+ __unsigned_type;
+      typedef __match_cv_qualifiers<_Tp, __unsigned_type> __cv_unsigned;
+
+    public:
+      typedef typename __cv_unsigned::__type __type;
+    };
+
+
+
+
+
+  template<typename _Tp>
+    struct make_unsigned
+    { typedef typename __make_unsigned_selector<_Tp>::__type type; };
+
+
+  template<>
+    struct make_unsigned<bool>;
+
+
+
+  template<typename _Tp>
+    struct __make_signed
+    { typedef _Tp __type; };
+
+  template<>
+    struct __make_signed<char>
+    { typedef signed char __type; };
+
+  template<>
+    struct __make_signed<unsigned char>
+    { typedef signed char __type; };
+
+  template<>
+    struct __make_signed<unsigned short>
+    { typedef signed short __type; };
+
+  template<>
+    struct __make_signed<unsigned int>
+    { typedef signed int __type; };
+
+  template<>
+    struct __make_signed<unsigned long>
+    { typedef signed long __type; };
+
+  template<>
+    struct __make_signed<unsigned long long>
+    { typedef signed long long __type; };
+
+
+  template<>
+    struct __make_signed<wchar_t> : __make_signed<unsigned int>
+    { };
+
+
+
+  template<>
+    struct __make_signed<char16_t> : __make_signed<uint_least16_t>
+    { };
+  template<>
+    struct __make_signed<char32_t> : __make_signed<uint_least32_t>
+    { };
+# 1904 "/usr/include/c++/6/type_traits" 3
+  template<typename _Tp,
+    bool _IsInt = is_integral<_Tp>::value,
+    bool _IsEnum = is_enum<_Tp>::value>
+    class __make_signed_selector;
+
+  template<typename _Tp>
+    class __make_signed_selector<_Tp, true, false>
+    {
+      typedef __make_signed<typename remove_cv<_Tp>::type> __signedt;
+      typedef typename __signedt::__type __signed_type;
+      typedef __match_cv_qualifiers<_Tp, __signed_type> __cv_signed;
+
+    public:
+      typedef typename __cv_signed::__type __type;
+    };
+
+  template<typename _Tp>
+    class __make_signed_selector<_Tp, false, true>
+    {
+      typedef typename __make_unsigned_selector<_Tp>::__type __unsigned_type;
+
+    public:
+      typedef typename __make_signed_selector<__unsigned_type>::__type __type;
+    };
+
+
+
+
+
+  template<typename _Tp>
+    struct make_signed
+    { typedef typename __make_signed_selector<_Tp>::__type type; };
+
+
+  template<>
+    struct make_signed<bool>;
+
+
+
+  template<typename _Tp>
+    using make_signed_t = typename make_signed<_Tp>::type;
+
+
+  template<typename _Tp>
+    using make_unsigned_t = typename make_unsigned<_Tp>::type;
+
+
+
+
+
+  template<typename _Tp>
+    struct remove_extent
+    { typedef _Tp type; };
+
+  template<typename _Tp, std::size_t _Size>
+    struct remove_extent<_Tp[_Size]>
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct remove_extent<_Tp[]>
+    { typedef _Tp type; };
+
+
+  template<typename _Tp>
+    struct remove_all_extents
+    { typedef _Tp type; };
+
+  template<typename _Tp, std::size_t _Size>
+    struct remove_all_extents<_Tp[_Size]>
+    { typedef typename remove_all_extents<_Tp>::type type; };
+
+  template<typename _Tp>
+    struct remove_all_extents<_Tp[]>
+    { typedef typename remove_all_extents<_Tp>::type type; };
+
+
+
+  template<typename _Tp>
+    using remove_extent_t = typename remove_extent<_Tp>::type;
+
+
+  template<typename _Tp>
+    using remove_all_extents_t = typename remove_all_extents<_Tp>::type;
+
+
+
+
+  template<typename _Tp, typename>
+    struct __remove_pointer_helper
+    { typedef _Tp type; };
+
+  template<typename _Tp, typename _Up>
+    struct __remove_pointer_helper<_Tp, _Up*>
+    { typedef _Up type; };
+
+
+  template<typename _Tp>
+    struct remove_pointer
+    : public __remove_pointer_helper<_Tp, typename remove_cv<_Tp>::type>
+    { };
+
+
+  template<typename _Tp, bool = __or_<__is_referenceable<_Tp>,
+          is_void<_Tp>>::value>
+    struct __add_pointer_helper
+    { typedef _Tp type; };
+
+  template<typename _Tp>
+    struct __add_pointer_helper<_Tp, true>
+    { typedef typename remove_reference<_Tp>::type* type; };
+
+  template<typename _Tp>
+    struct add_pointer
+    : public __add_pointer_helper<_Tp>
+    { };
+
+
+
+  template<typename _Tp>
+    using remove_pointer_t = typename remove_pointer<_Tp>::type;
+
+
+  template<typename _Tp>
+    using add_pointer_t = typename add_pointer<_Tp>::type;
+
+
+  template<std::size_t _Len>
+    struct __aligned_storage_msa
+    {
+      union __type
+      {
+ unsigned char __data[_Len];
+ struct __attribute__((__aligned__)) { } __align;
+      };
+    };
+# 2050 "/usr/include/c++/6/type_traits" 3
+  template<std::size_t _Len, std::size_t _Align =
+    __alignof__(typename __aligned_storage_msa<_Len>::__type)>
+    struct aligned_storage
+    {
+      union type
+      {
+ unsigned char __data[_Len];
+ struct __attribute__((__aligned__((_Align)))) { } __align;
+      };
+    };
+
+  template <typename... _Types>
+    struct __strictest_alignment
+    {
+      static const size_t _S_alignment = 0;
+      static const size_t _S_size = 0;
+    };
+
+  template <typename _Tp, typename... _Types>
+    struct __strictest_alignment<_Tp, _Types...>
+    {
+      static const size_t _S_alignment =
+        alignof(_Tp) > __strictest_alignment<_Types...>::_S_alignment
+ ? alignof(_Tp) : __strictest_alignment<_Types...>::_S_alignment;
+      static const size_t _S_size =
+        sizeof(_Tp) > __strictest_alignment<_Types...>::_S_size
+ ? sizeof(_Tp) : __strictest_alignment<_Types...>::_S_size;
+    };
+# 2089 "/usr/include/c++/6/type_traits" 3
+  template <size_t _Len, typename... _Types>
+    struct aligned_union
+    {
+    private:
+      static_assert(sizeof...(_Types) != 0, "At least one type is required");
+
+      using __strictest = __strictest_alignment<_Types...>;
+      static const size_t _S_len = _Len > __strictest::_S_size
+ ? _Len : __strictest::_S_size;
+    public:
+
+      static const size_t alignment_value = __strictest::_S_alignment;
+
+      typedef typename aligned_storage<_S_len, alignment_value>::type type;
+    };
+
+  template <size_t _Len, typename... _Types>
+    const size_t aligned_union<_Len, _Types...>::alignment_value;
+
+
+
+  template<typename _Up,
+    bool _IsArray = is_array<_Up>::value,
+    bool _IsFunction = is_function<_Up>::value>
+    struct __decay_selector;
+
+
+  template<typename _Up>
+    struct __decay_selector<_Up, false, false>
+    { typedef typename remove_cv<_Up>::type __type; };
+
+  template<typename _Up>
+    struct __decay_selector<_Up, true, false>
+    { typedef typename remove_extent<_Up>::type* __type; };
+
+  template<typename _Up>
+    struct __decay_selector<_Up, false, true>
+    { typedef typename add_pointer<_Up>::type __type; };
+
+
+  template<typename _Tp>
+    class decay
+    {
+      typedef typename remove_reference<_Tp>::type __remove_type;
+
+    public:
+      typedef typename __decay_selector<__remove_type>::__type type;
+    };
+
+  template<typename _Tp>
+    class reference_wrapper;
+
+
+  template<typename _Tp>
+    struct __strip_reference_wrapper
+    {
+      typedef _Tp __type;
+    };
+
+  template<typename _Tp>
+    struct __strip_reference_wrapper<reference_wrapper<_Tp> >
+    {
+      typedef _Tp& __type;
+    };
+
+  template<typename _Tp>
+    struct __decay_and_strip
+    {
+      typedef typename __strip_reference_wrapper<
+ typename decay<_Tp>::type>::__type __type;
+    };
+
+
+
+
+  template<bool, typename _Tp = void>
+    struct enable_if
+    { };
+
+
+  template<typename _Tp>
+    struct enable_if<true, _Tp>
+    { typedef _Tp type; };
+
+  template<typename... _Cond>
+    using _Require = typename enable_if<__and_<_Cond...>::value>::type;
+
+
+
+  template<bool _Cond, typename _Iftrue, typename _Iffalse>
+    struct conditional
+    { typedef _Iftrue type; };
+
+
+  template<typename _Iftrue, typename _Iffalse>
+    struct conditional<false, _Iftrue, _Iffalse>
+    { typedef _Iffalse type; };
+
+
+  template<typename... _Tp>
+    struct common_type;
+
+
+
+  struct __do_common_type_impl
+  {
+    template<typename _Tp, typename _Up>
+      static __success_type<typename decay<decltype
+       (true ? std::declval<_Tp>()
+        : std::declval<_Up>())>::type> _S_test(int);
+
+    template<typename, typename>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _Tp, typename _Up>
+    struct __common_type_impl
+    : private __do_common_type_impl
+    {
+      typedef decltype(_S_test<_Tp, _Up>(0)) type;
+    };
+
+  struct __do_member_type_wrapper
+  {
+    template<typename _Tp>
+      static __success_type<typename _Tp::type> _S_test(int);
+
+    template<typename>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _Tp>
+    struct __member_type_wrapper
+    : private __do_member_type_wrapper
+    {
+      typedef decltype(_S_test<_Tp>(0)) type;
+    };
+
+  template<typename _CTp, typename... _Args>
+    struct __expanded_common_type_wrapper
+    {
+      typedef common_type<typename _CTp::type, _Args...> type;
+    };
+
+  template<typename... _Args>
+    struct __expanded_common_type_wrapper<__failure_type, _Args...>
+    { typedef __failure_type type; };
+
+  template<typename _Tp>
+    struct common_type<_Tp>
+    { typedef typename decay<_Tp>::type type; };
+
+  template<typename _Tp, typename _Up>
+    struct common_type<_Tp, _Up>
+    : public __common_type_impl<_Tp, _Up>::type
+    { };
+
+  template<typename _Tp, typename _Up, typename... _Vp>
+    struct common_type<_Tp, _Up, _Vp...>
+    : public __expanded_common_type_wrapper<typename __member_type_wrapper<
+               common_type<_Tp, _Up>>::type, _Vp...>::type
+    { };
+
+
+  template<typename _Tp>
+    struct underlying_type
+    {
+      typedef __underlying_type(_Tp) type;
+    };
+
+  template<typename _Tp>
+    struct __declval_protector
+    {
+      static const bool __stop = false;
+      static typename add_rvalue_reference<_Tp>::type __delegate();
+    };
+
+  template<typename _Tp>
+    inline typename add_rvalue_reference<_Tp>::type
+    declval() noexcept
+    {
+      static_assert(__declval_protector<_Tp>::__stop,
+      "declval() must not be used!");
+      return __declval_protector<_Tp>::__delegate();
+    }
+
+
+  template<typename _Signature>
+    class result_of;
+
+
+
+
+
+  struct __invoke_memfun_ref { };
+  struct __invoke_memfun_deref { };
+  struct __invoke_memobj_ref { };
+  struct __invoke_memobj_deref { };
+  struct __invoke_other { };
+
+
+  template<typename _Tp, typename _Tag>
+    struct __result_of_success : __success_type<_Tp>
+    { using __invoke_type = _Tag; };
+
+
+  struct __result_of_memfun_ref_impl
+  {
+    template<typename _Fp, typename _Tp1, typename... _Args>
+      static __result_of_success<decltype(
+      (std::declval<_Tp1>().*std::declval<_Fp>())(std::declval<_Args>()...)
+      ), __invoke_memfun_ref> _S_test(int);
+
+    template<typename...>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _MemPtr, typename _Arg, typename... _Args>
+    struct __result_of_memfun_ref
+    : private __result_of_memfun_ref_impl
+    {
+      typedef decltype(_S_test<_MemPtr, _Arg, _Args...>(0)) type;
+    };
+
+
+  struct __result_of_memfun_deref_impl
+  {
+    template<typename _Fp, typename _Tp1, typename... _Args>
+      static __result_of_success<decltype(
+      ((*std::declval<_Tp1>()).*std::declval<_Fp>())(std::declval<_Args>()...)
+      ), __invoke_memfun_deref> _S_test(int);
+
+    template<typename...>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _MemPtr, typename _Arg, typename... _Args>
+    struct __result_of_memfun_deref
+    : private __result_of_memfun_deref_impl
+    {
+      typedef decltype(_S_test<_MemPtr, _Arg, _Args...>(0)) type;
+    };
+
+
+  struct __result_of_memobj_ref_impl
+  {
+    template<typename _Fp, typename _Tp1>
+      static __result_of_success<decltype(
+      std::declval<_Tp1>().*std::declval<_Fp>()
+      ), __invoke_memobj_ref> _S_test(int);
+
+    template<typename, typename>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _MemPtr, typename _Arg>
+    struct __result_of_memobj_ref
+    : private __result_of_memobj_ref_impl
+    {
+      typedef decltype(_S_test<_MemPtr, _Arg>(0)) type;
+    };
+
+
+  struct __result_of_memobj_deref_impl
+  {
+    template<typename _Fp, typename _Tp1>
+      static __result_of_success<decltype(
+      (*std::declval<_Tp1>()).*std::declval<_Fp>()
+      ), __invoke_memobj_deref> _S_test(int);
+
+    template<typename, typename>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _MemPtr, typename _Arg>
+    struct __result_of_memobj_deref
+    : private __result_of_memobj_deref_impl
+    {
+      typedef decltype(_S_test<_MemPtr, _Arg>(0)) type;
+    };
+
+  template<typename _MemPtr, typename _Arg>
+    struct __result_of_memobj;
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, _Arg>
+    {
+      typedef typename remove_cv<typename remove_reference<
+        _Arg>::type>::type _Argval;
+      typedef _Res _Class::* _MemPtr;
+      typedef typename conditional<__or_<is_same<_Argval, _Class>,
+        is_base_of<_Class, _Argval>>::value,
+        __result_of_memobj_ref<_MemPtr, _Arg>,
+        __result_of_memobj_deref<_MemPtr, _Arg>
+      >::type::type type;
+    };
+
+  template<typename _MemPtr, typename _Arg, typename... _Args>
+    struct __result_of_memfun;
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, _Arg, _Args...>
+    {
+      typedef typename remove_cv<typename remove_reference<
+        _Arg>::type>::type _Argval;
+      typedef _Res _Class::* _MemPtr;
+      typedef typename conditional<__or_<is_same<_Argval, _Class>,
+        is_base_of<_Class, _Argval>>::value,
+        __result_of_memfun_ref<_MemPtr, _Arg, _Args...>,
+        __result_of_memfun_deref<_MemPtr, _Arg, _Args...>
+      >::type::type type;
+    };
+
+
+
+
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, reference_wrapper<_Arg>>
+    : __result_of_memobj_ref<_Res _Class::*, _Arg&>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, reference_wrapper<_Arg>&>
+    : __result_of_memobj_ref<_Res _Class::*, _Arg&>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, const reference_wrapper<_Arg>&>
+    : __result_of_memobj_ref<_Res _Class::*, _Arg&>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, reference_wrapper<_Arg>&&>
+    : __result_of_memobj_ref<_Res _Class::*, _Arg&>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg>
+    struct __result_of_memobj<_Res _Class::*, const reference_wrapper<_Arg>&&>
+    : __result_of_memobj_ref<_Res _Class::*, _Arg&>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, reference_wrapper<_Arg>, _Args...>
+    : __result_of_memfun_ref<_Res _Class::*, _Arg&, _Args...>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, reference_wrapper<_Arg>&,
+         _Args...>
+    : __result_of_memfun_ref<_Res _Class::*, _Arg&, _Args...>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, const reference_wrapper<_Arg>&,
+         _Args...>
+    : __result_of_memfun_ref<_Res _Class::*, _Arg&, _Args...>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, reference_wrapper<_Arg>&&,
+         _Args...>
+    : __result_of_memfun_ref<_Res _Class::*, _Arg&, _Args...>
+    { };
+
+  template<typename _Res, typename _Class, typename _Arg, typename... _Args>
+    struct __result_of_memfun<_Res _Class::*, const reference_wrapper<_Arg>&&,
+         _Args...>
+    : __result_of_memfun_ref<_Res _Class::*, _Arg&, _Args...>
+    { };
+
+  template<bool, bool, typename _Functor, typename... _ArgTypes>
+    struct __result_of_impl
+    {
+      typedef __failure_type type;
+    };
+
+  template<typename _MemPtr, typename _Arg>
+    struct __result_of_impl<true, false, _MemPtr, _Arg>
+    : public __result_of_memobj<typename decay<_MemPtr>::type, _Arg>
+    { };
+
+  template<typename _MemPtr, typename _Arg, typename... _Args>
+    struct __result_of_impl<false, true, _MemPtr, _Arg, _Args...>
+    : public __result_of_memfun<typename decay<_MemPtr>::type, _Arg, _Args...>
+    { };
+
+
+  struct __result_of_other_impl
+  {
+    template<typename _Fn, typename... _Args>
+      static __result_of_success<decltype(
+      std::declval<_Fn>()(std::declval<_Args>()...)
+      ), __invoke_other> _S_test(int);
+
+    template<typename...>
+      static __failure_type _S_test(...);
+  };
+
+  template<typename _Functor, typename... _ArgTypes>
+    struct __result_of_impl<false, false, _Functor, _ArgTypes...>
+    : private __result_of_other_impl
+    {
+      typedef decltype(_S_test<_Functor, _ArgTypes...>(0)) type;
+    };
+
+  template<typename _Functor, typename... _ArgTypes>
+    struct result_of<_Functor(_ArgTypes...)>
+    : public __result_of_impl<
+        is_member_object_pointer<
+          typename remove_reference<_Functor>::type
+        >::value,
+        is_member_function_pointer<
+          typename remove_reference<_Functor>::type
+        >::value,
+     _Functor, _ArgTypes...
+      >::type
+    { };
+
+
+
+  template<size_t _Len, size_t _Align =
+     __alignof__(typename __aligned_storage_msa<_Len>::__type)>
+    using aligned_storage_t = typename aligned_storage<_Len, _Align>::type;
+
+  template <size_t _Len, typename... _Types>
+    using aligned_union_t = typename aligned_union<_Len, _Types...>::type;
+
+
+  template<typename _Tp>
+    using decay_t = typename decay<_Tp>::type;
+
+
+  template<bool _Cond, typename _Tp = void>
+    using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+
+
+  template<bool _Cond, typename _Iftrue, typename _Iffalse>
+    using conditional_t = typename conditional<_Cond, _Iftrue, _Iffalse>::type;
+
+
+  template<typename... _Tp>
+    using common_type_t = typename common_type<_Tp...>::type;
+
+
+  template<typename _Tp>
+    using underlying_type_t = typename underlying_type<_Tp>::type;
+
+
+  template<typename _Tp>
+    using result_of_t = typename result_of<_Tp>::type;
+
+
+  template<typename...> using __void_t = void;
+# 2551 "/usr/include/c++/6/type_traits" 3
+  template<typename _Default, typename _AlwaysVoid,
+    template<typename...> class _Op, typename... _Args>
+    struct __detector
+    {
+      using value_t = false_type;
+      using type = _Default;
+    };
+
+
+  template<typename _Default, template<typename...> class _Op,
+     typename... _Args>
+    struct __detector<_Default, __void_t<_Op<_Args...>>, _Op, _Args...>
+    {
+      using value_t = true_type;
+      using type = _Op<_Args...>;
+    };
+
+
+  template<typename _Default, template<typename...> class _Op,
+    typename... _Args>
+    using __detected_or = __detector<_Default, void, _Op, _Args...>;
+
+
+  template<typename _Default, template<typename...> class _Op,
+    typename... _Args>
+    using __detected_or_t
+      = typename __detected_or<_Default, _Op, _Args...>::type;
+# 2595 "/usr/include/c++/6/type_traits" 3
+  template <typename _Tp>
+    struct __is_swappable;
+
+  template <typename _Tp>
+    struct __is_nothrow_swappable;
+
+  template<typename _Tp>
+    inline
+    typename enable_if<__and_<is_move_constructible<_Tp>,
+         is_move_assignable<_Tp>>::value>::type
+    swap(_Tp&, _Tp&)
+    noexcept(__and_<is_nothrow_move_constructible<_Tp>,
+             is_nothrow_move_assignable<_Tp>>::value);
+
+  template<typename _Tp, size_t _Nm>
+    inline
+    typename enable_if<__is_swappable<_Tp>::value>::type
+    swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
+    noexcept(__is_nothrow_swappable<_Tp>::value);
+
+  namespace __swappable_details {
+    using std::swap;
+
+    struct __do_is_swappable_impl
+    {
+      template<typename _Tp, typename
+               = decltype(swap(std::declval<_Tp&>(), std::declval<_Tp&>()))>
+        static true_type __test(int);
+
+      template<typename>
+        static false_type __test(...);
+    };
+
+    struct __do_is_nothrow_swappable_impl
+    {
+      template<typename _Tp>
+        static __bool_constant<
+          noexcept(swap(std::declval<_Tp&>(), std::declval<_Tp&>()))
+        > __test(int);
+
+      template<typename>
+        static false_type __test(...);
+    };
+
+  }
+
+  template<typename _Tp>
+    struct __is_swappable_impl
+    : public __swappable_details::__do_is_swappable_impl
+    {
+      typedef decltype(__test<_Tp>(0)) type;
+    };
+
+  template<typename _Tp>
+    struct __is_nothrow_swappable_impl
+    : public __swappable_details::__do_is_nothrow_swappable_impl
+    {
+      typedef decltype(__test<_Tp>(0)) type;
+    };
+
+  template<typename _Tp>
+    struct __is_swappable
+    : public __is_swappable_impl<_Tp>::type
+    { };
+
+  template<typename _Tp>
+    struct __is_nothrow_swappable
+    : public __is_nothrow_swappable_impl<_Tp>::type
+    { };
+
+
+}
+# 58 "/usr/include/c++/6/bits/move.h" 2 3
+
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+# 74 "/usr/include/c++/6/bits/move.h" 3
+  template<typename _Tp>
+    constexpr _Tp&&
+    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+    { return static_cast<_Tp&&>(__t); }
+
+
+
+
+
+
+
+  template<typename _Tp>
+    constexpr _Tp&&
+    forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+    {
+      static_assert(!std::is_lvalue_reference<_Tp>::value, "template argument"
+      " substituting _Tp is an lvalue reference type");
+      return static_cast<_Tp&&>(__t);
+    }
+
+
+
+
+
+
+  template<typename _Tp>
+    constexpr typename std::remove_reference<_Tp>::type&&
+    move(_Tp&& __t) noexcept
+    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+
+
+  template<typename _Tp>
+    struct __move_if_noexcept_cond
+    : public __and_<__not_<is_nothrow_move_constructible<_Tp>>,
+                    is_copy_constructible<_Tp>>::type { };
+# 118 "/usr/include/c++/6/bits/move.h" 3
+  template<typename _Tp>
+    constexpr typename
+    conditional<__move_if_noexcept_cond<_Tp>::value, const _Tp&, _Tp&&>::type
+    move_if_noexcept(_Tp& __x) noexcept
+    { return std::move(__x); }
+# 133 "/usr/include/c++/6/bits/move.h" 3
+  template<typename _Tp>
+    inline _Tp*
+    addressof(_Tp& __r) noexcept
+    { return std::__addressof(__r); }
+
+
+  template <typename _Tp, typename _Up = _Tp>
+    inline _Tp
+    __exchange(_Tp& __obj, _Up&& __new_val)
+    {
+      _Tp __old_val = std::move(__obj);
+      __obj = std::forward<_Up>(__new_val);
+      return __old_val;
+    }
+
+
+
+}
+# 159 "/usr/include/c++/6/bits/move.h" 3
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+# 174 "/usr/include/c++/6/bits/move.h" 3
+  template<typename _Tp>
+    inline
+
+    typename enable_if<__and_<is_move_constructible<_Tp>,
+         is_move_assignable<_Tp>>::value>::type
+    swap(_Tp& __a, _Tp& __b)
+    noexcept(__and_<is_nothrow_move_constructible<_Tp>,
+             is_nothrow_move_assignable<_Tp>>::value)
+
+
+
+
+    {
+
+     
+
+      _Tp __tmp = std::move(__a);
+      __a = std::move(__b);
+      __b = std::move(__tmp);
+    }
+
+
+
+
+  template<typename _Tp, size_t _Nm>
+    inline
+
+    typename enable_if<__is_swappable<_Tp>::value>::type
+    swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
+    noexcept(__is_nothrow_swappable<_Tp>::value)
+
+
+
+
+    {
+      for (size_t __n = 0; __n < _Nm; ++__n)
+ swap(__a[__n], __b[__n]);
+    }
+
+
+
+}
+# 41 "/usr/include/c++/6/bits/nested_exception.h" 2 3
+
+
+
+
+
+
+
+extern "C++" {
+
+namespace std
+{
+
+
+
+
+
+
+  class nested_exception
+  {
+    exception_ptr _M_ptr;
+
+  public:
+    nested_exception() noexcept : _M_ptr(current_exception()) { }
+
+    nested_exception(const nested_exception&) noexcept = default;
+
+    nested_exception& operator=(const nested_exception&) noexcept = default;
+
+    virtual ~nested_exception() noexcept;
+
+    [[noreturn]]
+    void
+    rethrow_nested() const
+    {
+      if (_M_ptr)
+ rethrow_exception(_M_ptr);
+      std::terminate();
+    }
+
+    exception_ptr
+    nested_ptr() const noexcept
+    { return _M_ptr; }
+  };
+
+  template<typename _Except>
+    struct _Nested_exception : public _Except, public nested_exception
+    {
+      explicit _Nested_exception(const _Except& __ex)
+      : _Except(__ex)
+      { }
+
+      explicit _Nested_exception(_Except&& __ex)
+      : _Except(static_cast<_Except&&>(__ex))
+      { }
+    };
+
+
+
+
+  template<typename _Tp>
+    inline void
+    __throw_with_nested_impl(_Tp&& __t, true_type)
+    {
+      using _Up = typename remove_reference<_Tp>::type;
+      throw _Nested_exception<_Up>{std::forward<_Tp>(__t)};
+    }
+
+  template<typename _Tp>
+    inline void
+    __throw_with_nested_impl(_Tp&& __t, false_type)
+    { throw std::forward<_Tp>(__t); }
+
+
+
+  template<typename _Tp>
+    [[noreturn]]
+    inline void
+    throw_with_nested(_Tp&& __t)
+    {
+      using _Up = typename decay<_Tp>::type;
+      using _CopyConstructible
+ = __and_<is_copy_constructible<_Up>, is_move_constructible<_Up>>;
+      static_assert(_CopyConstructible::value,
+   "throw_with_nested argument must be CopyConstructible");
+      using __nest = __and_<is_class<_Up>, __bool_constant<!__is_final(_Up)>,
+       __not_<is_base_of<nested_exception, _Up>>>;
+      std::__throw_with_nested_impl(std::forward<_Tp>(__t), __nest{});
+    }
+
+
+  template<typename _Tp>
+    using __rethrow_if_nested_cond = typename enable_if<
+      __and_<is_polymorphic<_Tp>,
+      __or_<__not_<is_base_of<nested_exception, _Tp>>,
+     is_convertible<_Tp*, nested_exception*>>>::value
+    >::type;
+
+
+  template<typename _Ex>
+    inline __rethrow_if_nested_cond<_Ex>
+    __rethrow_if_nested_impl(const _Ex* __ptr)
+    {
+      if (auto __ne_ptr = dynamic_cast<const nested_exception*>(__ptr))
+ __ne_ptr->rethrow_nested();
+    }
+
+
+  inline void
+  __rethrow_if_nested_impl(const void*)
+  { }
+
+
+  template<typename _Ex>
+    inline void
+    rethrow_if_nested(const _Ex& __ex)
+    { std::__rethrow_if_nested_impl(std::__addressof(__ex)); }
+
+
+}
+
+}
+
+
+
+#pragma GCC visibility pop
+# 174 "/usr/include/c++/6/exception" 2 3
+# 41 "/usr/include/c++/6/new" 2 3
+
+#pragma GCC visibility push(default)
+
+extern "C++" {
+
+namespace std
+{
+
+
+
+
+
+
+  class bad_alloc : public exception
+  {
+  public:
+    bad_alloc() throw() { }
+
+
+
+    virtual ~bad_alloc() throw();
+
+
+    virtual const char* what() const throw();
+  };
+
+
+  class bad_array_new_length : public bad_alloc
+  {
+  public:
+    bad_array_new_length() throw() { };
+
+
+
+    virtual ~bad_array_new_length() throw();
+
+
+    virtual const char* what() const throw();
+  };
+
+
+  struct nothrow_t
+  {
+
+    explicit nothrow_t() = default;
+
+  };
+
+  extern const nothrow_t nothrow;
+
+
+
+  typedef void (*new_handler)();
+
+
+
+  new_handler set_new_handler(new_handler) throw();
+
+
+
+  new_handler get_new_handler() noexcept;
+
+}
+# 116 "/usr/include/c++/6/new" 3
+void* operator new(std::size_t)
+  __attribute__((__externally_visible__));
+void* operator new[](std::size_t)
+  __attribute__((__externally_visible__));
+void operator delete(void*) noexcept
+  __attribute__((__externally_visible__));
+void operator delete[](void*) noexcept
+  __attribute__((__externally_visible__));
+
+void operator delete(void*, std::size_t) noexcept
+  __attribute__((__externally_visible__));
+void operator delete[](void*, std::size_t) noexcept
+  __attribute__((__externally_visible__));
+
+void* operator new(std::size_t, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+void* operator new[](std::size_t, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+void operator delete(void*, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+void operator delete[](void*, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+
+void operator delete(void*, std::size_t, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+void operator delete[](void*, std::size_t, const std::nothrow_t&) noexcept
+  __attribute__((__externally_visible__));
+
+
+
+inline void* operator new(std::size_t, void* __p) noexcept
+{ return __p; }
+inline void* operator new[](std::size_t, void* __p) noexcept
+{ return __p; }
+
+
+inline void operator delete (void*, void*) noexcept { }
+inline void operator delete[](void*, void*) noexcept { }
+
+}
+
+#pragma GCC visibility pop
+# 79 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/Configure.h" 2
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/Range.h" 2
+
+# 1 "/usr/include/assert.h" 1 3 4
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/Range.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Comparisons.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Comparisons.h"
+
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/util/Comparisons.h"
+namespace openpal
+{
+
+template <class T>
+inline T Min(T a, T b)
+{
+ return (a < b) ? a : b;
+}
+
+template <class T>
+inline T Max(T a, T b)
+{
+ return (a > b) ? a : b;
+}
+
+template <class T>
+inline T Bounded(T value, T min, T max)
+{
+ return Min(Max(value, min), max);
+}
+
+template <class T>
+inline bool WithinLimits(T value, T min, T max)
+{
+ return (value >= min) && (value <= max);
+}
+
+template <class T>
+bool FloatEqual(T a, T b, T eapllon = 1e-6)
+{
+ T diff = a - b;
+ if(diff < 0) diff = -diff;
+ return diff <= eapllon;
+}
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/Range.h" 2
+
+namespace opendnp3
+{
+
+class Range
+{
+public:
+
+ static Range From(uint16_t start, uint16_t stop)
+ {
+  return Range(start, stop);
+ }
+
+ static Range Invalid()
+ {
+  return Range(1, 0);
+ }
+
+ Range() : start(1), stop(0)
+ {}
+
+ uint32_t Count() const
+ {
+  return IsValid() ? (static_cast<uint32_t>(stop) - static_cast<uint32_t>(start) + 1) : 0;
+ }
+
+ bool Advance()
+ {
+  if (this->IsValid())
+  {
+   if (start < stop)
+   {
+    ++start;
+   }
+   else
+   {
+
+    start = 1;
+    stop = 0;
+   }
+
+   return true;
+  }
+  else
+  {
+   return false;
+  }
+ }
+
+
+ Range Intersection(const Range& other) const
+ {
+  return Range(
+             openpal::Max<uint16_t>(start, other.start),
+             openpal::Min<uint16_t>(stop, other.stop)
+         );
+ }
+
+
+ Range Union(const Range& other) const
+ {
+  return Range(
+             openpal::Min<uint16_t>(start, other.start),
+             openpal::Max<uint16_t>(stop, other.stop)
+         );
+ }
+
+ bool Equals(const Range& other) const
+ {
+  return (other.start == start) && (other.stop == stop);
+ }
+
+ bool IsValid() const
+ {
+  return start <= stop;
+ }
+
+ bool IsOneByte() const
+ {
+  return IsValid() && (start <= 255) && (stop <= 255);
+ }
+
+ uint16_t start;
+ uint16_t stop;
+
+private:
+
+ Range(uint16_t index_) :
+  start(index_),
+  stop(index_)
+ {}
+
+ Range(uint16_t start_, uint16_t stop_) :
+  start(start_),
+  stop(stop_)
+ {}
+};
+
+}
+# 33 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/GroupVariationRecord.h" 2
+
+
+namespace opendnp3
+{
+
+enum class GroupVariationType : int
+{
+ STATIC,
+ EVENT,
+ OTHER
+};
+
+struct EnumAndType
+{
+ EnumAndType(GroupVariation enumeration_, GroupVariationType type_) :
+  enumeration(enumeration_), type(type_)
+ {}
+
+ GroupVariation enumeration;
+ GroupVariationType type;
+};
+
+class GroupVariationRecord
+{
+
+public:
+
+ static EnumAndType GetEnumAndType(uint8_t group, uint8_t variation);
+
+ static uint16_t GetGroupVar(uint8_t group, uint8_t variation);
+
+ static GroupVariationRecord GetRecord(uint8_t group, uint8_t variation);
+
+ static GroupVariationType GetType(uint8_t group, uint8_t variation);
+
+ GroupVariationRecord(uint8_t group_, uint8_t variation_, GroupVariation enumeration_, GroupVariationType type_);
+
+ GroupVariationRecord() : enumeration(GroupVariation::UNKNOWN), type(GroupVariationType::OTHER), group(0), variation(0)
+ {}
+
+ GroupVariation enumeration;
+ GroupVariationType type;
+ uint8_t group;
+ uint8_t variation;
+};
+
+class HeaderRecord : public GroupVariationRecord
+{
+public:
+
+ HeaderRecord() : qualifier(0), headerIndex(0)
+ {}
+
+ HeaderRecord(const GroupVariationRecord& gv, uint8_t qualifier, uint32_t headerIndex);
+
+ QualifierCode GetQualifierCode() const;
+
+ uint8_t qualifier;
+ uint32_t headerIndex;
+};
+
+
+
+class AllObjectsHeader : public HeaderRecord
+{
+public:
+
+ explicit AllObjectsHeader(const HeaderRecord& record) : HeaderRecord(record)
+ {}
+
+};
+
+class CountHeader : public HeaderRecord
+{
+public:
+
+ CountHeader(const HeaderRecord& record, uint16_t count_) : HeaderRecord(record), count(count_)
+ {}
+
+ uint16_t count;
+};
+
+class FreeFormatHeader : public HeaderRecord
+{
+public:
+
+ FreeFormatHeader(const HeaderRecord& record, uint16_t count_) : HeaderRecord(record), count(count_)
+ {}
+
+ uint16_t count;
+};
+
+class RangeHeader : public HeaderRecord
+{
+public:
+
+ RangeHeader(const HeaderRecord& record, const Range& range_) : HeaderRecord(record), range(range_)
+ {}
+
+ Range range;
+};
+
+class PrefixHeader : public HeaderRecord
+{
+public:
+
+ PrefixHeader(const HeaderRecord& record, uint16_t count_) : HeaderRecord(record), count(count_)
+ {}
+
+ uint16_t count;
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/parsing/ICollection.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/parsing/ICollection.h"
+# 1 "/usr/include/c++/6/cstddef" 1 3
+# 42 "/usr/include/c++/6/cstddef" 3
+       
+# 43 "/usr/include/c++/6/cstddef" 3
+
+
+
+
+
+
+
+# 1 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 1 3 4
+# 149 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+
+# 149 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+typedef int ptrdiff_t;
+# 216 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+typedef unsigned int size_t;
+# 426 "/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h" 3 4
+typedef struct {
+  long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
+  long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
+} max_align_t;
+
+
+
+
+
+
+  typedef decltype(nullptr) nullptr_t;
+# 51 "/usr/include/c++/6/cstddef" 2 3
+
+
+namespace std
+{
+
+  using ::max_align_t;
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/parsing/ICollection.h" 2
+
+
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/parsing/ICollection.h"
+namespace opendnp3
+{
+
+
+
+
+
+template <class T>
+class IVisitor
+{
+public:
+
+ virtual void OnValue(const T& value) = 0;
+};
+
+
+
+
+
+template <class T, class Fun>
+class FunctorVisitor : public IVisitor<T>
+{
+
+public:
+
+ FunctorVisitor(const Fun& fun_) : fun(fun_) {}
+
+ virtual void OnValue(const T& value) override final
+ {
+  fun(value);
+ }
+
+private:
+ Fun fun;
+};
+
+
+
+
+
+
+template <class T>
+class ICollection
+{
+public:
+
+
+
+
+ virtual size_t Count() const = 0;
+
+
+
+
+ virtual void Foreach(IVisitor<T>& visitor) const = 0;
+
+
+
+
+ template <class Fun>
+ void ForeachItem(const Fun& fun) const
+ {
+  FunctorVisitor<T, Fun> visitor(fun);
+  this->Foreach(visitor);
+ }
+
+
+
+
+ bool ReadOnlyValue(T& value) const
+ {
+  if (this->Count() == 1)
+  {
+   auto assignValue = [&value](const T & item)
+   {
+    value = item;
+   };
+   this->ForeachItem(assignValue);
+   return true;
+  }
+  else
+  {
+   return false;
+  }
+ }
+};
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/UInt48Type.h"
+namespace openpal
+{
+
+class UInt48Type
+{
+
+public:
+
+ explicit UInt48Type(int64_t value) : value(value)
+ {}
+
+ UInt48Type() : value(0)
+ {}
+
+ operator int64_t() const
+ {
+  return value;
+ }
+
+ int64_t value;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/DNPTime.h" 2
+
+namespace opendnp3
+{
+
+typedef openpal::UInt48Type DNPTime;
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Flags.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Flags.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class BinaryQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  CHATTER_FILTER = 0x20,
+
+  RESERVED = 0x40,
+
+  STATE = 0x80
+};
+
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBitBinaryQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBitBinaryQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class DoubleBitBinaryQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  CHATTER_FILTER = 0x20,
+
+  STATE1 = 0x40,
+
+  STATE2 = 0x80
+};
+
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CounterQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CounterQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class CounterQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  ROLLOVER = 0x20,
+
+  DISCONTINUITY = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FrozenCounterQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/FrozenCounterQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class FrozenCounterQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  ROLLOVER = 0x20,
+
+  DISCONTINUITY = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class AnalogQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  OVERRANGE = 0x20,
+
+  REFERENCE_ERR = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogOutputStatusQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AnalogOutputStatusQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class AnalogOutputStatusQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  OVERRANGE = 0x20,
+
+  REFERENCE_ERR = 0x40,
+
+  RESERVED = 0x80
+};
+
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryOutputStatusQuality.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/BinaryOutputStatusQuality.h"
+namespace opendnp3 {
+
+
+
+
+enum class BinaryOutputStatusQuality : uint8_t
+{
+
+  ONLINE = 0x1,
+
+  RESTART = 0x2,
+
+  COMM_LOST = 0x4,
+
+  REMOTE_FORCED = 0x8,
+
+  LOCAL_FORCED = 0x10,
+
+  RESERVED1 = 0x20,
+
+  RESERVED2 = 0x40,
+
+  STATE = 0x80
+};
+
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/QualityMasks.h" 2
+
+namespace opendnp3
+{
+
+template <class T>
+inline uint8_t ToUnderlying(T flag)
+{
+ return static_cast<uint8_t>(flag);
+}
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Flags.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class Flags
+{
+public:
+
+ Flags() : value(0)
+ {}
+
+ Flags(uint8_t value) : value(value)
+ {}
+
+ inline bool IsSet(BinaryQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(AnalogQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(CounterQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(FrozenCounterQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(BinaryOutputStatusQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+ inline bool IsSet(AnalogOutputStatusQuality flag) const
+ {
+  return IsSetAny(flag);
+ }
+
+ inline void Set(BinaryQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(AnalogQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(CounterQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(FrozenCounterQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(BinaryOutputStatusQuality flag)
+ {
+  SetAny(flag);
+ }
+ inline void Set(AnalogOutputStatusQuality flag)
+ {
+  SetAny(flag);
+ }
+
+ uint8_t value;
+
+protected:
+
+ template <class T>
+ bool IsSetAny(T flag) const
+ {
+  return (value & static_cast<uint8_t>(flag)) != 0;
+ }
+
+ template <class T>
+ void SetAny(T flag)
+ {
+  value |= static_cast<uint8_t>(flag);
+ }
+};
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BaseMeasurementTypes.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class Measurement
+{
+public:
+
+ Flags flags;
+ DNPTime time;
+
+protected:
+
+ Measurement()
+ {}
+
+ Measurement(Flags flags) : flags(flags)
+ {}
+
+ Measurement(Flags flags, DNPTime time) : flags(flags), time(time)
+ {}
+
+};
+
+
+
+template <class T>
+class TypedMeasurement : public Measurement
+{
+public:
+
+ T value;
+
+ typedef T Type;
+
+protected:
+
+ TypedMeasurement(): Measurement(), value(0) {}
+ TypedMeasurement(Flags flags) : Measurement(flags), value(0) {}
+ TypedMeasurement(T value, Flags flags) : Measurement(flags), value(value) {}
+ TypedMeasurement(T value, Flags flags, DNPTime time) : Measurement(flags, time), value(value) {}
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBit.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/DoubleBit.h"
+namespace opendnp3 {
+
+
+
+
+enum class DoubleBit : uint8_t
+{
+
+  INTERMEDIATE = 0x0,
+
+  DETERMINED_OFF = 0x1,
+
+  DETERMINED_ON = 0x2,
+
+  INDETERMINATE = 0x3
+};
+
+uint8_t DoubleBitToType(DoubleBit arg);
+DoubleBit DoubleBitFromType(uint8_t arg);
+char const* DoubleBitToString(DoubleBit arg);
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/IntervalUnits.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/IntervalUnits.h"
+namespace opendnp3 {
+
+
+
+
+enum class IntervalUnits : uint8_t
+{
+
+  NoRepeat = 0x0,
+
+  Milliseconds = 0x1,
+
+  Seconds = 0x2,
+
+  Minutes = 0x3,
+
+  Hours = 0x4,
+
+  Days = 0x5,
+
+  Weeks = 0x6,
+
+  Months7 = 0x7,
+
+  Months8 = 0x8,
+
+  Months9 = 0x9,
+
+  Seasons = 0xA,
+
+  Undefined = 0x7F
+};
+
+uint8_t IntervalUnitsToType(IntervalUnits arg);
+IntervalUnits IntervalUnitsFromType(uint8_t arg);
+char const* IntervalUnitsToString(IntervalUnits arg);
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypes.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+
+
+class Binary : public TypedMeasurement<bool>
+{
+public:
+
+ Binary();
+
+ Binary(bool value);
+
+ Binary(Flags flags);
+
+ Binary(Flags flags, DNPTime time);
+
+ Binary(bool value, Flags flags);
+
+ Binary(bool value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class DoubleBitBinary : public TypedMeasurement<DoubleBit>
+{
+public:
+
+
+ DoubleBitBinary();
+
+ DoubleBitBinary(DoubleBit value);
+
+ DoubleBitBinary(Flags flags);
+
+ DoubleBitBinary(Flags flags, DNPTime time);
+
+ DoubleBitBinary(DoubleBit value, Flags flags);
+
+ DoubleBitBinary(DoubleBit value, Flags flags, DNPTime time);
+
+private:
+
+ static const uint8_t ValueMask = 0xC0;
+ static const uint8_t QualityMask = 0x3F;
+
+ static DoubleBit GetValue(Flags flags);
+
+ static Flags GetFlags(Flags flags, DoubleBit state);
+};
+
+
+
+
+
+
+
+class BinaryOutputStatus : public TypedMeasurement<bool>
+{
+public:
+
+ BinaryOutputStatus();
+
+ BinaryOutputStatus(bool value);
+
+ BinaryOutputStatus(Flags flags);
+
+ BinaryOutputStatus(Flags flags, DNPTime time);
+
+ BinaryOutputStatus(bool value, Flags flags);
+
+ BinaryOutputStatus(bool value, Flags flags, DNPTime time);
+
+};
+
+
+
+
+
+
+class Analog : public TypedMeasurement<double>
+{
+public:
+
+ Analog();
+
+ Analog(double value);
+
+ Analog(double value, Flags flags);
+
+ Analog(double value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class Counter : public TypedMeasurement<uint32_t>
+{
+public:
+
+ Counter();
+
+ Counter(uint32_t value);
+
+ Counter(uint32_t value, Flags flags);
+
+ Counter(uint32_t value, Flags flags, DNPTime time);
+};
+
+
+
+
+class FrozenCounter : public TypedMeasurement<uint32_t>
+{
+public:
+
+ FrozenCounter();
+
+ FrozenCounter(uint32_t value);
+
+ FrozenCounter(uint32_t value, Flags flags);
+
+ FrozenCounter(uint32_t value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class AnalogOutputStatus : public TypedMeasurement<double>
+{
+public:
+
+ AnalogOutputStatus();
+
+ AnalogOutputStatus(double value);
+
+ AnalogOutputStatus(double value, Flags flags);
+
+ AnalogOutputStatus(double value, Flags flags, DNPTime time);
+};
+
+
+
+
+
+class TimeAndInterval
+{
+public:
+
+ TimeAndInterval();
+
+ TimeAndInterval(DNPTime time, uint32_t interval, uint8_t units);
+
+ TimeAndInterval(DNPTime time, uint32_t interval, IntervalUnits units);
+
+ IntervalUnits GetUnitsEnum() const;
+
+ DNPTime time;
+ uint32_t interval;
+ uint8_t units;
+};
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/IINValue.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/IINValue.h"
+namespace opendnp3
+{
+
+class IINValue
+{
+public:
+
+ IINValue() : value(false)
+ {}
+
+ IINValue(bool value_) : value(value_)
+ {}
+
+ bool value;
+};
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CommandStatus.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CommandStatus.h"
+namespace opendnp3 {
+
+
+
+
+
+enum class CommandStatus : uint8_t
+{
+
+  SUCCESS = 0,
+
+  TIMEOUT = 1,
+
+  NO_SELECT = 2,
+
+  FORMAT_ERROR = 3,
+
+  NOT_SUPPORTED = 4,
+
+  ALREADY_ACTIVE = 5,
+
+  HARDWARE_ERROR = 6,
+
+  LOCAL = 7,
+
+  TOO_MANY_OPS = 8,
+
+  NOT_AUTHORIZED = 9,
+
+  AUTOMATION_INHIBIT = 10,
+
+  PROCESSING_LIMITED = 11,
+
+  OUT_OF_RANGE = 12,
+
+  DOWNSTREAM_LOCAL = 13,
+
+  ALREADY_COMPLETE = 14,
+
+  BLOCKED = 15,
+
+  CANCELLED = 16,
+
+  BLOCKED_OTHER_MASTER = 17,
+
+  DOWNSTREAM_FAIL = 18,
+
+  NON_PARTICIPATING = 126,
+
+  UNDEFINED = 127
+};
+
+uint8_t CommandStatusToType(CommandStatus arg);
+CommandStatus CommandStatusFromType(uint8_t arg);
+char const* CommandStatusToString(CommandStatus arg);
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ControlCode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ControlCode.h"
+namespace opendnp3 {
+
+
+
+
+
+enum class ControlCode : uint8_t
+{
+
+  NUL = 0x0,
+
+  NUL_CANCEL = 0x20,
+
+  PULSE_ON = 0x1,
+
+  PULSE_ON_CANCEL = 0x21,
+
+  PULSE_OFF = 0x2,
+
+  PULSE_OFF_CANCEL = 0x22,
+
+  LATCH_ON = 0x3,
+
+  LATCH_ON_CANCEL = 0x23,
+
+  LATCH_OFF = 0x4,
+
+  LATCH_OFF_CANCEL = 0x24,
+
+  CLOSE_PULSE_ON = 0x41,
+
+  CLOSE_PULSE_ON_CANCEL = 0x61,
+
+  TRIP_PULSE_ON = 0x81,
+
+  TRIP_PULSE_ON_CANCEL = 0xA1,
+
+  UNDEFINED = 0xFF
+};
+
+uint8_t ControlCodeToType(ControlCode arg);
+ControlCode ControlCodeFromType(uint8_t arg);
+char const* ControlCodeToString(ControlCode arg);
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h" 2
+
+namespace opendnp3
+{
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/ControlRelayOutputBlock.h"
+class ControlRelayOutputBlock
+{
+public:
+
+
+ ControlRelayOutputBlock(
+     ControlCode code = ControlCode::LATCH_ON,
+     uint8_t count = 1,
+     uint32_t onTime = 100,
+     uint32_t offTime = 100,
+     CommandStatus status = CommandStatus::SUCCESS);
+
+
+ ControlRelayOutputBlock(
+     uint8_t rawCode,
+     uint8_t count = 1,
+     uint32_t onTime = 100,
+     uint32_t offTime = 100,
+     CommandStatus status = CommandStatus::SUCCESS);
+
+
+ ControlCode functionCode;
+
+ uint8_t rawCode;
+
+ uint8_t count;
+
+ uint32_t onTimeMS;
+
+ uint32_t offTimeMS;
+
+ CommandStatus status;
+
+ bool ValuesEqual(const ControlRelayOutputBlock& lhs) const
+ {
+  return (functionCode == lhs.functionCode) &&
+         (count == lhs.count) &&
+         (onTimeMS == lhs.onTimeMS) &&
+         (offTimeMS == lhs.offTimeMS);
+ }
+
+ bool operator==(const ControlRelayOutputBlock& lhs) const
+ {
+  return this->ValuesEqual(lhs) && (this->status == lhs.status);
+ }
+};
+
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/AnalogOutput.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/AnalogOutput.h"
+namespace opendnp3
+{
+
+
+
+
+
+template <class T>
+class AnalogOutput
+{
+public:
+
+ AnalogOutput() :
+  value(0),
+  status(CommandStatus::SUCCESS)
+ {}
+
+ AnalogOutput(T value_) :
+  value(value_),
+  status(CommandStatus::SUCCESS)
+ {}
+
+ AnalogOutput(T value_, CommandStatus status_) :
+  value(value_),
+  status(status_)
+ {}
+
+ bool ValuesEqual(const AnalogOutput<T>& lhs) const
+ {
+  return value == lhs.value;
+ }
+
+ T value;
+
+
+
+
+ CommandStatus status;
+};
+
+
+
+
+class AnalogOutputInt16 : public AnalogOutput<int16_t>
+{
+public:
+
+ AnalogOutputInt16();
+ AnalogOutputInt16(int16_t);
+ AnalogOutputInt16(int16_t, CommandStatus);
+
+ bool operator==(const AnalogOutputInt16& arRHS) const;
+};
+
+
+
+
+class AnalogOutputInt32 : public AnalogOutput<int32_t>
+{
+public:
+
+ AnalogOutputInt32();
+ AnalogOutputInt32(int32_t);
+ AnalogOutputInt32(int32_t, CommandStatus);
+
+ bool operator==(const AnalogOutputInt32& arRHS) const;
+};
+
+
+
+
+class AnalogOutputFloat32 : public AnalogOutput<float>
+{
+public:
+
+ AnalogOutputFloat32();
+ AnalogOutputFloat32(float);
+ AnalogOutputFloat32(float, CommandStatus);
+
+ bool operator==(const AnalogOutputFloat32& arRHS) const;
+};
+
+
+
+
+class AnalogOutputDouble64 : public AnalogOutput<double>
+{
+public:
+
+ AnalogOutputDouble64();
+ AnalogOutputDouble64(double);
+ AnalogOutputDouble64(double, CommandStatus);
+
+ bool operator==(const AnalogOutputDouble64& arRHS) const;
+};
+
+
+}
+# 33 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BinaryCommandEvent.h" 1
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/BinaryCommandEvent.h"
+namespace opendnp3
+{
+
+
+
+
+class BinaryCommandEvent
+{
+public:
+
+ BinaryCommandEvent();
+
+ BinaryCommandEvent(Flags flags);
+
+ BinaryCommandEvent(Flags flags, DNPTime time);
+
+ BinaryCommandEvent(bool value, CommandStatus status);
+
+ BinaryCommandEvent(bool value, CommandStatus status, DNPTime time);
+
+ bool value;
+ CommandStatus status;
+ DNPTime time;
+
+ Flags GetFlags() const;
+
+ bool operator==(const BinaryCommandEvent& rhs) const;
+
+private:
+
+ static const uint8_t ValueMask = 0x80;
+ static const uint8_t StatusMask = 0x7F;
+
+ static bool GetValueFromFlags(Flags flags);
+ static CommandStatus GetStatusFromFlags(Flags flags);
+};
+
+}
+# 34 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/AnalogCommandEvent.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/AnalogCommandEvent.h"
+namespace opendnp3
+{
+
+
+
+
+class AnalogCommandEvent
+{
+public:
+
+ AnalogCommandEvent();
+
+ AnalogCommandEvent(double value, CommandStatus status);
+
+ AnalogCommandEvent(double value, CommandStatus status, DNPTime time);
+
+ double value;
+ CommandStatus status;
+ DNPTime time;
+
+ bool operator==(const AnalogCommandEvent& rhs) const;
+};
+
+}
+# 35 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Indexed.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/Indexed.h"
+namespace opendnp3
+{
+
+
+
+
+template <class T>
+class Indexed
+{
+public:
+ Indexed(const T& value_, uint16_t index_) :
+  value(value_),
+  index(index_)
+ {}
+
+ Indexed(): value(), index(0)
+ {}
+
+ T value;
+ uint16_t index;
+};
+
+template <class T>
+Indexed<T> WithIndex(const T& value, uint16_t index)
+{
+ return Indexed<T>(value, index);
+}
+
+}
+# 36 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/OctetString.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/OctetString.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/OctetData.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/OctetData.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/HasSize.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/HasSize.h"
+namespace openpal
+{
+
+template <class SizeType>
+class HasSize
+{
+
+public:
+
+ HasSize(SizeType size_) : size(size_)
+ {}
+
+ SizeType Size() const
+ {
+  return size;
+ }
+
+ bool IsEmpty() const
+ {
+  return size == 0;
+ }
+
+ bool IsNotEmpty() const
+ {
+  return size != 0;
+ }
+
+protected:
+
+ SizeType size;
+
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/RSlice.h" 2
+
+
+
+namespace openpal
+{
+
+class WSlice;
+
+
+
+
+
+class RSlice : public HasSize<uint32_t>
+{
+
+public:
+
+ static RSlice Empty();
+
+ RSlice();
+
+ RSlice(uint8_t const* pBuffer, uint32_t size);
+
+ void Clear();
+
+ RSlice CopyTo(WSlice&) const;
+
+ RSlice Take(uint32_t count) const;
+
+ RSlice Skip(uint32_t count) const;
+
+ bool Equals(const RSlice& rhs) const;
+
+ void Advance(uint32_t count);
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+ uint8_t const* pBuffer;
+
+};
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/OctetData.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/StaticBuffer.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/StaticBuffer.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/WSlice.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/WSlice.h"
+namespace openpal
+{
+
+class RSlice;
+
+
+
+
+
+class WSlice : public HasSize<uint32_t>
+{
+public:
+
+ static WSlice Empty();
+
+ void SetAllTo(uint8_t value);
+
+ WSlice();
+ WSlice(uint8_t* pBuffer, uint32_t size);
+
+ void Clear();
+
+ uint32_t Advance(uint32_t count);
+
+ WSlice Skip(uint32_t count) const;
+
+ RSlice ToRSlice() const;
+
+ operator uint8_t* ()
+ {
+  return pBuffer;
+ };
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+
+ uint8_t* pBuffer;
+};
+
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/container/StaticBuffer.h" 2
+
+
+
+
+
+namespace openpal
+{
+
+template <uint32_t SIZE>
+class StaticBuffer
+{
+
+public:
+
+ StaticBuffer()
+ {}
+
+ virtual ~StaticBuffer() {}
+
+ RSlice ToRSlice() const
+ {
+  return RSlice(buffer, SIZE);
+ }
+
+ RSlice ToRSlice(uint32_t maxSize) const
+ {
+  return RSlice(buffer, openpal::Min(SIZE, maxSize));
+ }
+
+ WSlice GetWSlice()
+ {
+  return WSlice(buffer, SIZE);
+ }
+
+ WSlice GetWSlice(uint32_t maxSize)
+ {
+  return WSlice(buffer, openpal::Min(SIZE, maxSize));
+ }
+
+ const uint8_t* operator()() const
+ {
+  return buffer;
+ }
+
+ uint8_t* operator()()
+ {
+  return buffer;
+ }
+
+ uint32_t Size() const
+ {
+  return SIZE;
+ }
+
+private:
+ uint8_t buffer[SIZE];
+};
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/OctetData.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class OctetData
+{
+public:
+
+ const static uint8_t MAX_SIZE = 255;
+
+ OctetData();
+ OctetData(const openpal::RSlice& input);
+
+ openpal::RSlice ToRSlice() const;
+
+private:
+
+ void Initialize(const openpal::RSlice& buffer);
+
+ openpal::StaticBuffer<MAX_SIZE> buffer;
+ uint8_t size;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/OctetString.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class OctetString : public OctetData
+{
+public:
+
+ OctetString() : OctetData()
+ {}
+
+ OctetString(const OctetString& data) : OctetData(data)
+ {}
+
+ OctetString(const openpal::RSlice& buffer) : OctetData(buffer)
+ {}
+
+};
+
+}
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+
+
+
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group50.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group50.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/GroupVariationID.h"
+namespace opendnp3
+{
+
+
+struct GroupVariationID
+{
+ GroupVariationID() : group(0xFF), variation(0xFF)
+ {}
+
+ GroupVariationID(uint8_t aGroup, uint8_t aVariation):
+  group(aGroup),
+  variation(aVariation)
+ {
+
+ }
+
+ uint8_t group;
+ uint8_t variation;
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group50.h" 2
+
+
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DNP3Serializer.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DNP3Serializer.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serializer.h" 1
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/openpal/serialization/Serializer.h"
+namespace openpal
+{
+
+template <class T>
+class Serializer
+{
+public:
+
+ typedef bool (*ReadFunc)(RSlice& buffer, T& output);
+ typedef bool (*WriteFunc)(const T& value, WSlice& buffer);
+
+ Serializer() : size(0), pReadFunc(nullptr), pWriteFunc(nullptr)
+ {}
+
+ Serializer(uint32_t size_, ReadFunc pReadFunc_, WriteFunc pWriteFunc_) :
+  size(size_), pReadFunc(pReadFunc_), pWriteFunc(pWriteFunc_)
+ {}
+
+
+
+
+ uint32_t Size() const
+ {
+  return size;
+ }
+
+
+
+
+ bool Read(RSlice& buffer, T& output) const
+ {
+  return (*pReadFunc)(buffer, output);
+ }
+
+
+
+
+ bool Write(const T& value, WSlice& buffer) const
+ {
+  return (*pWriteFunc)(value, buffer);
+ }
+
+private:
+
+ uint32_t size;
+ ReadFunc pReadFunc;
+ WriteFunc pWriteFunc;
+
+};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/DNP3Serializer.h" 2
+
+
+
+namespace opendnp3
+{
+
+template <class T>
+class DNP3Serializer : public openpal::Serializer<T>
+{
+public:
+
+ DNP3Serializer(GroupVariationID id_, uint32_t size_, typename openpal::Serializer<T>::ReadFunc pReadFunc_, typename openpal::Serializer<T>::WriteFunc pWriteFunc_) :
+  openpal::Serializer<T>(size_, pReadFunc_, pWriteFunc_),
+  id(id_)
+ {}
+
+ GroupVariationID ID() const
+ {
+  return id;
+ }
+
+private:
+
+ GroupVariationID id;
+
+};
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group50.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 1
+# 24 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 1
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/SecurityStat.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/SecurityStat.h"
+namespace opendnp3
+{
+
+
+
+
+
+
+class SecurityStat
+{
+public:
+
+
+ struct Value
+ {
+  uint16_t assocId;
+  uint32_t count;
+ };
+
+ SecurityStat();
+
+ SecurityStat(Value value, uint8_t quality, DNPTime time);
+
+ SecurityStat(uint8_t quality, uint16_t assocId, uint32_t count);
+
+ SecurityStat(uint8_t quality, uint16_t assocId, uint32_t count, DNPTime time);
+
+ uint8_t quality;
+ Value value;
+ DNPTime time;
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventType.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventType.h"
+namespace opendnp3
+{
+
+static const int NUM_OUTSTATION_EVENT_TYPES = 8;
+
+enum class EventType : uint16_t
+{
+ Binary = 0,
+ Analog = 1,
+ Counter = 2,
+ FrozenCounter = 3,
+ DoubleBitBinary = 4,
+ BinaryOutputStatus = 5,
+ AnalogOutputStatus = 6,
+ SecurityStat = 7
+};
+
+enum class EventClass : uint8_t
+{
+ EC1 = 0,
+ EC2 = 1,
+ EC3 = 2
+};
+
+}
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryVariation.h"
+namespace opendnp3 {
+
+enum class StaticBinaryVariation : uint8_t
+{
+  Group1Var1 = 0,
+  Group1Var2 = 1
+};
+
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticDoubleBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticDoubleBinaryVariation.h"
+namespace opendnp3 {
+
+enum class StaticDoubleBinaryVariation : uint8_t
+{
+  Group3Var2 = 0
+};
+
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticBinaryOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class StaticBinaryOutputStatusVariation : uint8_t
+{
+  Group10Var2 = 0
+};
+
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticCounterVariation.h"
+namespace opendnp3 {
+
+enum class StaticCounterVariation : uint8_t
+{
+  Group20Var1 = 0,
+  Group20Var2 = 1,
+  Group20Var5 = 2,
+  Group20Var6 = 3
+};
+
+
+}
+# 33 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticFrozenCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticFrozenCounterVariation.h"
+namespace opendnp3 {
+
+enum class StaticFrozenCounterVariation : uint8_t
+{
+  Group21Var1 = 0,
+  Group21Var2 = 1,
+  Group21Var5 = 2,
+  Group21Var6 = 3,
+  Group21Var9 = 4,
+  Group21Var10 = 5
+};
+
+
+}
+# 34 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogVariation.h"
+namespace opendnp3 {
+
+enum class StaticAnalogVariation : uint8_t
+{
+  Group30Var1 = 0,
+  Group30Var2 = 1,
+  Group30Var3 = 2,
+  Group30Var4 = 3,
+  Group30Var5 = 4,
+  Group30Var6 = 5
+};
+
+
+}
+# 35 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticAnalogOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class StaticAnalogOutputStatusVariation : uint8_t
+{
+  Group40Var1 = 0,
+  Group40Var2 = 1,
+  Group40Var3 = 2,
+  Group40Var4 = 3
+};
+
+
+}
+# 36 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTimeAndIntervalVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTimeAndIntervalVariation.h"
+namespace opendnp3 {
+
+enum class StaticTimeAndIntervalVariation : uint8_t
+{
+  Group50Var4 = 0
+};
+
+
+}
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticSecurityStatVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticSecurityStatVariation.h"
+namespace opendnp3 {
+
+enum class StaticSecurityStatVariation : uint8_t
+{
+  Group121Var1 = 0
+};
+
+
+}
+# 38 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryVariation.h"
+namespace opendnp3 {
+
+enum class EventBinaryVariation : uint8_t
+{
+  Group2Var1 = 0,
+  Group2Var2 = 1,
+  Group2Var3 = 2
+};
+
+
+}
+# 40 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventDoubleBinaryVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventDoubleBinaryVariation.h"
+namespace opendnp3 {
+
+enum class EventDoubleBinaryVariation : uint8_t
+{
+  Group4Var1 = 0,
+  Group4Var2 = 1,
+  Group4Var3 = 2
+};
+
+
+}
+# 41 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventBinaryOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class EventBinaryOutputStatusVariation : uint8_t
+{
+  Group11Var1 = 0,
+  Group11Var2 = 1
+};
+
+
+}
+# 42 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventCounterVariation.h"
+namespace opendnp3 {
+
+enum class EventCounterVariation : uint8_t
+{
+  Group22Var1 = 0,
+  Group22Var2 = 1,
+  Group22Var5 = 2,
+  Group22Var6 = 3
+};
+
+
+}
+# 43 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventFrozenCounterVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventFrozenCounterVariation.h"
+namespace opendnp3 {
+
+enum class EventFrozenCounterVariation : uint8_t
+{
+  Group23Var1 = 0,
+  Group23Var2 = 1,
+  Group23Var5 = 2,
+  Group23Var6 = 3
+};
+
+
+}
+# 44 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogVariation.h"
+namespace opendnp3 {
+
+enum class EventAnalogVariation : uint8_t
+{
+  Group32Var1 = 0,
+  Group32Var2 = 1,
+  Group32Var3 = 2,
+  Group32Var4 = 3,
+  Group32Var5 = 4,
+  Group32Var6 = 5,
+  Group32Var7 = 6,
+  Group32Var8 = 7
+};
+
+
+}
+# 45 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogOutputStatusVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventAnalogOutputStatusVariation.h"
+namespace opendnp3 {
+
+enum class EventAnalogOutputStatusVariation : uint8_t
+{
+  Group42Var1 = 0,
+  Group42Var2 = 1,
+  Group42Var3 = 2,
+  Group42Var4 = 3,
+  Group42Var5 = 4,
+  Group42Var6 = 5,
+  Group42Var7 = 6,
+  Group42Var8 = 7
+};
+
+
+}
+# 46 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventSecurityStatVariation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/EventSecurityStatVariation.h"
+namespace opendnp3 {
+
+enum class EventSecurityStatVariation : uint8_t
+{
+  Group122Var1 = 0,
+  Group122Var2 = 1
+};
+
+
+}
+# 47 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTypeBitmask.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/StaticTypeBitmask.h"
+namespace opendnp3 {
+
+
+
+
+enum class StaticTypeBitmask : uint16_t
+{
+  BinaryInput = 0x1,
+  DoubleBinaryInput = 0x2,
+  Counter = 0x4,
+  FrozenCounter = 0x8,
+  AnalogInput = 0x10,
+  BinaryOutputStatus = 0x20,
+  AnalogOutputStatus = 0x40,
+  TimeAndInterval = 0x80
+};
+
+
+}
+# 49 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementInfo.h" 2
+
+
+
+namespace opendnp3
+{
+
+
+struct BinaryInfo : private openpal::StaticOnly
+{
+ typedef Binary meas_t;
+ typedef bool value_t;
+ typedef EventBinaryVariation event_variation_t;
+ typedef StaticBinaryVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::Binary;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::BinaryInput;
+ static const event_variation_t DefaultEventVariation = EventBinaryVariation::Group2Var1;
+ static const static_variation_t DefaultStaticVariation = StaticBinaryVariation::Group1Var2;
+};
+
+struct DoubleBitBinaryInfo : private openpal::StaticOnly
+{
+ typedef DoubleBitBinary meas_t;
+ typedef DoubleBit value_t;
+ typedef EventDoubleBinaryVariation event_variation_t;
+ typedef StaticDoubleBinaryVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::DoubleBitBinary;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::DoubleBinaryInput;
+ static const event_variation_t DefaultEventVariation = EventDoubleBinaryVariation::Group4Var1;
+ static const static_variation_t DefaultStaticVariation = StaticDoubleBinaryVariation::Group3Var2;
+};
+
+class BinaryOutputStatusInfo : private openpal::StaticOnly
+{
+public:
+
+ typedef BinaryOutputStatus meas_t;
+ typedef bool value_t;
+ typedef EventBinaryOutputStatusVariation event_variation_t;
+ typedef StaticBinaryOutputStatusVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::BinaryOutputStatus;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::BinaryOutputStatus;
+ static const event_variation_t DefaultEventVariation = EventBinaryOutputStatusVariation::Group11Var1;
+ static const static_variation_t DefaultStaticVariation = StaticBinaryOutputStatusVariation::Group10Var2;
+
+
+};
+
+
+struct AnalogInfo : private openpal::StaticOnly
+{
+ typedef Analog meas_t;
+ typedef double value_t;
+ typedef EventAnalogVariation event_variation_t;
+ typedef StaticAnalogVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::Analog;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::AnalogInput;
+ static const event_variation_t DefaultEventVariation = EventAnalogVariation::Group32Var1;
+ static const static_variation_t DefaultStaticVariation = StaticAnalogVariation::Group30Var1;
+};
+
+struct CounterInfo : private openpal::StaticOnly
+{
+ typedef Counter meas_t;
+ typedef uint32_t value_t;
+ typedef EventCounterVariation event_variation_t;
+ typedef StaticCounterVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::Counter;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::Counter;
+ static const event_variation_t DefaultEventVariation = EventCounterVariation::Group22Var1;
+ static const static_variation_t DefaultStaticVariation = StaticCounterVariation::Group20Var1;
+};
+
+struct FrozenCounterInfo : private openpal::StaticOnly
+{
+ typedef FrozenCounter meas_t;
+ typedef uint32_t value_t;
+ typedef EventFrozenCounterVariation event_variation_t;
+ typedef StaticFrozenCounterVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::FrozenCounter;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::FrozenCounter;
+ static const event_variation_t DefaultEventVariation = EventFrozenCounterVariation::Group23Var1;
+ static const static_variation_t DefaultStaticVariation = StaticFrozenCounterVariation::Group21Var1;
+};
+
+struct AnalogOutputStatusInfo : private openpal::StaticOnly
+{
+ typedef AnalogOutputStatus meas_t;
+ typedef double value_t;
+ typedef EventAnalogOutputStatusVariation event_variation_t;
+ typedef StaticAnalogOutputStatusVariation static_variation_t;
+
+ static const EventType EventTypeEnum = EventType::AnalogOutputStatus;
+ static const StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::AnalogOutputStatus;
+ static const event_variation_t DefaultEventVariation = EventAnalogOutputStatusVariation::Group42Var1;
+ static const static_variation_t DefaultStaticVariation = StaticAnalogOutputStatusVariation::Group40Var1;
+};
+
+struct TimeAndIntervalInfo : private openpal::StaticOnly
+{
+ typedef TimeAndInterval meas_t;
+ typedef StaticTimeAndIntervalVariation static_variation_t;
+
+ const static StaticTypeBitmask StaticTypeEnum = StaticTypeBitmask::TimeAndInterval;
+ const static StaticTimeAndIntervalVariation DefaultStaticVariation = StaticTimeAndIntervalVariation::Group50Var4;
+};
+
+struct SecurityStatInfo : private openpal::StaticOnly
+{
+ typedef SecurityStat meas_t;
+ typedef SecurityStat::Value value_t;
+ typedef EventSecurityStatVariation event_variation_t;
+ typedef StaticSecurityStatVariation static_variation_t;
+
+ const static EventType EventTypeEnum = EventType::SecurityStat;
+ const static event_variation_t DefaultEventVariation = EventSecurityStatVariation::Group122Var1;
+ const static static_variation_t DefaultStaticVariation = StaticSecurityStatVariation::Group121Var1;
+};
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/PointClass.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/PointClass.h"
+namespace opendnp3 {
+
+
+
+
+enum class PointClass : uint8_t
+{
+
+  Class0 = 0x1,
+
+  Class1 = 0x2,
+
+  Class2 = 0x4,
+
+  Class3 = 0x8
+};
+
+
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/outstation/MeasurementConfig.h" 2
+
+namespace opendnp3
+{
+
+
+struct IndexConfig
+{
+
+ uint16_t vIndex = 0;
+};
+
+
+template <class Info>
+struct StaticConfig : IndexConfig
+{
+ typename Info::static_variation_t svariation = Info::DefaultStaticVariation;
+};
+
+template <class Info>
+struct EventConfig : StaticConfig<Info>
+{
+ PointClass clazz = PointClass::Class1;
+ typename Info::event_variation_t evariation = Info::DefaultEventVariation;
+};
+
+template <class Info>
+struct DeadbandConfig : EventConfig<Info>
+{
+ typename Info::value_t deadband = 0;
+};
+
+class BinaryConfig : public EventConfig<BinaryInfo> {};
+class DoubleBitBinaryConfig : public EventConfig<DoubleBitBinaryInfo> {};
+class AnalogConfig : public DeadbandConfig<AnalogInfo> {};
+class CounterConfig : public DeadbandConfig<CounterInfo> {};
+class FrozenCounterConfig : public DeadbandConfig<FrozenCounterInfo> {};
+class BOStatusConfig : public EventConfig<BinaryOutputStatusInfo> {};
+class AOStatusConfig : public DeadbandConfig<AnalogOutputStatusInfo> {};
+class TimeAndIntervalConfig : public StaticConfig<TimeAndIntervalInfo> {};
+class SecurityStatConfig : public IndexConfig {};
+
+}
+# 25 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventCells.h" 1
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventCells.h"
+namespace opendnp3
+{
+
+
+struct EmptyEventCell
+{
+
+};
+
+
+template <class Spec>
+struct EventCellBase
+{
+ PointClass clazz;
+ typename Spec::meas_t lastEvent;
+ typename Spec::event_variation_t evariation;
+
+ void SetEventValue(const typename Spec::meas_t& value)
+ {
+  lastEvent = value;
+ }
+
+protected:
+
+ EventCellBase() : clazz(PointClass::Class1), lastEvent(), evariation(Spec::DefaultEventVariation)
+ {}
+};
+
+
+template <class Spec>
+struct SimpleEventCell : EventCellBase<Spec>
+{
+ bool IsEvent(const typename Spec::config_t& config, const typename Spec::meas_t& newValue) const
+ {
+  return Spec::IsEvent(this->lastEvent, newValue);
+ }
+};
+
+
+template <class Spec>
+struct DeadbandEventCell : SimpleEventCell<Spec>
+{
+ bool IsEvent(const typename Spec::config_t& config, const typename Spec::meas_t& newValue) const
+ {
+  return Spec::IsEvent(this->lastEvent, newValue, config.deadband);
+ }
+};
+
+
+}
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventTriggers.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/EventTriggers.h"
+namespace opendnp3
+{
+namespace measurements
+{
+template <class T, class U>
+bool IsEvent(const T& val1, const T& val2, T deadband)
+{
+
+
+
+ U diff = (val2 > val1) ? (static_cast<U>(val2) - static_cast<U>(val1)) : (static_cast<U>(val1) - static_cast<U>(val2));
+
+ return diff > deadband;
+}
+
+
+bool IsEvent(const TypedMeasurement<double>& newMeas, const TypedMeasurement<double>& oldMeas, double deadband);
+
+}
+}
+# 27 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/MeasurementTypeSpecs.h" 2
+
+namespace opendnp3
+{
+
+
+struct BinarySpec : public BinaryInfo
+{
+ typedef BinaryConfig config_t;
+ typedef SimpleEventCell<BinarySpec> event_cell_t;
+
+ inline static bool IsQualityOnlineOnly(const Binary& binary)
+ {
+  return (binary.flags.value & 0b01111111) == static_cast<uint8_t>(BinaryQuality::ONLINE);
+ }
+
+ inline static bool IsEvent(const Binary& oldValue, const Binary& newValue)
+ {
+  return oldValue.flags.value != newValue.flags.value;
+ }
+};
+
+struct DoubleBitBinarySpec : public DoubleBitBinaryInfo
+{
+ typedef DoubleBitBinaryConfig config_t;
+ typedef SimpleEventCell<DoubleBitBinarySpec> event_cell_t;
+
+ inline static bool IsEvent(const DoubleBitBinary& oldValue, const DoubleBitBinary& newValue)
+ {
+  return oldValue.flags.value != newValue.flags.value;
+ }
+};
+
+struct BinaryOutputStatusSpec : public BinaryOutputStatusInfo
+{
+ typedef BOStatusConfig config_t;
+ typedef SimpleEventCell<BinaryOutputStatusSpec> event_cell_t;
+
+ inline static bool IsEvent(const BinaryOutputStatus& oldValue, const BinaryOutputStatus& newValue)
+ {
+  return oldValue.flags.value != newValue.flags.value;
+ }
+};
+
+
+struct AnalogSpec : public AnalogInfo
+{
+ typedef AnalogConfig config_t;
+ typedef DeadbandEventCell<AnalogSpec> event_cell_t;
+
+ inline static bool IsEvent(const Analog& oldValue, const Analog& newValue, double deadband)
+ {
+  return measurements::IsEvent(newValue, oldValue, deadband);
+ }
+};
+
+struct CounterSpec : public CounterInfo
+{
+ typedef CounterConfig config_t;
+ typedef DeadbandEventCell<CounterSpec> event_cell_t;
+
+ inline static bool IsEvent(const Counter& oldValue, const Counter& newValue, uint32_t deadband)
+ {
+  if (oldValue.flags.value != newValue.flags.value)
+  {
+   return true;
+  }
+  else
+  {
+   return measurements::IsEvent<uint32_t, uint64_t>(oldValue.value, newValue.value, deadband);
+  }
+ }
+};
+
+struct FrozenCounterSpec : public FrozenCounterInfo
+{
+ typedef FrozenCounterConfig config_t;
+ typedef DeadbandEventCell<FrozenCounterSpec> event_cell_t;
+
+ inline static bool IsEvent(const FrozenCounter& oldValue, const FrozenCounter& newValue, uint32_t deadband)
+ {
+  if (oldValue.flags.value != newValue.flags.value)
+  {
+   return true;
+  }
+  else
+  {
+   return measurements::IsEvent<uint32_t, uint64_t>(oldValue.value, newValue.value, deadband);
+  }
+ }
+};
+
+struct AnalogOutputStatusSpec : public AnalogOutputStatusInfo
+{
+ typedef AOStatusConfig config_t;
+ typedef DeadbandEventCell<AnalogOutputStatusSpec> event_cell_t;
+
+ inline static bool IsEvent(const AnalogOutputStatus& oldValue, const AnalogOutputStatus& newValue, double deadband)
+ {
+  return measurements::IsEvent(newValue, oldValue, deadband);
+ }
+};
+
+struct TimeAndIntervalSpec : public TimeAndIntervalInfo
+{
+ typedef TimeAndIntervalConfig config_t;
+ typedef EmptyEventCell event_cell_t;
+};
+
+struct SecurityStatSpec : public SecurityStatInfo
+{
+ typedef SecurityStatConfig config_t;
+ typedef EmptyEventCell event_cell_t;
+
+ inline static bool IsEvent(const SecurityStat& oldValue, const SecurityStat& newValue, uint32_t deadband)
+ {
+  if (oldValue.quality != newValue.quality)
+  {
+   return true;
+  }
+  else
+  {
+   return measurements::IsEvent<uint32_t, uint64_t>(oldValue.value.count, newValue.value.count, deadband);
+  }
+ }
+};
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group50.h" 2
+
+namespace opendnp3 {
+
+
+struct Group50Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(50,1); }
+
+  Group50Var1();
+
+  static uint32_t Size() { return 6; }
+  static bool Read(openpal::RSlice&, Group50Var1&);
+  static bool Write(const Group50Var1&, openpal::WSlice&);
+
+  DNPTime time;
+};
+
+
+struct Group50Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(50,4); }
+
+  Group50Var4();
+
+  static uint32_t Size() { return 11; }
+  static bool Read(openpal::RSlice&, Group50Var4&);
+  static bool Write(const Group50Var4&, openpal::WSlice&);
+
+  DNPTime time;
+  uint32_t interval;
+  uint8_t units;
+
+  typedef TimeAndInterval Target;
+  typedef TimeAndIntervalSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, TimeAndInterval&);
+  static bool WriteTarget(const TimeAndInterval&, openpal::WSlice&);
+  static DNP3Serializer<TimeAndInterval> Inst() { return DNP3Serializer<TimeAndInterval>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 42 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group51.h" 1
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group51.h"
+namespace opendnp3 {
+
+
+struct Group51Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(51,1); }
+
+  Group51Var1();
+
+  static uint32_t Size() { return 6; }
+  static bool Read(openpal::RSlice&, Group51Var1&);
+  static bool Write(const Group51Var1&, openpal::WSlice&);
+
+  DNPTime time;
+};
+
+
+struct Group51Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(51,2); }
+
+  Group51Var2();
+
+  static uint32_t Size() { return 6; }
+  static bool Read(openpal::RSlice&, Group51Var2&);
+  static bool Write(const Group51Var2&, openpal::WSlice&);
+
+  DNPTime time;
+};
+
+
+}
+# 43 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group52.h" 1
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group52.h"
+namespace opendnp3 {
+
+
+struct Group52Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(52,1); }
+
+  Group52Var1();
+
+  static uint32_t Size() { return 2; }
+  static bool Read(openpal::RSlice&, Group52Var1&);
+  static bool Write(const Group52Var1&, openpal::WSlice&);
+
+  uint16_t time;
+};
+
+
+struct Group52Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(52,2); }
+
+  Group52Var2();
+
+  static uint32_t Size() { return 2; }
+  static bool Read(openpal::RSlice&, Group52Var2&);
+  static bool Write(const Group52Var2&, openpal::WSlice&);
+
+  uint16_t time;
+};
+
+
+}
+# 44 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h"
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/IVariableLength.h" 1
+# 28 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/app/IVariableLength.h"
+namespace opendnp3
+{
+
+class IVariableLength
+{
+
+public:
+
+ virtual ~IVariableLength() {}
+
+ virtual GroupVariationID InstanceID() const = 0;
+
+
+ virtual uint32_t Size() const = 0;
+
+
+ virtual bool Write(openpal::WSlice& dest) const = 0;
+
+
+ virtual bool Read(const openpal::RSlice& input) = 0;
+
+};
+
+}
+# 29 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/HMACType.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/HMACType.h"
+namespace opendnp3 {
+
+
+
+
+enum class HMACType : uint8_t
+{
+
+  NO_MAC_VALUE = 0x0,
+
+  HMAC_SHA1_TRUNC_10 = 0x2,
+
+  HMAC_SHA256_TRUNC_8 = 0x3,
+
+  HMAC_SHA256_TRUNC_16 = 0x4,
+
+  HMAC_SHA1_TRUNC_8 = 0x5,
+
+  AES_GMAC = 0x6,
+
+  UNKNOWN = 0xFF
+};
+
+uint8_t HMACTypeToType(HMACType arg);
+HMACType HMACTypeFromType(uint8_t arg);
+char const* HMACTypeToString(HMACType arg);
+
+}
+# 30 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ChallengeReason.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/ChallengeReason.h"
+namespace opendnp3 {
+
+
+
+
+enum class ChallengeReason : uint8_t
+{
+
+  CRITICAL = 0x1,
+
+  UNKNOWN = 0xFF
+};
+
+uint8_t ChallengeReasonToType(ChallengeReason arg);
+ChallengeReason ChallengeReasonFromType(uint8_t arg);
+char const* ChallengeReasonToString(ChallengeReason arg);
+
+}
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyWrapAlgorithm.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyWrapAlgorithm.h"
+namespace opendnp3 {
+
+
+
+
+enum class KeyWrapAlgorithm : uint8_t
+{
+
+  AES_128 = 0x1,
+
+  AES_256 = 0x2,
+  UNDEFINED = 0x0
+};
+
+uint8_t KeyWrapAlgorithmToType(KeyWrapAlgorithm arg);
+KeyWrapAlgorithm KeyWrapAlgorithmFromType(uint8_t arg);
+char const* KeyWrapAlgorithmToString(KeyWrapAlgorithm arg);
+
+}
+# 32 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyStatus.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyStatus.h"
+namespace opendnp3 {
+
+
+
+
+enum class KeyStatus : uint8_t
+{
+
+  OK = 0x1,
+
+  NOT_INIT = 0x2,
+
+  COMM_FAIL = 0x3,
+
+  AUTH_FAIL = 0x4,
+  UNDEFINED = 0x0
+};
+
+uint8_t KeyStatusToType(KeyStatus arg);
+KeyStatus KeyStatusFromType(uint8_t arg);
+char const* KeyStatusToString(KeyStatus arg);
+
+}
+# 33 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AuthErrorCode.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/AuthErrorCode.h"
+namespace opendnp3 {
+
+
+
+
+enum class AuthErrorCode : uint8_t
+{
+
+  AUTHENTICATION_FAILED = 0x1,
+
+  AGGRESSIVE_MODE_UNSUPPORTED = 0x4,
+
+  MAC_NOT_SUPPORTED = 0x5,
+
+  KEY_WRAP_NOT_SUPPORTED = 0x6,
+
+  AUTHORIZATION_FAILED = 0x7,
+
+  UPDATE_KEY_METHOD_NOT_PERMITTED = 0x8,
+
+  INVALID_SIGNATURE = 0x9,
+
+  INVALID_CERTIFICATION_DATA = 0xA,
+
+  UNKNOWN_USER = 0xB,
+
+  MAX_SESSION_KEY_STATUS_REQUESTS_EXCEEDED = 0xC,
+
+  UNKNOWN = 0x0
+};
+
+uint8_t AuthErrorCodeToType(AuthErrorCode arg);
+AuthErrorCode AuthErrorCodeFromType(uint8_t arg);
+char const* AuthErrorCodeToString(AuthErrorCode arg);
+
+}
+# 34 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyChangeMethod.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/KeyChangeMethod.h"
+namespace opendnp3 {
+
+
+
+
+enum class KeyChangeMethod : uint8_t
+{
+  AES_128_SHA1_HMAC = 0x3,
+  AES_256_SHA256_HMAC = 0x4,
+  AES_256_AES_GMAC = 0x5,
+  RSA_1024_DSA_SHA1_HMAC_SHA1 = 0x43,
+  RSA_2048_DSA_SHA256_HMAC_SHA256 = 0x44,
+  RSA_3072_DSA_SHA256_HMAC_SHA256 = 0x45,
+  RSA_2048_DSA_SHA256_AES_GMAC = 0x46,
+  RSA_3072_DSA_SHA256_AES_GMAC = 0x47,
+  UNDEFINED = 0x0
+};
+
+uint8_t KeyChangeMethodToType(KeyChangeMethod arg);
+KeyChangeMethod KeyChangeMethodFromType(uint8_t arg);
+char const* KeyChangeMethodToString(KeyChangeMethod arg);
+
+}
+# 35 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CertificateType.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/CertificateType.h"
+namespace opendnp3 {
+
+
+
+
+enum class CertificateType : uint8_t
+{
+
+  ID_CERTIFICATE = 0x1,
+
+  ATTRIBUTE_CERTIFICATE = 0x2,
+
+  UNKNOWN = 0x0
+};
+
+uint8_t CertificateTypeToType(CertificateType arg);
+CertificateType CertificateTypeFromType(uint8_t arg);
+char const* CertificateTypeToString(CertificateType arg);
+
+}
+# 36 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/UserOperation.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/gen/UserOperation.h"
+namespace opendnp3 {
+
+
+
+
+enum class UserOperation : uint8_t
+{
+  OP_ADD = 0x1,
+  OP_DELETE = 0x2,
+  OP_CHANGE = 0x3,
+  OP_UNDEFINED = 0xFF
+};
+
+uint8_t UserOperationToType(UserOperation arg);
+UserOperation UserOperationFromType(uint8_t arg);
+char const* UserOperationToString(UserOperation arg);
+
+}
+# 37 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group120.h" 2
+
+namespace opendnp3 {
+
+
+struct Group120Var1 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,1); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var1();
+
+  Group120Var1(
+    uint32_t challengeSeqNum,
+    uint16_t userNum,
+    HMACType hmacAlgo,
+    ChallengeReason challengeReason,
+    const openpal::RSlice& challengeData
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 8;
+
+
+  uint32_t challengeSeqNum;
+  uint16_t userNum;
+  HMACType hmacAlgo;
+  ChallengeReason challengeReason;
+  openpal::RSlice challengeData;
+};
+
+
+struct Group120Var2 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,2); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var2();
+
+  Group120Var2(
+    uint32_t challengeSeqNum,
+    uint16_t userNum,
+    const openpal::RSlice& hmacValue
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 6;
+
+
+  uint32_t challengeSeqNum;
+  uint16_t userNum;
+  openpal::RSlice hmacValue;
+};
+
+
+struct Group120Var3
+{
+  static GroupVariationID ID() { return GroupVariationID(120,3); }
+
+  Group120Var3();
+
+  static uint32_t Size() { return 6; }
+  static bool Read(openpal::RSlice&, Group120Var3&);
+  static bool Write(const Group120Var3&, openpal::WSlice&);
+
+  uint32_t challengeSeqNum;
+  uint16_t userNum;
+};
+
+
+struct Group120Var4
+{
+  static GroupVariationID ID() { return GroupVariationID(120,4); }
+
+  Group120Var4();
+
+  static uint32_t Size() { return 2; }
+  static bool Read(openpal::RSlice&, Group120Var4&);
+  static bool Write(const Group120Var4&, openpal::WSlice&);
+
+  uint16_t userNum;
+};
+
+
+struct Group120Var5 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,5); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var5();
+
+  Group120Var5(
+    uint32_t keyChangeSeqNum,
+    uint16_t userNum,
+    KeyWrapAlgorithm keyWrapAlgo,
+    KeyStatus keyStatus,
+    HMACType hmacAlgo,
+    const openpal::RSlice& challengeData,
+    const openpal::RSlice& hmacValue
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 11;
+
+
+  uint32_t keyChangeSeqNum;
+  uint16_t userNum;
+  KeyWrapAlgorithm keyWrapAlgo;
+  KeyStatus keyStatus;
+  HMACType hmacAlgo;
+  openpal::RSlice challengeData;
+  openpal::RSlice hmacValue;
+};
+
+
+struct Group120Var6 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,6); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var6();
+
+  Group120Var6(
+    uint32_t keyChangeSeqNum,
+    uint16_t userNum,
+    const openpal::RSlice& keyWrapData
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 6;
+
+
+  uint32_t keyChangeSeqNum;
+  uint16_t userNum;
+  openpal::RSlice keyWrapData;
+};
+
+
+struct Group120Var7 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,7); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var7();
+
+  Group120Var7(
+    uint32_t challengeSeqNum,
+    uint16_t userNum,
+    uint16_t assocId,
+    AuthErrorCode errorCode,
+    DNPTime time,
+    const openpal::RSlice& errorText
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 15;
+
+
+  uint32_t challengeSeqNum;
+  uint16_t userNum;
+  uint16_t assocId;
+  AuthErrorCode errorCode;
+  DNPTime time;
+  openpal::RSlice errorText;
+};
+
+
+struct Group120Var8 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,8); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var8();
+
+  Group120Var8(
+    KeyChangeMethod keyChangeMethod,
+    CertificateType certificateType,
+    const openpal::RSlice& certificate
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 2;
+
+
+  KeyChangeMethod keyChangeMethod;
+  CertificateType certificateType;
+  openpal::RSlice certificate;
+};
+
+
+struct Group120Var9 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,9); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var9();
+
+  explicit Group120Var9(
+    const openpal::RSlice& hmacValue
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 0;
+
+
+  openpal::RSlice hmacValue;
+};
+
+
+struct Group120Var10 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,10); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var10();
+
+  Group120Var10(
+    KeyChangeMethod keyChangeMethod,
+    UserOperation userOperation,
+    uint32_t statusChangeSeqNum,
+    uint16_t userRole,
+    uint16_t userRoleExpDays,
+    const openpal::RSlice& userName,
+    const openpal::RSlice& userPublicKey,
+    const openpal::RSlice& certificationData
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 16;
+
+
+  KeyChangeMethod keyChangeMethod;
+  UserOperation userOperation;
+  uint32_t statusChangeSeqNum;
+  uint16_t userRole;
+  uint16_t userRoleExpDays;
+  openpal::RSlice userName;
+  openpal::RSlice userPublicKey;
+  openpal::RSlice certificationData;
+};
+
+
+struct Group120Var11 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,11); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var11();
+
+  Group120Var11(
+    KeyChangeMethod keyChangeMethod,
+    const openpal::RSlice& userName,
+    const openpal::RSlice& challengeData
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 5;
+
+
+  KeyChangeMethod keyChangeMethod;
+  openpal::RSlice userName;
+  openpal::RSlice challengeData;
+};
+
+
+struct Group120Var12 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,12); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var12();
+
+  Group120Var12(
+    uint32_t keyChangeSeqNum,
+    uint16_t userNum,
+    const openpal::RSlice& challengeData
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 8;
+
+
+  uint32_t keyChangeSeqNum;
+  uint16_t userNum;
+  openpal::RSlice challengeData;
+};
+
+
+struct Group120Var13 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,13); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var13();
+
+  Group120Var13(
+    uint32_t keyChangeSeqNum,
+    uint16_t userNum,
+    const openpal::RSlice& encryptedUpdateKey
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 8;
+
+
+  uint32_t keyChangeSeqNum;
+  uint16_t userNum;
+  openpal::RSlice encryptedUpdateKey;
+};
+
+
+struct Group120Var14 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,14); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var14();
+
+  explicit Group120Var14(
+    const openpal::RSlice& digitalSignature
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 0;
+
+
+  openpal::RSlice digitalSignature;
+};
+
+
+struct Group120Var15 : public IVariableLength
+{
+  static GroupVariationID ID() { return GroupVariationID(120,15); }
+
+  virtual GroupVariationID InstanceID() const override final { return ID(); }
+
+  Group120Var15();
+
+  explicit Group120Var15(
+    const openpal::RSlice& hmacValue
+  );
+
+  virtual uint32_t Size() const override final;
+  virtual bool Read(const openpal::RSlice&) override final;
+  virtual bool Write(openpal::WSlice&) const override final;
+
+  static const uint32_t MIN_SIZE = 0;
+
+
+  openpal::RSlice hmacValue;
+};
+
+
+}
+# 46 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group121.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group121.h"
+namespace opendnp3 {
+
+
+struct Group121Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(121,0); }
+};
+
+
+struct Group121Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(121,1); }
+
+  Group121Var1();
+
+  static uint32_t Size() { return 7; }
+  static bool Read(openpal::RSlice&, Group121Var1&);
+  static bool Write(const Group121Var1&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint16_t assocId;
+  uint32_t value;
+
+  typedef SecurityStat Target;
+  typedef SecurityStatSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, SecurityStat&);
+  static bool WriteTarget(const SecurityStat&, openpal::WSlice&);
+  static DNP3Serializer<SecurityStat> Inst() { return DNP3Serializer<SecurityStat>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 47 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group122.h" 1
+# 31 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/src/opendnp3/objects/Group122.h"
+namespace opendnp3 {
+
+
+struct Group122Var0
+{
+  static GroupVariationID ID() { return GroupVariationID(122,0); }
+};
+
+
+struct Group122Var1
+{
+  static GroupVariationID ID() { return GroupVariationID(122,1); }
+
+  Group122Var1();
+
+  static uint32_t Size() { return 7; }
+  static bool Read(openpal::RSlice&, Group122Var1&);
+  static bool Write(const Group122Var1&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint16_t assocId;
+  uint32_t value;
+
+  typedef SecurityStat Target;
+  typedef SecurityStatSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, SecurityStat&);
+  static bool WriteTarget(const SecurityStat&, openpal::WSlice&);
+  static DNP3Serializer<SecurityStat> Inst() { return DNP3Serializer<SecurityStat>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+struct Group122Var2
+{
+  static GroupVariationID ID() { return GroupVariationID(122,2); }
+
+  Group122Var2();
+
+  static uint32_t Size() { return 13; }
+  static bool Read(openpal::RSlice&, Group122Var2&);
+  static bool Write(const Group122Var2&, openpal::WSlice&);
+
+  typedef uint32_t ValueType;
+  uint8_t flags;
+  uint16_t assocId;
+  uint32_t value;
+  DNPTime time;
+
+  typedef SecurityStat Target;
+  typedef SecurityStatSpec Spec;
+  static bool ReadTarget(openpal::RSlice&, SecurityStat&);
+  static bool WriteTarget(const SecurityStat&, openpal::WSlice&);
+  static DNP3Serializer<SecurityStat> Inst() { return DNP3Serializer<SecurityStat>(ID(), Size(), &ReadTarget, &WriteTarget); }
+};
+
+
+}
+# 48 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+# 1 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/IINField.h" 1
+# 26 "/home/pi/OpenPLC_v3/utils/dnp3_src/./cpp/libs/include/opendnp3/app/IINField.h"
+namespace opendnp3
+{
+
+enum class IINBit
+{
+ ALL_STATIONS = 0,
+ CLASS1_EVENTS,
+ CLASS2_EVENTS,
+ CLASS3_EVENTS,
+ NEED_TIME,
+ LOCAL_CONTROL,
+ DEVICE_TROUBLE,
+ DEVICE_RESTART,
+ FUNC_NOT_SUPPORTED,
+ OBJECT_UNKNOWN,
+ PARAM_ERROR,
+ EVENT_BUFFER_OVERFLOW,
+ ALREADY_EXECUTING,
+ CONFIG_CORRUPT,
+ RESERVED1,
+ RESERVED2 = 15
+};
+
+
+
+class IINField
+{
+
+private:
+
+ enum class LSBMask : uint8_t
+ {
+  ALL_STATIONS = 0x01,
+  CLASS1_EVENTS = 0x02,
+  CLASS2_EVENTS = 0x04,
+  CLASS3_EVENTS = 0x08,
+  NEED_TIME = 0x10,
+  LOCAL_CONTROL = 0x20,
+  DEVICE_TROUBLE = 0x40,
+  DEVICE_RESTART = 0x80,
+ };
+
+ enum class MSBMask : uint8_t
+ {
+  FUNC_NOT_SUPPORTED = 0x01,
+  OBJECT_UNKNOWN = 0x02,
+  PARAM_ERROR = 0x04,
+  EVENT_BUFFER_OVERFLOW = 0x08,
+  ALREADY_EXECUTING = 0x10,
+  CONFIG_CORRUPT = 0x20,
+  RESERVED1 = 0x40,
+  RESERVED2 = 0x80,
+
+
+  REQUEST_ERROR_MASK = FUNC_NOT_SUPPORTED | OBJECT_UNKNOWN | PARAM_ERROR
+ };
+
+
+public:
+
+ static IINField Empty()
+ {
+  return IINField(0, 0);
+ }
+
+ IINField(IINBit bit) : LSB(0), MSB(0)
+ {
+  this->SetBit(bit);
+ }
+
+ IINField(uint8_t aLSB, uint8_t aMSB) : LSB(aLSB), MSB(aMSB)
+ {}
+
+ IINField() : LSB(0), MSB(0)
+ {}
+
+ bool IsSet(IINBit bit) const;
+
+ bool IsClear(IINBit bit) const
+ {
+  return !IsSet(bit);
+ }
+
+ void SetBit(IINBit bit);
+ void ClearBit(IINBit bit);
+
+ void SetBitToValue(IINBit bit, bool value);
+
+ bool operator==(const IINField& arRHS) const;
+
+ bool Any() const
+ {
+  return (LSB | MSB) != 0;
+ }
+
+ void Clear()
+ {
+  LSB = MSB = 0;
+ }
+
+ bool HasRequestError() const
+ {
+  return Get(MSBMask::REQUEST_ERROR_MASK);
+ }
+
+ IINField operator|(const IINField& aIIN) const
+ {
+  return IINField(LSB | aIIN.LSB, MSB | aIIN.MSB);
+ }
+
+ IINField& operator|=(const IINField& aIIN)
+ {
+  MSB |= aIIN.MSB;
+  LSB |= aIIN.LSB;
+  return *this;
+ }
+
+ IINField operator&(const IINField& aIIN) const
+ {
+  return IINField(LSB & aIIN.LSB, MSB & aIIN.MSB);
+ }
+
+ IINField& operator&=(const IINField& aIIN)
+ {
+  MSB &= aIIN.MSB;
+  LSB &= aIIN.LSB;
+  return *this;
+ }
+
+ IINField operator~() const
+ {
+  return IINField(~LSB, ~MSB);
+ }
+
+ uint8_t LSB;
+ uint8_t MSB;
+
+private:
+
+ static const uint8_t REQUEST_ERROR_MASK;
+
+ inline bool Get(LSBMask bit) const
+ {
+  return (LSB & static_cast<uint8_t>(bit)) != 0;
+ }
+
+ inline bool Get(MSBMask bit) const
+ {
+  return (MSB & static_cast<uint8_t>(bit)) != 0;
+ }
+
+ inline void Set(LSBMask bit)
+ {
+  LSB |= static_cast<uint8_t>(bit);
+ }
+ inline void Set(MSBMask bit)
+ {
+  MSB |= static_cast<uint8_t>(bit);
+ }
+
+ inline void Clear(LSBMask bit)
+ {
+  LSB &= ~static_cast<uint8_t>(bit);
+ }
+ inline void Clear(MSBMask bit)
+ {
+  MSB &= ~static_cast<uint8_t>(bit);
+ }
+};
+
+}
+# 49 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+class IAPDUHandler : public IWhiteList
+{
+public:
+
+ IAPDUHandler();
+
+
+ IINField Errors() const;
+
+ void OnHeader(const AllObjectsHeader& header);
+ void OnHeader(const RangeHeader& header);
+ void OnHeader(const CountHeader& header);
+
+ void OnHeader(const FreeFormatHeader& header, const Group120Var1& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var2& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var5& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var6& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var7& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var8& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var9& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var10& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var11& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var12& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var13& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var14& value, const openpal::RSlice& object);
+ void OnHeader(const FreeFormatHeader& header, const Group120Var15& value, const openpal::RSlice& object);
+
+ void OnHeader(const CountHeader& header, const ICollection<Group50Var1>& values);
+ void OnHeader(const CountHeader& header, const ICollection<Group51Var1>& values);
+ void OnHeader(const CountHeader& header, const ICollection<Group51Var2>& values);
+ void OnHeader(const CountHeader& header, const ICollection<Group52Var1>& values);
+ void OnHeader(const CountHeader& header, const ICollection<Group52Var2>& values);
+ void OnHeader(const CountHeader& header, const ICollection<Group120Var3>& values);
+ void OnHeader(const CountHeader& header, const ICollection<Group120Var4>& values);
+
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<IINValue>>& values);
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<Binary>>& values);
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<DoubleBitBinary>>& values);
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<BinaryOutputStatus>>& values);
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<Counter>>& values);
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<FrozenCounter>>& values);
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<Analog>>& values) ;
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values);
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<OctetString>>& values);
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<TimeAndInterval>>& values);
+ void OnHeader(const RangeHeader& header, const ICollection<Indexed<Group121Var1>>& values);
+
+
+
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<Binary>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<BinaryOutputStatus>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<DoubleBitBinary>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<Counter>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenCounter>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<OctetString>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<TimeAndInterval>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<BinaryCommandEvent>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogCommandEvent>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<Group122Var1>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<Group122Var2>>& values);
+
+
+
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<ControlRelayOutputBlock>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputInt16>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputInt32>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputFloat32>>& values);
+ void OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputDouble64>>& values);
+
+protected:
+
+ void Reset();
+
+ uint32_t NumIgnoredHeaders() const
+ {
+  return numIgnoredHeaders;
+ }
+
+ inline uint32_t GetCurrentHeader()
+ {
+  return numTotalHeaders;
+ }
+
+ inline bool IsFirstHeader()
+ {
+  return numTotalHeaders == 0;
+ }
+
+
+ virtual IINField ProcessHeader(const AllObjectsHeader& record);
+ virtual IINField ProcessHeader(const RangeHeader& header);
+ virtual IINField ProcessHeader(const CountHeader& header);
+
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var1& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var2& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var5& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var6& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var8& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var7& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var9& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var10& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var11& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var12& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var13& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var14& value, const openpal::RSlice& object);
+ virtual IINField ProcessHeader(const FreeFormatHeader& header, const Group120Var15& value, const openpal::RSlice& object);
+
+
+ virtual IINField ProcessHeader(const CountHeader& header, const ICollection<Group50Var1>& values);
+ virtual IINField ProcessHeader(const CountHeader& header, const ICollection<Group51Var1>& values);
+ virtual IINField ProcessHeader(const CountHeader& header, const ICollection<Group51Var2>& values);
+ virtual IINField ProcessHeader(const CountHeader& header, const ICollection<Group52Var1>& values);
+ virtual IINField ProcessHeader(const CountHeader& header, const ICollection<Group52Var2>& values);
+ virtual IINField ProcessHeader(const CountHeader& header, const ICollection<Group120Var3>& values);
+ virtual IINField ProcessHeader(const CountHeader& header, const ICollection<Group120Var4>& values);
+
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<IINValue>>& values);
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Binary>>& values);
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<DoubleBitBinary>>& values);
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<BinaryOutputStatus>>& values);
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Counter>>& values);
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<FrozenCounter>>& values);
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Analog>>& values);
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values);
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<OctetString>>& values);
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<TimeAndInterval>>& values);
+ virtual IINField ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Group121Var1>>& values);
+
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Binary>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<BinaryOutputStatus>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<DoubleBitBinary>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Counter>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenCounter>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<OctetString>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<TimeAndInterval>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<BinaryCommandEvent>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogCommandEvent>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Group122Var1>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Group122Var2>>& values);
+
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<ControlRelayOutputBlock>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputInt16>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputInt32>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputFloat32>>& values);
+ virtual IINField ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputDouble64>>& values);
+
+protected:
+
+
+ virtual void OnHeaderResult(const HeaderRecord& record, const IINField& result) {}
+
+private:
+
+ inline void Record(const HeaderRecord& record, const IINField& result)
+ {
+  errors |= result;
+  ++numTotalHeaders;
+  this->OnHeaderResult(record, result);
+ }
+
+ inline IINField ProcessUnsupportedHeader()
+ {
+  ++numIgnoredHeaders;
+  return IINField(IINBit::FUNC_NOT_SUPPORTED);
+ }
+
+ IINField errors;
+ uint32_t numTotalHeaders;
+ uint32_t numIgnoredHeaders;
+};
+
+}
+# 22 "/home/pi/OpenPLC_v3/utils/dnp3_src/cpp/libs/src/opendnp3/app/parsing/IAPDUHandler.cpp" 2
+
+using namespace openpal;
+
+namespace opendnp3
+{
+
+IAPDUHandler::IAPDUHandler() :
+ numTotalHeaders(0),
+ numIgnoredHeaders(0)
+{
+
+}
+
+void IAPDUHandler::Reset()
+{
+ numTotalHeaders = 0;
+ numIgnoredHeaders = 0;
+ errors.Clear();
+}
+
+IINField IAPDUHandler::Errors() const
+{
+ return errors;
+}
+
+void IAPDUHandler::OnHeader(const AllObjectsHeader& header)
+{
+ Record(header, this->ProcessHeader(header));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header)
+{
+ Record(header, this->ProcessHeader(header));
+}
+
+void IAPDUHandler::OnHeader(const CountHeader& header)
+{
+ Record(header, this->ProcessHeader(header));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var1& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var2& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var5& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var6& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var7& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var8& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var9& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var10& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var11& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var12& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var13& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var14& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const FreeFormatHeader& header, const Group120Var15& value, const openpal::RSlice& object)
+{
+ Record(header, this->ProcessHeader(header, value, object));
+}
+
+void IAPDUHandler::OnHeader(const CountHeader& header, const ICollection<Group50Var1>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const CountHeader& header, const ICollection<Group51Var1>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const CountHeader& header, const ICollection<Group51Var2>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const CountHeader& header, const ICollection<Group52Var1>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const CountHeader& header, const ICollection<Group52Var2>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const CountHeader& header, const ICollection<Group120Var3>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const CountHeader& header, const ICollection<Group120Var4>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<IINValue>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<Binary>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<DoubleBitBinary>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<BinaryOutputStatus>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<Counter>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<FrozenCounter>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<Analog>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<OctetString>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<TimeAndInterval>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<Group121Var1>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<Binary>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<BinaryOutputStatus>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<DoubleBitBinary>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<Counter>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenCounter>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<OctetString>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<TimeAndInterval>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<BinaryCommandEvent>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogCommandEvent>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<Group122Var1>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<Group122Var2>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<ControlRelayOutputBlock>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputInt16>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputInt32>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputFloat32>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputDouble64>>& values)
+{
+ Record(header, this->ProcessHeader(header, values));
+}
+
+IINField IAPDUHandler::ProcessHeader(const AllObjectsHeader& record)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const CountHeader& header)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var1& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var2& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var5& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var6& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var7& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var8& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var9& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var10& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var11& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var12& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var13& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var14& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const FreeFormatHeader& header, const Group120Var15& value, const openpal::RSlice& object)
+{
+ return ProcessUnsupportedHeader();
+}
+
+
+
+IINField IAPDUHandler::ProcessHeader(const CountHeader& header, const ICollection<Group50Var1>&)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const CountHeader& header, const ICollection<Group51Var1>&)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const CountHeader& header, const ICollection<Group51Var2>&)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const CountHeader& header, const ICollection<Group52Var1>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const CountHeader& header, const ICollection<Group52Var2>&)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const CountHeader& header, const ICollection<Group120Var3>&)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const CountHeader& header, const ICollection<Group120Var4>&)
+{
+ return ProcessUnsupportedHeader();
+}
+
+
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<IINValue>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Binary>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<DoubleBitBinary>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<BinaryOutputStatus>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Counter>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<FrozenCounter>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Analog>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<OctetString>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<TimeAndInterval>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const RangeHeader& header, const ICollection<Indexed<Group121Var1>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Counter>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<FrozenCounter>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Binary>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<BinaryOutputStatus>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<DoubleBitBinary>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Analog>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputStatus>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<OctetString>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<TimeAndInterval>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<BinaryCommandEvent>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogCommandEvent>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Group122Var1>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<Group122Var2>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<ControlRelayOutputBlock>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputInt16>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputInt32>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputFloat32>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+IINField IAPDUHandler::ProcessHeader(const PrefixHeader& header, const ICollection<Indexed<AnalogOutputDouble64>>& values)
+{
+ return ProcessUnsupportedHeader();
+}
+
+}
