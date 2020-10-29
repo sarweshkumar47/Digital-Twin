@@ -52,5 +52,5 @@ Webpage can be accessed within the local network.
 
 You should see the following view:
 <p align="center" >
-  <img src="https://github.com/sarweshkumar47/Digital-Twin/blob/master/images/openplc-ditto-demo-webapp-sample.png" alt="demo" width="100%"/> 
+  <img src="https://github.com/sarweshkumar47/Digital-Twin/blob/master/images/digital-twin-demo-webapp-sample.png" alt="demo" width="100%"/> 
 </p>
