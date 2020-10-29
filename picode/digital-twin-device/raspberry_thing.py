@@ -10,7 +10,6 @@
 #
 # SPDX-License-Identifier: EPL-2.0
 
-# To 'mock' the calls to grovepi script, change this line to 'import grovepi_mock as grovepi'
 import base64
 import threading
 import time
@@ -51,22 +50,24 @@ def get_b64_auth():
 
 
 class RaspberryDemoThing:
-	def __init__(self, st_file_name):
-		sensor_actuator.start_modbus(st_file_name)
-		time.sleep(1)
+	def __init__(self, st_file_name, queue):
+		self.queue = queue
 		self.desired_temperature = sensor_actuator.UserDesiredTemperatureInput()
 		self.temperature_sensor = sensor_actuator.TemperatureSensor()
 		self.cooler = sensor_actuator.Cooler()
 		self.heater = sensor_actuator.Heater()
+		self.run_polling = True
+		sensor_actuator.start_modbus(st_file_name)
+		time.sleep(1)
 
 	def handle_websocket_message(self, message):
 		# print('handle_websocket_message: Received:' + str(message))
 		if message and 'topic' in message:
-			if message['topic'].startswith(THING_EVENT_TOPIC):
-				# handle event message
-				self.__handle_event(message)
-			elif message['topic'].startswith(THING_MESSAGE_TOPIC):
-				self.__handle_message(message)
+		    if message['topic'].startswith(THING_EVENT_TOPIC):
+			# handle event message
+			self.__handle_event(message)
+		    elif message['topic'].startswith(THING_MESSAGE_TOPIC):
+			self.__handle_message(message)
 
 	def create_user_desired_temperature_static_message(self, desired_temperature):
 		"""
@@ -121,16 +122,25 @@ class RaspberryDemoThing:
 		threading._start_new_thread(self.__poll_new_components_data, (callback,))
 
 	def __poll_new_components_data(self, callback):
-		while True:
+		while self.run_polling:
 			try:
+				sensor_actuator.read_modbus()
+				# Get last read timestamp
+				time_stamp_data = self.get_time_stamp()
+				date = time_stamp_data.split()[0]
+				current_time = time_stamp_data.split()[1]
 				# read temperature sensor
 				desired_temp = self.desired_temperature.get_user_set_temperature()
 				temp_value = self.temperature_sensor.get_temperature()
 				cooler_state = self.cooler.get_cooler_state()
 				heater_state = self.heater.get_heater_state()
+
+				# Create a list, append all the data to the list and send it to the queue
+				self.queue.put([date, current_time, desired_temp, temp_value, cooler_state, heater_state])
+
 				callback(desired_temp, temp_value, cooler_state, heater_state)
 			except ValueError:
-				print('Error when providing temperature values. Trying again')
+				print('Error when providing values. Trying again')
 			except:
 				# Modbus error might occur here :P
 				print('General exception.')
@@ -208,3 +218,12 @@ class RaspberryDemoThing:
 		       and 'value' in message \
 		       and UPDATE_EVENT_TOPIC == message['topic'] \
 		       and TEMPERATURE_SENSOR_SAMPLING_RATE_PATH == message['path']
+
+	# Return the current timestamp
+	def get_time_stamp(self):
+		return sensor_actuator.get_time_stamp()
+
+	# Stop modbus
+	def stop_polling_data(self):
+		self.run_polling = False
+		sensor_actuator.stop_modbus()
