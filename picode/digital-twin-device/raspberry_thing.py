@@ -63,11 +63,11 @@ class RaspberryDemoThing:
 	def handle_websocket_message(self, message):
 		# print('handle_websocket_message: Received:' + str(message))
 		if message and 'topic' in message:
-		    if message['topic'].startswith(THING_EVENT_TOPIC):
+			if message['topic'].startswith(THING_EVENT_TOPIC):
 			# handle event message
-			self.__handle_event(message)
-		    elif message['topic'].startswith(THING_MESSAGE_TOPIC):
-			self.__handle_message(message)
+				self.__handle_event(message)
+			elif message['topic'].startswith(THING_MESSAGE_TOPIC):
+				self.__handle_message(message)
 
 	def create_user_desired_temperature_static_message(self, desired_temperature):
 		"""
@@ -195,9 +195,9 @@ class RaspberryDemoThing:
 		:return: True if it is such kind of a message
 		"""
 		return 'path' in message \
-		       and 'value' in message \
-		       and UPDATE_EVENT_TOPIC == message['topic'] \
-		       and USER_DESIRED_TEMPERATURE_SET_PATH == message['path']
+			   and 'value' in message \
+			   and UPDATE_EVENT_TOPIC == message['topic'] \
+			   and USER_DESIRED_TEMPERATURE_SET_PATH == message['path']
 
 	def __is_user_desired_temperature_timestamp_change(self, message):
 		"""
@@ -205,9 +205,9 @@ class RaspberryDemoThing:
 		:return: True if it is such kind of a message
 		"""
 		return 'path' in message \
-		       and 'value' in message \
-		       and UPDATE_EVENT_TOPIC == message['topic'] \
-		       and USER_DESIRED_TEMPERATURE_TIME_PATH == message['path']
+			   and 'value' in message \
+			   and UPDATE_EVENT_TOPIC == message['topic'] \
+			   and USER_DESIRED_TEMPERATURE_TIME_PATH == message['path']
 
 	def __is_temperature_sampling_rate_change(self, message):
 		"""
@@ -215,9 +215,9 @@ class RaspberryDemoThing:
 		:return: True if it is such kind of a message
 		"""
 		return 'path' in message \
-		       and 'value' in message \
-		       and UPDATE_EVENT_TOPIC == message['topic'] \
-		       and TEMPERATURE_SENSOR_SAMPLING_RATE_PATH == message['path']
+			   and 'value' in message \
+			   and UPDATE_EVENT_TOPIC == message['topic'] \
+			   and TEMPERATURE_SENSOR_SAMPLING_RATE_PATH == message['path']
 
 	# Return the current timestamp
 	def get_time_stamp(self):
